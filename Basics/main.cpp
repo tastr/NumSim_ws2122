@@ -2,6 +2,10 @@
 #include <cstdlib>
 #include "settings.h"
 
+//void loadFromFile(std::string filename);
+
+
+
 int main(int argc, char *argv[])
 {
   // if the number of given command line arguments is only 1 (= the program name), print out usage information and exit
@@ -17,10 +21,10 @@ int main(int argc, char *argv[])
 
   // print message
   std::cout << "Filename: \"" << filename << "\"" << std::endl;
-	
-
-  loadFromFile(filename);
-
+Settings settings;
+// load settings from file
+settings.loadFromFile(filename);
+// display all settings on console
+settings.printSettings();
   return EXIT_SUCCESS;
 }
-

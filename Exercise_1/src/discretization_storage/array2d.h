@@ -9,7 +9,7 @@
  */
 class Array2D
 {
-private: // in example this is protected only
+protected: 
     std::vector<double> data_;  //< storage array values, in row-major order
     const std::array<int,2> size_;    //< width, height of the domain
 public:

@@ -1,11 +1,15 @@
 #pragma once
 
-class FieldVariable
+#include "array2d.h"
+
+
+class FieldVariable : 
+    public Array2D
 {
 private:
-    /* data */
+    Array2D data_;
 public:
-    FieldVariable(/* args */);
+    FieldVariable(std::array<int,2> size);
     ~FieldVariable();
 };
 

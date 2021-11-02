@@ -1,7 +1,9 @@
 #pragma once
 
+#include "staggeredgrid.h"
 
-class Discretization
+class Discretization : 
+    public StaggeredGrid
 {
 private:
     /* data */

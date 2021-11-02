@@ -1,6 +1,9 @@
 #pragma once
 
-class CentralDifferences
+#include "discretization.h"
+
+class CentralDifferences :
+    public Discretization
 {
 private:
     /* data */

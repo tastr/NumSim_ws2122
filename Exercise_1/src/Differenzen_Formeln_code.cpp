@@ -68,6 +68,6 @@ for (j = 1; j < Tiefe; j++)
         //B(i,j)= 1/re * (v_xx(i,j)+v_yy(i,j) - uv_x(i,j) - v_quadrat_y(i,j) + gY;
         
         F(i,j) = u(i,j)+ delta_t * (1/re * (u_xx(i,j)+u_yy(i,j) - uv_y(i,j) - u_quadrat_x(i,j) + gX);
-        G(i,j) = u(i,j)+ delta_t * (1/re * (v_xx(i,j)+v_yy(i,j) - uv_x(i,j) - v_quadrat_y(i,j) + gY);
+        G(i,j) = v(i,j)+ delta_t * (1/re * (v_xx(i,j)+v_yy(i,j) - uv_x(i,j) - v_quadrat_y(i,j) + gY);
     }
 }

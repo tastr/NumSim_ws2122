@@ -171,8 +171,10 @@ void Settings::loadFromFile(std::string filename)
       else if (parameterName =="maximumNumberOfIterations")
       {
         // mit atoi kann er keine 1e umwandeln
-        float mA=atof(parameterValue.c_str());
-        maximumNumberOfIterations = (int)mA;
+        //float mA=atof(parameterValue.c_str());
+        //maximumNumberOfIterations = (int)mA;
+        
+        maximumNumberOfIterations = atoi(parameterValue.c_str());
       }
 
 

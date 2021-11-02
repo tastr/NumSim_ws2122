@@ -1,4 +1,4 @@
-#include "FieldVariable.h"
+#include "fieldvariable.h"
 
 FieldVariable::FieldVariable(/* args */)
 {

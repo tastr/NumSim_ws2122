@@ -1,4 +1,4 @@
-#include "CentralDifferences.h"
+#include "centraldifferences.h"
 
 CentralDifferences::CentralDifferences(/* args */)
 {

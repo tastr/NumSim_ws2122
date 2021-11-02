@@ -1,4 +1,4 @@
-#include "Discretization.h"
+#include "discretization.h"
 
 //constructor
 Discretization::Discretization(/* args */)

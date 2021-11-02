@@ -1,4 +1,4 @@
-#include "StaggeredGrid.h"
+#include "staggeredgrid.h"
 
 StaggeredGrid::StaggeredGrid(/* args */)
 {

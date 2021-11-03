@@ -1,0 +1,20 @@
+03.11.2021 16:45
+Fieldvariablen in StaggeredGrid public gemacht um auf sie in discretication zugreifen zu koennen
+
+In discretization u und v definiert und ihnen die Werte  von velocity zugewiesen, um den 
+Code uebersichtlich zu halten
+	- potentiell Funktion schreiben, die Werte zuweist ausliest etc, um sie privat zu halten
+	  (vermutlich aber nicht Wert, da hier kein echter Grund besteht sie protected zu halten
+	   ausser, dass es eleganter waere, zumindest nach dem was ich ueber oop gelesen habe)
+
+Funktion Absolutbetrag in array 2d eingefuegt
+Min funktion in descritization erstellt, allerdings fuers erste nur fuer 3 elemente fuer beliebige brauchte wohl std::initializer_list laesst sich mit 3 abfragen implementieren, allerfdings deutlkich unuebersichtlicher als 3 mal (... && ...)
+zusaetzlich ne min2 fuer 2 argumente
+
+discretization calculation funktion funktionsfaehig implemtiert
+
+In Main nen Abruf fuer calculation eingefuegt, man sieht die veraenderung in zeile 1
+(sollte den printbefehl anpassen, damit er uebersichtlich wird)
+
+push 03.11.2021 18:55
+	   

@@ -17,6 +17,9 @@ public:
     std::array<int,2> size() const;
     void print();
     float max() ;
+    float abs(int i, int j) ;
+    float absmax();
+    
     
     //! access the value at coordinate (i,j), declared not const, i.e. the value can be changed
     double &operator()(int i, int j);

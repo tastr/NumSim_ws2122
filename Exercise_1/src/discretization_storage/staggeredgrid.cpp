@@ -21,7 +21,7 @@ void StaggeredGrid::setBorderVelocity(std::array<double,2> top,std::array<double
         velocity_X(j_max-1,j)=bottom[0];
         velocity_Y(j_max-1,j)=bottom[1]; 
    }
-  
+   
    for (int i = 0; i < i_max; i++)
    {
         velocity_X(i,0)=left[0];

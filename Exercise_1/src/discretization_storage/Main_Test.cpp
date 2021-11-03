@@ -69,7 +69,8 @@ Discretization mydiscretization(settings);
 mydiscretization.print("velocity_x");
 //mydiscretization.print("velocity_x");
 
-
+mydiscretization.calculation();
+mydiscretization.print("F");
 
 return EXIT_SUCCESS;
 }

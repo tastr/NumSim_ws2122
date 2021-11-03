@@ -26,6 +26,9 @@ public:
 
     //! get the value at coordinate (i,j), declared const, i.e. it is not possible to change the value
     double operator()(int i, int j) const;
+    
+    // function returns absolute valkue at position i j
+    float abs(int i, int j)  const;
 };
 
 

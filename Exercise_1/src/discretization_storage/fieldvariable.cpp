@@ -53,9 +53,26 @@ float FieldVariable::max()
     {
         if (maximum<data_(i,j))
         {
-            maximum=data_(i,j);
+            maximum=data_(i,j);  
         }
     }   
  }
  return maximum;
 }
+
+float FieldVariable::absmax() 
+{  
+ for (int i = 0; i < data_.size()[0]; i++)
+ {
+    for (int j = 0; j <  data_.size()[1]; j++)
+    {
+        if (absmaximum<data_.abs(i,j))
+        {
+            absmaximum=data_.abs(i,j);
+        }        
+    }   
+ }
+ return absmaximum;
+}
+
+

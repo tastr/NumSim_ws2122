@@ -5,6 +5,8 @@
 #include "array2d.h"
 #include "fieldvariable.h"
 #include "staggeredgrid.h"
+#include <cstdlib>
+#include "settings.h"
 
 //#include "centraldifferences.h"
 
@@ -38,5 +40,23 @@ testgrid.print("velocity_x");
 std::cout<< " " <<std::endl;
 testgrid.print("velocity_y");
 
-return 0;
+  // if the number of given command line arguments is only 1 (= the program name), print out usage information and exit
+  if (argc == 1)
+  {
+    std::cout << "usage: " << argv[0] << " <filename>" << std::endl;
+
+    return EXIT_FAILURE;
+  }
+
+  // read in the first argument
+  std::string filename = argv[1];
+
+  // print message
+  std::cout << "Filename: \"" << filename << "\"" << std::endl;
+Settings settings;
+// load settings from file
+settings.loadFromFile(filename);
+// display all settings on console
+settings.printSettings();
+  return EXIT_SUCCESS;
 }

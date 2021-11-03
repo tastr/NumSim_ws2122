@@ -1,7 +1,8 @@
 #include "discretization.h"
+#include "settings.h"
 
 //constructor
-Discretization::Discretization(/* args */)
+Discretization::Discretization(Settings settings)
 {
 }
 

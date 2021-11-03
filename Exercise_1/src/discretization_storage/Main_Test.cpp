@@ -1,16 +1,18 @@
 #include <iostream>
+#include <cstdlib>
 #include <array>
 #include <fstream>
 #include <iomanip>
 #include "array2d.h"
 #include "fieldvariable.h"
 #include "staggeredgrid.h"
-#include <cstdlib>
 #include "settings.h"
+
+//g++ fieldvariable.cpp staggeredgrid.cpp  array2d.cpp Main_Test.cpp settings.cpp -o testA
 
 //#include "centraldifferences.h"
 
-int main(){
+int main(int argc, char *argv[]){
 	
 
 std::array<int,2> size{2,2};
@@ -40,6 +42,8 @@ testgrid.print("velocity_x");
 std::cout<< " " <<std::endl;
 testgrid.print("velocity_y");
 
+
+
   // if the number of given command line arguments is only 1 (= the program name), print out usage information and exit
   if (argc == 1)
   {
@@ -58,5 +62,5 @@ Settings settings;
 settings.loadFromFile(filename);
 // display all settings on console
 settings.printSettings();
-  return EXIT_SUCCESS;
+return EXIT_SUCCESS;
 }

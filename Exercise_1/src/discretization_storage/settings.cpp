@@ -1,6 +1,6 @@
-#include "settings.h"
 #include <fstream>
 #include <iomanip>
+#include "settings.h"
 
 
 void Settings::loadFromFile(std::string filename)

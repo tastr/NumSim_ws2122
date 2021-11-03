@@ -1,0 +1,42 @@
+[
+{
+  "directory": "/home/david/uni/numSim/NumSim_ws2122/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9  -DH5_BUILT_AS_DYNAMIC_LIB -I/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src -isystem /usr/local/include/vtk-8.2 -isystem /usr/local/include/vtk-8.2/vtkogg/include  -g   -o CMakeFiles/numsim.dir/Main_Test.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/Main_Test.cpp",
+  "file": "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/Main_Test.cpp"
+},
+{
+  "directory": "/home/david/uni/numSim/NumSim_ws2122/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9  -DH5_BUILT_AS_DYNAMIC_LIB -I/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src -isystem /usr/local/include/vtk-8.2 -isystem /usr/local/include/vtk-8.2/vtkogg/include  -g   -o CMakeFiles/numsim.dir/settings.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/settings.cpp",
+  "file": "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/settings.cpp"
+},
+{
+  "directory": "/home/david/uni/numSim/NumSim_ws2122/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9  -DH5_BUILT_AS_DYNAMIC_LIB -I/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src -isystem /usr/local/include/vtk-8.2 -isystem /usr/local/include/vtk-8.2/vtkogg/include  -g   -o CMakeFiles/numsim.dir/output_writer/write_paraview_output.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/output_writer/write_paraview_output.cpp",
+  "file": "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/output_writer/write_paraview_output.cpp"
+},
+{
+  "directory": "/home/david/uni/numSim/NumSim_ws2122/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9  -DH5_BUILT_AS_DYNAMIC_LIB -I/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src -isystem /usr/local/include/vtk-8.2 -isystem /usr/local/include/vtk-8.2/vtkogg/include  -g   -o CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/array2d.cpp",
+  "file": "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/array2d.cpp"
+},
+{
+  "directory": "/home/david/uni/numSim/NumSim_ws2122/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9  -DH5_BUILT_AS_DYNAMIC_LIB -I/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src -isystem /usr/local/include/vtk-8.2 -isystem /usr/local/include/vtk-8.2/vtkogg/include  -g   -o CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/centraldifferences.cpp",
+  "file": "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/centraldifferences.cpp"
+},
+{
+  "directory": "/home/david/uni/numSim/NumSim_ws2122/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9  -DH5_BUILT_AS_DYNAMIC_LIB -I/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src -isystem /usr/local/include/vtk-8.2 -isystem /usr/local/include/vtk-8.2/vtkogg/include  -g   -o CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/discretization.cpp",
+  "file": "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/discretization.cpp"
+},
+{
+  "directory": "/home/david/uni/numSim/NumSim_ws2122/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9  -DH5_BUILT_AS_DYNAMIC_LIB -I/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src -isystem /usr/local/include/vtk-8.2 -isystem /usr/local/include/vtk-8.2/vtkogg/include  -g   -o CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/fieldvariable.cpp",
+  "file": "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/fieldvariable.cpp"
+},
+{
+  "directory": "/home/david/uni/numSim/NumSim_ws2122/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9  -DH5_BUILT_AS_DYNAMIC_LIB -I/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src -isystem /usr/local/include/vtk-8.2 -isystem /usr/local/include/vtk-8.2/vtkogg/include  -g   -o CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/staggeredgrid.cpp",
+  "file": "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/staggeredgrid.cpp"
+}
+]

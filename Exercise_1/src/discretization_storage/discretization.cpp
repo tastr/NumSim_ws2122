@@ -19,6 +19,7 @@ Discretization::~Discretization()
 
 void Discretization::calculation()
 {
+    
 std::cout<< "u und v durch direkten Zugriff auf die FieldVariablen ersetzen" <<std::endl;
 std::cout<< "wenn debugging erledigt ist UND DT anpassen" <<std::endl;
 FieldVariable u=velocity_X;

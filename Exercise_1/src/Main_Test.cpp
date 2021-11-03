@@ -3,11 +3,11 @@
 #include <array>
 #include <fstream>
 #include <iomanip>
-#include "array2d.h"
-#include "fieldvariable.h"
-#include "staggeredgrid.h"
+#include "discretization_storage/array2d.h"
+#include "discretization_storage/fieldvariable.h"
+#include "discretization_storage/staggeredgrid.h"
 #include "settings.h"
-#include "discretization.h"
+#include "discretization_storage/discretization.h"
 
 //g++ fieldvariable.cpp staggeredgrid.cpp  array2d.cpp Main_Test.cpp settings.cpp -o testA
 

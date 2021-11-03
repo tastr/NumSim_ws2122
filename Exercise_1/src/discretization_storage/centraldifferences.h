@@ -5,11 +5,11 @@
 class CentralDifferences :
     public Discretization
 {
-private:
-    /* data */
-public:
-    CentralDifferences(/* args */);
-    ~CentralDifferences();
+// private:
+//     /* data */
+// public:
+//     CentralDifferences(/* args */);
+//     ~CentralDifferences();
 };
 
 

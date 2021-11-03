@@ -10,8 +10,8 @@ add_executable(${PROJECT_NAME}
    settings.cpp
    output_writer/write_paraview_output.cpp
    discretization_storage/array2d.cpp
-   discretization_storage/centraldifferences.cpp
-   discretization_storage/discretization.cpp #currently not working?
+   discretization_storage/centraldifferences.cpp #currently not working
+   discretization_storage/discretization.cpp 
    discretization_storage/fieldvariable.cpp
    discretization_storage/staggeredgrid.cpp
 )

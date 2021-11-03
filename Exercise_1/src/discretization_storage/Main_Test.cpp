@@ -7,6 +7,7 @@
 #include "fieldvariable.h"
 #include "staggeredgrid.h"
 #include "settings.h"
+#include "discretization.h"
 
 //g++ fieldvariable.cpp staggeredgrid.cpp  array2d.cpp Main_Test.cpp settings.cpp -o testA
 
@@ -26,7 +27,8 @@ std::cout<<"Diese Funktion printed die Fieldvariable" <<std::endl;
 size={5,5};
 FieldVariable Test(size);
 Test.print();
-Test(1,1)=5;
+Test(0,2)=5;
+std::cout<< "" <<std::endl;
 Test.print();
 std::cout<< "Maximum " << Test.max() <<std::endl;
 
@@ -62,5 +64,12 @@ Settings settings;
 settings.loadFromFile(filename);
 // display all settings on console
 settings.printSettings();
+
+Discretization mydiscretization(settings);
+mydiscretization.print("velocity_x");
+//mydiscretization.print("velocity_x");
+
+
+
 return EXIT_SUCCESS;
 }

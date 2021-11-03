@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/array2d.h
+vector
+-
+array
+-
+
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/centraldifferences.cpp
+centraldifferences.h
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/centraldifferences.h
+
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/centraldifferences.h
+discretization.h
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/discretization.h
+
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/discretization.cpp
+discretization.h
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/discretization.h
+settings.h
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/settings.h
+
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/discretization.h
+staggeredgrid.h
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/staggeredgrid.h
+
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/fieldvariable.h
+array2d.h
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/array2d.h
+
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/staggeredgrid.h
+fieldvariable.h
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/fieldvariable.h
+
+settings.h
+iostream
+-
+array
+-
+

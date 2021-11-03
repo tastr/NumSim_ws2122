@@ -1,12 +1,12 @@
 #include "discretization.h"
 #include "settings.h"
 
-//constructor
-Discretization::Discretization(Settings settings)
-{
-}
+// //constructor
+// Discretization::Discretization(Settings settings)
+// {
+// }
 
-//destructor
-Discretization::~Discretization()
-{
-}
+// //destructor
+// Discretization::~Discretization()
+// {
+// }

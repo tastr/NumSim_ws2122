@@ -6,7 +6,8 @@ project(numsim)
 # Specify the name of the executable (${PROJECT_NAME} which is equal to what was set in the project() command).
 # Also specify the source files.
 add_executable(${PROJECT_NAME}
-   main.cpp
+#   main.cpp
+   Main_Test.cpp
    settings.cpp
    output_writer/write_paraview_output.cpp
    discretization_storage/array2d.cpp

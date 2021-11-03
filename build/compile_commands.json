@@ -1,8 +1,8 @@
 [
 {
   "directory": "/home/david/uni/numSim/NumSim_ws2122/build/src",
-  "command": "/bin/x86_64-linux-gnu-g++-9  -DH5_BUILT_AS_DYNAMIC_LIB -I/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src -isystem /usr/local/include/vtk-8.2 -isystem /usr/local/include/vtk-8.2/vtkogg/include  -g   -o CMakeFiles/numsim.dir/main.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/main.cpp",
-  "file": "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/main.cpp"
+  "command": "/bin/x86_64-linux-gnu-g++-9  -DH5_BUILT_AS_DYNAMIC_LIB -I/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src -isystem /usr/local/include/vtk-8.2 -isystem /usr/local/include/vtk-8.2/vtkogg/include  -g   -o CMakeFiles/numsim.dir/Main_Test.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/Main_Test.cpp",
+  "file": "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/Main_Test.cpp"
 },
 {
   "directory": "/home/david/uni/numSim/NumSim_ws2122/build/src",

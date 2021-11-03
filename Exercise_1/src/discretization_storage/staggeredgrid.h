@@ -2,18 +2,15 @@
 
 #include "fieldvariable.h"
 
-class StaggeredGrid
+class StaggeredGrid 
 {
 private:
-    FieldVariable pressure;
-    FieldVariable velocity_X;
-    FieldVariable velocity_Y;
-    // maybe include A,B (and RHS)
-    FieldVariable F;
-    FieldVariable G;
+    FieldVariable pressure, velocity_X, velocity_Y,F, G;
 public:
-    StaggeredGrid(/* args */);
+    StaggeredGrid(std::array<int,2> size);
     ~StaggeredGrid();
+     void setBorderVelocity(std::array<double,2> top,std::array<double,2> left,std::array<double,2>  right,std::array<double,2> bottom); 
+     void print(std::string str);
 };
 
 

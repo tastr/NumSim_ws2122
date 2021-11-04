@@ -118,15 +118,15 @@ float Discretization::min3(float value1, float value2, float value3) const
     }
 }
 
-float Discretization::f(int i, int j)
+float Discretization::f(int i, int j) const
 {
     //TODO
 }
-float Discretization::g(int i, int j)
+float Discretization::g(int i, int j) const
 {
     //TODO
 }
-float Discretization::rhs(int i, int j)
+float Discretization::rhs(int i, int j) const
 {
     //TODO
 }

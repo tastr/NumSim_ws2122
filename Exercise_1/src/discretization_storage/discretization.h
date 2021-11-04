@@ -20,9 +20,9 @@ public:
 
    // get functions:
    // oder doch in staggered grid definieren?
-    float f(int i, int j); //TODO
-    float g(int i, int j); //TODO
-    float rhs(int i, int j); //TODO
+    float f(int i, int j) const; //TODO
+    float g(int i, int j) const; //TODO
+    float rhs(int i, int j) const; //TODO
 };
 
 

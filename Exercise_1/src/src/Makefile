@@ -171,6 +171,33 @@ numsim/fast:
 	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/build
 .PHONY : numsim/fast
 
+Main_Test.o: Main_Test.cpp.o
+
+.PHONY : Main_Test.o
+
+# target to build an object file
+Main_Test.cpp.o:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/Main_Test.cpp.o
+.PHONY : Main_Test.cpp.o
+
+Main_Test.i: Main_Test.cpp.i
+
+.PHONY : Main_Test.i
+
+# target to preprocess a source file
+Main_Test.cpp.i:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/Main_Test.cpp.i
+.PHONY : Main_Test.cpp.i
+
+Main_Test.s: Main_Test.cpp.s
+
+.PHONY : Main_Test.s
+
+# target to generate assembly for a file
+Main_Test.cpp.s:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/Main_Test.cpp.s
+.PHONY : Main_Test.cpp.s
+
 discretization_storage/array2d.o: discretization_storage/array2d.cpp.o
 
 .PHONY : discretization_storage/array2d.o
@@ -306,33 +333,6 @@ discretization_storage/staggeredgrid.cpp.s:
 	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.s
 .PHONY : discretization_storage/staggeredgrid.cpp.s
 
-main.o: main.cpp.o
-
-.PHONY : main.o
-
-# target to build an object file
-main.cpp.o:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/main.cpp.o
-.PHONY : main.cpp.o
-
-main.i: main.cpp.i
-
-.PHONY : main.i
-
-# target to preprocess a source file
-main.cpp.i:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/main.cpp.i
-.PHONY : main.cpp.i
-
-main.s: main.cpp.s
-
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.cpp.s:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/main.cpp.s
-.PHONY : main.cpp.s
-
 output_writer/output_writer.o: output_writer/output_writer.cpp.o
 
 .PHONY : output_writer/output_writer.o
@@ -454,6 +454,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... install/strip"
 	@echo "... numsim"
+	@echo "... Main_Test.o"
+	@echo "... Main_Test.i"
+	@echo "... Main_Test.s"
 	@echo "... discretization_storage/array2d.o"
 	@echo "... discretization_storage/array2d.i"
 	@echo "... discretization_storage/array2d.s"
@@ -469,9 +472,6 @@ help:
 	@echo "... discretization_storage/staggeredgrid.o"
 	@echo "... discretization_storage/staggeredgrid.i"
 	@echo "... discretization_storage/staggeredgrid.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
 	@echo "... output_writer/output_writer.o"
 	@echo "... output_writer/output_writer.i"
 	@echo "... output_writer/output_writer.s"

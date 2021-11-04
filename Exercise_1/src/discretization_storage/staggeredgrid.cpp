@@ -71,91 +71,91 @@ void StaggeredGrid::print(std::string str)
 
 }
 
-std::array<float,2> StaggeredGrid::meshWidth()
+std::array<float,2> StaggeredGrid::meshWidth()  const
 {
     //TODO
 }
-std::array<int,2> StaggeredGrid::nCells()
+std::array<int,2> StaggeredGrid::nCells() const
 {
     //TODO
 }
-FieldVariable StaggeredGrid::p()
+FieldVariable StaggeredGrid::p() const
 {
     //TODO
 }
-float StaggeredGrid::p(int i, int j)
+float StaggeredGrid::p(int i, int j) const
 {
     //TODO
 }
-FieldVariable StaggeredGrid::u()
+FieldVariable StaggeredGrid::u() const
 {
     //TODO
 }
-float StaggeredGrid::u(int i, int j)
+float StaggeredGrid::u(int i, int j) const
 {
     //TODO
 }
-FieldVariable StaggeredGrid::v()
+FieldVariable StaggeredGrid::v() const
 {
     //TODO
 }
-float StaggeredGrid::v(int i, int j)
+float StaggeredGrid::v(int i, int j) const
 {
     //TODO
 }
-float StaggeredGrid::dx()
+float StaggeredGrid::dx() const
 {
     //TODO
 }
-float StaggeredGrid::dy()
+float StaggeredGrid::dy() const
 {
     //TODO
 }
-int StaggeredGrid::uIBegin()
+int StaggeredGrid::uIBegin() const
 {
     //TODO
 } 
-int StaggeredGrid::uIEnd()
+int StaggeredGrid::uIEnd() const
 {
     //TODO
 } 
-int StaggeredGrid::uJBegin()
+int StaggeredGrid::uJBegin() const
 {
     //TODO
 } 
-int StaggeredGrid::uJEnd()
+int StaggeredGrid::uJEnd() const
 {
     //TODO
 } 
-int StaggeredGrid::vIBegin()
+int StaggeredGrid::vIBegin() const
 {
     //TODO
 } 
-int StaggeredGrid::vIEnd()
+int StaggeredGrid::vIEnd() const
 {
     //TODO
 } 
-int StaggeredGrid::vJBegin()
+int StaggeredGrid::vJBegin() const
 {
     //TODO
 } 
-int StaggeredGrid::vJEnd()
+int StaggeredGrid::vJEnd() const
 {
     //TODO
 } 
-int StaggeredGrid::pIBegin()
+int StaggeredGrid::pIBegin() const
 {
     //TODO
 } 
-int StaggeredGrid::pIEnd()
+int StaggeredGrid::pIEnd() const
 {
     //TODO
 } 
-int StaggeredGrid::pJBegin()
+int StaggeredGrid::pJBegin() const
 {
     //TODO
 } 
-int StaggeredGrid::pJEnd()
+int StaggeredGrid::pJEnd() const
 {
     //TODO
 } 

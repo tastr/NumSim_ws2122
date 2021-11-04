@@ -4,10 +4,10 @@
 
 class StaggeredGrid 
 {
-private:
-    
-public:
+protected:
     FieldVariable pressure, velocity_X, velocity_Y,F, G; //Sollten eigentlich private sein?!
+public:
+    
     StaggeredGrid(std::array<int,2> size);
     ~StaggeredGrid();
      void setBorderVelocity(std::array<double,2> top,std::array<double,2> left,std::array<double,2>  right,std::array<double,2> bottom); 
@@ -15,28 +15,29 @@ public:
      // set and get functions to acess the fieldvariables
 
      // get functions:
-     std::array<float,2> meshWidth(); //TODO
-     std::array<int,2> nCells(); //TODO
-     FieldVariable p(); //TODO
-     float p(int i, int j); //TODO
-     FieldVariable u(); //TODO
-     float u(int i, int j); //TODO
-     FieldVariable v(); //TODO
-     float v(int i, int j); //TODO
-     float dx(); //TODO
-     float dy(); //TODO
-     int uIBegin(); //TODO keine ahnung was die Funktion machen soll. Vielleicht startindex zurückgeben?
-     int uIEnd(); //TODO keine ahnung was die Funktion machen soll. Vielleicht startindex zurückgeben?
-     int uJBegin(); //TODO keine ahnung was die Funktion machen soll. Vielleicht startindex zurückgeben?
-     int uJEnd(); //TODO keine ahnung was die Funktion machen soll. Vielleicht startindex zurückgeben?
-     int vIBegin(); //TODO keine ahnung was die Funktion machen soll. Vielleicht startindex zurückgeben?
-     int vIEnd(); //TODO keine ahnung was die Funktion machen soll. Vielleicht startindex zurückgeben?
-     int vJBegin(); //TODO keine ahnung was die Funktion machen soll. Vielleicht startindex zurückgeben?
-     int vJEnd(); //TODO keine ahnung was die Funktion machen soll. Vielleicht startindex zurückgeben?
-     int pIBegin(); //TODO keine ahnung was die Funktion machen soll. Vielleicht startindex zurückgeben?
-     int pIEnd(); //TODO keine ahnung was die Funktion machen soll. Vielleicht startindex zurückgeben?
-     int pJBegin(); //TODO keine ahnung was die Funktion machen soll. Vielleicht startindex zurückgeben?
-     int pJEnd(); //TODO keine ahnung was die Funktion machen soll. Vielleicht startindex zurückgeben?
+     // werden gebraucht für den output_writer
+     std::array<float,2> meshWidth() const; //TODO
+     std::array<int,2> nCells() const; //TODO
+     FieldVariable p() const; //TODO
+     float p(int i, int j) const; //TODO
+     FieldVariable u() const; //TODO
+     float u(int i, int j) const; //TODO
+     FieldVariable v() const; //TODO
+     float v(int i, int j) const; //TODO
+     float dx() const; //TODO
+     float dy() const; //TODO
+     int uIBegin() const; //TODO keine ahnung was die Funktion machen soll. Vielleicht startindex zurückgeben?
+     int uIEnd() const; //TODO keine ahnung was die Funktion machen soll. Vielleicht startindex zurückgeben?
+     int uJBegin() const; //TODO keine ahnung was die Funktion machen soll. Vielleicht startindex zurückgeben?
+     int uJEnd() const; //TODO keine ahnung was die Funktion machen soll. Vielleicht startindex zurückgeben?
+     int vIBegin() const; //TODO keine ahnung was die Funktion machen soll. Vielleicht startindex zurückgeben?
+     int vIEnd() const; //TODO keine ahnung was die Funktion machen soll. Vielleicht startindex zurückgeben?
+     int vJBegin() const; //TODO keine ahnung was die Funktion machen soll. Vielleicht startindex zurückgeben?
+     int vJEnd() const; //TODO keine ahnung was die Funktion machen soll. Vielleicht startindex zurückgeben?
+     int pIBegin() const; //TODO keine ahnung was die Funktion machen soll. Vielleicht startindex zurückgeben?
+     int pIEnd() const; //TODO keine ahnung was die Funktion machen soll. Vielleicht startindex zurückgeben?
+     int pJBegin() const; //TODO keine ahnung was die Funktion machen soll. Vielleicht startindex zurückgeben?
+     int pJEnd() const; //TODO keine ahnung was die Funktion machen soll. Vielleicht startindex zurückgeben?
      
     
 

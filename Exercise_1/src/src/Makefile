@@ -171,33 +171,6 @@ numsim/fast:
 	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/build
 .PHONY : numsim/fast
 
-Main_Test.o: Main_Test.cpp.o
-
-.PHONY : Main_Test.o
-
-# target to build an object file
-Main_Test.cpp.o:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/Main_Test.cpp.o
-.PHONY : Main_Test.cpp.o
-
-Main_Test.i: Main_Test.cpp.i
-
-.PHONY : Main_Test.i
-
-# target to preprocess a source file
-Main_Test.cpp.i:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/Main_Test.cpp.i
-.PHONY : Main_Test.cpp.i
-
-Main_Test.s: Main_Test.cpp.s
-
-.PHONY : Main_Test.s
-
-# target to generate assembly for a file
-Main_Test.cpp.s:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/Main_Test.cpp.s
-.PHONY : Main_Test.cpp.s
-
 discretization_storage/array2d.o: discretization_storage/array2d.cpp.o
 
 .PHONY : discretization_storage/array2d.o
@@ -333,32 +306,113 @@ discretization_storage/staggeredgrid.cpp.s:
 	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.s
 .PHONY : discretization_storage/staggeredgrid.cpp.s
 
-output_writer/write_paraview_output.o: output_writer/write_paraview_output.cpp.o
+main.o: main.cpp.o
 
-.PHONY : output_writer/write_paraview_output.o
+.PHONY : main.o
 
 # target to build an object file
-output_writer/write_paraview_output.cpp.o:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/write_paraview_output.cpp.o
-.PHONY : output_writer/write_paraview_output.cpp.o
+main.cpp.o:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-output_writer/write_paraview_output.i: output_writer/write_paraview_output.cpp.i
+main.i: main.cpp.i
 
-.PHONY : output_writer/write_paraview_output.i
+.PHONY : main.i
 
 # target to preprocess a source file
-output_writer/write_paraview_output.cpp.i:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/write_paraview_output.cpp.i
-.PHONY : output_writer/write_paraview_output.cpp.i
+main.cpp.i:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-output_writer/write_paraview_output.s: output_writer/write_paraview_output.cpp.s
+main.s: main.cpp.s
 
-.PHONY : output_writer/write_paraview_output.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-output_writer/write_paraview_output.cpp.s:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/write_paraview_output.cpp.s
-.PHONY : output_writer/write_paraview_output.cpp.s
+main.cpp.s:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/main.cpp.s
+.PHONY : main.cpp.s
+
+output_writer/output_writer.o: output_writer/output_writer.cpp.o
+
+.PHONY : output_writer/output_writer.o
+
+# target to build an object file
+output_writer/output_writer.cpp.o:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o
+.PHONY : output_writer/output_writer.cpp.o
+
+output_writer/output_writer.i: output_writer/output_writer.cpp.i
+
+.PHONY : output_writer/output_writer.i
+
+# target to preprocess a source file
+output_writer/output_writer.cpp.i:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.i
+.PHONY : output_writer/output_writer.cpp.i
+
+output_writer/output_writer.s: output_writer/output_writer.cpp.s
+
+.PHONY : output_writer/output_writer.s
+
+# target to generate assembly for a file
+output_writer/output_writer.cpp.s:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.s
+.PHONY : output_writer/output_writer.cpp.s
+
+output_writer/output_writer_paraview.o: output_writer/output_writer_paraview.cpp.o
+
+.PHONY : output_writer/output_writer_paraview.o
+
+# target to build an object file
+output_writer/output_writer_paraview.cpp.o:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.o
+.PHONY : output_writer/output_writer_paraview.cpp.o
+
+output_writer/output_writer_paraview.i: output_writer/output_writer_paraview.cpp.i
+
+.PHONY : output_writer/output_writer_paraview.i
+
+# target to preprocess a source file
+output_writer/output_writer_paraview.cpp.i:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.i
+.PHONY : output_writer/output_writer_paraview.cpp.i
+
+output_writer/output_writer_paraview.s: output_writer/output_writer_paraview.cpp.s
+
+.PHONY : output_writer/output_writer_paraview.s
+
+# target to generate assembly for a file
+output_writer/output_writer_paraview.cpp.s:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.s
+.PHONY : output_writer/output_writer_paraview.cpp.s
+
+output_writer/output_writer_text.o: output_writer/output_writer_text.cpp.o
+
+.PHONY : output_writer/output_writer_text.o
+
+# target to build an object file
+output_writer/output_writer_text.cpp.o:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o
+.PHONY : output_writer/output_writer_text.cpp.o
+
+output_writer/output_writer_text.i: output_writer/output_writer_text.cpp.i
+
+.PHONY : output_writer/output_writer_text.i
+
+# target to preprocess a source file
+output_writer/output_writer_text.cpp.i:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.i
+.PHONY : output_writer/output_writer_text.cpp.i
+
+output_writer/output_writer_text.s: output_writer/output_writer_text.cpp.s
+
+.PHONY : output_writer/output_writer_text.s
+
+# target to generate assembly for a file
+output_writer/output_writer_text.cpp.s:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.s
+.PHONY : output_writer/output_writer_text.cpp.s
 
 settings.o: settings.cpp.o
 
@@ -400,9 +454,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... install/strip"
 	@echo "... numsim"
-	@echo "... Main_Test.o"
-	@echo "... Main_Test.i"
-	@echo "... Main_Test.s"
 	@echo "... discretization_storage/array2d.o"
 	@echo "... discretization_storage/array2d.i"
 	@echo "... discretization_storage/array2d.s"
@@ -418,9 +469,18 @@ help:
 	@echo "... discretization_storage/staggeredgrid.o"
 	@echo "... discretization_storage/staggeredgrid.i"
 	@echo "... discretization_storage/staggeredgrid.s"
-	@echo "... output_writer/write_paraview_output.o"
-	@echo "... output_writer/write_paraview_output.i"
-	@echo "... output_writer/write_paraview_output.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
+	@echo "... output_writer/output_writer.o"
+	@echo "... output_writer/output_writer.i"
+	@echo "... output_writer/output_writer.s"
+	@echo "... output_writer/output_writer_paraview.o"
+	@echo "... output_writer/output_writer_paraview.i"
+	@echo "... output_writer/output_writer_paraview.s"
+	@echo "... output_writer/output_writer_text.o"
+	@echo "... output_writer/output_writer_text.i"
+	@echo "... output_writer/output_writer_text.s"
 	@echo "... settings.o"
 	@echo "... settings.i"
 	@echo "... settings.s"

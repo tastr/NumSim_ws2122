@@ -19,6 +19,9 @@ public:
     float max() ;
     float abs(int i, int j) ;
     float absmax();
+
+    // interpolation function used by output writer
+    float interpolateAt(float x, float y); //TODO
     
     
     //! access the value at coordinate (i,j), declared not const, i.e. the value can be changed

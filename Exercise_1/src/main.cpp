@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include "settings.h"
-#include "output_writer/write_paraview_output.h"
+#include "output_writer/output_writer.h"
 
 //void loadFromFile(std::string filename);
 
@@ -28,10 +28,6 @@ settings.loadFromFile(filename);
 // display all settings on console
 settings.printSettings();
 
-  // write 5 output files
-  for (int i = 0; i < 5; i++)
-  {
-    writeParaviewOutput(i);
-  }
+
   return EXIT_SUCCESS;
 }

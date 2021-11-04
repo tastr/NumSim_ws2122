@@ -17,6 +17,12 @@ public:
    void calculation();
    float min2(float value1, float value2) const; 
    float min3(float value1, float value2, float value3) const;
+
+   // get functions:
+   // oder doch in staggered grid definieren?
+    float f(int i, int j); //TODO
+    float g(int i, int j); //TODO
+    float rhs(int i, int j); //TODO
 };
 
 

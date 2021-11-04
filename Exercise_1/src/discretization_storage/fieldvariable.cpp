@@ -75,4 +75,7 @@ float FieldVariable::absmax()
  return absmaximum;
 }
 
-
+float FieldVariable::interpolateAt(float x, float y)
+{
+   //TODO
+}

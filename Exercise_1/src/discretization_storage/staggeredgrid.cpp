@@ -70,3 +70,92 @@ void StaggeredGrid::print(std::string str)
 
 
 }
+
+std::array<float,2> StaggeredGrid::meshWidth()
+{
+    //TODO
+}
+std::array<int,2> StaggeredGrid::nCells()
+{
+    //TODO
+}
+FieldVariable StaggeredGrid::p()
+{
+    //TODO
+}
+float StaggeredGrid::p(int i, int j)
+{
+    //TODO
+}
+FieldVariable StaggeredGrid::u()
+{
+    //TODO
+}
+float StaggeredGrid::u(int i, int j)
+{
+    //TODO
+}
+FieldVariable StaggeredGrid::v()
+{
+    //TODO
+}
+float StaggeredGrid::v(int i, int j)
+{
+    //TODO
+}
+float StaggeredGrid::dx()
+{
+    //TODO
+}
+float StaggeredGrid::dy()
+{
+    //TODO
+}
+int StaggeredGrid::uIBegin()
+{
+    //TODO
+} 
+int StaggeredGrid::uIEnd()
+{
+    //TODO
+} 
+int StaggeredGrid::uJBegin()
+{
+    //TODO
+} 
+int StaggeredGrid::uJEnd()
+{
+    //TODO
+} 
+int StaggeredGrid::vIBegin()
+{
+    //TODO
+} 
+int StaggeredGrid::vIEnd()
+{
+    //TODO
+} 
+int StaggeredGrid::vJBegin()
+{
+    //TODO
+} 
+int StaggeredGrid::vJEnd()
+{
+    //TODO
+} 
+int StaggeredGrid::pIBegin()
+{
+    //TODO
+} 
+int StaggeredGrid::pIEnd()
+{
+    //TODO
+} 
+int StaggeredGrid::pJBegin()
+{
+    //TODO
+} 
+int StaggeredGrid::pJEnd()
+{
+    //TODO
+} 

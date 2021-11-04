@@ -6,33 +6,21 @@
 
 #IncludeRegexTransform: 
 
-/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/Main_Test.cpp
-iostream
--
-cstdlib
--
-array
--
-fstream
--
-iomanip
--
-discretization_storage/array2d.h
-/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/array2d.h
-discretization_storage/fieldvariable.h
-/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/fieldvariable.h
-discretization_storage/staggeredgrid.h
-/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/staggeredgrid.h
-settings.h
-/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/settings.h
-discretization_storage/discretization.h
-/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/discretization.h
-
 /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/array2d.h
 vector
 -
 array
 -
+
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/discretization.cpp
+discretization.h
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/discretization.h
+staggeredgrid.h
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/staggeredgrid.h
+settings.h
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/settings.h
+fieldvariable.h
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/fieldvariable.h
 
 /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/discretization.h
 staggeredgrid.h
@@ -42,6 +30,12 @@ settings.h
 fieldvariable.h
 /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/fieldvariable.h
 
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/fieldvariable.cpp
+fieldvariable.h
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/fieldvariable.h
+iostream
+-
+
 /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/fieldvariable.h
 array2d.h
 /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/array2d.h
@@ -50,7 +44,7 @@ array2d.h
 fieldvariable.h
 /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/fieldvariable.h
 
-/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/settings.h
+settings.h
 iostream
 -
 array

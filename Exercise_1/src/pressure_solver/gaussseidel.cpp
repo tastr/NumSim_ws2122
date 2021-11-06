@@ -4,8 +4,8 @@
 GaussSeidel::GaussSeidel(Discretization discretization_)
 :PressureSolver(discretization_)
 {
-    float tol = 0.000001;
-
+    double tol = 0.000001;
+    
 }
 
 GaussSeidel::~GaussSeidel()
@@ -17,9 +17,9 @@ GaussSeidel::~GaussSeidel()
 void GaussSeidel::Iterationsverfahren()
     {
     FieldVariable p   = discretization_.p();
-    float deltax_quad = discretization_.dx() * discretization_.dx();
-    float deltay_quad = discretization_.dy() * discretization_.dy();
-    float vorfaktor= deltax_quad * deltay_quad/ (2 * (deltay_quad + deltax_quad ));
+    double deltax_quad = discretization_.dx() * discretization_.dx();
+    double deltay_quad = discretization_.dy() * discretization_.dy();
+    double vorfaktor= deltax_quad * deltay_quad/ (2 * (deltay_quad + deltax_quad ));
     int i_max = discretization_.getSize()[0] , j_max = discretization_.getSize()[1];
     int safe=0;
     do

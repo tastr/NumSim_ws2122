@@ -4,8 +4,7 @@
 SOR::SOR(Discretization discretization_)
 :PressureSolver(discretization_)
 {
-    float tol = 0.000001;
-    
+    double tol = 0.000001;
     
     
 
@@ -19,10 +18,10 @@ SOR::~SOR()
 //FieldVariable SOR::Iterationsverfahren()
 void SOR::Iterationsverfahren()
     {
-    FieldVariable p   = discretization_.p();
-    float deltax_quad = discretization_.dx() * discretization_.dx();
-    float deltay_quad = discretization_.dy() * discretization_.dy();
-    float vorfaktor= deltax_quad * deltay_quad/ (2 * (deltay_quad + deltax_quad ));
+    FieldVariable p    = discretization_.p();
+    double deltax_quad = discretization_.dx() * discretization_.dx();
+    double deltay_quad = discretization_.dy() * discretization_.dy();
+    double vorfaktor= deltax_quad * deltay_quad/ (2 * (deltay_quad + deltax_quad ));
     int i_max = discretization_.getSize()[0] , j_max = discretization_.getSize()[1];
     int safe=0;
     do
@@ -30,7 +29,7 @@ void SOR::Iterationsverfahren()
        for (int j = 1; j < j_max-1 ; j++)
         {   for (int i = 1; i < i_max-1 ; i++)
             {   
-            p(i,j) =(1-discretization_.getOmega()) * p(i,j) + discretization_.getOmega() * vorfaktor*( (p(i-1,j) + p(i+1,j))/deltax_quad + (p(i,j-1) + p(i,j+1)) / deltay_quad   - discretization.rhs(i,j)) ;
+            p(i,j) =(1-discretization_.getOmega()) * p(i,j) + discretization_.getOmega() * vorfaktor*( (p(i-1,j) + p(i+1,j))/deltax_quad + (p(i,j-1) + p(i,j+1)) / deltay_quad   - discretization_.rhs(i,j)) ;
             //residuum = residuum + abs_(p(i,j)-discretization.RHS(i,j));   
             //residuum =  residuum +abs_( (p(i-1,j)  - 2 * p(i,j) + p(i+1,j))/deltax_quad + (p(i,j-1) - 2 * p(i,j)  + p(i,j+1)) / deltay_quad   - discretization.RHS(i,j));
             }            

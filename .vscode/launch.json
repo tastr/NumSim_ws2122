@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "g++ - Build and debug numsim",
+            "name": "Build and debug numsim",
             "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}/../build/numsim",
@@ -23,6 +23,26 @@
                 }
             ],
             "preLaunchTask": "C/C++: g++ build numsim",
+            "miDebuggerPath": "/usr/bin/gdb"
+        },
+        {
+            "name": "debug numsim",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/../build/numsim",
+            "args": ["../parameters.txt"],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
             "miDebuggerPath": "/usr/bin/gdb"
         }
     ]

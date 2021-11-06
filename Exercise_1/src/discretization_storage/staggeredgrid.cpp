@@ -93,7 +93,7 @@ void StaggeredGrid::print(std::string str)
 
 std::array<float,2> StaggeredGrid::meshWidth()  const
 {
- return   {settings_.physicalSize[0] / settings_.nCells[0],settings_.physicalSize[1] / settings_.nCells[1]};
+ return {dx(),dy()}  ;// {settings_.physicalSize[0] ,settings_.physicalSize[1]};
 }
 std::array<int,2> StaggeredGrid::nCells() const
 {

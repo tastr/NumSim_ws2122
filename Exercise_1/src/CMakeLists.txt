@@ -6,8 +6,8 @@ project(numsim)
 # Specify the name of the executable (${PROJECT_NAME} which is equal to what was set in the project() command).
 # Also specify the source files.
 add_executable(${PROJECT_NAME}
-#   main.cpp
-   Main_Test.cpp
+   main.cpp
+#   Main_Test.cpp
    settings.cpp
    output_writer/output_writer_paraview.cpp
    output_writer/output_writer_text.cpp
@@ -18,6 +18,9 @@ add_executable(${PROJECT_NAME}
    discretization_storage/discretization.cpp 
    discretization_storage/fieldvariable.cpp
    discretization_storage/staggeredgrid.cpp
+   pressure_solver/pressuresolver.cpp
+   pressure_solver/gaussseidel.cpp
+   pressure_solver/sor.cpp
 )
 
 	

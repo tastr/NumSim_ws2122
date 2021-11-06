@@ -4,15 +4,18 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/Main_Test.cpp" "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src/CMakeFiles/numsim.dir/Main_Test.cpp.o"
   "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/array2d.cpp" "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src/CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.o"
   "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/centraldifferences.cpp" "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src/CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.o"
   "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/discretization.cpp" "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o"
   "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/fieldvariable.cpp" "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src/CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.o"
   "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/staggeredgrid.cpp" "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.o"
+  "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/main.cpp" "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src/CMakeFiles/numsim.dir/main.cpp.o"
   "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/output_writer/output_writer.cpp" "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o"
   "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/output_writer/output_writer_paraview.cpp" "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src/CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.o"
   "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/output_writer/output_writer_text.cpp" "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o"
+  "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/gaussseidel.cpp" "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o"
+  "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/pressuresolver.cpp" "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.o"
+  "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/sor.cpp" "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.o"
   "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/settings.cpp" "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src/CMakeFiles/numsim.dir/settings.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

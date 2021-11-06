@@ -10,7 +10,7 @@ protected:
     Settings settings_;
     std::array<int,2> size_;
     FieldVariable pressure,velocity_X , velocity_Y,F, G; //Sollten eigentlich private sein?!
-    void setSize_(std::array<int,2> size_ nCells);
+    void setSize_(std::array<int,2> nCells);
 public:
     
     //StaggeredGrid(std::array<int,2> size);    ~StaggeredGrid();

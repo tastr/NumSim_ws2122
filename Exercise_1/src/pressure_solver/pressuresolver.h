@@ -2,7 +2,7 @@
 
 #include <vector>
 #include <array>
-#include "discretization.h"
+#include "discretization_storage/discretization.h"
 
 
 class PressureSolver

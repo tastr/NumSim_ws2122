@@ -5,11 +5,19 @@
 
 //constructor
 Discretization::Discretization(Settings settings):
- StaggeredGrid(settings) //, theGrid(settings.nCells)
+StaggeredGrid(settings) //, theGrid(settings.nCells)
+,F({settings.nCells[0]+2,settings.nCells[0]+2})
+,G({settings.nCells[0]+2,settings.nCells[0]+2})
+,rhs_({settings.nCells[0]+2,settings.nCells[0]+2})
 {
-setBorderVelocity(settings.dirichletBcTop,settings.dirichletBcLeft,settings.dirichletBcRight,settings.dirichletBcBottom);
-settings_= settings;
-deltat   = min3(min2(dx(),dy())*min2(dx(),dy())*settings.re/4,dx()/velocity_X.absmax(),dy()/velocity_Y.absmax())*settings_.tau;
+
+}
+
+
+// setBorderVelocity(settings.dirichletBcTop,settings.dirichletBcLeft,settings.dirichletBcRight,settings.dirichletBcBottom)
+void Discretization::updateDeltaT()
+{
+deltat   = min3(min2(dx(),dy())*min2(dx(),dy())*settings_.re/4,dx()/velocity_X.absmax(),dy()/velocity_Y.absmax())*settings_.tau;
 }
 
 //destructor
@@ -126,7 +134,7 @@ double Discretization::g(int i, int j) const
 {
     return G(i,j);
 }
-double Discretization::rhs(int i, int j) const
+double Discretization::rhs(int i, int j) const//const statment removed because of error
 {
     return  ( (F(i,j)-F(i-1,j)) / meshWidth()[0] + (G(i,j)-G(i,j-1)) / meshWidth()[1] ) / deltat  ;  
 }
@@ -135,3 +143,4 @@ double Discretization::getOmega() const
 {
    //TODO 
 } 
+

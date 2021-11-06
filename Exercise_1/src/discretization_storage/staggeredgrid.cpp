@@ -8,16 +8,14 @@ StaggeredGrid::StaggeredGrid(Settings settings)
 :pressure({settings.nCells[0]+2,settings.nCells[0]+2})
 ,velocity_X({settings.nCells[0]+2,settings.nCells[0]+2})
 ,velocity_Y({settings.nCells[0]+2,settings.nCells[0]+2})
-,F({settings.nCells[0]+2,settings.nCells[0]+2})
-,G({settings.nCells[0]+2,settings.nCells[0]+2})
 ,settings_(settings)
 { 
     setSize_(settings.nCells);
 }
 
-StaggeredGrid::~StaggeredGrid()
-{
-}
+// StaggeredGrid::~StaggeredGrid()
+// {
+// }
 
 void StaggeredGrid::setSize_(std::array<int,2> nCells)
 {
@@ -65,12 +63,12 @@ void StaggeredGrid::print(std::string str)
     }else if (str == "velocity_Y" || str == "velocity_y")
     {
         velocity_Y.print();
-    }else if (str == "F")
-    {
-        F.print();
-    }else if (str == "G")
-    {
-        G.print();
+    // }else if (str == "F")
+    // {
+    //     F.print();
+    // }else if (str == "G")
+    // {
+    //     G.print();
     }else if (str == "all")
     {
         std::cout<< "pressure" << std::endl;   
@@ -79,10 +77,10 @@ void StaggeredGrid::print(std::string str)
         velocity_X.print();
         std::cout<< "velocity_Y" << std::endl;  
         velocity_Y.print();
-        std::cout<< "F" << std::endl;  
-        F.print();
-        std::cout<< "F" << std::endl;  
-        G.print();
+        // std::cout<< "F" << std::endl;  
+        // F.print();
+        // std::cout<< "F" << std::endl;  
+        // G.print();
     }
 
 

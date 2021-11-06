@@ -30,13 +30,49 @@ src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.o
  /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/staggeredgrid.h
  settings.h
 src/CMakeFiles/numsim.dir/main.cpp.o
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/array2d.h
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/discretization.h
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/fieldvariable.h
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/staggeredgrid.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/main.cpp
- /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/output_writer/output_writer.h
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/output_writer/output_writer_paraview.h
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/output_writer/output_writer_text.h
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/pressuresolver.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/settings.h
- discretization_storage/array2d.h
- discretization_storage/discretization.h
- discretization_storage/fieldvariable.h
- discretization_storage/staggeredgrid.h
+ /usr/local/include/vtk-8.2/vtkABI.h
+ /usr/local/include/vtk-8.2/vtkAlgorithm.h
+ /usr/local/include/vtk-8.2/vtkAtomic.h
+ /usr/local/include/vtk-8.2/vtkAtomicTypeConcepts.h
+ /usr/local/include/vtk-8.2/vtkAtomicTypes.h
+ /usr/local/include/vtk-8.2/vtkCommonCoreModule.h
+ /usr/local/include/vtk-8.2/vtkCommonExecutionModelModule.h
+ /usr/local/include/vtk-8.2/vtkConfigure.h
+ /usr/local/include/vtk-8.2/vtkIOStream.h
+ /usr/local/include/vtk-8.2/vtkIOStreamFwd.h
+ /usr/local/include/vtk-8.2/vtkIOXMLModule.h
+ /usr/local/include/vtk-8.2/vtkIndent.h
+ /usr/local/include/vtk-8.2/vtkNew.h
+ /usr/local/include/vtk-8.2/vtkOStrStreamWrapper.h
+ /usr/local/include/vtk-8.2/vtkOStreamWrapper.h
+ /usr/local/include/vtk-8.2/vtkObject.h
+ /usr/local/include/vtk-8.2/vtkObjectBase.h
+ /usr/local/include/vtk-8.2/vtkSetGet.h
+ /usr/local/include/vtk-8.2/vtkSmartPointer.h
+ /usr/local/include/vtk-8.2/vtkSmartPointerBase.h
+ /usr/local/include/vtk-8.2/vtkSystemIncludes.h
+ /usr/local/include/vtk-8.2/vtkTimeStamp.h
+ /usr/local/include/vtk-8.2/vtkType.h
+ /usr/local/include/vtk-8.2/vtkVersionMacros.h
+ /usr/local/include/vtk-8.2/vtkWeakPointerBase.h
+ /usr/local/include/vtk-8.2/vtkWin32Header.h
+ /usr/local/include/vtk-8.2/vtkWrappingHints.h
+ /usr/local/include/vtk-8.2/vtkXMLImageDataWriter.h
+ /usr/local/include/vtk-8.2/vtkXMLStructuredDataWriter.h
+ /usr/local/include/vtk-8.2/vtkXMLWriter.h
+ /usr/local/include/vtk-8.2/vtk_kwiml.h
+ /usr/local/include/vtk-8.2/vtkkwiml/abi.h
+ /usr/local/include/vtk-8.2/vtkkwiml/int.h
+ output_writer/output_writer.h
 src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o
  /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/output_writer/output_writer.cpp
  discretization_storage/array2d.h
@@ -136,6 +172,7 @@ src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o
 src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.o
  /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/pressuresolver.cpp
  /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/pressuresolver.h
+ discretization_storage/array2d.h
  discretization_storage/discretization.h
  discretization_storage/fieldvariable.h
  discretization_storage/staggeredgrid.h

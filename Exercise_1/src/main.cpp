@@ -1,7 +1,10 @@
 #include <iostream>
 #include <cstdlib>
 #include "settings.h"
-#include "output_writer/output_writer.h"
+#include "output_writer/output_writer_text.h"
+#include "output_writer/output_writer_paraview.h"
+#include "pressure_solver/pressuresolver.h"
+#include "discretization_storage/discretization.h"
 
 //void loadFromFile(std::string filename);
 
@@ -27,6 +30,11 @@ Settings settings;
 settings.loadFromFile(filename);
 // display all settings on console
 settings.printSettings();
+
+//create objects of classes
+Discretization myDiscretization(settings);
+PressureSolver myPressureSolver(myDiscretization); //TODO use reference instead
+// OutputWriterText myOutputWriter(myDiscretization);
 
 
   return EXIT_SUCCESS;

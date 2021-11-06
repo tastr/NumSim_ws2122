@@ -1,8 +1,5 @@
 #include "pressuresolver.h"
 #include <cassert>
-#include "array2d.h"
-#include "discretization.h"
-
 
 PressureSolver::PressureSolver(Discretization discretization)
 :discretization_(discretization)

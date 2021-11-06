@@ -136,7 +136,8 @@ double Discretization::g(int i, int j) const
 }
 double Discretization::rhs(int i, int j) const//const statment removed because of error
 {
-    return  ( (F(i,j)-F(i-1,j)) / meshWidth()[0] + (G(i,j)-G(i,j-1)) / meshWidth()[1] ) / deltat  ;  
+    // return  ( (F(i,j)-F(i-1,j)) / meshWidth()[0] + (G(i,j)-G(i,j-1)) / meshWidth()[1] ) / deltat  ;  
+    return rhs_(i, j);
 }
 
 double Discretization::getOmega() const

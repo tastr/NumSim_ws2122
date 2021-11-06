@@ -132,51 +132,51 @@ double StaggeredGrid::dy() const
 }
 int StaggeredGrid::uIBegin() const
 {
-    return 1;
+    return 0;
 } 
 int StaggeredGrid::uIEnd() const
 {
-    return size_[0]-1;
+    return size_[0];
 } 
 int StaggeredGrid::uJBegin() const
 {
-    return 1;
+    return 0;
 } 
 int StaggeredGrid::uJEnd() const
 {
-    return size_[1]-1;
+    return size_[1];
 } 
 int StaggeredGrid::vIBegin() const
 {
-    return 1;
+    return 0;
 } 
 int StaggeredGrid::vIEnd() const
 {
-    return size_[0]-1;
+    return size_[0];
 } 
 int StaggeredGrid::vJBegin() const
 {
-    return 1;
+    return 0;
 } 
 int StaggeredGrid::vJEnd() const
 {
-    return size_[1]-1;
+    return size_[1];
 } 
 int StaggeredGrid::pIBegin() const
 {
-    return 1;
+    return 0;
 } 
 int StaggeredGrid::pIEnd() const
 {
-    return size_[0]-1;;
+    return size_[0];
 } 
 int StaggeredGrid::pJBegin() const
 {
-    return 1;
+    return 0;
 } 
 int StaggeredGrid::pJEnd() const
 {
-    return size_[1]-1;
+    return size_[1];
 } 
 
      void StaggeredGrid::setU(int i, int j,double value)

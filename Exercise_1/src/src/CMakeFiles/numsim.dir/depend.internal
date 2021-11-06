@@ -128,6 +128,7 @@ src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o
  /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/gaussseidel.cpp
  /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/gaussseidel.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/pressuresolver.h
+ discretization_storage/array2d.h
  discretization_storage/discretization.h
  discretization_storage/fieldvariable.h
  discretization_storage/staggeredgrid.h
@@ -143,6 +144,7 @@ src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.o
  /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/pressuresolver.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/sor.cpp
  /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/sor.h
+ discretization_storage/array2d.h
  discretization_storage/discretization.h
  discretization_storage/fieldvariable.h
  discretization_storage/staggeredgrid.h

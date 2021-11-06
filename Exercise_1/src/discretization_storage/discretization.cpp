@@ -130,3 +130,8 @@ double Discretization::rhs(int i, int j) const
 {
     return  ( (F(i,j)-F(i-1,j)) / meshWidth()[0] + (G(i,j)-G(i,j-1)) / meshWidth()[1] ) / deltat  ;  
 }
+
+double Discretization::getOmega() const
+{
+   //TODO 
+} 

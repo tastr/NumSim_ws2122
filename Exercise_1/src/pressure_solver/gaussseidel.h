@@ -10,12 +10,11 @@ class GaussSeidel:
      public PressureSolver
 {
 protected: 
-	 Discretization discretization;
         double tol;
  
 public:
       GaussSeidel(Discretization discretization_);
-      ~GausSeidel();
+      ~GaussSeidel();
       //FieldVariable Iterationsverfahren();
       void Iterationsverfahren();
      

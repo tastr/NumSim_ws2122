@@ -7,10 +7,11 @@
 class Discretization : 
     public StaggeredGrid
 {
-private:
+protected:
    // StaggeredGrid theGrid;
    Settings settings_;
    double deltat;
+   FieldVariable F, G, rhs;
 public:
     Discretization(Settings settings);
     ~Discretization();
@@ -23,6 +24,7 @@ public:
     double f(int i, int j) const; 
     double g(int i, int j) const; 
     double rhs(int i, int j) const;
+    double getOmega() const; //TODO
 };
 
 

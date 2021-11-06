@@ -10,8 +10,7 @@ class SOR:
      public PressureSolver
 {
 protected: 
-	 Discretization discretization;
-         double omega;
+         double omega; //Omega festgelegt durch parameter
  
 public:
       SOR(Discretization discretization_);

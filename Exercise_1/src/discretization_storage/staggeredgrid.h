@@ -9,7 +9,7 @@ class StaggeredGrid
 protected:
     Settings settings_;
     std::array<int,2> size_;
-    FieldVariable pressure,velocity_X , velocity_Y,F, G; //Sollten eigentlich private sein?!
+    FieldVariable pressure,velocity_X , velocity_Y;
     void setSize_(std::array<int,2> nCells);
 public:
     

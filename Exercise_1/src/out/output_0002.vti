@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<VTKFile type="ImageData" version="0.1" byte_order="LittleEndian" header_type="UInt32" compressor="vtkZLibDataCompressor">
+  <ImageData WholeExtent="0 20 0 20 0 0" Origin="0 0 0" Spacing="0.10000000149011612 0.10000000149011612 1">
+    <FieldData>
+      <DataArray type="Float64" Name="TIME" NumberOfTuples="1" format="binary" RangeMin="0.05" RangeMax="0.05">
+        AQAAAACAAAAIAAAADgAAAA==eJybNRMEVtoDABVaBIA=
+      </DataArray>
+    </FieldData>
+  <Piece Extent="0 20 0 20 0 0">
+    <PointData>
+      <DataArray type="Float64" Name="pressure" format="binary" RangeMin="0" RangeMax="2.0000000298023224">
+        AQAAAACAAADIDQAAhwAAAA==eJxjYICDBTNn7rSH0CdBtIWx8WUo/yaIZmFgeAAVfwyic9LSnkHlX4LoK2fOvIGq+wCi582c+RGq/jOIvnTmzBeovm8gmo2B4QdU/08QbWVs/Btqzh8QnZeW9g9qHoMDw6g7R9056s5Rd466c9Sdo+4cdeeoO0fdOerOUXeOuhPsTgDeVNM5
+      </DataArray>
+      <DataArray type="Float64" Name="velocity" NumberOfComponents="3" format="binary" RangeMin="0" RangeMax="2.8284271668930385">
+        AQAAAACAAABYKQAA9QAAAA==eJztkTFKA1EURW8R3NA0weZmNVMF9zONuA2XEJhKbewCQiBgoSiiGERweI/bSDZwTnMgDD/3caR/uZmmW4fj953DxXoY7h2O7x8dLlbS3uF458nhYjuOB4fj/aPDxcM8Pzsc//vicHE9Ta8Ox543h4u7eX53OHZ+OFxcSJ8Ox/4vh4vLYfh2OO46OVxcjeOPw3GvNuFz0L330F10L+i+QPfeSXfRvaB776G76B7v0F10L+jed9FddC/ovkD3vpfuovs56N576C66F3RfoHvvpLvoXtC999BddI936C66F3Tvu+guuhd0X6B730t30f2PX7W5poA=
+        <InformationKey name="L2_NORM_RANGE" location="vtkDataArray" length="2">
+          <Value index="0">
+            0
+          </Value>
+          <Value index="1">
+            2.8284271669
+          </Value>
+        </InformationKey>
+      </DataArray>
+    </PointData>
+    <CellData>
+    </CellData>
+  </Piece>
+  </ImageData>
+</VTKFile>

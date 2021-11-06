@@ -17,7 +17,7 @@ StaggeredGrid(settings) //, theGrid(settings.nCells)
 // setBorderVelocity(settings.dirichletBcTop,settings.dirichletBcLeft,settings.dirichletBcRight,settings.dirichletBcBottom)
 void Discretization::updateDeltaT()
 {
-deltat   = min3(min2(dx(),dy())*min2(dx(),dy())*settings_.re/4,dx()/velocity_X.absmax(),dy()/velocity_Y.absmax())*settings_.tau;
+deltat   = min2(min3(min2(dx(),dy())*min2(dx(),dy())*settings_.re/4,dx()/velocity_X.absmax(),dy()/velocity_Y.absmax())*settings_.tau, settings_.maximumDt);
 }
 
 //destructor
@@ -144,3 +144,7 @@ double Discretization::getOmega() const
    //TODO 
 } 
 
+double Discretization::getDeltaT() const
+{
+    return deltat;
+}

@@ -27,6 +27,7 @@ public:
     double g(int i, int j) const; 
     double rhs(int i, int j) const; //const statment removed becoause of error
     double getOmega() const; //TODO
+    double getDeltaT() const;
 };
 
 

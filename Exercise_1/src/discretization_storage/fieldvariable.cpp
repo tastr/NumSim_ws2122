@@ -45,7 +45,7 @@ void FieldVariable::print()
 // }
 
 //Erst ueber j dann ueber i zu gehen ist effizienyter, aber fuer die Ausgabe
-float FieldVariable::max() 
+double FieldVariable::max() 
 {  
  for (int i = 0; i < size_[0]; i++)
  {
@@ -60,7 +60,7 @@ float FieldVariable::max()
  return maximum;
 }
 
-float FieldVariable::absmax() 
+double FieldVariable::absmax() 
 {  
  for (int i = 0; i < size_[0]; i++)
  {
@@ -75,7 +75,7 @@ float FieldVariable::absmax()
  return absmaximum;
 }
 
-float FieldVariable::interpolateAt(float x, float y)
+double FieldVariable::interpolateAt(double x, double y)
 {
    //TODO
 }

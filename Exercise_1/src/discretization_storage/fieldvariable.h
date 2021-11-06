@@ -8,20 +8,20 @@ class FieldVariable :
 {
 private:
     // Array2D data_; //wegen der Vererbeung wird das nicht gebraucht
-    float maximum;
-    float absmaximum;
+    double maximum;
+    double absmaximum;
 public:
     FieldVariable(std::array<int,2> size);
     //FieldVariable(float d);
     ~FieldVariable();
     // std::array<int,2> size() const; //nicht notwendig, da in parent Klasse
     void print();
-    float max() ;
+    double max() ;
     // float abs(int i, int j) ; //in parent classe definiert
-    float absmax();
+    double absmax();
 
     // interpolation function used by output writer
-    float interpolateAt(float x, float y); //TODO
+    double interpolateAt(double x, double y); //TODO
     
     
     // //! access the value at coordinate (i,j), declared not const, i.e. the value can be changed

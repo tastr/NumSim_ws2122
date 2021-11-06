@@ -10,19 +10,19 @@ class Discretization :
 private:
    // StaggeredGrid theGrid;
    Settings settings_;
-    
+   double deltat;
 public:
     Discretization(Settings settings);
     ~Discretization();
    void calculation();
-   float min2(float value1, float value2) const; 
-   float min3(float value1, float value2, float value3) const;
+   double  min2(double value1, double value2) const; 
+   double  min3(double value1, double value2, double value3) const;
 
    // get functions:
    // oder doch in staggered grid definieren?
-    float f(int i, int j) const; //TODO
-    float g(int i, int j) const; //TODO
-    float rhs(int i, int j) const; //TODO
+    double f(int i, int j) const; 
+    double g(int i, int j) const; 
+    double rhs(int i, int j) const;
 };
 
 

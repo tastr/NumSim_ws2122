@@ -5,10 +5,11 @@
 
 //constructor
 Discretization::Discretization(Settings settings):
- StaggeredGrid(settings.nCells) //, theGrid(settings.nCells)
+ StaggeredGrid(settings) //, theGrid(settings.nCells)
 {
 setBorderVelocity(settings.dirichletBcTop,settings.dirichletBcLeft,settings.dirichletBcRight,settings.dirichletBcBottom);
-settings_=settings;
+settings_= settings;
+deltat   = min3(min2(dx(),dy())*min2(dx(),dy())*settings.re/4,dx()/velocity_X.absmax(),dy()/velocity_Y.absmax())*settings_.tau;
 }
 
 //destructor
@@ -24,9 +25,8 @@ std::cout<< "u und v durch direkten Zugriff auf die FieldVariablen ersetzen" <<s
 std::cout<< "wenn debugging erledigt ist UND DT anpassen" <<std::endl;
 FieldVariable u=velocity_X;
 FieldVariable v=velocity_Y;
-float delta_x                 = settings_.physicalSize[0] / settings_.nCells[0];
-float delta_y                 = settings_.physicalSize[1] / settings_.nCells[1];
-float deltat                  = min3(min2(delta_x,delta_y)/4,delta_x/v.absmax(),delta_y/v.absmax())*settings_.tau;
+float &delta_x  = meshWidth()[0];               
+float &delta_y  = meshWidth()[1];               
 float delta_x_divisor         = 1 / (delta_x);
 float delta_y_divisor         = 1 / (delta_y);
 float delta_x_quadrat_divisor = 1 / (delta_x * delta_x);
@@ -55,9 +55,9 @@ float zwischenwert_uijmh    ;
 float zwischenwert_vimhj    ;
 float zwischenwert_uim1jph  ;
 
-for (int j = 1; j < settings_.nCells[1]-1; j++)
+for (int j = 1; j < settings_.nCells[1]; j++)
 {
-    for (int i = 1; i < settings_.nCells[0]-1; i++)
+    for (int i = 1; i < settings_.nCells[0]; i++)
     {
         zwischenwert_viphj    = v(i+1,j)   + v(i,j)   ;
         zwischenwert_viphjm1  = v(i+1,j-1) + v(i,j-1) ;
@@ -93,7 +93,7 @@ for (int j = 1; j < settings_.nCells[1]-1; j++)
 }
 
 
-float Discretization::min2(float value1, float value2) const
+double Discretization::min2(double value1, double value2) const
 {
     if (value1<=value2)
     {
@@ -104,7 +104,7 @@ float Discretization::min2(float value1, float value2) const
     }
 }
 
-float Discretization::min3(float value1, float value2, float value3) const
+double Discretization::min3(double value1, double value2, double value3) const
 {
     if (value1<=value2 && value1<=value3)
     {
@@ -118,15 +118,15 @@ float Discretization::min3(float value1, float value2, float value3) const
     }
 }
 
-float Discretization::f(int i, int j) const
+double Discretization::f(int i, int j) const
 {
-    //TODO
+    return F(i,j);
 }
-float Discretization::g(int i, int j) const
+double Discretization::g(int i, int j) const
 {
-    //TODO
+    return G(i,j);
 }
-float Discretization::rhs(int i, int j) const
+double Discretization::rhs(int i, int j) const
 {
-    //TODO
+    return  ( (F(i,j)-F(i-1,j)) / meshWidth()[0] + (G(i,j)-G(i,j-1)) / meshWidth()[1] ) / deltat  ;  
 }

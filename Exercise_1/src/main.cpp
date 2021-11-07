@@ -5,7 +5,8 @@
 #include "output_writer/output_writer_paraview.h"
 #include "pressure_solver/pressuresolver.h"
 #include "discretization_storage/discretization.h"
-
+#include "discretization_storage/donorcell.h"
+#include "discretization_storage/centraldifferences.h"
 //void loadFromFile(std::string filename);
 
 
@@ -31,27 +32,52 @@ settings.loadFromFile(filename);
 // display all settings on console
 settings.printSettings();
 
+StaggeredGrid mygrid(settings);
 //create objects of classes
 Discretization myDiscretization(settings);
 PressureSolver myPressureSolver(myDiscretization); //TODO use reference instead
 OutputWriterText myOutputWriterText(std::make_shared<Discretization>(myDiscretization));
 OutputWriterParaview myOutputWriterParaview(std::make_shared<Discretization>(myDiscretization));
 
+
+// Declare an object of type donorcell.
+//   DonorCell mydonorcell;
+   // Declare two pointers, one of type DonorCell * and the other
+   //  of type Dis *, and initialize them to point to mydonorcell.
+  // DonorCell *p_mydonorcell = &mydonorcell;
+   //Discretization    *p_discretization = &mydonorcell;
+
+   // Call the functions.
+   //pdiscretization->function();           // Call virtual function.
+   //pdonorcell->function(); // Call nonvirtual function.
+
+
+std::shared_ptr<CentralDifferences> centralDifferences1 = std::make_shared<CentralDifferences>(settings);
+double value1 = centralDifferences1->computeDuvDx(1,1);
+
+std::shared_ptr<Discretization> centralDifferences2 = std::make_shared<CentralDifferences>(settings);
+double value2 = centralDifferences2->computeDuvDx(1,1);
+
+
+
+
+
+
 // initialize time
 double current_time=0;
-// write after initialization
-myOutputWriterParaview.writeFile(current_time);
-myOutputWriterText.writeFile(current_time);
+ //write after initialization
+//myOutputWriterParaview.writeFile(current_time);
+//myOutputWriterText.writeFile(current_time);
 myDiscretization.setBorderVelocity(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
-myOutputWriterParaview.writeFile(current_time);
-myOutputWriterText.writeFile(current_time);
+//myOutputWriterParaview.writeFile(current_time);
+//myOutputWriterText.writeFile(current_time);
 
 myDiscretization.updateDeltaT();
 current_time+=myDiscretization.getDeltaT();
 myDiscretization.calculation();
 
-myOutputWriterParaview.writeFile(current_time);
-myOutputWriterText.writeFile(current_time);
+//myOutputWriterParaview.writeFile(current_time);
+//myOutputWriterText.writeFile(current_time);
 
 
   return EXIT_SUCCESS;

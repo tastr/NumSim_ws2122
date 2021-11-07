@@ -14,6 +14,7 @@ double DonorCell::computeDu2Dx(int i, int j) const
   double uimhj      = u(i-1,j)     + u(i,j);
   double donorTerm1 = abs(u(i,j)   + u(i+1,j)) * (u(i,j)-u(i+1,j));
   double donorTerm2 = abs(u(i-1,j) + u(i,j))   * (u(i-1,j)-u(i,j));
+  std::cout << "Donorcell" <<std::endl;
    return ( uiphj*uiphj + uiphj*uiphj + settings_.alpha * ( donorTerm1- donorTerm2) )/(4*delta_x); 
  } 
 
@@ -22,6 +23,7 @@ double DonorCell::computeDu2Dx(int i, int j) const
   double uijmh = (v(i,j-1) + v(i,j));
   double donorTerm1 = abs(v(i,j) + v(i,j+1)) * (v(i,j)-v(i,j+1));
   double donorTerm2 = abs(v(i,j-1) + v(i,j)) * (v(i,j-1)-v(i,j));
+  std::cout << "Donorcell" <<std::endl;
    return ( uijph-uijmh + settings_.alpha * (donorTerm1 - donorTerm2) )/(4*delta_x);
  }
 
@@ -45,6 +47,16 @@ double DonorCell::computeDu2Dx(int i, int j) const
 
 
 
-
+void DonorCell::calculation()
+{
+    for (int j = 1; j < settings_.nCells[1]; j++)
+    {
+        for (int i = 1; i < settings_.nCells[0]; i++)
+        {   
+            F(i,j) = u(i,j) + deltat * ((computeDuDx2(i,j) + computeDuDy2(i,j)) / settings_.re - computeDuvDy(i,j) - computeDu2Dx(i,j) + settings_.g[0]);
+            G(i,j) = v(i,j) + deltat * ((computeDvDx2(i,j) + computeDvDy2(i,j)) / settings_.re - computeDuvDx(i,j) - computeDv2Dy(i,j) + settings_.g[1]);
+        }
+    }   
+}
 
 

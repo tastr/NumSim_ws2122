@@ -14,6 +14,8 @@ public:
     double computeDv2Dy(int i, int j) const;
     double computeDuvDx(int i, int j) const;
     double computeDuvDy(int i, int j) const;
+
+    virtual void calculation();
 };
 
 

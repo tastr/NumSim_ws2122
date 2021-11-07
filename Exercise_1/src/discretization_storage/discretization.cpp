@@ -17,7 +17,7 @@ StaggeredGrid(settings) //, theGrid(settings.nCells)
 // setBorderVelocity(settings.dirichletBcTop,settings.dirichletBcLeft,settings.dirichletBcRight,settings.dirichletBcBottom)
 void Discretization::updateDeltaT()
 {
-deltat   = min2(min3(min2(delta_x,delta_y)*min2(delta_x,delta_y)*settings_.re/4,delta_x/velocity_X.absmax(),delta_y/velocity_Y.absmax())*settings_.tau, settings_.maximumDt);
+deltat = min2(min3(min2(delta_x,delta_y)*min2(delta_x,delta_y)*settings_.re/4,delta_x/velocity_X.absmax(),delta_y/velocity_Y.absmax())*settings_.tau, settings_.maximumDt);
 }
 
 //destructor
@@ -25,13 +25,13 @@ Discretization::~Discretization()
 {
 }
 
- double Discretization::computeDu2Dx(int i, int j) const    
+ double Discretization::computeDu2Dx(int i, int j) const {return 0;}   
 
- double Discretization::computeDv2Dy(int i, int j) const
+ double Discretization::computeDv2Dy(int i, int j) const {return 0;}
  
- double Discretization::computeDuvDx(int i, int j) const
+ double Discretization::computeDuvDx(int i, int j) const {return 0;}
  
- double Discretization::computeDuvDy(int i, int j) const
+ double Discretization::computeDuvDy(int i, int j) const {return 0;}
  
 
 
@@ -188,7 +188,7 @@ double Discretization::getDeltaT() const
 }
 
 
-
+//Ich denke das sollte sollte virtuell werden
 void Discretization::calculation()
 {
     for (int j = 1; j < settings_.nCells[1]; j++)

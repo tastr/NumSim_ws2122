@@ -25,7 +25,7 @@ public:
 
      // get functions:
      // werden gebraucht für den output_writer
-     std::array<float,2> meshWidth() const; //Hab mal  xmax-xmin bzw ymax-ymin eingefuegt
+     std::array<double,2> meshWidth() const; //Hab mal  xmax-xmin bzw ymax-ymin eingefuegt
      std::array<int,2> getSize() const; 
      
      std::array<int,2> nCells() const; //TODO

@@ -5,9 +5,9 @@
 
 //StaggeredGrid::StaggeredGrid(std::array<int,2> size) 
 StaggeredGrid::StaggeredGrid(Settings settings) 
-:pressure({settings.nCells[0]+2,settings.nCells[0]+2})
-,velocity_X({settings.nCells[0]+2,settings.nCells[0]+2})
-,velocity_Y({settings.nCells[0]+2,settings.nCells[0]+2})
+:pressure({settings.nCells[0]+2,settings.nCells[1]+2})
+,velocity_X({settings.nCells[0]+2,settings.nCells[1]+2})
+,velocity_Y({settings.nCells[0]+2,settings.nCells[1]+2})
 ,settings_(settings)
 { 
     setSize_(settings.nCells);
@@ -91,7 +91,7 @@ void StaggeredGrid::print(std::string str)
 
 }
 
-std::array<float,2> StaggeredGrid::meshWidth()  const
+std::array<double,2> StaggeredGrid::meshWidth()  const
 {
  return {dx(),dy()}  ;// {settings_.physicalSize[0] ,settings_.physicalSize[1]};
 }

@@ -11,13 +11,15 @@ protected:
     std::array<int,2> size_;
     FieldVariable pressure,velocity_X , velocity_Y;
     void setSize_(std::array<int,2> nCells);
+    double delta_x;
+    double delta_y;
 public:
     
     //StaggeredGrid(std::array<int,2> size);    ~StaggeredGrid();
      StaggeredGrid(Settings settings);
      void setBorderVelocity(std::array<double,2> top,std::array<double,2> left,std::array<double,2>  right,std::array<double,2> bottom); 
      void print(std::string str);
-     double abs(double number);
+     double abs(double number) const;
      
      // set and get functions to acess the fieldvariables
 

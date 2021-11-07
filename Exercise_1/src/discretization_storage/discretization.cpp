@@ -17,7 +17,7 @@ StaggeredGrid(settings) //, theGrid(settings.nCells)
 // setBorderVelocity(settings.dirichletBcTop,settings.dirichletBcLeft,settings.dirichletBcRight,settings.dirichletBcBottom)
 void Discretization::updateDeltaT()
 {
-deltat   = min2(min3(min2(dx(),dy())*min2(dx(),dy())*settings_.re/4,dx()/velocity_X.absmax(),dy()/velocity_Y.absmax())*settings_.tau, settings_.maximumDt);
+deltat   = min2(min3(min2(delta_x,delta_y)*min2(delta_x,delta_y)*settings_.re/4,delta_x/velocity_X.absmax(),delta_y/velocity_Y.absmax())*settings_.tau, settings_.maximumDt);
 }
 
 //destructor
@@ -25,20 +25,29 @@ Discretization::~Discretization()
 {
 }
 
+ double Discretization::computeDu2Dx(int i, int j) const    
 
-void Discretization::calculation()
+ double Discretization::computeDv2Dy(int i, int j) const
+ 
+ double Discretization::computeDuvDx(int i, int j) const
+ 
+ double Discretization::computeDuvDy(int i, int j) const
+ 
+
+
+void Discretization::calculation_altfinitedifferenzen()
 {
     
 std::cout<< "u und v durch direkten Zugriff auf die FieldVariablen ersetzen" <<std::endl;
 std::cout<< "wenn debugging erledigt ist UND DT anpassen" <<std::endl;
 FieldVariable u=velocity_X;
 FieldVariable v=velocity_Y;
-float &delta_x  = meshWidth()[0];               
-float &delta_y  = meshWidth()[1];               
-float delta_x_divisor         = 1 / (delta_x);
-float delta_y_divisor         = 1 / (delta_y);
-float delta_x_quadrat_divisor = 1 / (delta_x * delta_x);
-float delta_y_quadrat_divisor = 1 / (delta_y * delta_y);
+//float &delta_x  = delta_x;               
+//float &delta_y  = delta_y;               
+//float delta_x_divisor         = 1 / (delta_x);
+//float delta_y_divisor         = 1 / (delta_y);
+//float delta_x_quadrat_divisor = 1 / (delta_x * delta_x);
+//float delta_y_quadrat_divisor = 1 / (delta_y * delta_y);
 
 //vordefinieren der speicherskalare
 float u_xx                  ;
@@ -79,20 +88,20 @@ for (int j = 1; j < settings_.nCells[1]; j++)
         zwischenwert_vijph = u(i,j+1) + u(i,j)   * u(i,j+1) + u(i,j)   ;
         zwischenwert_vijmh = u(i,j)   + u(i,j-1) * u(i,j)   + u(i,j-1) ;
 
-        u_xx=delta_x_quadrat_divisor * (u(i+1,j) - 2 * u(i,j) + u(i-1,j));
-        u_yy=delta_y_quadrat_divisor * (u(i,j+1) - 2 * u(i,j) + u(i,j-1));
+        u_xx= (u(i+1,j) - 2 * u(i,j) + u(i-1,j))/(delta_x*delta_x);
+        u_yy=(u(i,j+1) - 2 * u(i,j) + u(i,j-1))/(delta_y*delta_y);
 
-        v_xx = delta_x_quadrat_divisor * (v(i+1,j) - 2 * v(i,j) + v(i-1,j));
-        v_yy = delta_y_quadrat_divisor * (v(i,j+1) - 2 * v(i,j) + v(i,j-1));
+        v_xx =  (v(i+1,j) - 2 * v(i,j) + v(i-1,j))/ (delta_x* delta_x);
+        v_yy =  (v(i,j+1) - 2 * v(i,j) + v(i,j-1))/ (delta_y*delta_y);
 
-        u_quadrat_x = delta_x_divisor / 4 * (zwischenwert_uiphj - zwischenwert_uimhj);
-        v_quadrat_y = delta_y_divisor / 4 * (zwischenwert_vijph - zwischenwert_vijmh);
+        u_quadrat_x =  (zwischenwert_uiphj - zwischenwert_uimhj)/(4*delta_x*delta_x);
+        v_quadrat_y = (zwischenwert_vijph - zwischenwert_vijmh)/(4*delta_x*delta_x);
 
-        uv_x = delta_x_divisor /4 * (zwischenwert_viphj * zwischenwert_uijph - zwischenwert_vimhj   * zwischenwert_uim1jph);
-        uv_y = delta_y_divisor /4 * (zwischenwert_viphj * zwischenwert_uijph - zwischenwert_viphjm1 * zwischenwert_uijmh);
+        uv_x = (zwischenwert_viphj * zwischenwert_uijph - zwischenwert_vimhj   * zwischenwert_uim1jph)/(4*delta_x*delta_x);
+        uv_y = (zwischenwert_viphj * zwischenwert_uijph - zwischenwert_viphjm1 * zwischenwert_uijmh)/(4*delta_x*delta_x);
 
-        u_x = delta_x_divisor * (u(i,j)-u(i-1,j));
-        v_y = delta_y_divisor * (v(i,j)-v(i,j-1));
+        u_x =  (u(i,j)-u(i-1,j))/delta_x;
+        v_y =  (v(i,j)-v(i,j-1))/ delta_y;
 
         F(i,j) = u(i,j) + deltat * ((u_xx + u_yy) / settings_.re - uv_y - u_quadrat_x + settings_.g[0]);
         G(i,j) = v(i,j) + deltat * ((v_xx + v_yy) / settings_.re - uv_x - v_quadrat_y + settings_.g[1]);
@@ -100,6 +109,34 @@ for (int j = 1; j < settings_.nCells[1]; j++)
 }
 }
 
+double Discretization::computeDuDx2(int i, int j) const
+{
+ return (u(i+1,j) - 2 * u(i,j) + u(i-1,j))/(delta_x*delta_x);
+}
+double Discretization::computeDvDy2(int i, int j) const
+{
+ return (v(i,j+1) - 2 * v(i,j) + v(i,j-1))/ (delta_y*delta_y);
+}
+
+double Discretization::computeDuDy2(int i, int j) const
+{
+ return (u(i,j+1) - 2 * u(i,j) + u(i,j-1))/(delta_y*delta_y);
+}
+double Discretization::computeDvDx2(int i, int j) const
+{
+ return (v(i+1,j) - 2 * v(i,j) + v(i-1,j))/ (delta_x* delta_x);       
+}
+
+double Discretization::computeDuDx(int i, int j) const
+{ 
+  return (u(i,j)-u(i-1,j))/delta_x;
+} 
+double Discretization::computeDvDy(int i, int j) const
+{ 
+  return (v(i,j)-v(i,j-1))/ delta_y;
+} 
+
+        
 
 double Discretization::min2(double value1, double value2) const
 {
@@ -142,10 +179,24 @@ double Discretization::rhs(int i, int j) const//const statment removed because o
 
 double Discretization::getOmega() const
 {
-   //TODO 
+   return settings_.omega; 
 } 
 
 double Discretization::getDeltaT() const
 {
-    return deltat;
+   return deltat;
+}
+
+
+
+void Discretization::calculation()
+{
+    for (int j = 1; j < settings_.nCells[1]; j++)
+    {
+        for (int i = 1; i < settings_.nCells[0]; i++)
+        {   
+            F(i,j) = u(i,j) + deltat * ((computeDuDx2(i,j) + computeDuDy2(i,j)) / settings_.re - computeDuvDy(i,j) - computeDu2Dx(i,j) + settings_.g[0]);
+            G(i,j) = v(i,j) + deltat * ((computeDvDx2(i,j) + computeDvDy2(i,j)) / settings_.re - computeDuvDx(i,j) - computeDv2Dy(i,j) + settings_.g[1]);
+        }
+    }   
 }

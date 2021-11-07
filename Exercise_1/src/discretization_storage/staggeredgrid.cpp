@@ -11,6 +11,8 @@ StaggeredGrid::StaggeredGrid(Settings settings)
 ,settings_(settings)
 { 
     setSize_(settings.nCells);
+    delta_x=settings_.physicalSize[0] / settings_.nCells[0];
+    delta_y=settings_.physicalSize[1] / settings_.nCells[1];
 }
 
 // StaggeredGrid::~StaggeredGrid()
@@ -123,12 +125,12 @@ double StaggeredGrid::v(int i, int j) const
 }
 double StaggeredGrid::dx() const
 {
-    return settings_.physicalSize[0] / settings_.nCells[0];
+    return delta_x;
 
 }
 double StaggeredGrid::dy() const
 {
-    return settings_.physicalSize[1] / settings_.nCells[1];
+    return delta_y;
 }
 int StaggeredGrid::uIBegin() const
 {
@@ -231,7 +233,7 @@ void StaggeredGrid::setV(FieldVariable value)
         }
     }
 
-double StaggeredGrid::abs(double number)
+double StaggeredGrid::abs(double number) const
    {
  if (number>=0)
   {
@@ -239,6 +241,5 @@ double StaggeredGrid::abs(double number)
   }else
   {
     return -number;
-    
   }
    }

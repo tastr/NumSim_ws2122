@@ -65,18 +65,18 @@ myDiscretization->setBorderVelocity(settings.dirichletBcTop, settings.dirichletB
 myOutputWriterParaview.writeFile(current_time);
 myOutputWriterText.writeFile(current_time);
 
-// while (current_time<settings.endTime)
-// {
+while (current_time<settings.endTime)
+{
   myDiscretization->updateDeltaT();
   current_time+=myDiscretization->getDeltaT();
   myDiscretization->calculation();
   myPressureSolver->calculateRHS();
   myPressureSolver->calculateP();
-  
+  myDiscretization->updateVelocity();
   
   myOutputWriterParaview.writeFile(current_time);
   myOutputWriterText.writeFile(current_time);
-// }
+}
 
 
 

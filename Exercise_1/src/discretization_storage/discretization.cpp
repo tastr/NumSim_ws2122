@@ -136,6 +136,29 @@ double Discretization::computeDvDy(int i, int j) const
   return (v(i,j)-v(i,j-1))/ delta_y;
 } 
 
+double Discretization::computeDpDx(int i, int j) const
+{
+    return (p(i+1, j)-p(i,j))/delta_x;
+}
+
+double Discretization::computeDpDy(int i, int j) const
+{
+    return (p(i, j+1)-p(i,j))/delta_y;
+}
+
+void Discretization::updateVelocity()
+{
+    for (int j = 1; j < settings_.nCells[1]; j++)
+    {
+        for (int i = 1; i < settings_.nCells[0]; i++)
+        {
+            velocity_X(i, j)=F(i, j)-deltat*computeDpDx(i, j);
+            velocity_Y(i, j)=G(i, j)-deltat*computeDpDy(i, j);
+
+        }
+        
+    }
+}
         
 
 double Discretization::min2(double value1, double value2) const

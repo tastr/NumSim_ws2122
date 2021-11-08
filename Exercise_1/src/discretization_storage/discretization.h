@@ -18,6 +18,8 @@ public:
    void calculation_altfinitedifferenzen();
 
    virtual void calculation();
+   void updateVelocity();
+
    
    void updateDeltaT();
    double  min2(double value1, double value2) const; 
@@ -30,6 +32,9 @@ public:
 
    double computeDuDx(int i, int j) const;
    double computeDvDy(int i, int j) const;
+
+   double computeDpDx(int i, int j) const;
+   double computeDpDy(int i, int j) const;
 
    virtual double computeDu2Dx(int i, int j) const ; // keine Ahnung ob das = 0 hier hin gehoert
    virtual double computeDv2Dy(int i, int j) const ;

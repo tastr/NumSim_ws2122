@@ -252,6 +252,33 @@ discretization_storage/discretization.cpp.s:
 	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.s
 .PHONY : discretization_storage/discretization.cpp.s
 
+discretization_storage/donorcell.o: discretization_storage/donorcell.cpp.o
+
+.PHONY : discretization_storage/donorcell.o
+
+# target to build an object file
+discretization_storage/donorcell.cpp.o:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o
+.PHONY : discretization_storage/donorcell.cpp.o
+
+discretization_storage/donorcell.i: discretization_storage/donorcell.cpp.i
+
+.PHONY : discretization_storage/donorcell.i
+
+# target to preprocess a source file
+discretization_storage/donorcell.cpp.i:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.i
+.PHONY : discretization_storage/donorcell.cpp.i
+
+discretization_storage/donorcell.s: discretization_storage/donorcell.cpp.s
+
+.PHONY : discretization_storage/donorcell.s
+
+# target to generate assembly for a file
+discretization_storage/donorcell.cpp.s:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.s
+.PHONY : discretization_storage/donorcell.cpp.s
+
 discretization_storage/fieldvariable.o: discretization_storage/fieldvariable.cpp.o
 
 .PHONY : discretization_storage/fieldvariable.o
@@ -544,6 +571,9 @@ help:
 	@echo "... discretization_storage/discretization.o"
 	@echo "... discretization_storage/discretization.i"
 	@echo "... discretization_storage/discretization.s"
+	@echo "... discretization_storage/donorcell.o"
+	@echo "... discretization_storage/donorcell.i"
+	@echo "... discretization_storage/donorcell.s"
 	@echo "... discretization_storage/fieldvariable.o"
 	@echo "... discretization_storage/fieldvariable.i"
 	@echo "... discretization_storage/fieldvariable.s"

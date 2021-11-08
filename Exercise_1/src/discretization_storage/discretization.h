@@ -14,7 +14,7 @@ protected:
    FieldVariable F, G, rhs_;
 public:
     Discretization(Settings settings);
-    ~Discretization();
+    virtual ~Discretization();
    void calculation_altfinitedifferenzen();
 
    virtual void calculation();

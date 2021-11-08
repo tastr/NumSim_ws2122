@@ -32,7 +32,7 @@ return size_;
 // hab vergessen, was wir an den Ecken nehmen, muss dann noch angepasst werden
 void StaggeredGrid::setBorderVelocity(std::array<double,2> top,std::array<double,2> left,std::array<double,2> right,std::array<double,2> bottom)
 {  int i_max = pressure.size()[0], j_max = pressure.size()[1];
-   std::cout<<"Wertzuweisung an den Ecken anpassen"<<std::endl; 
+//    std::cout<<"Wertzuweisung an den Ecken anpassen"<<std::endl; 
     for (int j = 0; j < j_max; j++)
    {
         velocity_X(0,j)=left[0];

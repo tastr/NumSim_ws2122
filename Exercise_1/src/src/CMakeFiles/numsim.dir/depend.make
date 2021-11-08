@@ -19,6 +19,14 @@ src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o: discretiz
 src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o: discretization_storage/staggeredgrid.h
 src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o: settings.h
 
+src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o: discretization_storage/array2d.h
+src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o: discretization_storage/discretization.h
+src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o: discretization_storage/donorcell.cpp
+src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o: discretization_storage/donorcell.h
+src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o: discretization_storage/fieldvariable.h
+src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o: discretization_storage/staggeredgrid.h
+src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o: settings.h
+
 src/CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.o: discretization_storage/array2d.h
 src/CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.o: discretization_storage/fieldvariable.cpp
 src/CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.o: discretization_storage/fieldvariable.h

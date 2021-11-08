@@ -34,36 +34,42 @@ settings.loadFromFile(filename);
 // display all settings on console
 settings.printSettings();
 
-StaggeredGrid mygrid(settings);
 //create objects of classes
-Discretization myDiscretization(settings);
+std::shared_ptr<Discretization> myDiscretization;
+if (settings.useDonorCell)
+{
+  myDiscretization=std::make_shared<DonorCell>(settings);
+} else
+{
+  myDiscretization=std::make_shared<CentralDifferences>(settings);
+}
 std::shared_ptr<PressureSolver> myPressureSolver;
 if (settings.pressureSolver == "SOR")
 {
-  myPressureSolver= std::make_shared<SOR>(myDiscretization); //reference is used
+  myPressureSolver= std::make_shared<SOR>(*myDiscretization); //reference is used
 } else
 {
-  myPressureSolver= std::make_shared<GaussSeidel>(myDiscretization); //reference is used
+  myPressureSolver= std::make_shared<GaussSeidel>(*myDiscretization); //reference is used
 }
 
-std::shared_ptr<Discretization> pointer_to_myDiscretization (& myDiscretization); //vermutlich gibt es da einen besseren Weg, aber den habe ich nicht gefunden...
-OutputWriterText myOutputWriterText(pointer_to_myDiscretization);
-OutputWriterParaview myOutputWriterParaview(pointer_to_myDiscretization);
+// std::shared_ptr<Discretization> pointer_to_myDiscretization (& myDiscretization); //vermutlich gibt es da einen besseren Weg, aber den habe ich nicht gefunden...
+OutputWriterText myOutputWriterText(myDiscretization);
+OutputWriterParaview myOutputWriterParaview(myDiscretization);
 
 // initialize time
 double current_time=0;
  //write after initialization
 myOutputWriterParaview.writeFile(current_time);
 myOutputWriterText.writeFile(current_time);
-myDiscretization.setBorderVelocity(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
+myDiscretization->setBorderVelocity(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
 myOutputWriterParaview.writeFile(current_time);
 myOutputWriterText.writeFile(current_time);
 
 // while (current_time<settings.endTime)
 // {
-  myDiscretization.updateDeltaT();
-  current_time+=myDiscretization.getDeltaT();
-  myDiscretization.calculation();
+  myDiscretization->updateDeltaT();
+  current_time+=myDiscretization->getDeltaT();
+  myDiscretization->calculation();
   myPressureSolver->calculateRHS();
   myPressureSolver->calculateP();
   

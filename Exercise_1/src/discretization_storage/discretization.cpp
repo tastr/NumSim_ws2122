@@ -191,14 +191,17 @@ double Discretization::getDeltaT() const
 //Ich denke das sollte sollte virtuell werden
 void Discretization::calculation()
 {
-    for (int j = 1; j < settings_.nCells[1]; j++)
-    {
-        for (int i = 1; i < settings_.nCells[0]; i++)
-        {   
-            F(i,j) = u(i,j) + deltat * ((computeDuDx2(i,j) + computeDuDy2(i,j)) / settings_.re - computeDuvDy(i,j) - computeDu2Dx(i,j) + settings_.g[0]);
-            G(i,j) = v(i,j) + deltat * ((computeDvDx2(i,j) + computeDvDy2(i,j)) / settings_.re - computeDuvDx(i,j) - computeDv2Dy(i,j) + settings_.g[1]);
-        }
-    }   
+    // this should never be called, as it is a virtual function
+    assert(false);
+
+    // for (int j = 1; j < settings_.nCells[1]; j++)
+    // {
+    //     for (int i = 1; i < settings_.nCells[0]; i++)
+    //     {   
+    //         F(i,j) = u(i,j) + deltat * ((computeDuDx2(i,j) + computeDuDy2(i,j)) / settings_.re - computeDuvDy(i,j) - computeDu2Dx(i,j) + settings_.g[0]);
+    //         G(i,j) = v(i,j) + deltat * ((computeDvDx2(i,j) + computeDvDy2(i,j)) / settings_.re - computeDuvDx(i,j) - computeDv2Dy(i,j) + settings_.g[1]);
+    //     }
+    // }   
 }
 
 void Discretization::setRHS(int i, int j, double value)

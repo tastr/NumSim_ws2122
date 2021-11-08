@@ -7,7 +7,7 @@ project(numsim)
 # Also specify the source files.
 add_executable(${PROJECT_NAME}
    main.cpp
-#   Main_Test.cpp
+#   Test_Ableitung.cpp
    settings.cpp
    output_writer/output_writer_paraview.cpp
    output_writer/output_writer_text.cpp

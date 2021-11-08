@@ -15,7 +15,7 @@ class CentralDifferences :
     double computeDuvDx(int i, int j) const;
     double computeDuvDy(int i, int j) const;
     
-    virtual void calculation();
+    void calculation();
 };
 
 

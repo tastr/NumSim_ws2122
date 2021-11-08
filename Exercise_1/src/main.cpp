@@ -66,11 +66,11 @@ double value2 = centralDifferences2->computeDuvDx(1,1);
 // initialize time
 double current_time=0;
  //write after initialization
-//myOutputWriterParaview.writeFile(current_time);
-//myOutputWriterText.writeFile(current_time);
+myOutputWriterParaview.writeFile(current_time);
+myOutputWriterText.writeFile(current_time);
 myDiscretization.setBorderVelocity(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
-//myOutputWriterParaview.writeFile(current_time);
-//myOutputWriterText.writeFile(current_time);
+myOutputWriterParaview.writeFile(current_time);
+myOutputWriterText.writeFile(current_time);
 
 myDiscretization.updateDeltaT();
 current_time+=myDiscretization.getDeltaT();

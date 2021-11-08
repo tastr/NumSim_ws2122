@@ -39,7 +39,9 @@ src/CMakeFiles/numsim.dir/main.cpp.o
  /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/main.cpp
  /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/output_writer/output_writer_paraview.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/output_writer/output_writer_text.h
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/gaussseidel.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/pressuresolver.h
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/sor.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/settings.h
  /usr/local/include/vtk-8.2/vtkABI.h
  /usr/local/include/vtk-8.2/vtkAlgorithm.h

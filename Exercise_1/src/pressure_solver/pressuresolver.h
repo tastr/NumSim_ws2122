@@ -13,10 +13,11 @@ protected:
  
 public:
       PressureSolver(Discretization& discretization);
-      ~PressureSolver();
+      virtual ~PressureSolver();
        double abs_(double number);
        void setPressureBoundaries();
        void calculateRHS();
+       virtual void calculateP();
        
        double residuum();
 };

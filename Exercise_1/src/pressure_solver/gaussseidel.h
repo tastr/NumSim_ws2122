@@ -15,8 +15,8 @@ protected:
 public:
       GaussSeidel(Discretization& discretization_);
       ~GaussSeidel();
-      //FieldVariable Iterationsverfahren();
-      void Iterationsverfahren();
+      //FieldVariable calculateP();
+      virtual void calculateP();
      
      
     

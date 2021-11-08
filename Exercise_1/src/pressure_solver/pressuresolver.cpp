@@ -52,7 +52,12 @@ void PressureSolver::calculateRHS()
       discretization_.setRHS(i,j, current_rhs);
     }
   }
-  
+}
+
+void PressureSolver::calculateP()
+{
+  //is virtual class only should never be called
+  assert(false);
 }
 
 double PressureSolver::residuum() 

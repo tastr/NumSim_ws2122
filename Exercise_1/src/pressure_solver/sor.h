@@ -15,8 +15,8 @@ protected:
 public:
       SOR(Discretization& discretization_);
       ~SOR();
-      //FieldVariable Iterationsverfahren();
-      void Iterationsverfahren();
+      //FieldVariable calculateP();
+      virtual void calculateP();
       double tol;
      
     

@@ -13,8 +13,8 @@ GaussSeidel::~GaussSeidel()
 }
 
 
-//FieldVariable SOR::Iterationsverfahren()
-void GaussSeidel::Iterationsverfahren()
+//FieldVariable SOR::calculateP()
+void GaussSeidel::calculateP()
     {
     FieldVariable p   = discretization_.p();
     double deltax_quad = discretization_.dx() * discretization_.dx();

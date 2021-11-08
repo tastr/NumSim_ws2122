@@ -35,20 +35,21 @@ void StaggeredGrid::setBorderVelocity(std::array<double,2> top,std::array<double
    std::cout<<"Wertzuweisung an den Ecken anpassen"<<std::endl; 
     for (int j = 0; j < j_max; j++)
    {
-        velocity_X(0,j)=top[0];
-        velocity_Y(0,j)=top[1];   
+        velocity_X(0,j)=left[0];
+        velocity_Y(0,j)=left[1];   
     
-        velocity_X(j_max-1,j)=bottom[0];
-        velocity_Y(j_max-1,j)=bottom[1]; 
+        velocity_X(j_max-1,j)=right[0];
+        velocity_Y(j_max-1,j)=right[1]; 
    }
    
-   for (int i = 0; i < i_max; i++)
+   // i starts at 1 and goes to i_max-1 so that the wall is the BC in corners
+   for (int i = 1; i < i_max-1; i++)
    {
-        velocity_X(i,0)=left[0];
-        velocity_Y(i,0)=left[1];  
+        velocity_X(i,0)=bottom[0];
+        velocity_Y(i,0)=bottom[1];  
 
-        velocity_X(i,i_max-1)=right[0];
-        velocity_Y(i,i_max-1)=right[1]; 
+        velocity_X(i,i_max-1)=top[0];
+        velocity_Y(i,i_max-1)=top[1]; 
         
    }
       

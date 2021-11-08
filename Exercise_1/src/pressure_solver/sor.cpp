@@ -15,8 +15,8 @@ SOR::~SOR()
 }
 
 
-//FieldVariable SOR::Iterationsverfahren()
-void SOR::Iterationsverfahren()
+//FieldVariable SOR::calculateP()
+void SOR::calculateP()
     {
     FieldVariable p    = discretization_.p();
     double deltax_quad = discretization_.dx() * discretization_.dx();

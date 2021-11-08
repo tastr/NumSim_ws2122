@@ -38,7 +38,9 @@ src/CMakeFiles/numsim.dir/main.cpp.o: discretization_storage/staggeredgrid.h
 src/CMakeFiles/numsim.dir/main.cpp.o: main.cpp
 src/CMakeFiles/numsim.dir/main.cpp.o: output_writer/output_writer_paraview.h
 src/CMakeFiles/numsim.dir/main.cpp.o: output_writer/output_writer_text.h
+src/CMakeFiles/numsim.dir/main.cpp.o: pressure_solver/gaussseidel.h
 src/CMakeFiles/numsim.dir/main.cpp.o: pressure_solver/pressuresolver.h
+src/CMakeFiles/numsim.dir/main.cpp.o: pressure_solver/sor.h
 src/CMakeFiles/numsim.dir/main.cpp.o: settings.h
 src/CMakeFiles/numsim.dir/main.cpp.o: /usr/local/include/vtk-8.2/vtkABI.h
 src/CMakeFiles/numsim.dir/main.cpp.o: /usr/local/include/vtk-8.2/vtkAlgorithm.h

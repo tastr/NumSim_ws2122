@@ -4,6 +4,8 @@
 #include "output_writer/output_writer_text.h"
 #include "output_writer/output_writer_paraview.h"
 #include "pressure_solver/pressuresolver.h"
+#include "pressure_solver/sor.h"
+#include "pressure_solver/gaussseidel.h"
 #include "discretization_storage/discretization.h"
 #include "discretization_storage/donorcell.h"
 #include "discretization_storage/centraldifferences.h"
@@ -35,7 +37,15 @@ settings.printSettings();
 StaggeredGrid mygrid(settings);
 //create objects of classes
 Discretization myDiscretization(settings);
-PressureSolver myPressureSolver(myDiscretization); //reference is used
+std::shared_ptr<PressureSolver> myPressureSolver;
+if (settings.pressureSolver == "SOR")
+{
+  myPressureSolver= std::make_shared<SOR>(myDiscretization); //reference is used
+} else
+{
+  myPressureSolver= std::make_shared<GaussSeidel>(myDiscretization); //reference is used
+}
+
 std::shared_ptr<Discretization> pointer_to_myDiscretization (& myDiscretization); //vermutlich gibt es da einen besseren Weg, aber den habe ich nicht gefunden...
 OutputWriterText myOutputWriterText(pointer_to_myDiscretization);
 OutputWriterParaview myOutputWriterParaview(pointer_to_myDiscretization);
@@ -54,7 +64,9 @@ myOutputWriterText.writeFile(current_time);
   myDiscretization.updateDeltaT();
   current_time+=myDiscretization.getDeltaT();
   myDiscretization.calculation();
-  myPressureSolver.calculateRHS();
+  myPressureSolver->calculateRHS();
+  myPressureSolver->calculateP();
+  
   
   myOutputWriterParaview.writeFile(current_time);
   myOutputWriterText.writeFile(current_time);

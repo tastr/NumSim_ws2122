@@ -1,7 +1,7 @@
 #include "sor.h"
 #include <cassert>
 
-SOR::SOR(Discretization discretization_)
+SOR::SOR(Discretization& discretization_)
 :PressureSolver(discretization_)
 {
     double tol = 0.000001;

@@ -43,6 +43,9 @@ public:
     double rhs(int i, int j) const; //const statment removed becoause of error
     double getOmega() const; //TODO
     double getDeltaT() const;
+
+    // set functions
+    void setRHS(int i, int j, double value);
 };
 
 

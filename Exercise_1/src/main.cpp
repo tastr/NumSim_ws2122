@@ -35,9 +35,33 @@ settings.printSettings();
 StaggeredGrid mygrid(settings);
 //create objects of classes
 Discretization myDiscretization(settings);
-PressureSolver myPressureSolver(myDiscretization); //TODO use reference instead
-OutputWriterText myOutputWriterText(std::make_shared<Discretization>(myDiscretization));
-OutputWriterParaview myOutputWriterParaview(std::make_shared<Discretization>(myDiscretization));
+PressureSolver myPressureSolver(myDiscretization); //reference is used
+std::shared_ptr<Discretization> pointer_to_myDiscretization (& myDiscretization); //vermutlich gibt es da einen besseren Weg, aber den habe ich nicht gefunden...
+OutputWriterText myOutputWriterText(pointer_to_myDiscretization);
+OutputWriterParaview myOutputWriterParaview(pointer_to_myDiscretization);
+
+// initialize time
+double current_time=0;
+ //write after initialization
+myOutputWriterParaview.writeFile(current_time);
+myOutputWriterText.writeFile(current_time);
+myDiscretization.setBorderVelocity(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
+myOutputWriterParaview.writeFile(current_time);
+myOutputWriterText.writeFile(current_time);
+
+// while (current_time<settings.endTime)
+// {
+  myDiscretization.updateDeltaT();
+  current_time+=myDiscretization.getDeltaT();
+  myDiscretization.calculation();
+  myPressureSolver.calculateRHS();
+  
+  myOutputWriterParaview.writeFile(current_time);
+  myOutputWriterText.writeFile(current_time);
+// }
+
+
+
 
 
 // Declare an object of type donorcell.
@@ -52,32 +76,14 @@ OutputWriterParaview myOutputWriterParaview(std::make_shared<Discretization>(myD
    //pdonorcell->function(); // Call nonvirtual function.
 
 
-std::shared_ptr<CentralDifferences> centralDifferences1 = std::make_shared<CentralDifferences>(settings);
-double value1 = centralDifferences1->computeDuvDx(1,1);
+// std::shared_ptr<CentralDifferences> centralDifferences1 = std::make_shared<CentralDifferences>(settings);
+// double value1 = centralDifferences1->computeDuvDx(1,1);
 
-std::shared_ptr<Discretization> centralDifferences2 = std::make_shared<CentralDifferences>(settings);
-double value2 = centralDifferences2->computeDuvDx(1,1);
-
-
+// std::shared_ptr<Discretization> centralDifferences2 = std::make_shared<CentralDifferences>(settings);
+// double value2 = centralDifferences2->computeDuvDx(1,1);
 
 
 
-
-// initialize time
-double current_time=0;
- //write after initialization
-myOutputWriterParaview.writeFile(current_time);
-myOutputWriterText.writeFile(current_time);
-myDiscretization.setBorderVelocity(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
-myOutputWriterParaview.writeFile(current_time);
-myOutputWriterText.writeFile(current_time);
-
-myDiscretization.updateDeltaT();
-current_time+=myDiscretization.getDeltaT();
-myDiscretization.calculation();
-
-//myOutputWriterParaview.writeFile(current_time);
-//myOutputWriterText.writeFile(current_time);
 
 
   return EXIT_SUCCESS;

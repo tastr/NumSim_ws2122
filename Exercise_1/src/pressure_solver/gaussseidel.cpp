@@ -1,7 +1,7 @@
 #include "gaussseidel.h"
 #include <cassert>
 
-GaussSeidel::GaussSeidel(Discretization discretization_)
+GaussSeidel::GaussSeidel(Discretization& discretization_)
 :PressureSolver(discretization_)
 {
     double tol = 0.000001;

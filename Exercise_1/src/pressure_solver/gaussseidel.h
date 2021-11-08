@@ -13,7 +13,7 @@ protected:
         double tol;
  
 public:
-      GaussSeidel(Discretization discretization_);
+      GaussSeidel(Discretization& discretization_);
       ~GaussSeidel();
       //FieldVariable Iterationsverfahren();
       void Iterationsverfahren();

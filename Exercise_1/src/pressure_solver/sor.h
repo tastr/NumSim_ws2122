@@ -13,7 +13,7 @@ protected:
       //   double omega; //Omega festgelegt durch parameter
  
 public:
-      SOR(Discretization discretization_);
+      SOR(Discretization& discretization_);
       ~SOR();
       //FieldVariable Iterationsverfahren();
       void Iterationsverfahren();

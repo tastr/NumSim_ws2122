@@ -171,33 +171,6 @@ numsim/fast:
 	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/build
 .PHONY : numsim/fast
 
-Test_Ableitung.o: Test_Ableitung.cpp.o
-
-.PHONY : Test_Ableitung.o
-
-# target to build an object file
-Test_Ableitung.cpp.o:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/Test_Ableitung.cpp.o
-.PHONY : Test_Ableitung.cpp.o
-
-Test_Ableitung.i: Test_Ableitung.cpp.i
-
-.PHONY : Test_Ableitung.i
-
-# target to preprocess a source file
-Test_Ableitung.cpp.i:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/Test_Ableitung.cpp.i
-.PHONY : Test_Ableitung.cpp.i
-
-Test_Ableitung.s: Test_Ableitung.cpp.s
-
-.PHONY : Test_Ableitung.s
-
-# target to generate assembly for a file
-Test_Ableitung.cpp.s:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/Test_Ableitung.cpp.s
-.PHONY : Test_Ableitung.cpp.s
-
 discretization_storage/array2d.o: discretization_storage/array2d.cpp.o
 
 .PHONY : discretization_storage/array2d.o
@@ -332,6 +305,33 @@ discretization_storage/staggeredgrid.s: discretization_storage/staggeredgrid.cpp
 discretization_storage/staggeredgrid.cpp.s:
 	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.s
 .PHONY : discretization_storage/staggeredgrid.cpp.s
+
+main.o: main.cpp.o
+
+.PHONY : main.o
+
+# target to build an object file
+main.cpp.o:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
+
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 output_writer/output_writer.o: output_writer/output_writer.cpp.o
 
@@ -535,9 +535,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... install/strip"
 	@echo "... numsim"
-	@echo "... Test_Ableitung.o"
-	@echo "... Test_Ableitung.i"
-	@echo "... Test_Ableitung.s"
 	@echo "... discretization_storage/array2d.o"
 	@echo "... discretization_storage/array2d.i"
 	@echo "... discretization_storage/array2d.s"
@@ -553,6 +550,9 @@ help:
 	@echo "... discretization_storage/staggeredgrid.o"
 	@echo "... discretization_storage/staggeredgrid.i"
 	@echo "... discretization_storage/staggeredgrid.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 	@echo "... output_writer/output_writer.o"
 	@echo "... output_writer/output_writer.i"
 	@echo "... output_writer/output_writer.s"

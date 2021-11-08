@@ -1,7 +1,7 @@
 #include "pressuresolver.h"
 #include <cassert>
 
-PressureSolver::PressureSolver(Discretization discretization)
+PressureSolver::PressureSolver(Discretization& discretization)
 :discretization_(discretization)
 {
     
@@ -41,7 +41,19 @@ double PressureSolver::abs_(double number)
     }
 
 
-
+void PressureSolver::calculateRHS()
+{
+  double current_rhs=0;
+  for (int j = 1; j < discretization_.getSize()[1]-1; j++)
+  {
+    for (int i = 1; i < discretization_.getSize()[0]-1; i++)
+    {
+      current_rhs=((discretization_.f(i,j)-discretization_.f(i-1,j))/discretization_.dx()+(discretization_.g(i,j)-discretization_.g(i,j-1))/discretization_.dy())/discretization_.getDeltaT();
+      discretization_.setRHS(i,j, current_rhs);
+    }
+  }
+  
+}
 
 double PressureSolver::residuum() 
 { double res =0;

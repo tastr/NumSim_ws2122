@@ -8,14 +8,15 @@
 class PressureSolver
 {
 protected: 
-     Discretization discretization_;
+     Discretization& discretization_;
  
  
 public:
-      PressureSolver(Discretization discretization);
+      PressureSolver(Discretization& discretization);
       ~PressureSolver();
        double abs_(double number);
        void setPressureBoundaries();
+       void calculateRHS();
        
        double residuum();
 };

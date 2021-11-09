@@ -13,6 +13,7 @@ protected:
     void setSize_(std::array<int,2> nCells);
     double delta_x;
     double delta_y;
+    double epsilon;
 public:
     
     //StaggeredGrid(std::array<int,2> size);    ~StaggeredGrid();
@@ -37,6 +38,7 @@ public:
      double v(int i, int j) const; //TODO
      double dx() const; //ist das nicht identisch zu meshwidth?
      double dy() const; //ist das nicht identisch zu meshwidth?
+     double getepsilon() const; //ist das nicht identisch zu meshwidth?
      int uIBegin() const; //TODO keine ahnung was die Funktion machen soll. Vielleicht startindex zurückgeben?
      int uIEnd() const; //TODO keine ahnung was die Funktion machen soll. Vielleicht startindex zurückgeben?
      int uJBegin() const; //TODO keine ahnung was die Funktion machen soll. Vielleicht startindex zurückgeben?

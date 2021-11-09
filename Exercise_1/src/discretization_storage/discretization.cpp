@@ -35,79 +35,7 @@ Discretization::~Discretization()
  
 
 
-void Discretization::calculation_altfinitedifferenzen()
-{
-    
-std::cout<< "u und v durch direkten Zugriff auf die FieldVariablen ersetzen" <<std::endl;
-std::cout<< "wenn debugging erledigt ist UND DT anpassen" <<std::endl;
-FieldVariable u=velocity_X;
-FieldVariable v=velocity_Y;
-//float &delta_x  = delta_x;               
-//float &delta_y  = delta_y;               
-//float delta_x_divisor         = 1 / (delta_x);
-//float delta_y_divisor         = 1 / (delta_y);
-//float delta_x_quadrat_divisor = 1 / (delta_x * delta_x);
-//float delta_y_quadrat_divisor = 1 / (delta_y * delta_y);
 
-//vordefinieren der speicherskalare
-float u_xx                  ;
-float u_yy                  ;
-float v_xx                  ;
-float v_yy                  ;
-float u_quadrat_x           ;
-float v_quadrat_y           ;
-float uv_x                  ;
-float uv_y                  ;
-float u_x                   ;
-float v_y                   ;
-
-float zwischenwert_uiphj    ; 
-float zwischenwert_uimhj    ;
-float zwischenwert_vijph    ;
-float zwischenwert_vijmh    ;
-float zwischenwert_viphj    ;
-float zwischenwert_viphjm1  ;
-float zwischenwert_uijph    ;    
-float zwischenwert_uijmh    ;
-float zwischenwert_vimhj    ;
-float zwischenwert_uim1jph  ;
-
-for (int j = 1; j < settings_.nCells[1]; j++)
-{
-    for (int i = 1; i < settings_.nCells[0]; i++)
-    {
-        zwischenwert_viphj    = v(i+1,j)   + v(i,j)   ;
-        zwischenwert_viphjm1  = v(i+1,j-1) + v(i,j-1) ;
-        zwischenwert_uijph    = u(i,j+1)   + u(i,j)   ; // kann ersetzt werden
-        zwischenwert_uijmh    = u(i,j)     + u(i,j-1) ;
-        zwischenwert_vimhj    = v(i,j)     + v(i-1,j) ;
-        zwischenwert_uim1jph  = u(i-1,j+1) + u(i-1,j) ;
-
-        zwischenwert_uiphj = u(i+1,j) + u(i,j)   * u(i+1,j) + u(i,j)   ;
-        zwischenwert_uimhj = u(i,j)   + u(i-1,j) * u(i,j)   + u(i-1,j) ;
-        zwischenwert_vijph = u(i,j+1) + u(i,j)   * u(i,j+1) + u(i,j)   ;
-        zwischenwert_vijmh = u(i,j)   + u(i,j-1) * u(i,j)   + u(i,j-1) ;
-
-        u_xx= (u(i+1,j) - 2 * u(i,j) + u(i-1,j))/(delta_x*delta_x);
-        u_yy=(u(i,j+1) - 2 * u(i,j) + u(i,j-1))/(delta_y*delta_y);
-
-        v_xx =  (v(i+1,j) - 2 * v(i,j) + v(i-1,j))/ (delta_x* delta_x);
-        v_yy =  (v(i,j+1) - 2 * v(i,j) + v(i,j-1))/ (delta_y*delta_y);
-
-        u_quadrat_x =  (zwischenwert_uiphj - zwischenwert_uimhj)/(4*delta_x*delta_x);
-        v_quadrat_y = (zwischenwert_vijph - zwischenwert_vijmh)/(4*delta_x*delta_x);
-
-        uv_x = (zwischenwert_viphj * zwischenwert_uijph - zwischenwert_vimhj   * zwischenwert_uim1jph)/(4*delta_x*delta_x);
-        uv_y = (zwischenwert_viphj * zwischenwert_uijph - zwischenwert_viphjm1 * zwischenwert_uijmh)/(4*delta_x*delta_x);
-
-        u_x =  (u(i,j)-u(i-1,j))/delta_x;
-        v_y =  (v(i,j)-v(i,j-1))/ delta_y;
-
-        F(i,j) = u(i,j) + deltat * ((u_xx + u_yy) / settings_.re - uv_y - u_quadrat_x + settings_.g[0]);
-        G(i,j) = v(i,j) + deltat * ((v_xx + v_yy) / settings_.re - uv_x - v_quadrat_y + settings_.g[1]);
-    }
-}
-}
 
 double Discretization::computeDuDx2(int i, int j) const
 {
@@ -147,10 +75,10 @@ double Discretization::computeDpDy(int i, int j) const
 }
 
 void Discretization::updateVelocity()
-{
-    for (int j = 1; j < settings_.nCells[1]; j++)
+{   // Index goes to Cellnumber+1 since the size of the Grid was increased by the borderrow and border column
+    for (int j = 1; j < settings_.nCells[1]+1; j++)
     {
-        for (int i = 1; i < settings_.nCells[0]; i++)
+        for (int i = 1; i < settings_.nCells[0]+1; i++)
         {
             velocity_X(i, j)=F(i, j)-deltat*computeDpDx(i, j);
             velocity_Y(i, j)=G(i, j)-deltat*computeDpDy(i, j);

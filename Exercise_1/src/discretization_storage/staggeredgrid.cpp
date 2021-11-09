@@ -13,6 +13,7 @@ StaggeredGrid::StaggeredGrid(Settings settings)
     setSize_(settings.nCells);
     delta_x=settings_.physicalSize[0] / settings_.nCells[0];
     delta_y=settings_.physicalSize[1] / settings_.nCells[1];
+    epsilon=settings.epsilon;
 }
 
 // StaggeredGrid::~StaggeredGrid()
@@ -244,3 +245,9 @@ double StaggeredGrid::abs(double number) const
     return -number;
   }
    }
+
+
+double StaggeredGrid::getepsilon() const
+{
+ return epsilon;
+}

@@ -36,10 +36,10 @@ void GaussSeidel::calculateP()
         setPressureBoundaries();
         discretization_.setP(p) ;     
         safe++;
-        std::cout<< "Residuum " << residuum() << " Safe "<< safe <<std::endl;
+        
     }while(residuum() > discretization_.getepsilon()  && safe<2000);
     //p.print();
-    
+    std::cout<< "Residuum " << residuum() << " Safe "<< safe <<std::endl;
     }
 
 

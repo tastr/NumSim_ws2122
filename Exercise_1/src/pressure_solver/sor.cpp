@@ -38,8 +38,9 @@ void SOR::calculateP()
         discretization_.setP(p) ;     
         safe++;
 
-        std::cout<< "Residuum " << residuum() << " Safe "<< safe <<std::endl;
+        
     }while(residuum() > discretization_.getepsilon() && safe<2000);
+    std::cout<< "Residuum " << residuum() << " Safe "<< safe <<std::endl;
     //p.print(); 
     }
 

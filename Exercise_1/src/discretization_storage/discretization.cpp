@@ -87,6 +87,20 @@ void Discretization::updateVelocity()
         
     }
 }
+
+void Discretization::updateBoundaryFG()
+{
+    int i_max = pressure.size()[0], j_max = pressure.size()[1]; 
+    for (int j = 0; j < j_max; j++)
+   {
+        F(0,j)=u(0,j);
+   }
+
+   for (int i = 0; i < i_max-1; i++)
+   {
+        G(i,0)=v(i,0);
+   }
+}
         
 
 double Discretization::min2(double value1, double value2) const

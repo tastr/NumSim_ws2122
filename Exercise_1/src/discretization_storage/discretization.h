@@ -19,6 +19,7 @@ public:
 
    virtual void calculation();
    void updateVelocity();
+   void updateBoundaryFG(); //for driven cavity not neccessary, but for other cases maybe.
 
    
    void updateDeltaT();

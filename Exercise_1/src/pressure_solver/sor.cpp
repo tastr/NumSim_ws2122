@@ -34,10 +34,11 @@ void SOR::calculateP()
             //residuum =  residuum +abs_( (p(i-1,j)  - 2 * p(i,j) + p(i+1,j))/deltax_quad + (p(i,j-1) - 2 * p(i,j)  + p(i,j+1)) / deltay_quad   - discretization.RHS(i,j));
             }            
         } 
-        setPressureBoundaries();
-        discretization_.setP(p) ;     
+        discretization_.setP(p) ;
+        setPressureBoundaries(); // War vor dem setP und wurde deshalb immer sofort überschrieben. Deshalb habe ich nicht gesehen, dass das schon da ist und hab es nochmal implementiert.
+ 
+        // discretization_.updatedPressureBC();    
         safe++;
-
         
     }while(residuum() > discretization_.getepsilon() && safe<2000);
     std::cout<< "Residuum " << residuum() << " Safe "<< safe <<std::endl;

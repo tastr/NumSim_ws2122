@@ -39,6 +39,7 @@ public:
      double dx() const; //ist das nicht identisch zu meshwidth?
      double dy() const; //ist das nicht identisch zu meshwidth?
      double getepsilon() const; //ist das nicht identisch zu meshwidth?
+     
      int uIBegin() const; //TODO keine ahnung was die Funktion machen soll. Vielleicht startindex zurückgeben?
      int uIEnd() const; //TODO keine ahnung was die Funktion machen soll. Vielleicht startindex zurückgeben?
      int uJBegin() const; //TODO keine ahnung was die Funktion machen soll. Vielleicht startindex zurückgeben?

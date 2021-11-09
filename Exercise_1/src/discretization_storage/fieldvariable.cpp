@@ -75,7 +75,35 @@ double FieldVariable::absmax()
  return absmaximum;
 }
 
-double FieldVariable::interpolateAt(double x, double y)
+int FieldVariable::indexconvert(int i, int j) const
 {
-   //TODO
+return  j*size_[0] + i;
+}
+
+
+double FieldVariable::interpolateAt(double x, double y)
+{ int i_right=0;
+  int j_top=0;
+  double propfact_x;
+  double propfact_y;
+  double top_average; 
+  double bottom_average;
+
+  
+  // Ich nehm mal ein positives Gebiet an
+    while (x<=i_right)
+    {
+        i_right=++i_right;
+    }
+    while (y<=j_top)
+    {
+        j_top=++j_top;
+    }
+    propfact_x = x - propfact_x + 1; 
+    propfact_y = y - propfact_y + 1;
+
+  bottom_average=  (1-propfact_x)*data_[indexconvert(i_right-1,j_top-1)] + propfact_x*(1-propfact_x)*data_[indexconvert(i_right,j_top-1)];
+  bottom_average=  (1-propfact_x)*data_[indexconvert(i_right-1,j_top)]   + propfact_x*(1-propfact_x)*data_[indexconvert(i_right,j_top)];
+
+ return  (1-propfact_y) * bottom_average + propfact_y * top_average  ;
 }

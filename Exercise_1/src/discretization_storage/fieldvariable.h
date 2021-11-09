@@ -22,7 +22,8 @@ public:
 
     // interpolation function used by output writer
     double interpolateAt(double x, double y); //TODO
-    
+
+    int indexconvert(int i, int j) const;    
     
     // //! access the value at coordinate (i,j), declared not const, i.e. the value can be changed
     // double &operator()(int i, int j);

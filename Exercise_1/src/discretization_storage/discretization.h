@@ -51,6 +51,8 @@ public:
 
     // set functions
     void setRHS(int i, int j, double value);
+
+   
 };
 
 

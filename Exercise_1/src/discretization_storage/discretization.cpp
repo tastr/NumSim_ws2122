@@ -159,3 +159,6 @@ void Discretization::setRHS(int i, int j, double value)
 {
     rhs_(i, j)=value;
 }
+
+
+

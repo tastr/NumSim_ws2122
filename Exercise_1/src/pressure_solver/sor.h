@@ -17,7 +17,7 @@ public:
       ~SOR();
       //FieldVariable calculateP();
       virtual void calculateP();
-      double tol;
+
      
     
     

@@ -11,7 +11,7 @@ SOR::~SOR()
 }
 
 
-//FieldVariable SOR::calculateP()
+
 void SOR::calculateP()
     {
     double deltax_quad = discretization_.dx() * discretization_.dx();
@@ -27,11 +27,7 @@ void SOR::calculateP()
             discretization_.setP(i,j,(1-discretization_.getOmega()) * discretization_.p(i,j) + discretization_.getOmega() * vorfaktor*( (discretization_.p(i-1,j) + discretization_.p(i+1,j))/deltax_quad + (discretization_.p(i,j-1) + discretization_.p(i,j+1)) / deltay_quad   - discretization_.rhs(i,j))) ;
             }            
         } 
-       // discretization_.setP(p) ;
-        // War vor dem setP und wurde deshalb immer sofort überschrieben. Deshalb habe ich nicht gesehen, dass das schon da ist und hab es nochmal implementiert.
-     
-        safe++;
-        
+        safe++;   
     }while(residuum() > discretization_.getepsilon() && safe<2000);
     std::cout<< "Residuum " << residuum() << " Safe "<< safe <<std::endl;
     setPressureBoundaries(); 

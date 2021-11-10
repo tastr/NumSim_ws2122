@@ -1,8 +1,7 @@
 #include "centraldifferences.h"
 
 CentralDifferences::CentralDifferences(Settings settings):Discretization(settings)
-  {
-    
+  { 
   }
 
  CentralDifferences::~CentralDifferences()

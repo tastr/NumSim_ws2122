@@ -14,11 +14,6 @@ FieldVariable::~FieldVariable()
 {
 }
 
-// std::array<int,2> FieldVariable::size() const
-// {
-//   return size();
-// }
-
 void FieldVariable::print()
 {
    
@@ -33,18 +28,6 @@ void FieldVariable::print()
    }
 }
 
-
-// double &FieldVariable::operator()(int i, int j)
-// {
-//   return data_(i,j);
-// }
-
-// double FieldVariable::operator()(int i, int j) const
-// {
-//   return data_(i,j);
-// }
-
-//Erst ueber j dann ueber i zu gehen ist effizienyter, aber fuer die Ausgabe
 double FieldVariable::max() 
 {  
  for (int i = 0; i < size_[0]; i++)

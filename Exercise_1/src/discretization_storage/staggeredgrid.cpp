@@ -16,9 +16,6 @@ StaggeredGrid::StaggeredGrid(Settings settings)
     epsilon=settings.epsilon;
 }
 
-// StaggeredGrid::~StaggeredGrid()
-// {
-// }
 
 void StaggeredGrid::setSize_(std::array<int,2> nCells)
 {
@@ -82,25 +79,16 @@ void StaggeredGrid::print(std::string str)
     }else if (str == "velocity_Y" || str == "velocity_y")
     {
         velocity_Y.print();
-    // }else if (str == "F")
-    // {
-    //     F.print();
-    // }else if (str == "G")
-    // {
-    //     G.print();
     }else if (str == "all")
-    {
+      {
         std::cout<< "pressure" << std::endl;   
         pressure.print();
         std::cout<< "velocity_X" << std::endl;  
         velocity_X.print();
         std::cout<< "velocity_Y" << std::endl;  
         velocity_Y.print();
-        // std::cout<< "F" << std::endl;  
-        // F.print();
-        // std::cout<< "F" << std::endl;  
-        // G.print();
-    }
+        
+      }
 
 
 
@@ -143,7 +131,6 @@ double StaggeredGrid::v(int i, int j) const
 double StaggeredGrid::dx() const
 {
     return delta_x;
-
 }
 double StaggeredGrid::dy() const
 {

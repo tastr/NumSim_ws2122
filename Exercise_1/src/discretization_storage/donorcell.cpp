@@ -42,7 +42,6 @@ double DonorCell::computeDu2Dx(int i, int j) const
  }
 
 
-//the index was fixed here as well
 void DonorCell::calculation()
 {
     for (int j = 1; j < settings_.nCells[1]+1; j++)

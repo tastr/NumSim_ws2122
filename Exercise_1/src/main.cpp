@@ -83,28 +83,5 @@ while (current_time<settings.endTime)
 
 
 
-
-// Declare an object of type donorcell.
-//   DonorCell mydonorcell;
-   // Declare two pointers, one of type DonorCell * and the other
-   //  of type Dis *, and initialize them to point to mydonorcell.
-  // DonorCell *p_mydonorcell = &mydonorcell;
-   //Discretization    *p_discretization = &mydonorcell;
-
-   // Call the functions.
-   //pdiscretization->function();           // Call virtual function.
-   //pdonorcell->function(); // Call nonvirtual function.
-
-
-// std::shared_ptr<CentralDifferences> centralDifferences1 = std::make_shared<CentralDifferences>(settings);
-// double value1 = centralDifferences1->computeDuvDx(1,1);
-
-// std::shared_ptr<Discretization> centralDifferences2 = std::make_shared<CentralDifferences>(settings);
-// double value2 = centralDifferences2->computeDuvDx(1,1);
-
-
-
-
-
   return EXIT_SUCCESS;
 }

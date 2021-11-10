@@ -36,7 +36,7 @@ Discretization::~Discretization()
 
 
 
-
+// second order numerical derivation terms
 double Discretization::computeDuDx2(int i, int j) const
 {
  return (u(i+1,j) - 2 * u(i,j) + u(i-1,j))/(delta_x*delta_x);
@@ -55,6 +55,8 @@ double Discretization::computeDvDx2(int i, int j) const
  return (v(i+1,j) - 2 * v(i,j) + v(i-1,j))/ (delta_x* delta_x);       
 }
 
+
+// first order numerical derivation terms
 double Discretization::computeDuDx(int i, int j) const
 { 
   return (u(i,j)-u(i-1,j))/delta_x;
@@ -73,6 +75,7 @@ double Discretization::computeDpDy(int i, int j) const
 {
   return (p(i, j+1)-p(i,j))/delta_y;
 }
+
 
 void Discretization::updateVelocity()
 {   // Index goes to Cellnumber+1 since the size of the Grid was increased by the borderrow and border column

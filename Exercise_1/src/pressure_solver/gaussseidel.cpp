@@ -19,19 +19,29 @@ void GaussSeidel::calculateP()
     double vorfaktor= deltax_quad * deltay_quad/ (2 * (deltay_quad + deltax_quad ));
     int i_max = discretization_.getSize()[0] , j_max = discretization_.getSize()[1];
     int safe=0;
+
+    //auxilliarys for code readability
+    double x_term;
+    double y_term;
+    double omega=discretization_.getOmega();
     do
     { 
        for (int j = 1; j < j_max-1; j++)
         {
        for (int i = 1; i < i_max-1; i++)
             {   
-            discretization_.setP(i,j, vorfaktor*( (discretization_.p(i-1,j) + discretization_.p(i+1,j))/deltax_quad + (discretization_.p(i,j-1) + discretization_.p(i,j+1)) / deltay_quad   - discretization_.rhs(i,j))) ;
+            x_term= (discretization_.p(i-1,j) + discretization_.p(i+1,j))/deltax_quad;
+            y_term= (discretization_.p(i,j-1) + discretization_.p(i,j+1)) / deltay_quad;  
+              // value of pij gets overwritten with the new approximation
+          
+            discretization_.setP(i,j, vorfaktor*( x_term + y_term   - discretization_.rhs(i,j))) ;
             }  
                  
         }        
          safe++;
         
     }while(residuum() > discretization_.getepsilon()  && safe<2000);
+    
     std::cout<< "Residuum " << residuum() << " Safe "<< safe <<std::endl;
     discretization_.updatedPressureBC();
     }

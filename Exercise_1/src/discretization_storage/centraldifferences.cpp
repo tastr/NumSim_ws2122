@@ -8,7 +8,7 @@ CentralDifferences::CentralDifferences(Settings settings):Discretization(setting
   {
   }
 
-
+//functions for numerical derivation using the central differences scheme 
 double CentralDifferences::computeDu2Dx(int i, int j) const    
  {double uiphj=(u(i,j)  + u(i+1,j)) ;
   double uimhj=u(i-1,j) + u(i,j);
@@ -34,7 +34,8 @@ double CentralDifferences::computeDu2Dx(int i, int j) const
  }
 
 
-// the index was fixed here as well
+// calculates the values of auxilliarz variables F and G using the specific numerical
+// derivative functions of the class
 void CentralDifferences::calculation()
 {
     for (int j = 1; j < settings_.nCells[1]+1; j++)

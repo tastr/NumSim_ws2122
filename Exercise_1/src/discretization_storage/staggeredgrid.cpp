@@ -27,10 +27,9 @@ std::array<int,2> StaggeredGrid::getSize() const
 return size_;
 }
 
-// hab vergessen, was wir an den Ecken nehmen, muss dann noch angepasst werden
+// Sets the Dirichlet border conditions for the velocity variables
 void StaggeredGrid::setBorderVelocity(std::array<double,2> top,std::array<double,2> left,std::array<double,2> right,std::array<double,2> bottom)
-{  int i_max = pressure.size()[0], j_max = pressure.size()[1];
-//    std::cout<<"Wertzuweisung an den Ecken anpassen"<<std::endl; 
+{  int i_max = pressure.size()[0], j_max = pressure.size()[1]; 
     for (int j = 0; j < j_max; j++)
    {
         velocity_X(0,j)=left[0];
@@ -53,6 +52,7 @@ void StaggeredGrid::setBorderVelocity(std::array<double,2> top,std::array<double
       
 }
 
+//updates the border terms for the pressure variable in the end of each iteration
 void StaggeredGrid::updatedPressureBC()
 {
     int i_max = pressure.size()[0], j_max = pressure.size()[1];
@@ -68,6 +68,7 @@ void StaggeredGrid::updatedPressureBC()
     }
 }
 
+//prints out the values stored in the FieldVariables
 void StaggeredGrid::print(std::string str)
 {
     if (str == "pressure")
@@ -96,14 +97,30 @@ void StaggeredGrid::print(std::string str)
 
 }
 
+// functions return values describing the grid
 std::array<double,2> StaggeredGrid::meshWidth()  const
 {
- return {dx(),dy()}  ;// {settings_.physicalSize[0] ,settings_.physicalSize[1]};
+ return {dx(),dy()}  ; 
 }
 std::array<int,2> StaggeredGrid::nCells() const
 {
     return settings_.nCells;
 }
+double StaggeredGrid::getepsilon() const
+{
+ return epsilon;
+}
+double StaggeredGrid::dx() const
+{
+    return delta_x;
+}
+double StaggeredGrid::dy() const
+{
+    return delta_y;
+}
+
+
+//functions to acess entire Fieldvariables of the grid
 FieldVariable StaggeredGrid::p() const
 {
     return pressure;
@@ -116,6 +133,9 @@ FieldVariable StaggeredGrid::u() const
 {
     return velocity_X;
 }
+
+
+//functions to retrieve singular values from the FieldVariables
 double StaggeredGrid::u(int i, int j) const
 {
     return velocity_X(i,j);
@@ -128,14 +148,9 @@ double StaggeredGrid::v(int i, int j) const
 {
     return velocity_Y(i,j);
 }
-double StaggeredGrid::dx() const
-{
-    return delta_x;
-}
-double StaggeredGrid::dy() const
-{
-    return delta_y;
-}
+
+
+//functions return the size values of the FieldVariables 
 int StaggeredGrid::uIBegin() const
 {
     return 0;
@@ -185,58 +200,50 @@ int StaggeredGrid::pJEnd() const
     return size_[1];
 } 
 
-     void StaggeredGrid::setU(int i, int j,double value)
-     {
-      velocity_X(i,j)=value;
-     }
-     void StaggeredGrid::setV(int i, int j,double value)
-     {
-      velocity_Y(i,j)=value;
-     }
-     void StaggeredGrid::setP(int i, int j,double value)
-     {
-      pressure(i,j)=value;
-     }
+//functions to write values into the Fieldvariables 
+void StaggeredGrid::setU(int i, int j,double value)
+{
+velocity_X(i,j)=value;
+}
+void StaggeredGrid::setV(int i, int j,double value)
+{
+velocity_Y(i,j)=value;
+}
+void StaggeredGrid::setP(int i, int j,double value)
+{
+pressure(i,j)=value;
+}
 
 
-     void StaggeredGrid::setU(FieldVariable value)
-     {  // assert that indices are in range
-        assert(value.size()[0] == velocity_X.size()[0]);
-        assert(value.size()[1] == velocity_X.size()[1]);
-        for (int j = 0; j < value.size()[1] ; j++)
-        {
-            for (int i = 0; i < value.size()[0] ; i++)
-            {
-             velocity_X(i,j)=value(i,j);  
-            }
-        }
-    }
-     
+// functions to overwrite the FieldVariables of the grid with the Values of other Fieldvariables with maching size
 void StaggeredGrid::setV(FieldVariable value)
-     {  // assert that indices are in range
-        assert(value.size()[0] == velocity_Y.size()[0]);
-        assert(value.size()[1] == velocity_Y.size()[1]);
-        for (int j = 0; j < value.size()[1] ; j++)
-        {
-            for (int i = 0; i < value.size()[0] ; i++)
-            {
-             velocity_Y(i,j)=value(i,j);  
-            }
-        }
+{  // assert that indices are in range
+assert(value.size()[0] == velocity_Y.size()[0]);
+assert(value.size()[1] == velocity_Y.size()[1]);
+for (int j = 0; j < value.size()[1] ; j++)
+{
+    for (int i = 0; i < value.size()[0] ; i++)
+    {
+        velocity_Y(i,j)=value(i,j);  
     }
-    void StaggeredGrid::setP(FieldVariable value)
-     {  // assert that indices are in range
-        assert(value.size()[0] == pressure.size()[0]);
-        assert(value.size()[1] == pressure.size()[1]);
-        for (int j = 0; j < value.size()[1] ; j++)
-        {
-            for (int i = 0; i < value.size()[0] ; i++)
-            {
-             pressure(i,j)=value(i,j);  
-            }
-        }
-    }
+}
+}
 
+void StaggeredGrid::setP(FieldVariable value)
+    {  // assert that indices are in range
+    assert(value.size()[0] == pressure.size()[0]);
+    assert(value.size()[1] == pressure.size()[1]);
+    for (int j = 0; j < value.size()[1] ; j++)
+    {
+        for (int i = 0; i < value.size()[0] ; i++)
+        {
+            pressure(i,j)=value(i,j);  
+        }
+    }
+}
+
+
+//function to calculate the absolute value of a double
 double StaggeredGrid::abs(double number) const
    {
  if (number>=0)
@@ -249,7 +256,3 @@ double StaggeredGrid::abs(double number) const
    }
 
 
-double StaggeredGrid::getepsilon() const
-{
- return epsilon;
-}

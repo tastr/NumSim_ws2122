@@ -13,6 +13,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.o"
   "CMakeFiles/numsim.dir/pressure_solver/sor.cpp.o"
   "CMakeFiles/numsim.dir/settings.cpp.o"
+  "CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.o"
   "numsim"
   "numsim.pdb"
 )

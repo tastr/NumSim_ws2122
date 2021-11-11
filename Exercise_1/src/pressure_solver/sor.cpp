@@ -37,11 +37,12 @@ void SOR::calculateP()
             discretization_.setP(i,j,(1-omega) * discretization_.p(i,j) + omega * vorfaktor*( x_term + y_term  - discretization_.rhs(i,j))) ;
             }            
         } 
+        setPressureBoundaries(); 
         safe++;   
     }while(residuum() > discretization_.getepsilon() && safe<2000);
     
     std::cout<< "Residuum " << residuum() << " Safe "<< safe <<std::endl;
-    setPressureBoundaries(); 
+    
     }
 
 

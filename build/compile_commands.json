@@ -68,5 +68,10 @@
   "directory": "/home/david/uni/numSim/NumSim_ws2122/build/src",
   "command": "/bin/x86_64-linux-gnu-g++-9  -DH5_BUILT_AS_DYNAMIC_LIB -I/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src -isystem /usr/local/include/vtk-8.2 -isystem /usr/local/include/vtk-8.2/vtkogg/include  -g   -o CMakeFiles/numsim.dir/pressure_solver/sor.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/sor.cpp",
   "file": "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/sor.cpp"
+},
+{
+  "directory": "/home/david/uni/numSim/NumSim_ws2122/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9  -DH5_BUILT_AS_DYNAMIC_LIB -I/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src -isystem /usr/local/include/vtk-8.2 -isystem /usr/local/include/vtk-8.2/vtkogg/include  -g   -o CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/test_and_debug/mytestfunctions.cpp",
+  "file": "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/test_and_debug/mytestfunctions.cpp"
 }
 ]

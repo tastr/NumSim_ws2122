@@ -22,6 +22,7 @@ add_executable(${PROJECT_NAME}
    pressure_solver/pressuresolver.cpp
    pressure_solver/gaussseidel.cpp
    pressure_solver/sor.cpp
+   test_and_debug/mytestfunctions.cpp
 )
 
 	

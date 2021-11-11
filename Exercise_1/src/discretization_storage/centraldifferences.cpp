@@ -18,13 +18,22 @@ double CentralDifferences::computeDu2Dx(int i, int j) const
  double CentralDifferences::computeDv2Dy(int i, int j) const
  {double vijph = (v(i,j) + v(i,j+1));
   double vijmh = (v(i,j-1) + v(i,j));
-   return ( vijph*vijph-vijmh*vijmh )/(4*delta_y);
+   return ( vijph*vijph - vijmh*vijmh )/(4*delta_y);
 }
 
  double CentralDifferences::computeDuvDx(int i, int j) const
- {double viphj = (v(i,j) + v(i,j+1)) * (u(i,j)  + u(i+1,j)) ;
-  double vimhj  = (v(i-1,j) + v(i-1,j+1)) * (u(i-1,j)+ u(i,j));
-    return (viphj - vimhj )/(delta_x*4);
+ {
+    double viphj = (v(i,j) + v(i,j+1)) * (u(i,j)  + u(i+1,j)) ;
+    double vimhj  = (v(i-1,j) + v(i-1,j+1)) * (u(i-1,j)+ u(i,j));
+    double result_alt = (viphj - vimhj )/(delta_x*4);
+
+    double v_iphj = (v(i+1,j)+v(i,j))/2;
+    double u_ijph = (u(i,j+1)+u(i,j))/2;
+    double v_imhj = (v(i,j)+v(i-1,j))/2;
+    double u_imhjph= (u(i-1,j+1)+u(i-1,j))/2;
+    double result_neu=((v_iphj*u_ijph) - (v_imhj*u_imhjph))/delta_x;
+
+    return result_neu;
  }
 
  double CentralDifferences::computeDuvDy(int i, int j) const

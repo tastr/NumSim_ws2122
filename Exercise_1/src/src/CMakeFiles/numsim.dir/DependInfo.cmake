@@ -18,6 +18,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/pressuresolver.cpp" "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.o"
   "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/sor.cpp" "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.o"
   "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/settings.cpp" "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src/CMakeFiles/numsim.dir/settings.cpp.o"
+  "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/test_and_debug/mytestfunctions.cpp" "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src/CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

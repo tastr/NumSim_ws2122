@@ -43,12 +43,23 @@ double PressureSolver::abs_(double number)
 
 void PressureSolver::calculateRHS()
 {
+  double Fij=0;
+  double Fim1j=0;
+  double Gij=0;
+  double Gijm1;
   double current_rhs=0;
   for (int j = 1; j < discretization_.getSize()[1]-1; j++)
   {
     for (int i = 1; i < discretization_.getSize()[0]-1; i++)
     {
       current_rhs=((discretization_.f(i,j)-discretization_.f(i-1,j))/discretization_.dx()+(discretization_.g(i,j)-discretization_.g(i,j-1))/discretization_.dy())/discretization_.getDeltaT();
+
+      Fij=discretization_.f(i,j);
+      Fim1j=discretization_.f(i-1,j);
+      Gij=discretization_.g(i,j);
+      Gijm1=discretization_.g(i,j-1);
+      
+      current_rhs=((Fij-Fim1j)/discretization_.dx()+(Gij-Gijm1)/discretization_.dy())/discretization_.getDeltaT();
       discretization_.setRHS(i,j, current_rhs);
     }
   }

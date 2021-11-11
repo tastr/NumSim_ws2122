@@ -1,5 +1,7 @@
 #include <iostream>
 #include <cstdlib>
+#include <cassert>
+
 #include "settings.h"
 #include "output_writer/output_writer_text.h"
 #include "output_writer/output_writer_paraview.h"
@@ -9,6 +11,7 @@
 #include "discretization_storage/discretization.h"
 #include "discretization_storage/donorcell.h"
 #include "discretization_storage/centraldifferences.h"
+#include "test_and_debug/mytestfunctions.h"
 //void loadFromFile(std::string filename);
 
 
@@ -33,6 +36,10 @@ Settings settings;
 settings.loadFromFile(filename);
 // display all settings on console
 settings.printSettings();
+
+// testing 
+// MyTestFunctions myTest;
+// assert(myTest.testFunction2(settings));
 
 //create objects of classes
 std::shared_ptr<Discretization> myDiscretization;
@@ -74,6 +81,7 @@ while (current_time<settings.endTime)
   myDiscretization->calculation();
   myPressureSolver->calculateRHS();
   myPressureSolver->calculateP();
+  myOutputWriterText.writeFile(current_time); // for debug
   myDiscretization->updateVelocity();
   
   // myOutputWriterParaview.writeFile(current_time);
@@ -85,3 +93,5 @@ while (current_time<settings.endTime)
 
   return EXIT_SUCCESS;
 }
+
+

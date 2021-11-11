@@ -549,6 +549,33 @@ settings.cpp.s:
 	cd /home/david/uni/numSim/NumSim_ws2122/build && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/settings.cpp.s
 .PHONY : settings.cpp.s
 
+test_and_debug/mytestfunctions.o: test_and_debug/mytestfunctions.cpp.o
+
+.PHONY : test_and_debug/mytestfunctions.o
+
+# target to build an object file
+test_and_debug/mytestfunctions.cpp.o:
+	cd /home/david/uni/numSim/NumSim_ws2122/build && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.o
+.PHONY : test_and_debug/mytestfunctions.cpp.o
+
+test_and_debug/mytestfunctions.i: test_and_debug/mytestfunctions.cpp.i
+
+.PHONY : test_and_debug/mytestfunctions.i
+
+# target to preprocess a source file
+test_and_debug/mytestfunctions.cpp.i:
+	cd /home/david/uni/numSim/NumSim_ws2122/build && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.i
+.PHONY : test_and_debug/mytestfunctions.cpp.i
+
+test_and_debug/mytestfunctions.s: test_and_debug/mytestfunctions.cpp.s
+
+.PHONY : test_and_debug/mytestfunctions.s
+
+# target to generate assembly for a file
+test_and_debug/mytestfunctions.cpp.s:
+	cd /home/david/uni/numSim/NumSim_ws2122/build && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.s
+.PHONY : test_and_debug/mytestfunctions.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -604,6 +631,9 @@ help:
 	@echo "... settings.o"
 	@echo "... settings.i"
 	@echo "... settings.s"
+	@echo "... test_and_debug/mytestfunctions.o"
+	@echo "... test_and_debug/mytestfunctions.i"
+	@echo "... test_and_debug/mytestfunctions.s"
 .PHONY : help
 
 

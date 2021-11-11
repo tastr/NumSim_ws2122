@@ -41,11 +41,12 @@ void GaussSeidel::calculateP()
                  
         }        
          safe++;
-        //  discretization_.setP(p);
-        discretization_.updatedPressureBC();
+      
+      // Ohne den konvergiert er doppelt so schnell  
+        //discretization_.updatedPressureBC();
         
         
-    }while(residuum() > discretization_.getepsilon()  && safe<2000);
+    }while(residuum() > discretization_.getepsilon()  && safe<20000);
     std::cout<< "Residuum " << residuum() << " Safe "<< safe <<std::endl;
     
     

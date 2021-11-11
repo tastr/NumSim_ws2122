@@ -6,8 +6,8 @@
 //StaggeredGrid::StaggeredGrid(std::array<int,2> size) 
 StaggeredGrid::StaggeredGrid(Settings settings) 
 :pressure({settings.nCells[0]+2,settings.nCells[1]+2})
-,velocity_X({settings.nCells[0]+2,settings.nCells[1]+2})
-,velocity_Y({settings.nCells[0]+2,settings.nCells[1]+2})
+,velocity_X({settings.nCells[0]+1,settings.nCells[1]+2})
+,velocity_Y({settings.nCells[0]+2,settings.nCells[1]+1})
 ,settings_(settings)
 { 
     setSize_(settings.nCells);
@@ -29,26 +29,59 @@ return size_;
 
 // Sets the Dirichlet border conditions for the velocity variables
 void StaggeredGrid::setBorderVelocity(std::array<double,2> top,std::array<double,2> left,std::array<double,2> right,std::array<double,2> bottom)
-{  int i_max = pressure.size()[0], j_max = pressure.size()[1]; 
-    for (int j = 0; j < j_max; j++)
-   {
-        velocity_X(0,j)=left[0];
-        velocity_Y(0,j)=2*left[1]-velocity_Y(1,j);   
+{  
+//     int i_max = pressure.size()[0], j_max = pressure.size()[1]; 
+//     for (int j = 0; j < j_max; j++)
+//    {
+//         velocity_X(0,j)=left[0];
+//         velocity_Y(0,j)=2*left[1]-velocity_Y(1,j);   
     
-        velocity_X(j_max-1,j)=right[0];
-        velocity_Y(j_max-1,j)=2*right[1]-velocity_Y(j_max-2,j); 
+//         velocity_X(j_max-1,j)=right[0];
+//         velocity_Y(j_max-1,j)=2*right[1]-velocity_Y(j_max-2,j); 
+//    }
+   
+//    // i starts at 1 and goes to i_max-1 so that the wall is the BC in corners
+//    for (int i = 1; i < i_max-1; i++)
+//    {
+//         velocity_X(i,0)=2*bottom[0]-velocity_X(i,1);
+//         velocity_Y(i,0)=bottom[1];  
+
+//         velocity_X(i,i_max-1)=2*top[0]-velocity_X(i,i_max-2);
+//         velocity_Y(i,i_max-1)=top[1]; 
+        
+//    }
+
+   // set u velocity
+   int i_u_max = velocity_X.size()[0], j_u_max = velocity_X.size()[1];
+   for (int j = 0; j < j_u_max; j++)
+   {
+       velocity_X(0,j)=left[0];
+        velocity_X(i_u_max-1,j)=right[0];
+   }
+   for (int i = 1; i < i_u_max-1; i++) // i starts at 1 and goes to i_u_max-1 so that the wall is the BC in corners
+   {
+       velocity_X(i,0)=2*bottom[0]-velocity_X(i,1);
+       velocity_X(i,j_u_max-1)=2*top[0]-velocity_X(i,j_u_max-2);
+   }
+
+   // set v velocity
+   for (int j = vJBegin(); j < vJEnd(); j++)
+   {
+       velocity_Y(0,j)=2*left[1]-velocity_Y(1,j); 
+       velocity_Y(vIEnd()-1,j)=2*right[1]-velocity_Y(vIEnd()-2,j);
+
+   }
+   for (int i = vIBegin()+1; i < vIEnd()-1; i++)
+   {
+       velocity_Y(i,0)=bottom[1]; 
+       velocity_Y(i,vJEnd()-1)=top[1]; 
    }
    
-   // i starts at 1 and goes to i_max-1 so that the wall is the BC in corners
-   for (int i = 1; i < i_max-1; i++)
-   {
-        velocity_X(i,0)=2*bottom[0]-velocity_X(i,1);
-        velocity_Y(i,0)=bottom[1];  
+   
+   
+    
 
-        velocity_X(i,i_max-1)=2*top[0]-velocity_X(i,i_max-2);
-        velocity_Y(i,i_max-1)=top[1]; 
-        
-   }
+   
       
 }
 
@@ -157,7 +190,7 @@ int StaggeredGrid::uIBegin() const
 } 
 int StaggeredGrid::uIEnd() const
 {
-    return size_[0];
+    return velocity_X.size()[0];
 } 
 int StaggeredGrid::uJBegin() const
 {
@@ -165,7 +198,7 @@ int StaggeredGrid::uJBegin() const
 } 
 int StaggeredGrid::uJEnd() const
 {
-    return size_[1];
+    return velocity_X.size()[1];
 } 
 int StaggeredGrid::vIBegin() const
 {
@@ -173,7 +206,7 @@ int StaggeredGrid::vIBegin() const
 } 
 int StaggeredGrid::vIEnd() const
 {
-    return size_[0];
+    return velocity_Y.size()[0];
 } 
 int StaggeredGrid::vJBegin() const
 {
@@ -181,7 +214,7 @@ int StaggeredGrid::vJBegin() const
 } 
 int StaggeredGrid::vJEnd() const
 {
-    return size_[1];
+    return velocity_Y.size()[1];
 } 
 int StaggeredGrid::pIBegin() const
 {
@@ -189,7 +222,7 @@ int StaggeredGrid::pIBegin() const
 } 
 int StaggeredGrid::pIEnd() const
 {
-    return size_[0];
+    return pressure.size()[0];
 } 
 int StaggeredGrid::pJBegin() const
 {
@@ -197,7 +230,7 @@ int StaggeredGrid::pJBegin() const
 } 
 int StaggeredGrid::pJEnd() const
 {
-    return size_[1];
+    return pressure.size()[1];
 } 
 
 //functions to write values into the Fieldvariables 

@@ -81,7 +81,7 @@ while (current_time<settings.endTime)
   myDiscretization->calculation();
   myPressureSolver->calculateRHS();
   myPressureSolver->calculateP();
-  myOutputWriterText.writeFile(current_time); // for debug
+  // myOutputWriterText.writeFile(current_time); // for debug
   myDiscretization->updateVelocity();
   
   // myOutputWriterParaview.writeFile(current_time);

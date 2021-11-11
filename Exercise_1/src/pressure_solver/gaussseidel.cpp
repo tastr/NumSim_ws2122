@@ -17,7 +17,7 @@ void GaussSeidel::calculateP()
     double deltax_quad = discretization_.dx() * discretization_.dx();
     double deltay_quad = discretization_.dy() * discretization_.dy();
     double vorfaktor= deltax_quad * deltay_quad/ (2 * (deltay_quad + deltax_quad ));
-    int i_max = discretization_.getSize()[0] , j_max = discretization_.getSize()[1];
+    // int i_max = discretization_.getSize()[0] , j_max = discretization_.getSize()[1];
     // FieldVariable p=discretization_.p();
     int safe=0;
 
@@ -27,9 +27,9 @@ void GaussSeidel::calculateP()
     double omega=discretization_.getOmega();
     do
     { 
-       for (int j = 1; j < j_max-1; j++)
+       for (int j = discretization_.pJBegin()+1; j < discretization_.pJEnd()-1; j++)
         {
-       for (int i = 1; i < i_max-1; i++)
+        for (int i = discretization_.pIBegin()+1; i < discretization_.pIEnd()-1; i++)
             {   
             x_term= (discretization_.p(i-1,j) + discretization_.p(i+1,j))/deltax_quad;
             y_term= (discretization_.p(i,j-1) + discretization_.p(i,j+1)) / deltay_quad;  

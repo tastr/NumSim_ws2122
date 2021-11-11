@@ -6,9 +6,9 @@
 //constructor
 Discretization::Discretization(Settings settings):
 StaggeredGrid(settings) 
-,F({settings.nCells[0]+2,settings.nCells[0]+2})
-,G({settings.nCells[0]+2,settings.nCells[0]+2})
-,rhs_({settings.nCells[0]+2,settings.nCells[0]+2})
+,F({settings.nCells[0]+1,settings.nCells[1]+2}) // is actually smaller than this, but makes handling easier
+,G({settings.nCells[0]+2,settings.nCells[1]+1}) // is actually smaller than this, but makes handling easier
+,rhs_({settings.nCells[0]+2,settings.nCells[1]+2}) // is actually smaller than this, but makes handling easier
 {
 
 }
@@ -78,28 +78,34 @@ double Discretization::computeDpDy(int i, int j) const
 
 
 void Discretization::updateVelocity()
-{   // Index goes to Cellnumber+1 since the size of the Grid was increased by the borderrow and border column
-    for (int j = 1; j < settings_.nCells[1]+1; j++)
+{   // Does not go over Boundary
+    for (int j = uJBegin()+1; j < uJEnd()-1; j++)
     {
-        for (int i = 1; i < settings_.nCells[0]+1; i++)
+        for (int i = uIBegin()+1; i < uIEnd()-1; i++)
         {
             velocity_X(i, j)=F(i, j)-deltat*computeDpDx(i, j);
-            velocity_Y(i, j)=G(i, j)-deltat*computeDpDy(i, j);
-
         }
         
     }
+    for (int j = vJBegin()+1; j < vJEnd()-1; j++)
+    {
+        for (int i = vIBegin()+1; i < vJEnd()-1; i++)
+        {
+            velocity_Y(i, j)=G(i, j)-deltat*computeDpDy(i, j);
+        }
+        
+    }
+    
 }
 
 void Discretization::updateBoundaryFG()
 {
-    int i_max = pressure.size()[0], j_max = pressure.size()[1]; 
-    for (int j = 0; j < j_max; j++)
+    for (int j = uJBegin(); j < uJEnd(); j++)
    {
         F(0,j)=u(0,j);
    }
 
-   for (int i = 0; i < i_max-1; i++)
+   for (int i = vIBegin(); i < vIEnd()-1; i++)
    {
         G(i,0)=v(i,0);
    }

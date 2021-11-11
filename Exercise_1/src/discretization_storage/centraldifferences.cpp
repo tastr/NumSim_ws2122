@@ -23,9 +23,9 @@ double CentralDifferences::computeDu2Dx(int i, int j) const
 
  double CentralDifferences::computeDuvDx(int i, int j) const
  {
-    double viphj = (v(i,j) + v(i,j+1)) * (u(i,j)  + u(i+1,j)) ;
-    double vimhj  = (v(i-1,j) + v(i-1,j+1)) * (u(i-1,j)+ u(i,j));
-    double result_alt = (viphj - vimhj )/(delta_x*4);
+    // double viphj = (v(i,j) + v(i,j+1)) * (u(i,j)  + u(i+1,j)) ;
+    // double vimhj  = (v(i-1,j) + v(i-1,j+1)) * (u(i-1,j)+ u(i,j));
+    // double result_alt = (viphj - vimhj )/(delta_x*4);
 
     double v_iphj = (v(i+1,j)+v(i,j))/2;
     double u_ijph = (u(i,j+1)+u(i,j))/2;
@@ -47,12 +47,20 @@ double CentralDifferences::computeDu2Dx(int i, int j) const
 // derivative functions of the class
 void CentralDifferences::calculation()
 {
-    for (int j = 1; j < settings_.nCells[1]+1; j++)
+    for (int j = uJBegin()+1; j < uJEnd()-1; j++)
     {
-        for (int i = 1; i < settings_.nCells[0]+1; i++)
+        for (int i = uIBegin()+1; i < uIEnd()-1; i++)
         {   
             F(i,j) = u(i,j) + deltat * ((computeDuDx2(i,j) + computeDuDy2(i,j)) / settings_.re - computeDuvDy(i,j) - computeDu2Dx(i,j) + settings_.g[0]);
-            G(i,j) = v(i,j) + deltat * ((computeDvDx2(i,j) + computeDvDy2(i,j)) / settings_.re - computeDuvDx(i,j) - computeDv2Dy(i,j) + settings_.g[1]);
         }
-    }   
+    }  
+    for (int j = vJBegin()+1; j < vJEnd()-1; j++)
+    {
+      for (int i = vIBegin()+1; i < vIEnd()-1; i++)
+      {
+        G(i,j) = v(i,j) + deltat * ((computeDvDx2(i,j) + computeDvDy2(i,j)) / settings_.re - computeDuvDx(i,j) - computeDv2Dy(i,j) + settings_.g[1]);
+      }
+      
+    }
+     
 }

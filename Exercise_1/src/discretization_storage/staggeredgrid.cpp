@@ -5,9 +5,9 @@
 
 //StaggeredGrid::StaggeredGrid(std::array<int,2> size) 
 StaggeredGrid::StaggeredGrid(Settings settings) 
-:pressure({settings.nCells[0]+2,settings.nCells[1]+2},{0.5,0.5}) 
-,velocity_X({settings.nCells[0]+1,settings.nCells[1]+2},{0,0.5})
-,velocity_Y({settings.nCells[0]+2,settings.nCells[1]+1},{0.5,0})
+:pressure({settings.nCells[0]+2, settings.nCells[1]+2}, settings.nCells,{0.5,0.5}) 
+,velocity_X({settings.nCells[0]+1,settings.nCells[1]+2},settings.nCells,{0,0.5})
+,velocity_Y({settings.nCells[0]+2,settings.nCells[1]+1},settings.nCells,{0.5,0})
 ,settings_(settings)
 //:pressure({settings.nCells[0]+2,settings.nCells[1]+2})
 //,velocity_X({settings.nCells[0]+2,settings.nCells[1]+2})

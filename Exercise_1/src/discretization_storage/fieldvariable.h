@@ -10,8 +10,9 @@ private:
     double maximum;
     double absmaximum;
     std::array<double,2> offset_;
+    std::array<int,2> nCells_;
 public:
-    FieldVariable(std::array<int,2> size,std::array<double,2> offset);
+    FieldVariable(std::array<int,2> size,std::array<int,2> nCells,std::array<double,2> offset);
        ~FieldVariable();
     void print();
     double max() ;

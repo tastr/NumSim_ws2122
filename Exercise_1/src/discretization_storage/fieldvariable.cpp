@@ -3,8 +3,8 @@
 
 
 //FieldVariable::FieldVariable(std::array<int,2> size) : 
-FieldVariable::FieldVariable(std::array<int,2> size,std::array<double,2> offset)
-: Array2D(size), offset_(offset)
+FieldVariable::FieldVariable(std::array<int,2> size,std::array<int,2> nCells,std::array<double,2> offset)
+: Array2D(size), offset_(offset),nCells_(nCells)
 {
     maximum=0;
     absmaximum=0;
@@ -73,14 +73,16 @@ double FieldVariable::interpolateAt(double x, double y)
   double bottom_average;
   x=x+ offset_[0];
   y=y+ offset_[1]; 
+ 
 
-     while (x>i_right)
+     while (x>((1.0*i_right)/nCells_[0]))
     {
         i_right=++i_right;
     }
-    while (y>j_top)
-    {
-        j_top=++j_top;     
+    while (y>((1.0*j_top)/nCells_[1]))
+    { std::cout << (1.0*j_top)/nCells_[1] <<" "<< j_top<< "  " << nCells_[1]  <<std::endl; 
+        j_top=++j_top;  
+         
     }
  
     propfact_x = x - i_right + 1; 
@@ -88,7 +90,8 @@ double FieldVariable::interpolateAt(double x, double y)
     
   bottom_average = (1-propfact_x)*data_[indexconvert(i_right-1,j_top-1)] + propfact_x*(1-propfact_x)*data_[indexconvert(i_right,j_top-1)];
   top_average    = (1-propfact_x)*data_[indexconvert(i_right-1,j_top)]   + propfact_x*(1-propfact_x)*data_[indexconvert(i_right,j_top)];
- 
+  //std::cout << i_right << "   " << x <<std::endl;
+  //std::cout << j_top << "   " << y <<std::endl;
   return  (1-propfact_y) * bottom_average + propfact_y * top_average  ;
    //return 1;
 }

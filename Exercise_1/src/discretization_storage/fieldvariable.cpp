@@ -88,6 +88,7 @@ double FieldVariable::interpolateAt(double x, double y)
     while (x>(i_right*dx))
     {
         i_right=++i_right;
+       // std::cout << i_right <<std::endl;
     }
     while (y>(dy*j_top))
     { 

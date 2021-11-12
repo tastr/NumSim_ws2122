@@ -71,23 +71,29 @@ double FieldVariable::interpolateAt(double x, double y)
   double propfact_y;
   double top_average; 
   double bottom_average;
+  
+  double dx=1.0/nCells_[0];
+  double dy=1.0/nCells_[1];
+
   x=x+ offset_[0];
   y=y+ offset_[1]; 
  
 
-     while (x>((1.0*i_right)/nCells_[0]))
+     while (x>(i_right*dx))
     {
         i_right=++i_right;
     }
-    while (y>((1.0*j_top)/nCells_[1]))
-    { std::cout << (1.0*j_top)/nCells_[1] <<" "<< j_top<< "  " << nCells_[1]  <<std::endl; 
+    while (y>(dy*j_top))
+    { 
         j_top=++j_top;  
          
     }
  
-    propfact_x = x - i_right + 1; 
-    propfact_y = y - j_top + 1;
-    
+    propfact_x =x*nCells_[0]-i_right+1;
+    propfact_y =y*nCells_[1]-j_top+1;
+ 
+ 
+   std::cout << propfact_x <<"  " <<  propfact_y <<std::endl;
   bottom_average = (1-propfact_x)*data_[indexconvert(i_right-1,j_top-1)] + propfact_x*(1-propfact_x)*data_[indexconvert(i_right,j_top-1)];
   top_average    = (1-propfact_x)*data_[indexconvert(i_right-1,j_top)]   + propfact_x*(1-propfact_x)*data_[indexconvert(i_right,j_top)];
   //std::cout << i_right << "   " << x <<std::endl;

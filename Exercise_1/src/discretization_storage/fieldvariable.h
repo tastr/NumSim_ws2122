@@ -1,7 +1,7 @@
 #pragma once
 
 #include "array2d.h"
-
+#include "settings.h"
 
 class FieldVariable : 
       public Array2D   
@@ -10,9 +10,9 @@ private:
     double maximum;
     double absmaximum;
     std::array<double,2> offset_;
-    std::array<int,2> nCells_;
+    Settings settings_;
 public:
-    FieldVariable(std::array<int,2> size,std::array<int,2> nCells,std::array<double,2> offset);
+    FieldVariable(std::array<int,2> size, Settings settings ,std::array<double,2> offset);
        ~FieldVariable();
     void print();
     double max() ;

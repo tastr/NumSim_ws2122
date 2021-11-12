@@ -43,7 +43,7 @@ void GaussSeidel::calculateP()
          safe++;
       
       // Ohne den konvergiert er doppelt so schnell  
-        discretization_.updatedPressureBC();
+        //discretization_.updatedPressureBC();
         
         
     }while(residuum() > discretization_.getepsilon()  && safe<20000);

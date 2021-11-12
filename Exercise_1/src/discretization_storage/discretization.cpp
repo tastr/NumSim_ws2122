@@ -6,9 +6,9 @@
 //constructor
 Discretization::Discretization(Settings settings):
 StaggeredGrid(settings) 
-,F({settings.nCells[0]+1,settings.nCells[1]+2},{0,0},{0,0}) // is actually smaller than this, but makes handling easier
-,G({settings.nCells[0]+2,settings.nCells[1]+1},{0,0},{0,0}) // is actually smaller than this, but makes handling easier
-,rhs_({settings.nCells[0]+2,settings.nCells[1]+2},{0,0},{0,0}) // is actually smaller than this, but makes handling easier
+,F({settings.nCells[0]+1,settings.nCells[1]+2},settings,{0,0}) // is actually smaller than this, but makes handling easier
+,G({settings.nCells[0]+2,settings.nCells[1]+1},settings,{0,0}) // is actually smaller than this, but makes handling easier
+,rhs_({settings.nCells[0]+2,settings.nCells[1]+2},settings,{0,0}) // is actually smaller than this, but makes handling easier
 {
 
 }

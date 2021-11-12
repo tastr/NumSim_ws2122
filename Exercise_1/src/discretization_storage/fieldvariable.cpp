@@ -3,8 +3,8 @@
 
 
 //FieldVariable::FieldVariable(std::array<int,2> size) : 
-FieldVariable::FieldVariable(std::array<int,2> size)
-: Array2D(size)
+FieldVariable::FieldVariable(std::array<int,2> size,std::array<double,2> offset)
+: Array2D(size), offset_(offset)
 {
     maximum=0;
     absmaximum=0;
@@ -71,22 +71,24 @@ double FieldVariable::interpolateAt(double x, double y)
   double propfact_y;
   double top_average; 
   double bottom_average;
+  x=x+ offset_[0];
+  y=y+ offset_[1]; 
 
-  
-  // Ich nehm mal ein positives Gebiet an
-    while (x<=i_right)
+     while (x>i_right)
     {
         i_right=++i_right;
     }
-    while (y<=j_top)
+    while (y>j_top)
     {
-        j_top=++j_top;
+        j_top=++j_top;     
     }
-    propfact_x = x - propfact_x + 1; 
-    propfact_y = y - propfact_y + 1;
-
-  bottom_average=  (1-propfact_x)*data_[indexconvert(i_right-1,j_top-1)] + propfact_x*(1-propfact_x)*data_[indexconvert(i_right,j_top-1)];
-  bottom_average=  (1-propfact_x)*data_[indexconvert(i_right-1,j_top)]   + propfact_x*(1-propfact_x)*data_[indexconvert(i_right,j_top)];
-
- return  (1-propfact_y) * bottom_average + propfact_y * top_average  ;
+ 
+    propfact_x = x - i_right + 1; 
+    propfact_y = y - j_top + 1;
+    
+  bottom_average = (1-propfact_x)*data_[indexconvert(i_right-1,j_top-1)] + propfact_x*(1-propfact_x)*data_[indexconvert(i_right,j_top-1)];
+  top_average    = (1-propfact_x)*data_[indexconvert(i_right-1,j_top)]   + propfact_x*(1-propfact_x)*data_[indexconvert(i_right,j_top)];
+ 
+  return  (1-propfact_y) * bottom_average + propfact_y * top_average  ;
+   //return 1;
 }

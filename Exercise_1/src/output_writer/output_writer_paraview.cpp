@@ -85,6 +85,7 @@ void OutputWriterParaview::writeFile(double currentTime)
 
   // loop over the mesh where p is defined and assign the values in the vtk data structure
   index = 0;   // index for the vtk data structure
+
   for (int j = 0; j < nCells[1]+1; j++)
   {
     const double y = j*dy;

@@ -5,10 +5,15 @@
 
 //StaggeredGrid::StaggeredGrid(std::array<int,2> size) 
 StaggeredGrid::StaggeredGrid(Settings settings) 
-:pressure({settings.nCells[0]+2,settings.nCells[1]+2})
-,velocity_X({settings.nCells[0]+1,settings.nCells[1]+2})
-,velocity_Y({settings.nCells[0]+2,settings.nCells[1]+1})
+:pressure({settings.nCells[0]+2,settings.nCells[1]+2},{0.5,0.5}) 
+,velocity_X({settings.nCells[0]+1,settings.nCells[1]+2},{0,0.5})
+,velocity_Y({settings.nCells[0]+2,settings.nCells[1]+1},{0.5,0})
 ,settings_(settings)
+//:pressure({settings.nCells[0]+2,settings.nCells[1]+2})
+//,velocity_X({settings.nCells[0]+2,settings.nCells[1]+2})
+//,velocity_Y({settings.nCells[0]+2,settings.nCells[1]+2})
+//,settings_(settings)
+
 { 
     setSize_(settings.nCells);
     delta_x=settings_.physicalSize[0] / settings_.nCells[0];
@@ -55,25 +60,25 @@ void StaggeredGrid::setBorderVelocity(std::array<double,2> top,std::array<double
    int i_u_max = velocity_X.size()[0], j_u_max = velocity_X.size()[1];
    for (int j = 0; j < j_u_max; j++)
    {
-       velocity_X(0,j)=left[0];
+       velocity_X(uIBegin(),j)=left[0];
         velocity_X(i_u_max-1,j)=right[0];
    }
    for (int i = 1; i < i_u_max-1; i++) // i starts at 1 and goes to i_u_max-1 so that the wall is the BC in corners
    {
-       velocity_X(i,0)=2*bottom[0]-velocity_X(i,1);
+       velocity_X(i,uJBegin())=2*bottom[0]-velocity_X(i,vJBegin()+1);
        velocity_X(i,j_u_max-1)=2*top[0]-velocity_X(i,j_u_max-2);
    }
 
    // set v velocity
    for (int j = vJBegin(); j < vJEnd(); j++)
    {
-       velocity_Y(0,j)=2*left[1]-velocity_Y(1,j); 
+       velocity_Y(vIBegin(),j)=2*left[1]-velocity_Y(vIBegin()+1,j); 
        velocity_Y(vIEnd()-1,j)=2*right[1]-velocity_Y(vIEnd()-2,j);
 
    }
    for (int i = vIBegin()+1; i < vIEnd()-1; i++)
    {
-       velocity_Y(i,0)=bottom[1]; 
+       velocity_Y(i,vJBegin())=bottom[1]; 
        velocity_Y(i,vJEnd()-1)=top[1]; 
    }
    
@@ -158,13 +163,13 @@ FieldVariable StaggeredGrid::p() const
 {
     return pressure;
 }
-double StaggeredGrid::p(int i, int j) const
-{
-    return pressure(i,j);
-}
 FieldVariable StaggeredGrid::u() const
 {
     return velocity_X;
+}
+FieldVariable StaggeredGrid::v() const
+{
+    return velocity_Y;
 }
 
 
@@ -173,10 +178,11 @@ double StaggeredGrid::u(int i, int j) const
 {
     return velocity_X(i,j);
 }
-FieldVariable StaggeredGrid::v() const
+double StaggeredGrid::p(int i, int j) const
 {
-    return velocity_Y;
+    return pressure(i,j);
 }
+
 double StaggeredGrid::v(int i, int j) const
 {
     return velocity_Y(i,j);
@@ -187,6 +193,7 @@ double StaggeredGrid::v(int i, int j) const
 int StaggeredGrid::uIBegin() const
 {
     return 0;
+    //return 1;
 } 
 int StaggeredGrid::uIEnd() const
 {
@@ -211,6 +218,7 @@ int StaggeredGrid::vIEnd() const
 int StaggeredGrid::vJBegin() const
 {
     return 0;
+    //return 1;
 } 
 int StaggeredGrid::vJEnd() const
 {

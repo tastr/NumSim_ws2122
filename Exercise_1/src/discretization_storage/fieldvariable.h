@@ -9,8 +9,9 @@ class FieldVariable :
 private:
     double maximum;
     double absmaximum;
+    std::array<double,2> offset_;
 public:
-    FieldVariable(std::array<int,2> size);
+    FieldVariable(std::array<int,2> size,std::array<double,2> offset);
        ~FieldVariable();
     void print();
     double max() ;

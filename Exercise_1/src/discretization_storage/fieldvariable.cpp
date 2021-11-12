@@ -96,9 +96,9 @@ double FieldVariable::interpolateAt(double x, double y)
     }
  
     // propfact_x =x*settings_.nCells[0]-i_right+1;
-    propfact_x = (x-(i_right-1)*dx)/dx;
+    propfact_x = (x - (i_right-1) * dx)/dx;
     // propfact_y =y*settings_.nCells[1]-j_top+1;
-    propfact_y = (y-(j_top-1)*dy)/dy;
+    propfact_y = (y - (j_top-1) * dy)/dy;
  
 //    std::cout << propfact_x <<"  " <<  propfact_y <<std::endl;
   bottom_average = (1-propfact_x) * (*this)(i_right-1,j_top-1) + (propfact_x) * (*this)(i_right,j_top-1);

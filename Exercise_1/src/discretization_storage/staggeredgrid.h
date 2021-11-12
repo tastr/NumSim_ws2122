@@ -40,6 +40,8 @@ public:
      double dx() const; //ist das nicht identisch zu meshwidth?
      double dy() const; //ist das nicht identisch zu meshwidth?
      double getepsilon() const; //ist das nicht identisch zu meshwidth?
+
+     int getMaxIteration() const;
      
      int uIBegin() const;  
      int uIEnd() const;  

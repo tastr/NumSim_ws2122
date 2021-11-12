@@ -32,6 +32,11 @@ std::array<int,2> StaggeredGrid::getSize() const
 return size_;
 }
 
+int StaggeredGrid::getMaxIteration() const
+{
+    return settings_.maximumNumberOfIterations;
+}
+
 // Sets the Dirichlet border conditions for the velocity variables
 void StaggeredGrid::setBorderVelocity(std::array<double,2> top,std::array<double,2> left,std::array<double,2> right,std::array<double,2> bottom)
 {  

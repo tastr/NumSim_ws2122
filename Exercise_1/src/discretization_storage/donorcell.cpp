@@ -49,12 +49,12 @@ double DonorCell::computeDu2Dx(int i, int j) const
  {  double v_iphj     = (v(i+1,j)+v(i,j));
     double u_ijph     = (u(i,j+1)+u(i,j));
     double v_imhj     = (v(i,j)+v(i-1,j));
-    double u_imhjph   = (u(i-1,j+1)+u(i-1,j))/2;
+    double u_imhjph   = (u(i-1,j+1)+u(i-1,j));
     double result_neu = (v_iphj*u_ijph) - (v_imhj*u_imhjph);
-    double donorTerm1 = (v(i+1,j)+v(i,j))*abs(u_ijph);
-    double donorTerm2 = (v(i,j)+v(i-1,j))*abs(u_imhjph); 
+    double donorTerm1 = (v(i+1,j)-v(i,j))*abs(u_ijph);
+    double donorTerm2 = (v(i,j)-v(i-1,j))*abs(u_imhjph); 
     
-    return (result_neu  + settings_.alpha *(donorTerm1-donorTerm2))/(delta_x*4);
+    return (result_neu  - settings_.alpha *(donorTerm1-donorTerm2))/(delta_x*4); //nicht sicher, warum mit minus besser....
  
   
   //double donorTerm1 = (v(i,j)-v(i,j+1))*abs(u(i,j)+u(i+1,j));
@@ -68,8 +68,8 @@ double DonorCell::computeDu2Dx(int i, int j) const
  double DonorCell::computeDuvDy(int i, int j) const
  {double viphj   = (v(i,j)+v(i+1,j)) * (u(i,j)+u(i,j+1));
   double viphjm1 = (v(i,j-1)+v(i+1,j-1)) * (u(i,j-1)+u(i,j));
-  double donorTerm1  = abs(v(i,j)+v(i+1,j))     * (u(i,j)+u(i,j+1));
-  double donorTerm2  = abs(v(i,j-1)+v(i+1,j-1)) * (u(i,j-1)+u(i,j)); 
+  double donorTerm1  = abs(v(i,j)+v(i+1,j))     * (u(i,j)-u(i,j+1));
+  double donorTerm2  = abs(v(i,j-1)+v(i+1,j-1)) * (u(i,j-1)-u(i,j)); 
   
   return (viphj-viphjm1 + settings_.alpha * (donorTerm1-donorTerm2))/(4*delta_y);
    

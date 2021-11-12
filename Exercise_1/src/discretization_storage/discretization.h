@@ -19,7 +19,7 @@ public:
    void updateVelocity();
    void updateBoundaryFG(); //for driven cavity not neccessary, but for other cases maybe.
 
-   
+
    void updateDeltaT();
    double  min2(double value1, double value2) const; 
    double  min3(double value1, double value2, double value3) const;

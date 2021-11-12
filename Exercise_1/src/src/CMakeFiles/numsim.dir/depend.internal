@@ -31,6 +31,7 @@ src/CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.o
  /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/array2d.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/fieldvariable.cpp
  /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/fieldvariable.h
+ settings.h
 src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.o
  /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/array2d.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/fieldvariable.h

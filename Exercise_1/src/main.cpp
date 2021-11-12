@@ -68,18 +68,19 @@ double current_time=0;
  //write after initialization
 myOutputWriterParaview.writeFile(current_time);
 myOutputWriterText.writeFile(current_time);
+myDiscretization->setBorderVelocity(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
+myDiscretization->updateBoundaryFG();
 
 while (current_time<settings.endTime)
 {
-  myDiscretization->setBorderVelocity(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
-  myDiscretization->updateBoundaryFG();
   myDiscretization->updateDeltaT();
   current_time+=myDiscretization->getDeltaT();
   myDiscretization->calculation();
   myPressureSolver->calculateRHS();
   myPressureSolver->calculateP();
-  // myOutputWriterText.writeFile(current_time); // for debug
   myDiscretization->updateVelocity();
+  myDiscretization->setBorderVelocity(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
+  myDiscretization->updateBoundaryFG();
   
   myOutputWriterParaview.writeFile(current_time);
   myOutputWriterText.writeFile(current_time);

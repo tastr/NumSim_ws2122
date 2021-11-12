@@ -27,7 +27,7 @@ void SOR::calculateP()
     double omega=discretization_.getOmega();
     
     do
-    {FieldVariable p  = discretization_.p();
+    {
        for (int j = 1; j < j_max-1 ; j++)
         {   for (int i = 1; i < i_max-1 ; i++)
             {
@@ -39,11 +39,11 @@ void SOR::calculateP()
         } 
          
         safe++;   
-        // discretization_.updatedPressureBC();
+        discretization_.updatedPressureBC();
     }while(residuum() > discretization_.getepsilon() && safe<2000);
     std::cout<< "Residuum " << residuum() << " Safe "<< safe <<std::endl;
     //setPressureBoundaries();
-    discretization_.updatedPressureBC();
+    // discretization_.updatedPressureBC();
     }
 
 

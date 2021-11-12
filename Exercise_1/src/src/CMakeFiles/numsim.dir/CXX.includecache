@@ -6,20 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/gaussseidel.cpp
-gaussseidel.h
-/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/gaussseidel.h
-cassert
--
-
-/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/gaussseidel.h
-vector
--
-array
--
-pressuresolver.h
-/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/pressuresolver.h
-
 /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/pressuresolver.h
 vector
 -
@@ -27,6 +13,20 @@ array
 -
 discretization_storage/discretization.h
 /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/discretization_storage/discretization.h
+
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/sor.cpp
+sor.h
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/sor.h
+cassert
+-
+
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/sor.h
+vector
+-
+array
+-
+pressuresolver.h
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/pressuresolver.h
 
 discretization_storage/array2d.h
 vector

@@ -1,5 +1,6 @@
 #include "fieldvariable.h"
 #include <iostream>
+#include <cassert>
 
 
 //FieldVariable::FieldVariable(std::array<int,2> size) : 
@@ -60,45 +61,51 @@ double FieldVariable::absmax()
 
 int FieldVariable::indexconvert(int i, int j) const
 {
-return  j*size_[0] + i;
+      // assert that indices are in range
+     assert(0 <= i && i < size_[0]);
+     assert(0 <= j && j < size_[1]);
+     assert(j*size_[0] + i < (int)data_.size());
+    return  j*size_[0] + i;
 }
 
 
 double FieldVariable::interpolateAt(double x, double y)
-{ int i_right=0;
-  int j_top=0;
+{ int i_right=1;
+  int j_top=1;
   double propfact_x;
   double propfact_y;
   double top_average; 
   double bottom_average;
+  double averaged=0;
   
-  double dx=1.0/settings_.nCells[0];
-  double dy=1.0/settings_.nCells[1];
+  double dx=settings_.physicalSize[0] / (1.0*settings_.nCells[0]);
+  double dy=settings_.physicalSize[1] / (1.0*settings_.nCells[1]);
 
-  x=x+ offset_[0];
-  y=y+ offset_[1]; 
+  x=x+ offset_[0]*dx;
+  y=y+ offset_[1]*dy; 
  
 
-     while (x>(i_right*dx))
+    while (x>(i_right*dx))
     {
         i_right=++i_right;
     }
     while (y>(dy*j_top))
     { 
-        j_top=++j_top;  
-         
+        j_top=++j_top;     
     }
  
-    propfact_x =x*settings_.nCells[0]-i_right+1;
-    propfact_y =y*settings_.nCells[1]-j_top+1;
- 
+    // propfact_x =x*settings_.nCells[0]-i_right+1;
+    propfact_x = (x-(i_right-1)*dx)/dx;
+    // propfact_y =y*settings_.nCells[1]-j_top+1;
+    propfact_y = (y-(j_top-1)*dy)/dy;
  
 //    std::cout << propfact_x <<"  " <<  propfact_y <<std::endl;
-  bottom_average = (1-propfact_x)*data_[indexconvert(i_right-1,j_top-1)] + propfact_x*(1-propfact_x)*data_[indexconvert(i_right,j_top-1)];
-  top_average    = (1-propfact_x)*data_[indexconvert(i_right-1,j_top)]   + propfact_x*(1-propfact_x)*data_[indexconvert(i_right,j_top)];
+  bottom_average = (1-propfact_x) * (*this)(i_right-1,j_top-1) + (propfact_x) * (*this)(i_right,j_top-1);
+  top_average    = (1-propfact_x) * (*this)(i_right-1,j_top)   + (propfact_x) * (*this)(i_right,j_top);
+  averaged       = (1-propfact_y) * bottom_average + propfact_y * top_average;
   //std::cout << i_right << "   " << x <<std::endl;
   //std::cout << j_top << "   " << y <<std::endl;
-//   std::cout << (1-propfact_y) * bottom_average + propfact_y * top_average <<std::endl;
-  return  (1-propfact_y) * bottom_average + propfact_y * top_average  ;
+//   std::cout << "outupt of interplateAt: "<< averaged <<std::endl;
+  return  averaged ;
 //    return 1;
 }

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<VTKFile type="ImageData" version="0.1" byte_order="LittleEndian" header_type="UInt32" compressor="vtkZLibDataCompressor">
+  <ImageData WholeExtent="0 20 0 20 0 0" Origin="0 0 0" Spacing="0.05 0.05 1">
+    <FieldData>
+      <DataArray type="Float64" Name="TIME" NumberOfTuples="1" format="binary" RangeMin="0.0125" RangeMax="0.0125">
+        AQAAAACAAAAIAAAADQAAAA==eJybNRMEOu0BFRoEYA==
+      </DataArray>
+    </FieldData>
+  <Piece Extent="0 20 0 20 0 0">
+    <PointData>
+      <DataArray type="Float64" Name="pressure" format="binary" RangeMin="1e+299" RangeMax="-1e+299">
+        AQAAAACAAADIDQAAIgAAAA==eJztxTENAAAIA7D5V8zHggyS9mlyZmPbtm3bfnEBogRirQ==
+      </DataArray>
+      <DataArray type="Float64" Name="velocity" NumberOfComponents="3" format="binary" RangeMin="3.1622776601683796e+149" RangeMax="NaN">
+        AQAAAACAAABYKQAAOwAAAA==eJztyLENADAIBLHff2K6IAqKzICvOcnJVC/fN84555xzzjnnnHPOOeecc84555xzzjnnnPM73quMxVk=
+        <InformationKey name="L2_NORM_RANGE" location="vtkDataArray" length="2">
+          <Value index="0">
+            3.1622776602e+149
+          </Value>
+          <Value index="1">
+            -nan
+          </Value>
+        </InformationKey>
+      </DataArray>
+    </PointData>
+    <CellData>
+    </CellData>
+  </Piece>
+  </ImageData>
+</VTKFile>

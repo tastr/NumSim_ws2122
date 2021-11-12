@@ -1,0 +1,157 @@
+t: 0.0125
+nCells: 20x20, dx: 0.05, dy: 0.05
+
+u (21x22): 
+         |        0        1        2        3        4        5        6        7        8        9       10       11       12       13       14       15       16       17       18       19       20
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+       21|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       20|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       19|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       18|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       17|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       16|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       15|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       14|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       13|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       12|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       11|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       10|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        9|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        8|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        7|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        6|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        5|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        4|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        3|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        2|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        1|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        0|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+
+v (22x21): 
+         |        0        1        2        3        4        5        6        7        8        9       10       11       12       13       14       15       16       17       18       19       20       21
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+       20|        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0
+       19|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+       18|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+       17|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+       16|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+       15|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+       14|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+       13|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+       12|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+       11|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+       10|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+        9|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+        8|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+        7|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+        6|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+        5|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+        4|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+        3|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+        2|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+        1|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+        0|        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0
+
+p (22x22): 
+         |        0        1        2        3        4        5        6        7        8        9       10       11       12       13       14       15       16       17       18       19       20       21
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+       21|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+       20|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+       19|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+       18|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+       17|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+       16|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+       15|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+       14|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+       13|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+       12|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+       11|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+       10|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+        9|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+        8|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+        7|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+        6|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+        5|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+        4|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+        3|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+        2|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+        1|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+        0|     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan
+
+F (21x22): 
+         |        0        1        2        3        4        5        6        7        8        9       10       11       12       13       14       15       16       17       18       19       20
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+       21|        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0
+       20|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       19|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       18|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       17|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       16|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       15|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       14|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       13|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       12|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       11|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       10|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        9|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        8|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        7|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        6|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        5|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        4|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        3|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        2|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        1|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        0|        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0
+
+G (22x21): 
+         |        0        1        2        3        4        5        6        7        8        9       10       11       12       13       14       15       16       17       18       19       20       21
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+       20|        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0
+       19|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       18|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       17|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       16|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       15|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       14|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       13|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       12|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       11|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       10|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        9|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        8|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        7|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        6|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        5|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        4|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        3|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        2|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        1|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        0|        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0
+
+rhs (22x22): 
+         |        0        1        2        3        4        5        6        7        8        9       10       11       12       13       14       15       16       17       18       19       20       21
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+       21|        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0
+       20|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       19|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       18|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       17|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       16|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       15|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       14|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       13|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       12|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       11|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+       10|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        9|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        8|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        7|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        6|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        5|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        4|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        3|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        2|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        1|        0     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan     -nan        0
+        0|        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0
+

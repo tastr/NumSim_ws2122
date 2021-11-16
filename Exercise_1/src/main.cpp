@@ -60,14 +60,14 @@ if (settings.pressureSolver == "SOR")
 }
 
 // std::shared_ptr<Discretization> pointer_to_myDiscretization (& myDiscretization); //vermutlich gibt es da einen besseren Weg, aber den habe ich nicht gefunden...
-OutputWriterText myOutputWriterText(myDiscretization);
+// OutputWriterText myOutputWriterText(myDiscretization);
 OutputWriterParaview myOutputWriterParaview(myDiscretization);
 
 // initialize time
 double current_time=0;
  //write after initialization
-myOutputWriterParaview.writeFile(current_time);
-myOutputWriterText.writeFile(current_time);
+// myOutputWriterParaview.writeFile(current_time);
+// myOutputWriterText.writeFile(current_time);
 myDiscretization->setBorderVelocity(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
 myDiscretization->updateBoundaryFG();
 
@@ -83,7 +83,7 @@ while (current_time<settings.endTime)
   myDiscretization->updateBoundaryFG();
   
   myOutputWriterParaview.writeFile(current_time);
-  myOutputWriterText.writeFile(current_time);
+  // myOutputWriterText.writeFile(current_time);
 }
 
 

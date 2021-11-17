@@ -2,6 +2,8 @@
 #include <cstdlib>
 #include <cassert>
 
+#include <time.h>
+
 #include "settings.h"
 #include "output_writer/output_writer_text.h"
 #include "output_writer/output_writer_paraview.h"
@@ -40,6 +42,8 @@ settings.printSettings();
 // testing 
 // MyTestFunctions myTest;
 // assert(myTest.testFunction2(settings));
+double time1, tstart;
+tstart=clock();
 
 //create objects of classes
 std::shared_ptr<Discretization> myDiscretization;
@@ -62,7 +66,7 @@ if (settings.pressureSolver == "SOR")
 // std::shared_ptr<Discretization> pointer_to_myDiscretization (& myDiscretization); //vermutlich gibt es da einen besseren Weg, aber den habe ich nicht gefunden...
 // OutputWriterText myOutputWriterText(myDiscretization);
 OutputWriterParaview myOutputWriterParaview(myDiscretization);
-
+int Laufzaehler=0;
 // initialize time
 double current_time=0;
  //write after initialization
@@ -85,10 +89,13 @@ while (current_time<settings.endTime)
   
   myOutputWriterParaview.writeFile(current_time);
   // myOutputWriterText.writeFile(current_time);
+Laufzaehler=Laufzaehler+1;
 }
+std::cout<< "Noetige Iterationen " << Laufzaehler <<std::endl;
+time1=clock()-tstart;
+time1=time1/CLOCKS_PER_SEC;
 
-
-
+std::cout<< "Laufzeit in s " << time1  <<std::endl;
 
   return EXIT_SUCCESS;
 }

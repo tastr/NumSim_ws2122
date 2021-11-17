@@ -26,42 +26,19 @@ void GaussSeidel::calculateP()
     double y_term;
     double omega=discretization_.getOmega();
 
-    double dx2=deltax_quad;
-    double dy2=deltay_quad;
-    int i_max = discretization_.getSize()[0] , j_max = discretization_.getSize()[1];
-    
-    int iend=i_max-2;
-    int jend=j_max-2;
-    double div_ecke=1.0-vorfaktor*(1.0/dx2+1.0/dy2);
-    double div_x   =1.0-vorfaktor*(1.0/dx2);
-    double div_y   =1.0-vorfaktor*(1.0/dy2);
-    double v=vorfaktor;
-
- 
+    double epsilonquad=discretization_.getepsilon() *discretization_.getepsilon() ;   
+    double resterm;
+    int Nnumber= (discretization_.nCells()[0]*discretization_.nCells()[1]);
 
     do
     { //FieldVariable p=discretization_.p(); 
        
-       discretization_.setP(1,1,      v*(discretization_.p(2,1)/dx2+discretization_.p(1,2)/dy2                -discretization_.rhs(1,1))/div_ecke);
-       discretization_.setP(1,jend,   v*(discretization_.p(2,jend)/dx2+discretization_.p(1,jend-1)/dy2        -discretization_.rhs(1,jend))/div_ecke);
-       discretization_.setP(iend,1,   v*(discretization_.p(iend-1,1)/dx2+discretization_.p(iend,2)/dy2        -discretization_.rhs(iend,1))/div_ecke);
-       discretization_.setP(iend,jend, v*(discretization_.p(iend-1,jend)/dx2+discretization_.p(iend,jend-1)/dy2-discretization_.rhs(iend,jend))/div_ecke);
+       
+        for (int j = discretization_.pJBegin()+1; j < discretization_.pJEnd()-1; j++)
 
-        for (int i = 2; i < i_max-2; i++)
         {
-          discretization_.setP(i,1, v*((discretization_.p(i-1,1)+discretization_.p(i+1,1))/dx2+ discretization_.p(i,2)/dy2-discretization_.rhs(i,1))/div_y);
-          discretization_.setP(i,jend, v*((discretization_.p(i-1,jend)+discretization_.p(i+1,jend))/dx2+ discretization_.p(i,jend-1)/dy2-discretization_.rhs(i,jend))/div_y);
-         
-        }
-        
 
-
-       for (int j = discretization_.pJBegin()+2; j < discretization_.pJEnd()-2; j++)
-
-        {discretization_.setP(1,j,v*(discretization_.p(2,j)/dx2+ (discretization_.p(1,j-1)  + discretization_.p(1,j+1))/dy2-discretization_.rhs(1,j))/div_x);
-        
-
-        for (int i = discretization_.pIBegin()+2; i < discretization_.pIEnd()-2; i++)
+        for (int i = discretization_.pIBegin()+1; i < discretization_.pIEnd()-1; i++)
             {   
             //discretization_.setP(i,1, v*((discretization_.p(i-1,1)+discretization_.p(i+1,1))/dx2+ discretization_.p(i,2)/dy2-discretization_.rhs(i,1))/div_y);
         
@@ -78,8 +55,7 @@ void GaussSeidel::calculateP()
             
             }  
                  
-           discretization_.setP(iend,j, v*(discretization_.p(iend-1,j)/dx2+ (discretization_.p(iend,j-1)+discretization_.p(iend,j+1))/dy2-discretization_.rhs(iend,j))/div_x);
-         
+           
         }        
          safe++;
       
@@ -87,8 +63,9 @@ void GaussSeidel::calculateP()
         // discretization_.setP(p);
       // Ohne den konvergiert er doppelt so schnell  
       discretization_.updatedPressureBC();
-        
-    }while(residuum() > discretization_.getepsilon()  && safe<20000);
+       
+      resterm=(residuum()*residuum())/Nnumber;
+    }while(resterm > epsilonquad  && safe<20000);
     std::cout<< "Residuum " << residuum() << " Safe "<< safe <<std::endl;
     //discretization_.updatedPressureBC();
         

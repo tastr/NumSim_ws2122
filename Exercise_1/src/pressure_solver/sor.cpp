@@ -41,7 +41,7 @@ void SOR::calculateP()
         safe++;   
         discretization_.updatedPressureBC();
     }while(residuum() > discretization_.getepsilon() && safe<discretization_.getMaxIteration());
-    std::cout<< "Residuum " << residuum() << " Safe "<< safe <<std::endl;
+    // std::cout<< "Residuum " << residuum() << " Safe "<< safe <<std::endl;
     //setPressureBoundaries();
     // discretization_.updatedPressureBC();
     }

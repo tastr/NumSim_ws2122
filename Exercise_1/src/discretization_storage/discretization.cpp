@@ -17,7 +17,9 @@ StaggeredGrid(settings)
 // setBorderVelocity(settings.dirichletBcTop,settings.dirichletBcLeft,settings.dirichletBcRight,settings.dirichletBcBottom)
 void Discretization::updateDeltaT()
 {
-  deltat = min2(min3(min2(delta_x,delta_y)*min2(delta_x,delta_y)*settings_.re/4,delta_x/velocity_X.absmax(),delta_y/velocity_Y.absmax())*settings_.tau, settings_.maximumDt);
+    double time_limit_diffusion = (delta_x*delta_x*delta_y*delta_y)/((delta_x*delta_x)+(delta_y*delta_y))*settings_.re/2;
+    double time_limit           = min3(time_limit_diffusion, delta_x/velocity_X.absmax(), delta_y/velocity_Y.absmax()) * settings_.tau;
+  deltat = min2(time_limit, settings_.maximumDt);
 }
 
 //destructor
@@ -103,11 +105,14 @@ void Discretization::updateBoundaryFG()
     for (int j = uJBegin(); j < uJEnd(); j++)
    {
         F(0,j)=u(0,j);
+        F(uIEnd()-1,j)=u(uIEnd()-1,j);
    }
 
-   for (int i = vIBegin(); i < vIEnd()-1; i++)
+   for (int i = vIBegin(); i < vIEnd(); i++)
    {
-        G(i,0)=v(i,0);
+        G(i,vJBegin())=v(i,vJBegin());
+        G(i,vJEnd()-1)=v(i,vJEnd()-1);
+
    }
 }
         

@@ -81,7 +81,7 @@ void StaggeredGrid::setBorderVelocity(std::array<double,2> top,std::array<double
        velocity_Y(vIEnd()-1,j)=2*right[1]-velocity_Y(vIEnd()-2,j);
 
    }
-   for (int i = vIBegin()+1; i < vIEnd()-1; i++)
+   for (int i = vIBegin()+1; i < vIEnd()-1; i++) // i starts at 1 and goes to i_u_max-1 so that the wall is the BC in corners
    {
        velocity_Y(i,vJBegin())=bottom[1]; 
        velocity_Y(i,vJEnd()-1)=top[1]; 

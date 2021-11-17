@@ -47,30 +47,38 @@ void GaussSeidel::calculateP()
        discretization_.setP(iend,1,   v*(discretization_.p(iend-1,1)/dx2+discretization_.p(iend,2)/dy2        -discretization_.rhs(iend,1))/div_ecke);
        discretization_.setP(iend,jend, v*(discretization_.p(iend-1,jend)/dx2+discretization_.p(iend,jend-1)/dy2-discretization_.rhs(iend,jend))/div_ecke);
 
-      
+        for (int i = 2; i < i_max-2; i++)
+        {
+          discretization_.setP(i,1, v*((discretization_.p(i-1,1)+discretization_.p(i+1,1))/dx2+ discretization_.p(i,2)/dy2-discretization_.rhs(i,1))/div_y);
+          discretization_.setP(i,jend, v*((discretization_.p(i-1,jend)+discretization_.p(i+1,jend))/dx2+ discretization_.p(i,jend-1)/dy2-discretization_.rhs(i,jend))/div_y);
+         
+        }
+        
+
+
        for (int j = discretization_.pJBegin()+2; j < discretization_.pJEnd()-2; j++)
 
         {discretization_.setP(1,j,v*(discretization_.p(2,j)/dx2+ (discretization_.p(1,j-1)  + discretization_.p(1,j+1))/dy2-discretization_.rhs(1,j))/div_x);
-         discretization_.setP(j,1, v*((discretization_.p(j-1,1)+discretization_.p(j+1,1))/dx2+ discretization_.p(j,2)/dy2-discretization_.rhs(j,1))/div_y);
         
 
         for (int i = discretization_.pIBegin()+2; i < discretization_.pIEnd()-2; i++)
             {   
+            //discretization_.setP(i,1, v*((discretization_.p(i-1,1)+discretization_.p(i+1,1))/dx2+ discretization_.p(i,2)/dy2-discretization_.rhs(i,1))/div_y);
+        
+
             x_term= (discretization_.p(i-1,j) + discretization_.p(i+1,j))/deltax_quad;
             y_term= (discretization_.p(i,j-1) + discretization_.p(i,j+1)) / deltay_quad;  
               // value of pij gets overwritten with the new approximation
           
             discretization_.setP(i,j, vorfaktor*( x_term + y_term   - discretization_.rhs(i,j))) ;
+         
+         
+               //discretization_.setP(i,jend, v*((discretization_.p(i-1,jend)+discretization_.p(i+1,jend))/dx2+ discretization_.p(i,jend-1)/dy2-discretization_.rhs(i,jend))/div_y);
+         
             
-            
-            //x_term= (p(i-1,j) + p(i+1,j))/deltax_quad;
-            //y_term= (p(i,j-1) + p(i,j+1)) / deltay_quad;  
-                        
-            //discretization_.p(i,j)=vorfaktor*( x_term + y_term   - discretization_.rhs(i,j));
             }  
                  
            discretization_.setP(iend,j, v*(discretization_.p(iend-1,j)/dx2+ (discretization_.p(iend,j-1)+discretization_.p(iend,j+1))/dy2-discretization_.rhs(iend,j))/div_x);
-            discretization_.setP(j,jend, v*((discretization_.p(j-1,jend)+discretization_.p(j+1,jend))/dx2+ discretization_.p(j,jend-1)/dy2-discretization_.rhs(j,jend))/div_y);
          
         }        
          safe++;

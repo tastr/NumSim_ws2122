@@ -11,9 +11,9 @@ add_executable(${PROJECT_NAME}
    settings.cpp
 #   output_writer/output_writer_paraview_parallel.cpp
 #   output_writer/output_writer_text_parallel.cpp
-   output_writer/output_writer_paraview.cpp  # user for serial only
-   output_writer/output_writer_text.cpp  # use for serial only
-   output_writer/output_writer.cpp
+#   output_writer/output_writer_paraview.cpp  # user for serial only
+#   output_writer/output_writer_text.cpp  # use for serial only
+#   output_writer/output_writer.cpp
 #   output_writer/write_paraview_output.cpp
    discretization_storage/array2d.cpp
    discretization_storage/centraldifferences.cpp 
@@ -26,7 +26,7 @@ add_executable(${PROJECT_NAME}
    pressure_solver/sor.cpp
    computation/computation.cpp
    partitioning/partitioning.cpp
-   test_and_debug/mytestfunctions.cpp
+#   test_and_debug/mytestfunctions.cpp
 )
 
 	

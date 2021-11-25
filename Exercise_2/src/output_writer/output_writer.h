@@ -5,7 +5,6 @@
 
 #include <memory>
 
-class Partitioning;
 
 /** Inteface class for writing simulation data output.
  */

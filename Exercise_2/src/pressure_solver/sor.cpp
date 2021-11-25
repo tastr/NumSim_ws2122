@@ -59,7 +59,7 @@ void SOR::calculateP()
        resterm=(residuum()*residuum())/Nnumber;
 
     }while(resterm > epsilonquad  && safe<20000);    
-    // std::cout<< "Residuum " << residuum() << " Safe "<< safe <<std::endl;
+    std::cout<< "Residuum " << residuum() << " Safe "<< safe <<std::endl;
     //setPressureBoundaries();
      //discretization_.updatedPressureBC();
     }

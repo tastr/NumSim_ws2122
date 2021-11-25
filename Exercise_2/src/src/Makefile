@@ -387,87 +387,6 @@ main.cpp.s:
 	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-output_writer/output_writer.o: output_writer/output_writer.cpp.o
-
-.PHONY : output_writer/output_writer.o
-
-# target to build an object file
-output_writer/output_writer.cpp.o:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o
-.PHONY : output_writer/output_writer.cpp.o
-
-output_writer/output_writer.i: output_writer/output_writer.cpp.i
-
-.PHONY : output_writer/output_writer.i
-
-# target to preprocess a source file
-output_writer/output_writer.cpp.i:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.i
-.PHONY : output_writer/output_writer.cpp.i
-
-output_writer/output_writer.s: output_writer/output_writer.cpp.s
-
-.PHONY : output_writer/output_writer.s
-
-# target to generate assembly for a file
-output_writer/output_writer.cpp.s:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.s
-.PHONY : output_writer/output_writer.cpp.s
-
-output_writer/output_writer_paraview.o: output_writer/output_writer_paraview.cpp.o
-
-.PHONY : output_writer/output_writer_paraview.o
-
-# target to build an object file
-output_writer/output_writer_paraview.cpp.o:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.o
-.PHONY : output_writer/output_writer_paraview.cpp.o
-
-output_writer/output_writer_paraview.i: output_writer/output_writer_paraview.cpp.i
-
-.PHONY : output_writer/output_writer_paraview.i
-
-# target to preprocess a source file
-output_writer/output_writer_paraview.cpp.i:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.i
-.PHONY : output_writer/output_writer_paraview.cpp.i
-
-output_writer/output_writer_paraview.s: output_writer/output_writer_paraview.cpp.s
-
-.PHONY : output_writer/output_writer_paraview.s
-
-# target to generate assembly for a file
-output_writer/output_writer_paraview.cpp.s:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.s
-.PHONY : output_writer/output_writer_paraview.cpp.s
-
-output_writer/output_writer_text.o: output_writer/output_writer_text.cpp.o
-
-.PHONY : output_writer/output_writer_text.o
-
-# target to build an object file
-output_writer/output_writer_text.cpp.o:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o
-.PHONY : output_writer/output_writer_text.cpp.o
-
-output_writer/output_writer_text.i: output_writer/output_writer_text.cpp.i
-
-.PHONY : output_writer/output_writer_text.i
-
-# target to preprocess a source file
-output_writer/output_writer_text.cpp.i:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.i
-.PHONY : output_writer/output_writer_text.cpp.i
-
-output_writer/output_writer_text.s: output_writer/output_writer_text.cpp.s
-
-.PHONY : output_writer/output_writer_text.s
-
-# target to generate assembly for a file
-output_writer/output_writer_text.cpp.s:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.s
-.PHONY : output_writer/output_writer_text.cpp.s
-
 partitioning/partitioning.o: partitioning/partitioning.cpp.o
 
 .PHONY : partitioning/partitioning.o
@@ -603,33 +522,6 @@ settings.cpp.s:
 	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/settings.cpp.s
 .PHONY : settings.cpp.s
 
-test_and_debug/mytestfunctions.o: test_and_debug/mytestfunctions.cpp.o
-
-.PHONY : test_and_debug/mytestfunctions.o
-
-# target to build an object file
-test_and_debug/mytestfunctions.cpp.o:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.o
-.PHONY : test_and_debug/mytestfunctions.cpp.o
-
-test_and_debug/mytestfunctions.i: test_and_debug/mytestfunctions.cpp.i
-
-.PHONY : test_and_debug/mytestfunctions.i
-
-# target to preprocess a source file
-test_and_debug/mytestfunctions.cpp.i:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.i
-.PHONY : test_and_debug/mytestfunctions.cpp.i
-
-test_and_debug/mytestfunctions.s: test_and_debug/mytestfunctions.cpp.s
-
-.PHONY : test_and_debug/mytestfunctions.s
-
-# target to generate assembly for a file
-test_and_debug/mytestfunctions.cpp.s:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.s
-.PHONY : test_and_debug/mytestfunctions.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -667,15 +559,6 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... output_writer/output_writer.o"
-	@echo "... output_writer/output_writer.i"
-	@echo "... output_writer/output_writer.s"
-	@echo "... output_writer/output_writer_paraview.o"
-	@echo "... output_writer/output_writer_paraview.i"
-	@echo "... output_writer/output_writer_paraview.s"
-	@echo "... output_writer/output_writer_text.o"
-	@echo "... output_writer/output_writer_text.i"
-	@echo "... output_writer/output_writer_text.s"
 	@echo "... partitioning/partitioning.o"
 	@echo "... partitioning/partitioning.i"
 	@echo "... partitioning/partitioning.s"
@@ -691,9 +574,6 @@ help:
 	@echo "... settings.o"
 	@echo "... settings.i"
 	@echo "... settings.s"
-	@echo "... test_and_debug/mytestfunctions.o"
-	@echo "... test_and_debug/mytestfunctions.i"
-	@echo "... test_and_debug/mytestfunctions.s"
 .PHONY : help
 
 

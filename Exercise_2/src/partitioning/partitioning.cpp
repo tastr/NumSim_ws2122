@@ -1,6 +1,6 @@
 #include "partitioning.h"
 
-Partitioning::Partitioning(settings)
+Partitioning::Partitioning(Settings settings)
 :Computation(settings)
 {
     

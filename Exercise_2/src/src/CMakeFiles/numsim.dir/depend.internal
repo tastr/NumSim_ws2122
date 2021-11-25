@@ -10,6 +10,9 @@ src/CMakeFiles/numsim.dir/computation/computation.cpp.o
  discretization_storage/donorcell.h
  discretization_storage/fieldvariable.h
  discretization_storage/staggeredgrid.h
+ output_writer/output_writer.h
+ output_writer/output_writer_text.h
+ partitioning/partitioning.h
  pressure_solver/gaussseidel.h
  pressure_solver/pressuresolver.h
  pressure_solver/sor.h
@@ -52,32 +55,43 @@ src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.o
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/staggeredgrid.h
  settings.h
 src/CMakeFiles/numsim.dir/main.cpp.o
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/computation/computation.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/main.cpp
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/partitioning/partitioning.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/settings.h
- computation/computation.h
  discretization_storage/array2d.h
  discretization_storage/centraldifferences.h
  discretization_storage/discretization.h
  discretization_storage/donorcell.h
  discretization_storage/fieldvariable.h
  discretization_storage/staggeredgrid.h
+ output_writer/output_writer.h
+ output_writer/output_writer_text.h
  pressure_solver/gaussseidel.h
  pressure_solver/pressuresolver.h
  pressure_solver/sor.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/output_writer/output_writer.cpp
+ discretization_storage/array2d.h
+ discretization_storage/discretization.h
+ discretization_storage/fieldvariable.h
+ discretization_storage/staggeredgrid.h
+ output_writer/output_writer.h
+ partitioning/partitioning.h
+ settings.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/output_writer/output_writer_text.cpp
+ discretization_storage/array2d.h
+ discretization_storage/discretization.h
+ discretization_storage/fieldvariable.h
+ discretization_storage/staggeredgrid.h
+ output_writer/output_writer.h
+ output_writer/output_writer_text.h
+ partitioning/partitioning.h
+ settings.h
 src/CMakeFiles/numsim.dir/partitioning/partitioning.cpp.o
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/partitioning/partitioning.cpp
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/partitioning/partitioning.h
- computation/computation.h
- discretization_storage/array2d.h
- discretization_storage/centraldifferences.h
- discretization_storage/discretization.h
- discretization_storage/donorcell.h
- discretization_storage/fieldvariable.h
- discretization_storage/staggeredgrid.h
- pressure_solver/gaussseidel.h
- pressure_solver/pressuresolver.h
- pressure_solver/sor.h
  settings.h
 src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/pressure_solver/gaussseidel.cpp

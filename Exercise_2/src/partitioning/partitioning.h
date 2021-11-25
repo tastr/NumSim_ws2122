@@ -1,6 +1,10 @@
 #pragma once
 
 //#include "computation/computation.h"
+#include <cstdlib>
+#include <array>
+
+#include "settings.h"
 
 
 

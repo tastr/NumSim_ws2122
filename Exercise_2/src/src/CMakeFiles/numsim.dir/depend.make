@@ -9,6 +9,9 @@ src/CMakeFiles/numsim.dir/computation/computation.cpp.o: discretization_storage/
 src/CMakeFiles/numsim.dir/computation/computation.cpp.o: discretization_storage/donorcell.h
 src/CMakeFiles/numsim.dir/computation/computation.cpp.o: discretization_storage/fieldvariable.h
 src/CMakeFiles/numsim.dir/computation/computation.cpp.o: discretization_storage/staggeredgrid.h
+src/CMakeFiles/numsim.dir/computation/computation.cpp.o: output_writer/output_writer.h
+src/CMakeFiles/numsim.dir/computation/computation.cpp.o: output_writer/output_writer_text.h
+src/CMakeFiles/numsim.dir/computation/computation.cpp.o: partitioning/partitioning.h
 src/CMakeFiles/numsim.dir/computation/computation.cpp.o: pressure_solver/gaussseidel.h
 src/CMakeFiles/numsim.dir/computation/computation.cpp.o: pressure_solver/pressuresolver.h
 src/CMakeFiles/numsim.dir/computation/computation.cpp.o: pressure_solver/sor.h
@@ -51,32 +54,43 @@ src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.o: discretiza
 src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.o: discretization_storage/staggeredgrid.h
 src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.o: settings.h
 
+src/CMakeFiles/numsim.dir/main.cpp.o: computation/computation.h
 src/CMakeFiles/numsim.dir/main.cpp.o: main.cpp
 src/CMakeFiles/numsim.dir/main.cpp.o: partitioning/partitioning.h
 src/CMakeFiles/numsim.dir/main.cpp.o: settings.h
-src/CMakeFiles/numsim.dir/main.cpp.o: computation/computation.h
 src/CMakeFiles/numsim.dir/main.cpp.o: discretization_storage/array2d.h
 src/CMakeFiles/numsim.dir/main.cpp.o: discretization_storage/centraldifferences.h
 src/CMakeFiles/numsim.dir/main.cpp.o: discretization_storage/discretization.h
 src/CMakeFiles/numsim.dir/main.cpp.o: discretization_storage/donorcell.h
 src/CMakeFiles/numsim.dir/main.cpp.o: discretization_storage/fieldvariable.h
 src/CMakeFiles/numsim.dir/main.cpp.o: discretization_storage/staggeredgrid.h
+src/CMakeFiles/numsim.dir/main.cpp.o: output_writer/output_writer.h
+src/CMakeFiles/numsim.dir/main.cpp.o: output_writer/output_writer_text.h
 src/CMakeFiles/numsim.dir/main.cpp.o: pressure_solver/gaussseidel.h
 src/CMakeFiles/numsim.dir/main.cpp.o: pressure_solver/pressuresolver.h
 src/CMakeFiles/numsim.dir/main.cpp.o: pressure_solver/sor.h
 
+src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o: output_writer/output_writer.cpp
+src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o: discretization_storage/array2d.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o: discretization_storage/discretization.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o: discretization_storage/fieldvariable.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o: discretization_storage/staggeredgrid.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o: output_writer/output_writer.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o: partitioning/partitioning.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o: settings.h
+
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o: output_writer/output_writer_text.cpp
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o: discretization_storage/array2d.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o: discretization_storage/discretization.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o: discretization_storage/fieldvariable.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o: discretization_storage/staggeredgrid.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o: output_writer/output_writer.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o: output_writer/output_writer_text.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o: partitioning/partitioning.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o: settings.h
+
 src/CMakeFiles/numsim.dir/partitioning/partitioning.cpp.o: partitioning/partitioning.cpp
 src/CMakeFiles/numsim.dir/partitioning/partitioning.cpp.o: partitioning/partitioning.h
-src/CMakeFiles/numsim.dir/partitioning/partitioning.cpp.o: computation/computation.h
-src/CMakeFiles/numsim.dir/partitioning/partitioning.cpp.o: discretization_storage/array2d.h
-src/CMakeFiles/numsim.dir/partitioning/partitioning.cpp.o: discretization_storage/centraldifferences.h
-src/CMakeFiles/numsim.dir/partitioning/partitioning.cpp.o: discretization_storage/discretization.h
-src/CMakeFiles/numsim.dir/partitioning/partitioning.cpp.o: discretization_storage/donorcell.h
-src/CMakeFiles/numsim.dir/partitioning/partitioning.cpp.o: discretization_storage/fieldvariable.h
-src/CMakeFiles/numsim.dir/partitioning/partitioning.cpp.o: discretization_storage/staggeredgrid.h
-src/CMakeFiles/numsim.dir/partitioning/partitioning.cpp.o: pressure_solver/gaussseidel.h
-src/CMakeFiles/numsim.dir/partitioning/partitioning.cpp.o: pressure_solver/pressuresolver.h
-src/CMakeFiles/numsim.dir/partitioning/partitioning.cpp.o: pressure_solver/sor.h
 src/CMakeFiles/numsim.dir/partitioning/partitioning.cpp.o: settings.h
 
 src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o: pressure_solver/gaussseidel.cpp

@@ -30,7 +30,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}/../build/numsim",
-            "args": ["../scenario3.txt"],
+            "args": ["../parameters.txt"],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],

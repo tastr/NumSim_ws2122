@@ -40,7 +40,7 @@ if (settings.pressureSolver == "SOR")
 
 
 // std::shared_ptr<Discretization> pointer_to_myDiscretization (& myDiscretization); //vermutlich gibt es da einen besseren Weg, aber den habe ich nicht gefunden...
- OutputWriterText myOutputWriterText(myDiscretization, &mypartitioning);
+ OutputWriterText myOutputWriterText(myDiscretization, mypartitioning);
 // OutputWriterParaview myOutputWriterParaview(myDiscretization);
 int Iterationszahl=0;
 // initialize time

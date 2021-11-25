@@ -4,8 +4,8 @@
 
 
 //FieldVariable::FieldVariable(std::array<int,2> size) : 
-FieldVariable::FieldVariable(std::array<int,2> size,Settings settings,std::array<double,2> offset)
-: Array2D(size), offset_(offset),settings_(settings)
+FieldVariable::FieldVariable(std::array<int,2> size, std::array<double,2> offset, std::array<double,2> mesh_width)
+: Array2D(size), offset_(offset), dx_(mesh_width[0]), dy_(mesh_width[1])
 {
     maximum=0;
     absmaximum=0;
@@ -77,28 +77,25 @@ double FieldVariable::interpolateAt(double x, double y)
   double top_average; 
   double bottom_average;
   double averaged=0;
-  
-  double dx=settings_.physicalSize[0] / (1.0*settings_.nCells[0]);
-  double dy=settings_.physicalSize[1] / (1.0*settings_.nCells[1]);
 
-  x=x+ offset_[0]*dx;
-  y=y+ offset_[1]*dy; 
+  x=x+ offset_[0]*dx_;
+  y=y+ offset_[1]*dy_; 
  
 
-    while (x>(i_right*dx))
+    while (x>(i_right*dx_))
     {
         i_right=++i_right;
        // std::cout << i_right <<std::endl;
     }
-    while (y>(dy*j_top))
+    while (y>(dy_*j_top))
     { 
         j_top=++j_top;     
     }
  
     // propfact_x =x*settings_.nCells[0]-i_right+1;
-    propfact_x = (x - (i_right-1) * dx)/dx;
+    propfact_x = (x - (i_right-1) * dx_)/dx_;
     // propfact_y =y*settings_.nCells[1]-j_top+1;
-    propfact_y = (y - (j_top-1) * dy)/dy;
+    propfact_y = (y - (j_top-1) * dy_)/dy_;
  
 //    std::cout << propfact_x <<"  " <<  propfact_y <<std::endl;
   bottom_average = (1-propfact_x) * (*this)(i_right-1,j_top-1) + (propfact_x) * (*this)(i_right,j_top-1);

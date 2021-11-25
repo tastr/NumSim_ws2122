@@ -9,7 +9,7 @@
 
 #include "settings.h"
 #include "output_writer/output_writer_text.h"
-// #include "output_writer/output_writer_paraview.h"
+#include "output_writer/output_writer_paraview.h"
 #include "pressure_solver/pressuresolver.h"
 #include "pressure_solver/sor.h"
 #include "pressure_solver/gaussseidel.h"

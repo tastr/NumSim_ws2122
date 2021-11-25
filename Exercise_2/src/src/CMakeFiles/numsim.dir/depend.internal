@@ -4,6 +4,39 @@
 src/CMakeFiles/numsim.dir/computation/computation.cpp.o
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/computation/computation.cpp
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/computation/computation.h
+ /usr/local/include/vtk-8.2/vtkABI.h
+ /usr/local/include/vtk-8.2/vtkAlgorithm.h
+ /usr/local/include/vtk-8.2/vtkAtomic.h
+ /usr/local/include/vtk-8.2/vtkAtomicTypeConcepts.h
+ /usr/local/include/vtk-8.2/vtkAtomicTypes.h
+ /usr/local/include/vtk-8.2/vtkCommonCoreModule.h
+ /usr/local/include/vtk-8.2/vtkCommonExecutionModelModule.h
+ /usr/local/include/vtk-8.2/vtkConfigure.h
+ /usr/local/include/vtk-8.2/vtkIOStream.h
+ /usr/local/include/vtk-8.2/vtkIOStreamFwd.h
+ /usr/local/include/vtk-8.2/vtkIOXMLModule.h
+ /usr/local/include/vtk-8.2/vtkIndent.h
+ /usr/local/include/vtk-8.2/vtkNew.h
+ /usr/local/include/vtk-8.2/vtkOStrStreamWrapper.h
+ /usr/local/include/vtk-8.2/vtkOStreamWrapper.h
+ /usr/local/include/vtk-8.2/vtkObject.h
+ /usr/local/include/vtk-8.2/vtkObjectBase.h
+ /usr/local/include/vtk-8.2/vtkSetGet.h
+ /usr/local/include/vtk-8.2/vtkSmartPointer.h
+ /usr/local/include/vtk-8.2/vtkSmartPointerBase.h
+ /usr/local/include/vtk-8.2/vtkSystemIncludes.h
+ /usr/local/include/vtk-8.2/vtkTimeStamp.h
+ /usr/local/include/vtk-8.2/vtkType.h
+ /usr/local/include/vtk-8.2/vtkVersionMacros.h
+ /usr/local/include/vtk-8.2/vtkWeakPointerBase.h
+ /usr/local/include/vtk-8.2/vtkWin32Header.h
+ /usr/local/include/vtk-8.2/vtkWrappingHints.h
+ /usr/local/include/vtk-8.2/vtkXMLImageDataWriter.h
+ /usr/local/include/vtk-8.2/vtkXMLStructuredDataWriter.h
+ /usr/local/include/vtk-8.2/vtkXMLWriter.h
+ /usr/local/include/vtk-8.2/vtk_kwiml.h
+ /usr/local/include/vtk-8.2/vtkkwiml/abi.h
+ /usr/local/include/vtk-8.2/vtkkwiml/int.h
  discretization_storage/array2d.h
  discretization_storage/centraldifferences.h
  discretization_storage/discretization.h
@@ -11,6 +44,7 @@ src/CMakeFiles/numsim.dir/computation/computation.cpp.o
  discretization_storage/fieldvariable.h
  discretization_storage/staggeredgrid.h
  output_writer/output_writer.h
+ output_writer/output_writer_paraview.h
  output_writer/output_writer_text.h
  partitioning/partitioning.h
  pressure_solver/gaussseidel.h
@@ -59,6 +93,39 @@ src/CMakeFiles/numsim.dir/main.cpp.o
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/main.cpp
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/partitioning/partitioning.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/settings.h
+ /usr/local/include/vtk-8.2/vtkABI.h
+ /usr/local/include/vtk-8.2/vtkAlgorithm.h
+ /usr/local/include/vtk-8.2/vtkAtomic.h
+ /usr/local/include/vtk-8.2/vtkAtomicTypeConcepts.h
+ /usr/local/include/vtk-8.2/vtkAtomicTypes.h
+ /usr/local/include/vtk-8.2/vtkCommonCoreModule.h
+ /usr/local/include/vtk-8.2/vtkCommonExecutionModelModule.h
+ /usr/local/include/vtk-8.2/vtkConfigure.h
+ /usr/local/include/vtk-8.2/vtkIOStream.h
+ /usr/local/include/vtk-8.2/vtkIOStreamFwd.h
+ /usr/local/include/vtk-8.2/vtkIOXMLModule.h
+ /usr/local/include/vtk-8.2/vtkIndent.h
+ /usr/local/include/vtk-8.2/vtkNew.h
+ /usr/local/include/vtk-8.2/vtkOStrStreamWrapper.h
+ /usr/local/include/vtk-8.2/vtkOStreamWrapper.h
+ /usr/local/include/vtk-8.2/vtkObject.h
+ /usr/local/include/vtk-8.2/vtkObjectBase.h
+ /usr/local/include/vtk-8.2/vtkSetGet.h
+ /usr/local/include/vtk-8.2/vtkSmartPointer.h
+ /usr/local/include/vtk-8.2/vtkSmartPointerBase.h
+ /usr/local/include/vtk-8.2/vtkSystemIncludes.h
+ /usr/local/include/vtk-8.2/vtkTimeStamp.h
+ /usr/local/include/vtk-8.2/vtkType.h
+ /usr/local/include/vtk-8.2/vtkVersionMacros.h
+ /usr/local/include/vtk-8.2/vtkWeakPointerBase.h
+ /usr/local/include/vtk-8.2/vtkWin32Header.h
+ /usr/local/include/vtk-8.2/vtkWrappingHints.h
+ /usr/local/include/vtk-8.2/vtkXMLImageDataWriter.h
+ /usr/local/include/vtk-8.2/vtkXMLStructuredDataWriter.h
+ /usr/local/include/vtk-8.2/vtkXMLWriter.h
+ /usr/local/include/vtk-8.2/vtk_kwiml.h
+ /usr/local/include/vtk-8.2/vtkkwiml/abi.h
+ /usr/local/include/vtk-8.2/vtkkwiml/int.h
  discretization_storage/array2d.h
  discretization_storage/centraldifferences.h
  discretization_storage/discretization.h
@@ -66,6 +133,7 @@ src/CMakeFiles/numsim.dir/main.cpp.o
  discretization_storage/fieldvariable.h
  discretization_storage/staggeredgrid.h
  output_writer/output_writer.h
+ output_writer/output_writer_paraview.h
  output_writer/output_writer_text.h
  pressure_solver/gaussseidel.h
  pressure_solver/pressuresolver.h
@@ -77,6 +145,77 @@ src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o
  discretization_storage/fieldvariable.h
  discretization_storage/staggeredgrid.h
  output_writer/output_writer.h
+ partitioning/partitioning.h
+ settings.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.o
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/output_writer/output_writer_paraview.cpp
+ /usr/local/include/vtk-8.2/vtkABI.h
+ /usr/local/include/vtk-8.2/vtkAOSDataArrayTemplate.h
+ /usr/local/include/vtk-8.2/vtkAbstractArray.h
+ /usr/local/include/vtk-8.2/vtkAlgorithm.h
+ /usr/local/include/vtk-8.2/vtkAtomic.h
+ /usr/local/include/vtk-8.2/vtkAtomicTypeConcepts.h
+ /usr/local/include/vtk-8.2/vtkAtomicTypes.h
+ /usr/local/include/vtk-8.2/vtkBuffer.h
+ /usr/local/include/vtk-8.2/vtkCommonCoreModule.h
+ /usr/local/include/vtk-8.2/vtkCommonDataModelModule.h
+ /usr/local/include/vtk-8.2/vtkCommonExecutionModelModule.h
+ /usr/local/include/vtk-8.2/vtkConfigure.h
+ /usr/local/include/vtk-8.2/vtkDataArray.h
+ /usr/local/include/vtk-8.2/vtkDataObject.h
+ /usr/local/include/vtk-8.2/vtkDataSet.h
+ /usr/local/include/vtk-8.2/vtkDataSetAttributes.h
+ /usr/local/include/vtk-8.2/vtkDataSetAttributesFieldList.h
+ /usr/local/include/vtk-8.2/vtkDebugLeaksManager.h
+ /usr/local/include/vtk-8.2/vtkDoubleArray.h
+ /usr/local/include/vtk-8.2/vtkFieldData.h
+ /usr/local/include/vtk-8.2/vtkGenericDataArray.h
+ /usr/local/include/vtk-8.2/vtkGenericDataArray.txx
+ /usr/local/include/vtk-8.2/vtkGenericDataArrayLookupHelper.h
+ /usr/local/include/vtk-8.2/vtkIOStream.h
+ /usr/local/include/vtk-8.2/vtkIOStreamFwd.h
+ /usr/local/include/vtk-8.2/vtkIOXMLModule.h
+ /usr/local/include/vtk-8.2/vtkIdList.h
+ /usr/local/include/vtk-8.2/vtkImageData.h
+ /usr/local/include/vtk-8.2/vtkIndent.h
+ /usr/local/include/vtk-8.2/vtkMath.h
+ /usr/local/include/vtk-8.2/vtkMathConfigure.h
+ /usr/local/include/vtk-8.2/vtkNew.h
+ /usr/local/include/vtk-8.2/vtkOStrStreamWrapper.h
+ /usr/local/include/vtk-8.2/vtkOStreamWrapper.h
+ /usr/local/include/vtk-8.2/vtkObject.h
+ /usr/local/include/vtk-8.2/vtkObjectBase.h
+ /usr/local/include/vtk-8.2/vtkObjectFactory.h
+ /usr/local/include/vtk-8.2/vtkPointData.h
+ /usr/local/include/vtk-8.2/vtkSetGet.h
+ /usr/local/include/vtk-8.2/vtkSmartPointer.h
+ /usr/local/include/vtk-8.2/vtkSmartPointerBase.h
+ /usr/local/include/vtk-8.2/vtkStdString.h
+ /usr/local/include/vtk-8.2/vtkStructuredData.h
+ /usr/local/include/vtk-8.2/vtkSystemIncludes.h
+ /usr/local/include/vtk-8.2/vtkTimeStamp.h
+ /usr/local/include/vtk-8.2/vtkType.h
+ /usr/local/include/vtk-8.2/vtkTypeTraits.h
+ /usr/local/include/vtk-8.2/vtkUnicodeString.h
+ /usr/local/include/vtk-8.2/vtkVariant.h
+ /usr/local/include/vtk-8.2/vtkVariantCast.h
+ /usr/local/include/vtk-8.2/vtkVariantInlineOperators.h
+ /usr/local/include/vtk-8.2/vtkVersionMacros.h
+ /usr/local/include/vtk-8.2/vtkWeakPointerBase.h
+ /usr/local/include/vtk-8.2/vtkWin32Header.h
+ /usr/local/include/vtk-8.2/vtkWrappingHints.h
+ /usr/local/include/vtk-8.2/vtkXMLImageDataWriter.h
+ /usr/local/include/vtk-8.2/vtkXMLStructuredDataWriter.h
+ /usr/local/include/vtk-8.2/vtkXMLWriter.h
+ /usr/local/include/vtk-8.2/vtk_kwiml.h
+ /usr/local/include/vtk-8.2/vtkkwiml/abi.h
+ /usr/local/include/vtk-8.2/vtkkwiml/int.h
+ discretization_storage/array2d.h
+ discretization_storage/discretization.h
+ discretization_storage/fieldvariable.h
+ discretization_storage/staggeredgrid.h
+ output_writer/output_writer.h
+ output_writer/output_writer_paraview.h
  partitioning/partitioning.h
  settings.h
 src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o

@@ -10,9 +10,11 @@ private:
     double maximum;
     double absmaximum;
     std::array<double,2> offset_;
-    Settings settings_;
+    // Settings settings_;
+    double dx_;
+    double dy_;
 public:
-    FieldVariable(std::array<int,2> size, Settings settings ,std::array<double,2> offset);
+    FieldVariable(std::array<int,2> size, std::array<double,2> offset, std::array<double,2> mesh_width);
        ~FieldVariable();
     void print();
     double max() ;

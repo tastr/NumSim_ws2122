@@ -2,6 +2,7 @@
 
 #include "computation.h"
 
+
 Computation::Computation(Settings settings)
 :settings_(settings)
 {
@@ -11,8 +12,6 @@ Computation::Computation(Settings settings)
 
 void Computation::runSimulation(Settings settings)
 {
-
-
 // testing 
 // MyTestFunctions myTest;
 // assert(myTest.testFunction2(settings));
@@ -21,6 +20,8 @@ tstart=clock();
 
 //create objects of classes
 std::shared_ptr<Discretization> myDiscretization;
+Partitioning mypartitioning(settings);
+
 if (settings.useDonorCell)
 {
   myDiscretization=std::make_shared<DonorCell>(settings);
@@ -37,8 +38,9 @@ if (settings.pressureSolver == "SOR")
   myPressureSolver= std::make_shared<GaussSeidel>(*myDiscretization); //reference is used
 }
 
+
 // std::shared_ptr<Discretization> pointer_to_myDiscretization (& myDiscretization); //vermutlich gibt es da einen besseren Weg, aber den habe ich nicht gefunden...
-// OutputWriterText myOutputWriterText(myDiscretization);
+ OutputWriterText myOutputWriterText(myDiscretization, &mypartitioning);
 // OutputWriterParaview myOutputWriterParaview(myDiscretization);
 int Iterationszahl=0;
 // initialize time
@@ -48,7 +50,7 @@ double current_time=0;
 myDiscretization->setBorderVelocity(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
 myDiscretization->updateBoundaryFG();
 // myOutputWriterParaview.writeFile(current_time);
-// myOutputWriterText.writeFile(current_time);
+ myOutputWriterText.writeFile(current_time);
 
 while (current_time<settings.endTime && Iterationszahl< settings.maximumNumberOfIterations )
 {
@@ -62,7 +64,7 @@ while (current_time<settings.endTime && Iterationszahl< settings.maximumNumberOf
   myDiscretization->updateBoundaryFG();
   
   // myOutputWriterParaview.writeFile(current_time);
-  // myOutputWriterText.writeFile(current_time);
+   myOutputWriterText.writeFile(current_time);
 Iterationszahl=Iterationszahl+1;
 }
 std::cout<< "Noetige Iterationen " << Iterationszahl <<std::endl;

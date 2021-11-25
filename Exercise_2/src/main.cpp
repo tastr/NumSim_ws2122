@@ -14,6 +14,7 @@
 // #include "discretization_storage/centraldifferences.h"
 // #include "computation/computation.h"
 #include "partitioning/partitioning.h"
+#include "computation/computation.h"
 // #include "test_and_debug/mytestfunctions.h"
 //void loadFromFile(std::string filename);
 
@@ -39,9 +40,9 @@ Settings settings;
 settings.loadFromFile(filename);
 // display all settings on console
 settings.printSettings();
-
-Partitioning partition(settings);
-partition.runSimulation(settings);
+Computation computation(settings);
+//Partitioning partition(settings);
+computation.runSimulation(settings);
 
   return EXIT_SUCCESS;
 }

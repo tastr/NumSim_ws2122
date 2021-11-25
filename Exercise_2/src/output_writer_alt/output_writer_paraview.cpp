@@ -4,8 +4,8 @@
 #include <vtkDoubleArray.h>
 #include <vtkPointData.h>
 
-OutputWriterParaview::OutputWriterParaview(std::shared_ptr<Discretization> discretization, const Partitioning &partitioning) :
-   OutputWriter(discretization, partitioning)
+OutputWriterParaview::OutputWriterParaview(std::shared_ptr<Discretization> discretization) :
+   OutputWriter(discretization)
 {
   // Create a vtkWriter_
   vtkWriter_ = vtkSmartPointer<vtkXMLImageDataWriter>::New();
@@ -85,6 +85,7 @@ void OutputWriterParaview::writeFile(double currentTime)
 
   // loop over the mesh where p is defined and assign the values in the vtk data structure
   index = 0;   // index for the vtk data structure
+
   for (int j = 0; j < nCells[1]+1; j++)
   {
     const double y = j*dy;

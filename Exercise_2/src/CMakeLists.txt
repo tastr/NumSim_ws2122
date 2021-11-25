@@ -9,8 +9,10 @@ add_executable(${PROJECT_NAME}
    main.cpp
 #   Test_Ableitung.cpp
    settings.cpp
-   output_writer/output_writer_paraview.cpp
-   output_writer/output_writer_text.cpp
+#   output_writer/output_writer_paraview_parallel.cpp
+#   output_writer/output_writer_text_parallel.cpp
+   output_writer/output_writer_paraview.cpp  # user for serial only
+   output_writer/output_writer_text.cpp  # use for serial only
    output_writer/output_writer.cpp
 #   output_writer/write_paraview_output.cpp
    discretization_storage/array2d.cpp
@@ -22,6 +24,8 @@ add_executable(${PROJECT_NAME}
    pressure_solver/pressuresolver.cpp
    pressure_solver/gaussseidel.cpp
    pressure_solver/sor.cpp
+   computation/computation.cpp
+   partitioning/partitioning.cpp
    test_and_debug/mytestfunctions.cpp
 )
 

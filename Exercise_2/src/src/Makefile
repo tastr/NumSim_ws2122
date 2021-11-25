@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/david/uni/numSim/NumSim_ws2122/Exercise_1
+CMAKE_SOURCE_DIR = /home/david/uni/numSim/NumSim_ws2122/Exercise_2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src
+CMAKE_BINARY_DIR = /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,14 +126,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(CMAKE_COMMAND) -E cmake_progress_start /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/CMakeFiles /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src/CMakeFiles/progress.marks
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f CMakeFiles/Makefile2 src/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/CMakeFiles 0
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(CMAKE_COMMAND) -E cmake_progress_start /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/CMakeFiles /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/src/CMakeFiles/progress.marks
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f CMakeFiles/Makefile2 src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f CMakeFiles/Makefile2 src/clean
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f CMakeFiles/Makefile2 src/clean
 .PHONY : clean
 
 # The main clean target
@@ -143,22 +143,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/CMakeFiles/numsim.dir/rule:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/numsim.dir/rule
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/numsim.dir/rule
 .PHONY : src/CMakeFiles/numsim.dir/rule
 
 # Convenience name for target.
@@ -168,8 +168,35 @@ numsim: src/CMakeFiles/numsim.dir/rule
 
 # fast build rule for target.
 numsim/fast:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/build
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/build
 .PHONY : numsim/fast
+
+computation/computation.o: computation/computation.cpp.o
+
+.PHONY : computation/computation.o
+
+# target to build an object file
+computation/computation.cpp.o:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/computation/computation.cpp.o
+.PHONY : computation/computation.cpp.o
+
+computation/computation.i: computation/computation.cpp.i
+
+.PHONY : computation/computation.i
+
+# target to preprocess a source file
+computation/computation.cpp.i:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/computation/computation.cpp.i
+.PHONY : computation/computation.cpp.i
+
+computation/computation.s: computation/computation.cpp.s
+
+.PHONY : computation/computation.s
+
+# target to generate assembly for a file
+computation/computation.cpp.s:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/computation/computation.cpp.s
+.PHONY : computation/computation.cpp.s
 
 discretization_storage/array2d.o: discretization_storage/array2d.cpp.o
 
@@ -177,7 +204,7 @@ discretization_storage/array2d.o: discretization_storage/array2d.cpp.o
 
 # target to build an object file
 discretization_storage/array2d.cpp.o:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.o
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.o
 .PHONY : discretization_storage/array2d.cpp.o
 
 discretization_storage/array2d.i: discretization_storage/array2d.cpp.i
@@ -186,7 +213,7 @@ discretization_storage/array2d.i: discretization_storage/array2d.cpp.i
 
 # target to preprocess a source file
 discretization_storage/array2d.cpp.i:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.i
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.i
 .PHONY : discretization_storage/array2d.cpp.i
 
 discretization_storage/array2d.s: discretization_storage/array2d.cpp.s
@@ -195,7 +222,7 @@ discretization_storage/array2d.s: discretization_storage/array2d.cpp.s
 
 # target to generate assembly for a file
 discretization_storage/array2d.cpp.s:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.s
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.s
 .PHONY : discretization_storage/array2d.cpp.s
 
 discretization_storage/centraldifferences.o: discretization_storage/centraldifferences.cpp.o
@@ -204,7 +231,7 @@ discretization_storage/centraldifferences.o: discretization_storage/centraldiffe
 
 # target to build an object file
 discretization_storage/centraldifferences.cpp.o:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.o
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.o
 .PHONY : discretization_storage/centraldifferences.cpp.o
 
 discretization_storage/centraldifferences.i: discretization_storage/centraldifferences.cpp.i
@@ -213,7 +240,7 @@ discretization_storage/centraldifferences.i: discretization_storage/centraldiffe
 
 # target to preprocess a source file
 discretization_storage/centraldifferences.cpp.i:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.i
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.i
 .PHONY : discretization_storage/centraldifferences.cpp.i
 
 discretization_storage/centraldifferences.s: discretization_storage/centraldifferences.cpp.s
@@ -222,7 +249,7 @@ discretization_storage/centraldifferences.s: discretization_storage/centraldiffe
 
 # target to generate assembly for a file
 discretization_storage/centraldifferences.cpp.s:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.s
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.s
 .PHONY : discretization_storage/centraldifferences.cpp.s
 
 discretization_storage/discretization.o: discretization_storage/discretization.cpp.o
@@ -231,7 +258,7 @@ discretization_storage/discretization.o: discretization_storage/discretization.c
 
 # target to build an object file
 discretization_storage/discretization.cpp.o:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o
 .PHONY : discretization_storage/discretization.cpp.o
 
 discretization_storage/discretization.i: discretization_storage/discretization.cpp.i
@@ -240,7 +267,7 @@ discretization_storage/discretization.i: discretization_storage/discretization.c
 
 # target to preprocess a source file
 discretization_storage/discretization.cpp.i:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.i
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.i
 .PHONY : discretization_storage/discretization.cpp.i
 
 discretization_storage/discretization.s: discretization_storage/discretization.cpp.s
@@ -249,7 +276,7 @@ discretization_storage/discretization.s: discretization_storage/discretization.c
 
 # target to generate assembly for a file
 discretization_storage/discretization.cpp.s:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.s
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.s
 .PHONY : discretization_storage/discretization.cpp.s
 
 discretization_storage/donorcell.o: discretization_storage/donorcell.cpp.o
@@ -258,7 +285,7 @@ discretization_storage/donorcell.o: discretization_storage/donorcell.cpp.o
 
 # target to build an object file
 discretization_storage/donorcell.cpp.o:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o
 .PHONY : discretization_storage/donorcell.cpp.o
 
 discretization_storage/donorcell.i: discretization_storage/donorcell.cpp.i
@@ -267,7 +294,7 @@ discretization_storage/donorcell.i: discretization_storage/donorcell.cpp.i
 
 # target to preprocess a source file
 discretization_storage/donorcell.cpp.i:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.i
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.i
 .PHONY : discretization_storage/donorcell.cpp.i
 
 discretization_storage/donorcell.s: discretization_storage/donorcell.cpp.s
@@ -276,7 +303,7 @@ discretization_storage/donorcell.s: discretization_storage/donorcell.cpp.s
 
 # target to generate assembly for a file
 discretization_storage/donorcell.cpp.s:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.s
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.s
 .PHONY : discretization_storage/donorcell.cpp.s
 
 discretization_storage/fieldvariable.o: discretization_storage/fieldvariable.cpp.o
@@ -285,7 +312,7 @@ discretization_storage/fieldvariable.o: discretization_storage/fieldvariable.cpp
 
 # target to build an object file
 discretization_storage/fieldvariable.cpp.o:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.o
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.o
 .PHONY : discretization_storage/fieldvariable.cpp.o
 
 discretization_storage/fieldvariable.i: discretization_storage/fieldvariable.cpp.i
@@ -294,7 +321,7 @@ discretization_storage/fieldvariable.i: discretization_storage/fieldvariable.cpp
 
 # target to preprocess a source file
 discretization_storage/fieldvariable.cpp.i:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.i
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.i
 .PHONY : discretization_storage/fieldvariable.cpp.i
 
 discretization_storage/fieldvariable.s: discretization_storage/fieldvariable.cpp.s
@@ -303,7 +330,7 @@ discretization_storage/fieldvariable.s: discretization_storage/fieldvariable.cpp
 
 # target to generate assembly for a file
 discretization_storage/fieldvariable.cpp.s:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.s
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.s
 .PHONY : discretization_storage/fieldvariable.cpp.s
 
 discretization_storage/staggeredgrid.o: discretization_storage/staggeredgrid.cpp.o
@@ -312,7 +339,7 @@ discretization_storage/staggeredgrid.o: discretization_storage/staggeredgrid.cpp
 
 # target to build an object file
 discretization_storage/staggeredgrid.cpp.o:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.o
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.o
 .PHONY : discretization_storage/staggeredgrid.cpp.o
 
 discretization_storage/staggeredgrid.i: discretization_storage/staggeredgrid.cpp.i
@@ -321,7 +348,7 @@ discretization_storage/staggeredgrid.i: discretization_storage/staggeredgrid.cpp
 
 # target to preprocess a source file
 discretization_storage/staggeredgrid.cpp.i:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.i
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.i
 .PHONY : discretization_storage/staggeredgrid.cpp.i
 
 discretization_storage/staggeredgrid.s: discretization_storage/staggeredgrid.cpp.s
@@ -330,7 +357,7 @@ discretization_storage/staggeredgrid.s: discretization_storage/staggeredgrid.cpp
 
 # target to generate assembly for a file
 discretization_storage/staggeredgrid.cpp.s:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.s
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.s
 .PHONY : discretization_storage/staggeredgrid.cpp.s
 
 main.o: main.cpp.o
@@ -339,7 +366,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/main.cpp.o
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -348,7 +375,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/main.cpp.i
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -357,7 +384,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/main.cpp.s
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 output_writer/output_writer.o: output_writer/output_writer.cpp.o
@@ -366,7 +393,7 @@ output_writer/output_writer.o: output_writer/output_writer.cpp.o
 
 # target to build an object file
 output_writer/output_writer.cpp.o:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o
 .PHONY : output_writer/output_writer.cpp.o
 
 output_writer/output_writer.i: output_writer/output_writer.cpp.i
@@ -375,7 +402,7 @@ output_writer/output_writer.i: output_writer/output_writer.cpp.i
 
 # target to preprocess a source file
 output_writer/output_writer.cpp.i:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.i
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.i
 .PHONY : output_writer/output_writer.cpp.i
 
 output_writer/output_writer.s: output_writer/output_writer.cpp.s
@@ -384,7 +411,7 @@ output_writer/output_writer.s: output_writer/output_writer.cpp.s
 
 # target to generate assembly for a file
 output_writer/output_writer.cpp.s:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.s
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.s
 .PHONY : output_writer/output_writer.cpp.s
 
 output_writer/output_writer_paraview.o: output_writer/output_writer_paraview.cpp.o
@@ -393,7 +420,7 @@ output_writer/output_writer_paraview.o: output_writer/output_writer_paraview.cpp
 
 # target to build an object file
 output_writer/output_writer_paraview.cpp.o:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.o
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.o
 .PHONY : output_writer/output_writer_paraview.cpp.o
 
 output_writer/output_writer_paraview.i: output_writer/output_writer_paraview.cpp.i
@@ -402,7 +429,7 @@ output_writer/output_writer_paraview.i: output_writer/output_writer_paraview.cpp
 
 # target to preprocess a source file
 output_writer/output_writer_paraview.cpp.i:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.i
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.i
 .PHONY : output_writer/output_writer_paraview.cpp.i
 
 output_writer/output_writer_paraview.s: output_writer/output_writer_paraview.cpp.s
@@ -411,7 +438,7 @@ output_writer/output_writer_paraview.s: output_writer/output_writer_paraview.cpp
 
 # target to generate assembly for a file
 output_writer/output_writer_paraview.cpp.s:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.s
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.s
 .PHONY : output_writer/output_writer_paraview.cpp.s
 
 output_writer/output_writer_text.o: output_writer/output_writer_text.cpp.o
@@ -420,7 +447,7 @@ output_writer/output_writer_text.o: output_writer/output_writer_text.cpp.o
 
 # target to build an object file
 output_writer/output_writer_text.cpp.o:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o
 .PHONY : output_writer/output_writer_text.cpp.o
 
 output_writer/output_writer_text.i: output_writer/output_writer_text.cpp.i
@@ -429,7 +456,7 @@ output_writer/output_writer_text.i: output_writer/output_writer_text.cpp.i
 
 # target to preprocess a source file
 output_writer/output_writer_text.cpp.i:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.i
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.i
 .PHONY : output_writer/output_writer_text.cpp.i
 
 output_writer/output_writer_text.s: output_writer/output_writer_text.cpp.s
@@ -438,8 +465,35 @@ output_writer/output_writer_text.s: output_writer/output_writer_text.cpp.s
 
 # target to generate assembly for a file
 output_writer/output_writer_text.cpp.s:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.s
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.s
 .PHONY : output_writer/output_writer_text.cpp.s
+
+partitioning/partitioning.o: partitioning/partitioning.cpp.o
+
+.PHONY : partitioning/partitioning.o
+
+# target to build an object file
+partitioning/partitioning.cpp.o:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/partitioning/partitioning.cpp.o
+.PHONY : partitioning/partitioning.cpp.o
+
+partitioning/partitioning.i: partitioning/partitioning.cpp.i
+
+.PHONY : partitioning/partitioning.i
+
+# target to preprocess a source file
+partitioning/partitioning.cpp.i:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/partitioning/partitioning.cpp.i
+.PHONY : partitioning/partitioning.cpp.i
+
+partitioning/partitioning.s: partitioning/partitioning.cpp.s
+
+.PHONY : partitioning/partitioning.s
+
+# target to generate assembly for a file
+partitioning/partitioning.cpp.s:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/partitioning/partitioning.cpp.s
+.PHONY : partitioning/partitioning.cpp.s
 
 pressure_solver/gaussseidel.o: pressure_solver/gaussseidel.cpp.o
 
@@ -447,7 +501,7 @@ pressure_solver/gaussseidel.o: pressure_solver/gaussseidel.cpp.o
 
 # target to build an object file
 pressure_solver/gaussseidel.cpp.o:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o
 .PHONY : pressure_solver/gaussseidel.cpp.o
 
 pressure_solver/gaussseidel.i: pressure_solver/gaussseidel.cpp.i
@@ -456,7 +510,7 @@ pressure_solver/gaussseidel.i: pressure_solver/gaussseidel.cpp.i
 
 # target to preprocess a source file
 pressure_solver/gaussseidel.cpp.i:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.i
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.i
 .PHONY : pressure_solver/gaussseidel.cpp.i
 
 pressure_solver/gaussseidel.s: pressure_solver/gaussseidel.cpp.s
@@ -465,7 +519,7 @@ pressure_solver/gaussseidel.s: pressure_solver/gaussseidel.cpp.s
 
 # target to generate assembly for a file
 pressure_solver/gaussseidel.cpp.s:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.s
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.s
 .PHONY : pressure_solver/gaussseidel.cpp.s
 
 pressure_solver/pressuresolver.o: pressure_solver/pressuresolver.cpp.o
@@ -474,7 +528,7 @@ pressure_solver/pressuresolver.o: pressure_solver/pressuresolver.cpp.o
 
 # target to build an object file
 pressure_solver/pressuresolver.cpp.o:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.o
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.o
 .PHONY : pressure_solver/pressuresolver.cpp.o
 
 pressure_solver/pressuresolver.i: pressure_solver/pressuresolver.cpp.i
@@ -483,7 +537,7 @@ pressure_solver/pressuresolver.i: pressure_solver/pressuresolver.cpp.i
 
 # target to preprocess a source file
 pressure_solver/pressuresolver.cpp.i:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.i
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.i
 .PHONY : pressure_solver/pressuresolver.cpp.i
 
 pressure_solver/pressuresolver.s: pressure_solver/pressuresolver.cpp.s
@@ -492,7 +546,7 @@ pressure_solver/pressuresolver.s: pressure_solver/pressuresolver.cpp.s
 
 # target to generate assembly for a file
 pressure_solver/pressuresolver.cpp.s:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.s
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.s
 .PHONY : pressure_solver/pressuresolver.cpp.s
 
 pressure_solver/sor.o: pressure_solver/sor.cpp.o
@@ -501,7 +555,7 @@ pressure_solver/sor.o: pressure_solver/sor.cpp.o
 
 # target to build an object file
 pressure_solver/sor.cpp.o:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.o
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.o
 .PHONY : pressure_solver/sor.cpp.o
 
 pressure_solver/sor.i: pressure_solver/sor.cpp.i
@@ -510,7 +564,7 @@ pressure_solver/sor.i: pressure_solver/sor.cpp.i
 
 # target to preprocess a source file
 pressure_solver/sor.cpp.i:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.i
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.i
 .PHONY : pressure_solver/sor.cpp.i
 
 pressure_solver/sor.s: pressure_solver/sor.cpp.s
@@ -519,7 +573,7 @@ pressure_solver/sor.s: pressure_solver/sor.cpp.s
 
 # target to generate assembly for a file
 pressure_solver/sor.cpp.s:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.s
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.s
 .PHONY : pressure_solver/sor.cpp.s
 
 settings.o: settings.cpp.o
@@ -528,7 +582,7 @@ settings.o: settings.cpp.o
 
 # target to build an object file
 settings.cpp.o:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/settings.cpp.o
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/settings.cpp.o
 .PHONY : settings.cpp.o
 
 settings.i: settings.cpp.i
@@ -537,7 +591,7 @@ settings.i: settings.cpp.i
 
 # target to preprocess a source file
 settings.cpp.i:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/settings.cpp.i
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/settings.cpp.i
 .PHONY : settings.cpp.i
 
 settings.s: settings.cpp.s
@@ -546,7 +600,7 @@ settings.s: settings.cpp.s
 
 # target to generate assembly for a file
 settings.cpp.s:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/settings.cpp.s
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/settings.cpp.s
 .PHONY : settings.cpp.s
 
 test_and_debug/mytestfunctions.o: test_and_debug/mytestfunctions.cpp.o
@@ -555,7 +609,7 @@ test_and_debug/mytestfunctions.o: test_and_debug/mytestfunctions.cpp.o
 
 # target to build an object file
 test_and_debug/mytestfunctions.cpp.o:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.o
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.o
 .PHONY : test_and_debug/mytestfunctions.cpp.o
 
 test_and_debug/mytestfunctions.i: test_and_debug/mytestfunctions.cpp.i
@@ -564,7 +618,7 @@ test_and_debug/mytestfunctions.i: test_and_debug/mytestfunctions.cpp.i
 
 # target to preprocess a source file
 test_and_debug/mytestfunctions.cpp.i:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.i
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.i
 .PHONY : test_and_debug/mytestfunctions.cpp.i
 
 test_and_debug/mytestfunctions.s: test_and_debug/mytestfunctions.cpp.s
@@ -573,7 +627,7 @@ test_and_debug/mytestfunctions.s: test_and_debug/mytestfunctions.cpp.s
 
 # target to generate assembly for a file
 test_and_debug/mytestfunctions.cpp.s:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.s
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.s
 .PHONY : test_and_debug/mytestfunctions.cpp.s
 
 # Help Target
@@ -589,6 +643,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... install/strip"
 	@echo "... numsim"
+	@echo "... computation/computation.o"
+	@echo "... computation/computation.i"
+	@echo "... computation/computation.s"
 	@echo "... discretization_storage/array2d.o"
 	@echo "... discretization_storage/array2d.i"
 	@echo "... discretization_storage/array2d.s"
@@ -619,6 +676,9 @@ help:
 	@echo "... output_writer/output_writer_text.o"
 	@echo "... output_writer/output_writer_text.i"
 	@echo "... output_writer/output_writer_text.s"
+	@echo "... partitioning/partitioning.o"
+	@echo "... partitioning/partitioning.i"
+	@echo "... partitioning/partitioning.s"
 	@echo "... pressure_solver/gaussseidel.o"
 	@echo "... pressure_solver/gaussseidel.i"
 	@echo "... pressure_solver/gaussseidel.s"
@@ -645,6 +705,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

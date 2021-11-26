@@ -49,10 +49,10 @@ nCellsGlobal_(settings.nCells)
 
    std::array<int,2> Partitioning::nCells()
     {
-     return nCells_
+     return nCells_;
     } 
     std::array<int,2> Partitioning::nCellsGlobal(){
-     return nCellsGlobal_   
+     return nCellsGlobal_;
     } 
     
 

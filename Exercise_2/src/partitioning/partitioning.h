@@ -21,7 +21,7 @@ protected:
     int ownRankNoValue;
     std::array<int,2> nodeOffsetValue;
     std::array<int,2> nCellsGlobal_;
-    std::array<int,2> nCells;
+    std::array<int,2> nCells_;
 
     // Initialization functions
     void setOwnPartitionContainsBottomBoundary();
@@ -40,6 +40,9 @@ public:
     int ownPartitionContainsLeftBoundary();
     int ownPartitionContainsRightBoundary();
     int ownPartitionContainsTopBoundary();
-    std::array<int,2> nodeOffset();     
-
+    std::array<int,2> nodeOffset(); 
+    std::array<int,2> nCells(); 
+    std::array<int,2> nCellsGlobal(); 
+       
+  
 };

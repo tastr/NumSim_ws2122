@@ -15,7 +15,7 @@ nCellsGlobal_(settings.nCells)
     std::cout<< n << m <<std::endl; 
     std::cout<< ownRankNoValue <<std::endl;  
     std::cout<< nodeOffsetValue[0] << nodeOffsetValue[1] << std::endl;  
-    std::cout<<  nCells[0] <<  nCells[1] << std::endl;
+    std::cout<<  nCells_[0] <<  nCells_[1] << std::endl;
     }
 
 
@@ -46,6 +46,31 @@ nCellsGlobal_(settings.nCells)
     {
        return nodeOffsetValue;
     }
+
+   std::array<int,2> Partitioning::nCells()
+    {
+     return nCells_
+    } 
+    std::array<int,2> Partitioning::nCellsGlobal(){
+     return nCellsGlobal_   
+    } 
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -107,19 +132,21 @@ nCellsGlobal_(settings.nCells)
 
     void Partitioning::setNCells()
     {
-        nCells[0]=nCellsGlobal_[0]/n;
-        nCells[1]=nCellsGlobal_[1]/m;
+        nCells_[0]=nCellsGlobal_[0]/n;
+        nCells_[1]=nCellsGlobal_[1]/m;
         if (nodeOffsetValue[0]==n-1)
         {
-            nCells[0]=nCellsGlobal_[0]-(nodeOffsetValue[0])*nCells[0];
+            nCells_[0]=nCellsGlobal_[0]-(nodeOffsetValue[0])*nCells_[0];
         }
         if (nodeOffsetValue[1]==m-1)
         {
-            nCells[1]=nCellsGlobal_[1]-(nodeOffsetValue[1])*nCells[1];
+            nCells_[1]=nCellsGlobal_[1]-(nodeOffsetValue[1])*nCells_[1];
         }
          
    
     }
+
+ 
 
 
 

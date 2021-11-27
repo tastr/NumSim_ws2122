@@ -3,8 +3,8 @@
 Partitioning::Partitioning(Settings settings):
 nCellsGlobal_(settings.nCells)
 {
-    n=3;  // predefined for Tests, use 3x3 since it contains all possible bordercases 
-    m=3;  // in the project these numbers need to be calculated in a function that defines the domainsplitting.
+    n=2;  // predefined for Tests, use 3x3 since it contains all possible bordercases 
+    m=1;  // in the project these numbers need to be calculated in a function that defines the domainsplitting.
     setOwnRankNo();//could be given to the partitioning
     setNodeOffset();
     setOwnPartitionContainsBottomBoundary();
@@ -55,7 +55,10 @@ nCellsGlobal_(settings.nCells)
      return nCellsGlobal_;
     } 
     
-
+    int Partitioning::coordiantesToRank(int i, int j)
+    {
+        return  j*n + i;
+    }
 
 
 
@@ -113,8 +116,8 @@ nCellsGlobal_(settings.nCells)
     }
     void Partitioning::setOwnRankNo()  
     {
-    //return MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
-    ownRankNoValue=8;
+     MPI_Comm_rank(MPI_COMM_WORLD, &ownRankNoValue);
+    //ownRankNoValue=7;
     }
 
     void Partitioning::setNodeOffset()

@@ -8,7 +8,7 @@ class DonorCell :
 private:
    
 public:
-       DonorCell(Settings settings);
+       DonorCell(Settings settings,Partitioning partitioning);
        ~DonorCell();
     double computeDu2Dx(int i, int j) const;
     double computeDv2Dy(int i, int j) const;

@@ -3,6 +3,9 @@
 #include "staggeredgrid.h"
 #include "settings.h"
 #include "fieldvariable.h"
+#include "partitioning/partitioning.h"
+#include <mpi.h>
+
 
 class Discretization : 
     public StaggeredGrid
@@ -10,9 +13,10 @@ class Discretization :
 protected:
    double deltat;
    FieldVariable F, G, rhs_;
+   Partitioning partitioning_;
 public:
-    Discretization(Settings settings);
-    virtual ~Discretization();
+   Discretization(Settings settings, Partitioning partitioning);
+   virtual ~Discretization();
    void calculation_altfinitedifferenzen();
 
    virtual void calculation();
@@ -51,6 +55,11 @@ public:
 
     // set functions
     void setRHS(int i, int j, double value);
+
+    void setPressureBCParalell();
+    void setBorderVelocityParalell(std::array<double,2> top,std::array<double,2> left,std::array<double,2> right,std::array<double,2> bottom);
+    void updateBoundaryFGParalell(); //for driven cavity not neccessary, but for other cases maybe.
+
 };
 
 

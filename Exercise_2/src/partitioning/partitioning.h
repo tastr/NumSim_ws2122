@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <array>
 #include "settings.h"
+#include <mpi.h>
 
 
 
@@ -43,6 +44,6 @@ public:
     std::array<int,2> nodeOffset(); 
     std::array<int,2> nCells(); 
     std::array<int,2> nCellsGlobal(); 
-       
+    int coordiantesToRank(int i, int j);     
   
 };

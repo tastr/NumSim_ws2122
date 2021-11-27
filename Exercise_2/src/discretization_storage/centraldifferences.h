@@ -8,7 +8,7 @@ class CentralDifferences :
  private:
      /* data */
  public:
-    CentralDifferences(Settings settings);
+    CentralDifferences(Settings settings,Partitioning partitioning);
      ~CentralDifferences();
     double computeDu2Dx(int i, int j) const;
     double computeDv2Dy(int i, int j) const;

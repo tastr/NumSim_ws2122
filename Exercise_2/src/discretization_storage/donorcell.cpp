@@ -1,7 +1,7 @@
 #include "donorcell.h"
 //#include "discretization.h"
 
-   DonorCell::DonorCell(Settings settings):Discretization(settings) 
+   DonorCell::DonorCell(Settings settings,Partitioning partitioning):Discretization(settings, partitioning) 
    {
    }
 

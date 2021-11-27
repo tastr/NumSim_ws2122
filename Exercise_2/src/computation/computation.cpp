@@ -19,15 +19,25 @@ double time1, tstart;
 tstart=clock();
 
 //create objects of classes
+MPI_Init(NULL, NULL);
+
+    // Get the number of processes
+    int world_size;
+    MPI_Comm_size(MPI_COMM_WORLD, &world_size);
+
+
+
 std::shared_ptr<Discretization> myDiscretization;
 Partitioning mypartitioning(settings);
+settings.nCells=mypartitioning.nCells();
 
+std::cout << "ncells" << settings.nCells[0] << settings.nCells[1] << std::endl;
 if (settings.useDonorCell)
 {
-  myDiscretization=std::make_shared<DonorCell>(settings);
+  myDiscretization=std::make_shared<DonorCell>(settings,mypartitioning);
 } else
 {
-  myDiscretization=std::make_shared<CentralDifferences>(settings);
+  myDiscretization=std::make_shared<CentralDifferences>(settings,mypartitioning);
 }
 std::shared_ptr<PressureSolver> myPressureSolver;
 if (settings.pressureSolver == "SOR")
@@ -40,7 +50,7 @@ if (settings.pressureSolver == "SOR")
 
 
 // std::shared_ptr<Discretization> pointer_to_myDiscretization (& myDiscretization); //vermutlich gibt es da einen besseren Weg, aber den habe ich nicht gefunden...
- OutputWriterText myOutputWriterText(myDiscretization, mypartitioning);
+OutputWriterText myOutputWriterText(myDiscretization, mypartitioning);
 OutputWriterParaview myOutputWriterParaview(myDiscretization, mypartitioning);
 int Iterationszahl=0;
 // initialize time
@@ -50,7 +60,7 @@ double current_time=0;
 myDiscretization->setBorderVelocity(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
 myDiscretization->updateBoundaryFG();
 myOutputWriterParaview.writeFile(current_time);
- myOutputWriterText.writeFile(current_time);
+myOutputWriterText.writeFile(current_time);
 
 while (current_time<settings.endTime && Iterationszahl< settings.maximumNumberOfIterations )
 {
@@ -64,16 +74,14 @@ while (current_time<settings.endTime && Iterationszahl< settings.maximumNumberOf
   myDiscretization->updateBoundaryFG();
   
   myOutputWriterParaview.writeFile(current_time);
-   myOutputWriterText.writeFile(current_time);
+  myOutputWriterText.writeFile(current_time);
 Iterationszahl=Iterationszahl+1;
 }
 std::cout<< "Noetige Iterationen " << Iterationszahl <<std::endl;
 time1=clock()-tstart;
 time1=time1/CLOCKS_PER_SEC;
-
+MPI_Finalize;
 std::cout<< "Laufzeit in s " << time1  <<std::endl;
-
-
 }
 
 

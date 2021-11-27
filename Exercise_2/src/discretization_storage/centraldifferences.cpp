@@ -1,6 +1,6 @@
 #include "centraldifferences.h"
 
-CentralDifferences::CentralDifferences(Settings settings):Discretization(settings)
+CentralDifferences::CentralDifferences(Settings settings,Partitioning partitioning):Discretization(settings,partitioning)
   { 
   }
 

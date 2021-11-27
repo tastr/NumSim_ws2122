@@ -17,7 +17,7 @@
 #include "computation/computation.h"
 // #include "test_and_debug/mytestfunctions.h"
 //void loadFromFile(std::string filename);
-
+#include <mpi.h>
 
 
 int main(int argc, char *argv[])

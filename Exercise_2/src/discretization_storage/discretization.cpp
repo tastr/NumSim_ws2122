@@ -249,7 +249,7 @@ void Discretization::setPressureBCParalell()
         }
         if (partitioning_.ownRankNo()%2==0) 
         {
-          MPI_Send(Buffer_send_r.data(),j_max,MPI_DOUBLE,rank_l,1,MPI_COMM_WORLD);
+          MPI_Send(Buffer_send_l.data(),j_max,MPI_DOUBLE,rank_l,1,MPI_COMM_WORLD);
           MPI_Send(Buffer_send_r.data(),j_max,MPI_DOUBLE,rank_r,1,MPI_COMM_WORLD);           
           MPI_Recv(Buffer_recv_r.data(),j_max,MPI_DOUBLE,rank_r,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
           MPI_Recv(Buffer_recv_l.data(),j_max,MPI_DOUBLE,rank_l,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
@@ -258,7 +258,7 @@ void Discretization::setPressureBCParalell()
         {
           MPI_Recv(Buffer_recv_r.data(),j_max,MPI_DOUBLE,rank_r,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
           MPI_Recv(Buffer_recv_l.data(),j_max,MPI_DOUBLE,rank_l,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
-          MPI_Send(Buffer_send_r.data(),j_max,MPI_DOUBLE,rank_l,1,MPI_COMM_WORLD);
+          MPI_Send(Buffer_send_l.data(),j_max,MPI_DOUBLE,rank_l,1,MPI_COMM_WORLD);
           MPI_Send(Buffer_send_r.data(),j_max,MPI_DOUBLE,rank_r,1,MPI_COMM_WORLD);               
         }
         for (int j = 0; j < j_max; j++)

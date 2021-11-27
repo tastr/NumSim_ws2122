@@ -4,6 +4,7 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+        
         {
             "name": "Build and debug numsim",
             "type": "cppdbg",
@@ -23,6 +24,28 @@
                 }
             ],
             "preLaunchTask": "C/C++: g++ build numsim",
+            "miDebuggerPath": "/usr/bin/gdb"
+        },
+       
+        {
+            "name": "Parallel attach numsim",
+            "type": "cppdbg",
+            "request": "attach",
+            "program": "${fileDirname}/../build/numsim",
+            "processId": "${command:pickProcess}",
+            "args": ["../parameters.txt"],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
             "miDebuggerPath": "/usr/bin/gdb"
         },
         {

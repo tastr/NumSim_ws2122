@@ -57,7 +57,7 @@ file(INSTALL DESTINATION "/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/..
      NOT IS_SYMLINK "$ENV{DESTDIR}/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/../build/numsim")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/../build/numsim"
-         OLD_RPATH "/usr/local/lib:"
+         OLD_RPATH "/usr/local/lib:/usr/lib/x86_64-linux-gnu/openmpi/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/../build/numsim")

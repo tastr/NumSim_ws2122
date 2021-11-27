@@ -347,6 +347,8 @@ src/numsim: /usr/local/lib/libvtkRenderingLOD-8.2.so.1
 src/numsim: /usr/local/lib/libvtkRenderingVolumeOpenGL2-8.2.so.1
 src/numsim: /usr/local/lib/libvtkViewsContext2D-8.2.so.1
 src/numsim: /usr/local/lib/libvtkViewsInfovis-8.2.so.1
+src/numsim: /usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi_cxx.so
+src/numsim: /usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi.so
 src/numsim: /usr/local/lib/libvtkDomainsChemistry-8.2.so.1
 src/numsim: /usr/local/lib/libvtkverdict-8.2.so.1
 src/numsim: /usr/local/lib/libvtkproj-8.2.so.1

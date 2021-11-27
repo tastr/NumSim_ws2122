@@ -31,6 +31,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "."
+  "/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi"
+  "/usr/lib/x86_64-linux-gnu/openmpi/include"
   "/usr/local/include/vtk-8.2"
   "/usr/local/include/vtk-8.2/vtkogg/include"
   )

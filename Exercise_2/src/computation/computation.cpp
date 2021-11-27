@@ -80,7 +80,7 @@ Iterationszahl=Iterationszahl+1;
 std::cout<< "Noetige Iterationen " << Iterationszahl <<std::endl;
 time1=clock()-tstart;
 time1=time1/CLOCKS_PER_SEC;
-MPI_Finalize;
+MPI_Finalize();
 std::cout<< "Laufzeit in s " << time1  <<std::endl;
 }
 

@@ -5,9 +5,9 @@
 
 //StaggeredGrid::StaggeredGrid(std::array<int,2> size) 
 StaggeredGrid::StaggeredGrid(Settings settings) 
-:pressure({settings.nCells[0]+2, settings.nCells[1]+2}, {0.5,0.5}, {settings.physicalSize[0] / (1.0*settings.nCells[0]), settings.physicalSize[1] / (1.0*settings.nCells[1])}) 
-,velocity_X({settings.nCells[0]+1,settings.nCells[1]+2}, {0,0.5}, {settings.physicalSize[0] / (1.0*settings.nCells[0]), settings.physicalSize[1] / (1.0*settings.nCells[1])})
-,velocity_Y({settings.nCells[0]+2,settings.nCells[1]+1}, {0.5,0}, {settings.physicalSize[0] / (1.0*settings.nCells[0]), settings.physicalSize[1] / (1.0*settings.nCells[1])})
+:pressure({settings.nCells[0]+3, settings.nCells[1]+3}, {0.5,0.5}, {settings.physicalSize[0] / (1.0*settings.nCells[0]), settings.physicalSize[1] / (1.0*settings.nCells[1])}) 
+,velocity_X({settings.nCells[0]+3,settings.nCells[1]+3}, {0,0.5}, {settings.physicalSize[0] / (1.0*settings.nCells[0]), settings.physicalSize[1] / (1.0*settings.nCells[1])})
+,velocity_Y({settings.nCells[0]+3,settings.nCells[1]+3}, {0.5,0}, {settings.physicalSize[0] / (1.0*settings.nCells[0]), settings.physicalSize[1] / (1.0*settings.nCells[1])})
 ,settings_(settings)
 //:pressure({settings.nCells[0]+2,settings.nCells[1]+2})
 //,velocity_X({settings.nCells[0]+2,settings.nCells[1]+2})
@@ -99,12 +99,12 @@ void StaggeredGrid::setBorderVelocity(std::array<double,2> top,std::array<double
 void StaggeredGrid::updatedPressureBC()
 {
     int i_max = pressure.size()[0], j_max = pressure.size()[1];
-    for (int j = 0; j < j_max; j++)
+    for (int j = pJBegin(); j < pJEnd(); j++)
     {
         pressure(0,j)=pressure(1,j);
         pressure(i_max-1,j)=pressure(i_max-2,j);
     }
-    for (int i = 0; i < i_max; i++)
+    for (int i = pIBegin(); i < pIEnd(); i++)
     {
         pressure(i,0)=pressure(i,1);
         pressure(i,j_max-1)=pressure(i,j_max-2);
@@ -206,7 +206,7 @@ int StaggeredGrid::uIEnd() const
 } 
 int StaggeredGrid::uJBegin() const
 {
-    return 0;
+    return 1;
 } 
 int StaggeredGrid::uJEnd() const
 {
@@ -214,7 +214,7 @@ int StaggeredGrid::uJEnd() const
 } 
 int StaggeredGrid::vIBegin() const
 {
-    return 0;
+    return 1;
 } 
 int StaggeredGrid::vIEnd() const
 {
@@ -231,7 +231,7 @@ int StaggeredGrid::vJEnd() const
 } 
 int StaggeredGrid::pIBegin() const
 {
-    return 0;
+    return 1;
 } 
 int StaggeredGrid::pIEnd() const
 {
@@ -239,7 +239,7 @@ int StaggeredGrid::pIEnd() const
 } 
 int StaggeredGrid::pJBegin() const
 {
-    return 0;
+    return 1;
 } 
 int StaggeredGrid::pJEnd() const
 {

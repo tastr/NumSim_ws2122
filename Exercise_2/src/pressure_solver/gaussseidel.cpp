@@ -30,6 +30,9 @@ void GaussSeidel::calculateP()
     double resterm;
     int Nnumber= (discretization_.nCells()[0]*discretization_.nCells()[1]);
 
+    double resterm_glob;
+    double resterm_loc;
+    
     do
     {  
        //Black part
@@ -92,10 +95,15 @@ void GaussSeidel::calculateP()
          safe++;
       
          
-        // discretization_.setP(p);
-      // Ohne den konvergiert er doppelt so schnell  
        
-      resterm=(residuum()*residuum())/Nnumber;
+      //resterm=(residuum()*residuum())/Nnumber;
+
+    resterm_loc=(residuum()*residuum())/Nnumber;
+     
+    MPI_Reduce(&resterm_loc,&resterm_glob,1,MPI_DOUBLE,MPI_MAX,0,MPI_COMM_WORLD);
+    resterm=resterm_glob;
+
+
     }while(resterm > epsilonquad  && safe<20000);
     std::cout<< "Residuum " << residuum() << " Safe "<< safe <<std::endl;
     //discretization_.updatedPressureBC();    

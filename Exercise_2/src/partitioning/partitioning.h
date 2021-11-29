@@ -20,6 +20,7 @@ protected:
     int ownPartitionContainsRightBoundaryValue;
     int ownPartitionContainsTopBoundaryValue;
     int ownRankNoValue;
+    int firstValue;
     std::array<int,2> nodeOffsetValue;
     std::array<int,2> nCellsGlobal_;
     std::array<int,2> nCells_;
@@ -32,6 +33,7 @@ protected:
     void setOwnRankNo(); 
     void setNodeOffset(); 
     void setNCells();
+    void setFirst();
 
 public:
     Partitioning(Settings settings);
@@ -45,5 +47,5 @@ public:
     std::array<int,2> nCells(); 
     std::array<int,2> nCellsGlobal(); 
     int coordiantesToRank(int i, int j);     
-  
+    int first();
 };

@@ -2,8 +2,8 @@
 
 Partitioning::Partitioning(Settings settings):
 nCellsGlobal_(settings.nCells)
-{
-    n=2;  // predefined for Tests, use 3x3 since it contains all possible bordercases 
+{   // n=2 m=3 produziert error
+    n=3;  // predefined for Tests, use 3x3 since it contains all possible bordercases 
     m=1;  // in the project these numbers need to be calculated in a function that defines the domainsplitting.
     setOwnRankNo();//could be given to the partitioning
     setNodeOffset();
@@ -12,10 +12,17 @@ nCellsGlobal_(settings.nCells)
     setOwnPartitionContainsRightBoundary();
     setOwnPartitionContainsTopBoundary();  
     setNCells();
-    std::cout<< n << m <<std::endl; 
-    std::cout<< ownRankNoValue <<std::endl;  
-    std::cout<< nodeOffsetValue[0] << nodeOffsetValue[1] << std::endl;  
-    std::cout<<  nCells_[0] <<  nCells_[1] << std::endl;
+    setFirst();
+
+    //std::cout<< n << m <<std::endl; 
+    //std::cout<< ownRankNoValue <<std::endl;  
+    std::cout<<"Node offset "<< nodeOffsetValue[0] << nodeOffsetValue[1] << std::endl;  
+    //std::cout<<  nCells_[0] <<  nCells_[1] << std::endl;
+    //std::cout<< ownRankNo() << " Left "<< ownPartitionContainsLeftBoundary() <<std::endl;
+    //std::cout<< ownRankNo() << " Right "<< ownPartitionContainsRightBoundary() <<std::endl;
+    //std::cout<< ownRankNo() << " TOP "<< ownPartitionContainsTopBoundary() <<std::endl;
+    //std::cout<< ownRankNo() << " Bottom "<< ownPartitionContainsBottomBoundary() <<std::endl;
+   
     }
 
 
@@ -123,14 +130,20 @@ nCellsGlobal_(settings.nCells)
     void Partitioning::setNodeOffset()
     {int i=0;
      int j=0;
-     
-    while(ownRankNoValue-(j+1)*n>0)
+    //if (n>1)
+   // {
+    while((ownRankNoValue+1)-(j+1)*n>0)
         {        
         j++;
-        } 
+       } 
     i=ownRankNoValue-j*n;
-    nodeOffsetValue={i,j};  
     //enumeration from 0 to n-1/m-1
+   // }else
+   // {
+   //     i=0;
+    //    j=ownRankNoValue;
+   // }
+    nodeOffsetValue={i,j};  
     }
 
     void Partitioning::setNCells()
@@ -149,6 +162,21 @@ nCellsGlobal_(settings.nCells)
    
     }
 
+
+    int Partitioning::first()
+    {
+        return firstValue;
+    }
+    
+
+    void Partitioning::setFirst()
+    {
+        firstValue=0;
+        if ((nodeOffset()[0]%2==0 && nodeOffset()[1]%2==0) || (nodeOffset()[0]%2==1 && nodeOffset()[1]%2==1) )
+        {
+            firstValue=1;
+        }
+    }
  
 
 

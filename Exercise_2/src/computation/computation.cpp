@@ -70,17 +70,21 @@ while (current_time<settings.endTime && Iterationszahl< settings.maximumNumberOf
   myPressureSolver->calculateRHS();
   myPressureSolver->calculateP();
   myDiscretization->updateVelocity();
-  myDiscretization->setBorderVelocity(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
-  myDiscretization->updateBoundaryFG();
+  //myDiscretization->setBorderVelocity(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
+    myDiscretization->setBorderVelocityParalell(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
+ // myDiscretization->updateBoundaryFG();
   
-  myOutputWriterParaview.writeFile(current_time);
-  myOutputWriterText.writeFile(current_time);
+
+
+  //myOutputWriterParaview.writeFile(current_time);
+  //myOutputWriterText.writeFile(current_time);
 Iterationszahl=Iterationszahl+1;
 }
 std::cout<< "Noetige Iterationen " << Iterationszahl <<std::endl;
 time1=clock()-tstart;
 time1=time1/CLOCKS_PER_SEC;
-MPI_Finalize();
+//MPI_Finalize();
+MPI_Finalize; // wenn ich () stopt er bei mir das Programm nicht
 std::cout<< "Laufzeit in s " << time1  <<std::endl;
 }
 

@@ -360,13 +360,13 @@ void Discretization::setPressureBCParalell()
         {
           MPI_Send(Buffer_send_T.data(),i_max,MPI_DOUBLE,rank_T,1,MPI_COMM_WORLD);
           MPI_Send(Buffer_send_B.data(),i_max,MPI_DOUBLE,rank_B,1,MPI_COMM_WORLD);           
-          MPI_Recv(Buffer_recv_T.data(),j_max,MPI_DOUBLE,rank_T,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
-          MPI_Recv(Buffer_recv_B.data(),j_max,MPI_DOUBLE,rank_B,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
+          MPI_Recv(Buffer_recv_T.data(),i_max,MPI_DOUBLE,rank_T,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+          MPI_Recv(Buffer_recv_B.data(),i_max,MPI_DOUBLE,rank_B,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
        
         } else
         {
-          MPI_Recv(Buffer_recv_T.data(),j_max,MPI_DOUBLE,rank_T,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
-          MPI_Recv(Buffer_recv_B.data(),j_max,MPI_DOUBLE,rank_B,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
+          MPI_Recv(Buffer_recv_T.data(),i_max,MPI_DOUBLE,rank_T,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+          MPI_Recv(Buffer_recv_B.data(),i_max,MPI_DOUBLE,rank_B,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
           MPI_Send(Buffer_send_T.data(),i_max,MPI_DOUBLE,rank_T,1,MPI_COMM_WORLD);
           MPI_Send(Buffer_send_B.data(),i_max,MPI_DOUBLE,rank_B,1,MPI_COMM_WORLD);                          
         }

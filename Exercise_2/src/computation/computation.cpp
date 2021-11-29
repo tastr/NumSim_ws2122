@@ -69,7 +69,7 @@ while (current_time<settings.endTime && Iterationszahl< settings.maximumNumberOf
   myDiscretization->calculation();
   myPressureSolver->calculateRHS();
   myPressureSolver->calculateP();
-  myDiscretization->updateVelocity();
+ // myDiscretization->updateVelocity();
   //myDiscretization->setBorderVelocity(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
     myDiscretization->setBorderVelocityParalell(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
  // myDiscretization->updateBoundaryFG();

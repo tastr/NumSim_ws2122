@@ -94,6 +94,7 @@ src/CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.o
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/discretization.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/fieldvariable.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/staggeredgrid.h
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/partitioning/partitioning.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/mpi.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/mpi_portable_platform.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/comm.h
@@ -127,7 +128,6 @@ src/CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.o
  /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/topology_inln.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/win.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/win_inln.h
- partitioning/partitioning.h
  settings.h
 src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/array2d.h
@@ -135,6 +135,7 @@ src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/discretization.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/fieldvariable.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/staggeredgrid.h
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/partitioning/partitioning.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/mpi.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/mpi_portable_platform.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/comm.h
@@ -168,7 +169,6 @@ src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o
  /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/topology_inln.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/win.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/win_inln.h
- partitioning/partitioning.h
  settings.h
 src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/array2d.h
@@ -177,6 +177,7 @@ src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/donorcell.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/fieldvariable.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/staggeredgrid.h
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/partitioning/partitioning.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/mpi.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/mpi_portable_platform.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/comm.h
@@ -210,7 +211,6 @@ src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o
  /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/topology_inln.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/win.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/win_inln.h
- partitioning/partitioning.h
  settings.h
 src/CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.o
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/array2d.h
@@ -222,6 +222,40 @@ src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.o
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/fieldvariable.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/staggeredgrid.cpp
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/staggeredgrid.h
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/partitioning/partitioning.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/mpi.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/mpi_portable_platform.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/comm.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/comm_inln.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/constants.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/datatype.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/datatype_inln.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/errhandler.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/errhandler_inln.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/exception.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/file.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/file_inln.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/functions.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/functions_inln.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/group.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/group_inln.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/info.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/info_inln.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/intercomm.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/intercomm_inln.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/intracomm.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/intracomm_inln.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/mpicxx.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/op.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/op_inln.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/request.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/request_inln.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/status.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/status_inln.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/topology.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/topology_inln.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/win.h
+ /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/win_inln.h
  settings.h
 src/CMakeFiles/numsim.dir/main.cpp.o
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/computation/computation.h
@@ -303,6 +337,7 @@ src/CMakeFiles/numsim.dir/main.cpp.o
  output_writer/output_writer.h
  output_writer/output_writer_paraview.h
  output_writer/output_writer_text.h
+ partitioning/partitioning.h
  pressure_solver/gaussseidel.h
  pressure_solver/pressuresolver.h
  pressure_solver/sor.h
@@ -533,6 +568,11 @@ src/CMakeFiles/numsim.dir/partitioning/partitioning.cpp.o
  /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/win_inln.h
  settings.h
 src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/array2d.h
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/discretization.h
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/fieldvariable.h
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/staggeredgrid.h
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/partitioning/partitioning.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/pressure_solver/gaussseidel.cpp
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/pressure_solver/gaussseidel.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/pressure_solver/pressuresolver.h
@@ -569,13 +609,13 @@ src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o
  /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/topology_inln.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/win.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/win_inln.h
- discretization_storage/array2d.h
- discretization_storage/discretization.h
- discretization_storage/fieldvariable.h
- discretization_storage/staggeredgrid.h
- partitioning/partitioning.h
  settings.h
 src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.o
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/array2d.h
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/discretization.h
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/fieldvariable.h
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/staggeredgrid.h
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/partitioning/partitioning.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/pressure_solver/pressuresolver.cpp
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/pressure_solver/pressuresolver.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/mpi.h
@@ -611,13 +651,13 @@ src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.o
  /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/topology_inln.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/win.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/win_inln.h
- discretization_storage/array2d.h
- discretization_storage/discretization.h
- discretization_storage/fieldvariable.h
- discretization_storage/staggeredgrid.h
- partitioning/partitioning.h
  settings.h
 src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.o
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/array2d.h
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/discretization.h
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/fieldvariable.h
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/staggeredgrid.h
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/partitioning/partitioning.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/pressure_solver/pressuresolver.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/pressure_solver/sor.cpp
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/pressure_solver/sor.h
@@ -654,11 +694,6 @@ src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.o
  /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/topology_inln.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/win.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/win_inln.h
- discretization_storage/array2d.h
- discretization_storage/discretization.h
- discretization_storage/fieldvariable.h
- discretization_storage/staggeredgrid.h
- partitioning/partitioning.h
  settings.h
 src/CMakeFiles/numsim.dir/settings.cpp.o
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/settings.cpp

@@ -17,7 +17,8 @@ void SOR::calculateP()
     double deltax_quad = discretization_.dx() * discretization_.dx();
     double deltay_quad = discretization_.dy() * discretization_.dy();
     double vorfaktor= deltax_quad * deltay_quad/ (2 * (deltay_quad + deltax_quad ));
-    int i_max = discretization_.getSize()[0] , j_max = discretization_.getSize()[1];
+    int i_max = discretization_.pIEnd() , j_max = discretization_.pJEnd();
+    int i_begin = discretization_.pIBegin(), j_begin = discretization_.pJBegin();
     int safe=0;
 
     
@@ -36,9 +37,9 @@ void SOR::calculateP()
     do
     {
             
-       for (int j = 1; j < j_max-1 ; j++)
+       for (int j = j_begin+1; j < j_max-1 ; j++)
         {          
-             for (int i = 1; i < i_max-1 ; i++)
+             for (int i = i_begin+1; i < i_max-1 ; i++)
             {
             //Gaussseideltermj1= v*((discretization_.p(i-1,1)+discretization_.p(i+1,1))/dx2+ discretization_.p(i,2)/ dy2-discretization_.rhs(i,1))/div_y;      
             //discretization_.setP(i,1, (1-omega) * discretization_.p(i,1)+ omega*  Gaussseideltermj1);

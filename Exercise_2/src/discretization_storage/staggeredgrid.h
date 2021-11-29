@@ -2,6 +2,7 @@
 
 #include "fieldvariable.h"
 #include "settings.h"
+#include "../partitioning/partitioning.h"
 #include <cassert>
 
 class StaggeredGrid 
@@ -17,7 +18,7 @@ protected:
 public:
     
     //StaggeredGrid(std::array<int,2> size);    ~StaggeredGrid();
-     StaggeredGrid(Settings settings);
+     StaggeredGrid(Settings settings, Partitioning partitioning);
      void setBorderVelocity(std::array<double,2> top,std::array<double,2> left,std::array<double,2>  right,std::array<double,2> bottom); 
      void updatedPressureBC();
      void print(std::string str);

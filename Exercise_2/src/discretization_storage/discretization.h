@@ -3,7 +3,7 @@
 #include "staggeredgrid.h"
 #include "settings.h"
 #include "fieldvariable.h"
-#include "partitioning/partitioning.h"
+#include "../partitioning/partitioning.h"
 #include <mpi.h>
 
 
@@ -19,7 +19,7 @@ public:
    virtual ~Discretization();
    void calculation_altfinitedifferenzen();
 
-   virtual void calculation();
+   virtual void calculation() = 0;
    void updateVelocity();
    void updateBoundaryFG(); //for driven cavity not neccessary, but for other cases maybe.
 
@@ -40,10 +40,10 @@ public:
    double computeDpDy(int i, int j) const;
 
    // die koenten wir eigentlich entfernen
-   virtual double computeDu2Dx(int i, int j) const ; 
-   virtual double computeDv2Dy(int i, int j) const ;
-   virtual double computeDuvDx(int i, int j) const ;
-   virtual double computeDuvDy(int i, int j) const ;
+   virtual double computeDu2Dx(int i, int j) const = 0; 
+   virtual double computeDv2Dy(int i, int j) const = 0; 
+   virtual double computeDuvDx(int i, int j) const = 0; 
+   virtual double computeDuvDy(int i, int j) const = 0; 
 
    // get functions:
    

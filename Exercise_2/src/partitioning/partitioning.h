@@ -11,7 +11,7 @@
 class Partitioning 
 {
 protected:
-        std::array<int,2> offset();
+        // std::array<int,2> offset(); // Scheint nicht implementiert zu sein
         int n; // Number of Subdomains horizontally
         int m; // Number of Subdomains verticallz
         

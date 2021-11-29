@@ -57,8 +57,8 @@ int Iterationszahl=0;
 double current_time=0;
  //write after initialization
 
-myDiscretization->setBorderVelocity(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
-myDiscretization->updateBoundaryFG();
+myDiscretization->setBorderVelocityParalell(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
+myDiscretization->updateBoundaryFGParalell();
 myOutputWriterParaview.writeFile(current_time);
 myOutputWriterText.writeFile(current_time);
 
@@ -69,10 +69,10 @@ while (current_time<settings.endTime && Iterationszahl< settings.maximumNumberOf
   myDiscretization->calculation();
   myPressureSolver->calculateRHS();
   myPressureSolver->calculateP();
- // myDiscretization->updateVelocity();
+ myDiscretization->updateVelocity();
   //myDiscretization->setBorderVelocity(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
     myDiscretization->setBorderVelocityParalell(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
- // myDiscretization->updateBoundaryFG();
+ myDiscretization->updateBoundaryFGParalell();
   
 
 

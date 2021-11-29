@@ -4,10 +4,10 @@
 #include <cassert>
 
 //StaggeredGrid::StaggeredGrid(std::array<int,2> size) 
-StaggeredGrid::StaggeredGrid(Settings settings) 
+StaggeredGrid::StaggeredGrid(Settings settings, Partitioning partitioning) 
 :pressure({settings.nCells[0]+3, settings.nCells[1]+3}, {0.5,0.5}, {settings.physicalSize[0] / (1.0*settings.nCells[0]), settings.physicalSize[1] / (1.0*settings.nCells[1])}) 
-,velocity_X({settings.nCells[0]+3,settings.nCells[1]+3}, {0,0.5}, {settings.physicalSize[0] / (1.0*settings.nCells[0]), settings.physicalSize[1] / (1.0*settings.nCells[1])})
-,velocity_Y({settings.nCells[0]+3,settings.nCells[1]+3}, {0.5,0}, {settings.physicalSize[0] / (1.0*settings.nCells[0]), settings.physicalSize[1] / (1.0*settings.nCells[1])})
+,velocity_X({settings.nCells[0]+3 - partitioning.ownPartitionContainsLeftBoundary() - partitioning.ownPartitionContainsRightBoundary(), settings.nCells[1]+3}, {0,0.5}, {settings.physicalSize[0] / (1.0*settings.nCells[0]), settings.physicalSize[1] / (1.0*settings.nCells[1])})
+,velocity_Y({settings.nCells[0]+3,settings.nCells[1]+3 - partitioning.ownPartitionContainsBottomBoundary() - partitioning.ownPartitionContainsTopBoundary()}, {0.5,0}, {settings.physicalSize[0] / (1.0*settings.nCells[0]), settings.physicalSize[1] / (1.0*settings.nCells[1])})
 ,settings_(settings)
 //:pressure({settings.nCells[0]+2,settings.nCells[1]+2})
 //,velocity_X({settings.nCells[0]+2,settings.nCells[1]+2})
@@ -63,12 +63,12 @@ void StaggeredGrid::setBorderVelocity(std::array<double,2> top,std::array<double
 
    // set u velocity
    int i_u_max = velocity_X.size()[0], j_u_max = velocity_X.size()[1];
-   for (int j = 0; j < j_u_max; j++)
+   for (int j = uJBegin(); j < j_u_max; j++)
    {
        velocity_X(uIBegin(),j)=left[0];
         velocity_X(i_u_max-1,j)=right[0];
    }
-   for (int i = 1; i < i_u_max-1; i++) // i starts at 1 and goes to i_u_max-1 so that the wall is the BC in corners
+   for (int i = uIBegin() + 1; i < i_u_max-1; i++) // i starts at 1 and goes to i_u_max-1 so that the wall is the BC in corners
    {
        velocity_X(i,uJBegin())=2*bottom[0]-velocity_X(i,vJBegin()+1);
        velocity_X(i,j_u_max-1)=2*top[0]-velocity_X(i,j_u_max-2);
@@ -101,12 +101,12 @@ void StaggeredGrid::updatedPressureBC()
     int i_max = pressure.size()[0], j_max = pressure.size()[1];
     for (int j = pJBegin(); j < pJEnd(); j++)
     {
-        pressure(0,j)=pressure(1,j);
+        pressure(pIBegin(),j)=pressure(pIBegin()+1,j);
         pressure(i_max-1,j)=pressure(i_max-2,j);
     }
     for (int i = pIBegin(); i < pIEnd(); i++)
     {
-        pressure(i,0)=pressure(i,1);
+        pressure(i,pJBegin())=pressure(i,pJBegin()+1);
         pressure(i,j_max-1)=pressure(i,j_max-2);
     }
 }

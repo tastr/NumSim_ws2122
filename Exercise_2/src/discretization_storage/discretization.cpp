@@ -5,9 +5,9 @@
 
 
 //constructor
-Discretization::Discretization(Settings settings, Partitioning partitioning):StaggeredGrid(settings) //maybe replace settings nCell with partitioning nCells.
-,F({settings.nCells[0]+3, settings.nCells[1]+3}, {0,0.5}, {settings.physicalSize[0] / (1.0*settings.nCells[0]), settings.physicalSize[1] / (1.0*settings.nCells[1])}) // is actually smaller than this, but makes handling easier
-,G({settings.nCells[0]+3, settings.nCells[1]+3}, {0.5,0}, {settings.physicalSize[0] / (1.0*settings.nCells[0]), settings.physicalSize[1] / (1.0*settings.nCells[1])}) // is actually smaller than this, but makes handling easier
+Discretization::Discretization(Settings settings, Partitioning partitioning):StaggeredGrid(settings, partitioning) //maybe replace settings nCell with partitioning nCells.
+,F({settings.nCells[0]+3-partitioning.ownPartitionContainsLeftBoundary()-partitioning.ownPartitionContainsRightBoundary(), settings.nCells[1]+3}, {0,0.5}, {settings.physicalSize[0] / (1.0*settings.nCells[0]), settings.physicalSize[1] / (1.0*settings.nCells[1])}) // is actually smaller than this, but makes handling easier
+,G({settings.nCells[0]+3, settings.nCells[1]+3-partitioning.ownPartitionContainsBottomBoundary()-partitioning.ownPartitionContainsTopBoundary()}, {0.5,0}, {settings.physicalSize[0] / (1.0*settings.nCells[0]), settings.physicalSize[1] / (1.0*settings.nCells[1])}) // is actually smaller than this, but makes handling easier
 ,rhs_({settings.nCells[0]+3, settings.nCells[1]+3}, {0.5,0.5}, {settings.physicalSize[0] / (1.0*settings.nCells[0]), settings.physicalSize[1] / (1.0*settings.nCells[1])}) // is actually smaller than this, but makes handling easier
 ,partitioning_(partitioning)
 {
@@ -22,8 +22,8 @@ void Discretization::updateDeltaT()
     double time_limit           = min3(time_limit_diffusion, delta_x/velocity_X.absmax(), delta_y/velocity_Y.absmax()) * settings_.tau;
     double deltat_loc=min2(time_limit, settings_.maximumDt);
   //   std::cout<< "Rank this  "<< partitioning_.ownRankNo()<< " " << deltat_loc <<std::endl;
-    double deltat_glob; 
-    MPI_Reduce(&deltat_loc,&deltat_glob,1,MPI_DOUBLE,MPI_MIN,0,MPI_COMM_WORLD);
+    double deltat_glob=0; 
+    MPI_Allreduce(&deltat_loc,&deltat_glob,1,MPI_DOUBLE,MPI_MIN,MPI_COMM_WORLD); //Allreduce as every rank needs the global deltat
     deltat=deltat_glob;
    // std::cout << deltat <<std::endl;
 }
@@ -32,16 +32,6 @@ void Discretization::updateDeltaT()
 Discretization::~Discretization()
 {
 }
-
- double Discretization::computeDu2Dx(int i, int j) const {return 0;}   
-
- double Discretization::computeDv2Dy(int i, int j) const {return 0;}
- 
- double Discretization::computeDuvDx(int i, int j) const {return 0;}
- 
- double Discretization::computeDuvDy(int i, int j) const {return 0;}
- 
-
 
 
 // second order numerical derivation terms
@@ -110,7 +100,7 @@ void Discretization::updateBoundaryFG()
 {
     for (int j = uJBegin(); j < uJEnd(); j++)
    {
-        F(0,j)=u(0,j);
+        F(uIBegin(),j)=u(uIBegin(),j);
         F(uIEnd()-1,j)=u(uIEnd()-1,j);
    }
 
@@ -171,14 +161,6 @@ double Discretization::getDeltaT() const
 }
 
 
-void Discretization::calculation()
-{
-     //this should never be called, as it is a virtual function
-    assert(false);
-
-   
-}
-
 void Discretization::setRHS(int i, int j, double value)
 {
     rhs_(i, j)=value;
@@ -189,12 +171,12 @@ void Discretization::setPressureBCParalell()
 {   int self_i=partitioning_.nodeOffset()[0];
     int self_j=partitioning_.nodeOffset()[1];
         
-    int i_max = pressure.size()[0], j_max = pressure.size()[1];
+    int i_max = pIEnd(), j_max = pJEnd();
     if (partitioning_.ownPartitionContainsLeftBoundary() && partitioning_.ownPartitionContainsRightBoundary())
         {
             for (int j = pJBegin(); j < pJEnd(); j++)
             {
-            pressure(0,j)=pressure(1,j);
+            pressure(pIBegin(),j)=pressure(pIBegin()+1,j);
             pressure(i_max-1,j)=pressure(i_max-2,j);
             }
 
@@ -207,12 +189,12 @@ void Discretization::setPressureBCParalell()
 
         for (int j = pJBegin(); j < pJEnd(); j++)
             {
-            pressure(0,j)=pressure(1,j);
+            pressure(pIBegin(),j)=pressure(pIBegin()+1,j);
             Buffer_send[j]=pressure(i_max-2,j);
             }
         MPI_Send(Buffer_send.data(),j_max,MPI_DOUBLE,rank,1,MPI_COMM_WORLD);
         MPI_Recv(Buffer_recv.data(),j_max,MPI_DOUBLE,rank,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
-        for (int j = 0; j < j_max; j++)
+        for (int j = pJBegin(); j < j_max; j++)
             {
             pressure(i_max-1,j)=Buffer_recv[j];
             } 
@@ -226,7 +208,7 @@ void Discretization::setPressureBCParalell()
         for (int j = pJBegin(); j < pJEnd(); j++)
             {
             pressure(i_max-1,j)=pressure(i_max-2,j);
-            Buffer_send[j]=pressure(1,j);
+            Buffer_send[j]=pressure(pJBegin()+1,j);
             }
          if (partitioning_.first())   
          {
@@ -239,7 +221,7 @@ void Discretization::setPressureBCParalell()
           
           for (int j = pJBegin(); j < pJEnd(); j++)
             {
-            pressure(0,j)=Buffer_recv[j];
+            pressure(pIBegin(),j)=Buffer_recv[j];
             } 
     }else //if (!partitioning_.ownPartitionContainsLeftBoundary() && !partitioning_.ownPartitionContainsRightBoundary()) 
         {  
@@ -257,7 +239,7 @@ void Discretization::setPressureBCParalell()
         
         for (int j = pJBegin(); j < pJEnd(); j++)
         {
-            Buffer_send_l[j]=pressure(1,j);
+            Buffer_send_l[j]=pressure(pIBegin() + 1,j);
             Buffer_send_r[j]=pressure(i_max-2,j);
         }
         if (partitioning_.first()) 
@@ -276,7 +258,7 @@ void Discretization::setPressureBCParalell()
         }
         for (int j = pJBegin(); j < pJEnd(); j++)
          {
-            pressure(0,j)=Buffer_recv_l[j];
+            pressure(pIBegin(),j)=Buffer_recv_l[j];
             pressure(i_max-1,j)=Buffer_recv_r[j];
          }        
         }
@@ -285,7 +267,7 @@ void Discretization::setPressureBCParalell()
         {
         for (int i = pIBegin(); i < pIEnd(); i++)
             {
-                pressure(i,0)=pressure(i,1);
+                pressure(i,pJBegin())=pressure(i,pJBegin()+1);
                 pressure(i,j_max-1)=pressure(i,j_max-2);
             }
       } else if (!partitioning_.ownPartitionContainsTopBoundary() && partitioning_.ownPartitionContainsBottomBoundary())
@@ -298,7 +280,7 @@ void Discretization::setPressureBCParalell()
             
             for (int i = pIBegin(); i < pIEnd(); i++)
                 {
-                    pressure(i,0)=pressure(i,1);
+                    pressure(i,pJBegin())=pressure(i,pJBegin()+1);
                     Buffer_send[i]=pressure(i,j_max-2);
                 }
             if (partitioning_.first()) 
@@ -327,7 +309,7 @@ void Discretization::setPressureBCParalell()
             for (int i = pIBegin(); i < pIEnd(); i++)
                 {
                     pressure(i,j_max-1)=pressure(i,j_max-2);
-                    Buffer_send[i]=pressure(i,1);
+                    Buffer_send[i]=pressure(i,pJBegin()+1);
                 }
             if (partitioning_.first()) 
             {
@@ -353,7 +335,7 @@ void Discretization::setPressureBCParalell()
         
         for (int i = pIBegin(); i < pIEnd(); i++)
         {
-            Buffer_send_B[i]=pressure(i,1);
+            Buffer_send_B[i]=pressure(i,pJBegin()+1);
             Buffer_send_T[i]=pressure(i,j_max-2);
         }
         if (partitioning_.first()) 
@@ -373,7 +355,7 @@ void Discretization::setPressureBCParalell()
         for (int i = pIBegin(); i < pIEnd(); i++)
          {
             pressure(i,j_max-1)=Buffer_recv_T[i];
-            pressure(i,0)=Buffer_recv_B[i];
+            pressure(i,pJBegin())=Buffer_recv_B[i];
          }        
         }
 }  
@@ -729,18 +711,36 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
 
 void Discretization::updateBoundaryFGParalell()
 {
-    for (int j = uJBegin(); j < uJEnd(); j++)
-   {
-        F(0,j)=u(0,j);
-        F(uIEnd()-1,j)=u(uIEnd()-1,j);
-   }
+    if (partitioning_.ownPartitionContainsLeftBoundary())
+    {
+        for (int j = uJBegin(); j < uJEnd(); j++)
+        {
+            F(uIBegin(),j)=u(uIBegin(),j);
+        }
+    }
+    if (partitioning_.ownPartitionContainsRightBoundary())
+    {
+        for (int j = uJBegin(); j < uJEnd(); j++)
+        {   
+            F(uIEnd()-1,j)=u(uIEnd()-1,j);
+        }   
+    }
 
-   for (int i = vIBegin(); i < vIEnd(); i++)
-   {
-        G(i,vJBegin())=v(i,vJBegin());
-        G(i,vJEnd()-1)=v(i,vJEnd()-1);
-
-   }
+    if (partitioning_.ownPartitionContainsBottomBoundary())
+    {
+        for (int i = vIBegin(); i < vIEnd(); i++)
+        {
+            G(i,vJBegin())=v(i,vJBegin());
+        }   
+    }
+    if (partitioning_.ownPartitionContainsTopBoundary())
+    {
+        for (int i = vIBegin(); i < vIEnd(); i++)
+        {
+            G(i,vJEnd()-1)=v(i,vJEnd()-1);
+        }   
+    }
+   
 }
 
 

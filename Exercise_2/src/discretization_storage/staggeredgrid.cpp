@@ -6,9 +6,10 @@
 //StaggeredGrid::StaggeredGrid(std::array<int,2> size) 
 StaggeredGrid::StaggeredGrid(Settings settings, Partitioning partitioning) 
 :pressure({settings.nCells[0]+3, settings.nCells[1]+3}, {0.5,0.5}, {settings.physicalSize[0] / (1.0*settings.nCells[0]), settings.physicalSize[1] / (1.0*settings.nCells[1])}) 
-,velocity_X({settings.nCells[0]+3 - partitioning.ownPartitionContainsLeftBoundary() - partitioning.ownPartitionContainsRightBoundary(), settings.nCells[1]+3}, {0,0.5}, {settings.physicalSize[0] / (1.0*settings.nCells[0]), settings.physicalSize[1] / (1.0*settings.nCells[1])})
-,velocity_Y({settings.nCells[0]+3,settings.nCells[1]+3 - partitioning.ownPartitionContainsBottomBoundary() - partitioning.ownPartitionContainsTopBoundary()}, {0.5,0}, {settings.physicalSize[0] / (1.0*settings.nCells[0]), settings.physicalSize[1] / (1.0*settings.nCells[1])})
+,velocity_X({settings.nCells[0]+3 - partitioning.ownPartitionContainsRightBoundary(), settings.nCells[1]+3}, {0,0.5}, {settings.physicalSize[0] / (1.0*settings.nCells[0]), settings.physicalSize[1] / (1.0*settings.nCells[1])})
+,velocity_Y({settings.nCells[0]+3, settings.nCells[1]+3 - partitioning.ownPartitionContainsTopBoundary()}, {0.5,0}, {settings.physicalSize[0] / (1.0*settings.nCells[0]), settings.physicalSize[1] / (1.0*settings.nCells[1])})
 ,settings_(settings)
+,partitioning_(partitioning)
 //:pressure({settings.nCells[0]+2,settings.nCells[1]+2})
 //,velocity_X({settings.nCells[0]+2,settings.nCells[1]+2})
 //,velocity_Y({settings.nCells[0]+2,settings.nCells[1]+2})
@@ -197,7 +198,7 @@ double StaggeredGrid::v(int i, int j) const
 //functions return the size values of the FieldVariables 
 int StaggeredGrid::uIBegin() const
 {
-    return 0;
+    return 0+partitioning_.ownPartitionContainsLeftBoundary();
     //return 1;
 } 
 int StaggeredGrid::uIEnd() const
@@ -222,7 +223,7 @@ int StaggeredGrid::vIEnd() const
 } 
 int StaggeredGrid::vJBegin() const
 {
-    return 0;
+    return 0+partitioning_.ownPartitionContainsBottomBoundary();
     //return 1;
 } 
 int StaggeredGrid::vJEnd() const

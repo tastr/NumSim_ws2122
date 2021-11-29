@@ -39,10 +39,10 @@ public:
     Partitioning(Settings settings);
     
     int ownRankNo();
-    int ownPartitionContainsBottomBoundary();
-    int ownPartitionContainsLeftBoundary();
-    int ownPartitionContainsRightBoundary();
-    int ownPartitionContainsTopBoundary();
+    int ownPartitionContainsBottomBoundary() const;
+    int ownPartitionContainsLeftBoundary() const;
+    int ownPartitionContainsRightBoundary() const;
+    int ownPartitionContainsTopBoundary() const;
     std::array<int,2> nodeOffset(); 
     std::array<int,2> nCells(); 
     std::array<int,2> nCellsGlobal(); 

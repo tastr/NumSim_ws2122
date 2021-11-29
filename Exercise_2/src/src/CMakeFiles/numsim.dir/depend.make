@@ -94,6 +94,7 @@ src/CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.o: discr
 src/CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.o: discretization_storage/fieldvariable.h
 src/CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.o: discretization_storage/staggeredgrid.h
 src/CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.o: partitioning/partitioning.h
+src/CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.o: settings.h
 src/CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/mpi.h
 src/CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/mpi_portable_platform.h
 src/CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/comm.h
@@ -135,6 +136,7 @@ src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o: discretiz
 src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o: discretization_storage/fieldvariable.h
 src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o: discretization_storage/staggeredgrid.h
 src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o: partitioning/partitioning.h
+src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o: settings.h
 src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/mpi.h
 src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/mpi_portable_platform.h
 src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/comm.h
@@ -177,6 +179,7 @@ src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o: discretization
 src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o: discretization_storage/fieldvariable.h
 src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o: discretization_storage/staggeredgrid.h
 src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o: partitioning/partitioning.h
+src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o: settings.h
 src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/mpi.h
 src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/mpi_portable_platform.h
 src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/comm.h
@@ -340,6 +343,7 @@ src/CMakeFiles/numsim.dir/main.cpp.o: partitioning/partitioning.h
 src/CMakeFiles/numsim.dir/main.cpp.o: pressure_solver/gaussseidel.h
 src/CMakeFiles/numsim.dir/main.cpp.o: pressure_solver/pressuresolver.h
 src/CMakeFiles/numsim.dir/main.cpp.o: pressure_solver/sor.h
+src/CMakeFiles/numsim.dir/main.cpp.o: settings.h
 
 src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o: output_writer/output_writer.cpp
 src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/mpi.h
@@ -575,6 +579,7 @@ src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o: partitioning/partit
 src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o: pressure_solver/gaussseidel.cpp
 src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o: pressure_solver/gaussseidel.h
 src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o: pressure_solver/pressuresolver.h
+src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o: settings.h
 src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/mpi.h
 src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/mpi_portable_platform.h
 src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/comm.h
@@ -617,6 +622,7 @@ src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.o: discretization_s
 src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.o: partitioning/partitioning.h
 src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.o: pressure_solver/pressuresolver.cpp
 src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.o: pressure_solver/pressuresolver.h
+src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.o: settings.h
 src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/mpi.h
 src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/mpi_portable_platform.h
 src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/comm.h
@@ -660,6 +666,7 @@ src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.o: partitioning/partitioning.h
 src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.o: pressure_solver/pressuresolver.h
 src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.o: pressure_solver/sor.cpp
 src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.o: pressure_solver/sor.h
+src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.o: settings.h
 src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/mpi.h
 src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/mpi_portable_platform.h
 src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/comm.h

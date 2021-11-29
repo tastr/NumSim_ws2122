@@ -1,7 +1,7 @@
 #pragma once
 
 #include "staggeredgrid.h"
-#include "settings.h"
+#include "../settings.h"
 #include "fieldvariable.h"
 #include "../partitioning/partitioning.h"
 #include <mpi.h>
@@ -13,7 +13,7 @@ class Discretization :
 protected:
    double deltat;
    FieldVariable F, G, rhs_;
-   Partitioning partitioning_;
+//    Partitioning partitioning_;
 public:
    Discretization(Settings settings, Partitioning partitioning);
    virtual ~Discretization();

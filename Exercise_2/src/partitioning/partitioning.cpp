@@ -33,19 +33,19 @@ nCellsGlobal_(settings.nCells)
         return ownRankNoValue;
 
     }
-    int Partitioning::ownPartitionContainsBottomBoundary()
+    int Partitioning::ownPartitionContainsBottomBoundary() const
     {
          return ownPartitionContainsBottomBoundaryValue;
     }
-    int Partitioning::ownPartitionContainsLeftBoundary()
+    int Partitioning::ownPartitionContainsLeftBoundary() const
     {
          return ownPartitionContainsLeftBoundaryValue;
     }
-    int Partitioning::ownPartitionContainsRightBoundary()
+    int Partitioning::ownPartitionContainsRightBoundary() const
     {
          return ownPartitionContainsRightBoundaryValue;
     }
-    int Partitioning::ownPartitionContainsTopBoundary()
+    int Partitioning::ownPartitionContainsTopBoundary() const
     {
          return ownPartitionContainsTopBoundaryValue;
     }

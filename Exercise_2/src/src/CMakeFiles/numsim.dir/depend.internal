@@ -95,6 +95,7 @@ src/CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.o
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/fieldvariable.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/staggeredgrid.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/partitioning/partitioning.h
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/settings.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/mpi.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/mpi_portable_platform.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/comm.h
@@ -136,6 +137,7 @@ src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/fieldvariable.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/staggeredgrid.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/partitioning/partitioning.h
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/settings.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/mpi.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/mpi_portable_platform.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/comm.h
@@ -178,6 +180,7 @@ src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/fieldvariable.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/staggeredgrid.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/partitioning/partitioning.h
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/settings.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/mpi.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/mpi_portable_platform.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/comm.h
@@ -341,6 +344,7 @@ src/CMakeFiles/numsim.dir/main.cpp.o
  pressure_solver/gaussseidel.h
  pressure_solver/pressuresolver.h
  pressure_solver/sor.h
+ settings.h
 src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/output_writer/output_writer.cpp
  /usr/lib/x86_64-linux-gnu/openmpi/include/mpi.h
@@ -576,6 +580,7 @@ src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/pressure_solver/gaussseidel.cpp
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/pressure_solver/gaussseidel.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/pressure_solver/pressuresolver.h
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/settings.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/mpi.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/mpi_portable_platform.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/comm.h
@@ -618,6 +623,7 @@ src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.o
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/partitioning/partitioning.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/pressure_solver/pressuresolver.cpp
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/pressure_solver/pressuresolver.h
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/settings.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/mpi.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/mpi_portable_platform.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/comm.h
@@ -661,6 +667,7 @@ src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.o
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/pressure_solver/pressuresolver.h
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/pressure_solver/sor.cpp
  /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/pressure_solver/sor.h
+ /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/settings.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/mpi.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/mpi_portable_platform.h
  /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/comm.h

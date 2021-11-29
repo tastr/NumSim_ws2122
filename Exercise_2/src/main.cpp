@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <cassert>
+#include <unistd.h>
 
 #include <time.h>
 
@@ -40,6 +41,14 @@ Settings settings;
 settings.loadFromFile(filename);
 // display all settings on console
 settings.printSettings();
+
+// sleep, so that the debugger can attach
+int debug = 0;
+while (debug == 1)
+{
+  usleep(5);
+}
+
 Computation computation(settings);
 //Partitioning partition(settings);
 computation.runSimulation(settings);

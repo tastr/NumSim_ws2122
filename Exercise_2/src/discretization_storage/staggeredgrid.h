@@ -15,6 +15,7 @@ protected:
     double delta_x;
     double delta_y;
     double epsilon;
+    Partitioning partitioning_;
 public:
     
     //StaggeredGrid(std::array<int,2> size);    ~StaggeredGrid();

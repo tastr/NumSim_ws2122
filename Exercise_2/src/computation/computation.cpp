@@ -29,7 +29,7 @@ MPI_Init(NULL, NULL);
 
 std::shared_ptr<Discretization> myDiscretization;
 Partitioning mypartitioning(settings);
-settings.nCells=mypartitioning.nCells();
+//settings.nCells=mypartitioning.nCells();
 
 std::cout << "ncells" << settings.nCells[0] << settings.nCells[1] << std::endl;
 if (settings.useDonorCell)

@@ -5,20 +5,20 @@
 
 //StaggeredGrid::StaggeredGrid(std::array<int,2> size) 
 StaggeredGrid::StaggeredGrid(Settings settings, Partitioning partitioning) 
-:pressure({settings.nCells[0]+3, settings.nCells[1]+3}, {0.5,0.5}, {settings.physicalSize[0] / (1.0*settings.nCells[0]), settings.physicalSize[1] / (1.0*settings.nCells[1])}) 
-,velocity_X({settings.nCells[0]+3 - partitioning.ownPartitionContainsRightBoundary(), settings.nCells[1]+3}, {0,0.5}, {settings.physicalSize[0] / (1.0*settings.nCells[0]), settings.physicalSize[1] / (1.0*settings.nCells[1])})
-,velocity_Y({settings.nCells[0]+3, settings.nCells[1]+3 - partitioning.ownPartitionContainsTopBoundary()}, {0.5,0}, {settings.physicalSize[0] / (1.0*settings.nCells[0]), settings.physicalSize[1] / (1.0*settings.nCells[1])})
+:pressure({partitioning.nCells()[0]+3, partitioning.nCells()[1]+3}, {0.5,0.5}, {settings.physicalSize[0] / (1.0*partitioning.nCells()[0]), settings.physicalSize[1] / (1.0*partitioning.nCells()[1])}) 
+,velocity_X({partitioning.nCells()[0]+3 - partitioning.ownPartitionContainsRightBoundary(), partitioning.nCells()[1]+3}, {0,0.5}, {settings.physicalSize[0] / (1.0*partitioning.nCells()[0]), settings.physicalSize[1] / (1.0*partitioning.nCells()[1])})
+,velocity_Y({partitioning.nCells()[0]+3, partitioning.nCells()[1]+3 - partitioning.ownPartitionContainsTopBoundary()}, {0.5,0}, {settings.physicalSize[0] / (1.0*partitioning.nCells()[0]), settings.physicalSize[1] / (1.0*partitioning.nCells()[1])})
 ,settings_(settings)
 ,partitioning_(partitioning)
-//:pressure({settings.nCells[0]+2,settings.nCells[1]+2})
-//,velocity_X({settings.nCells[0]+2,settings.nCells[1]+2})
-//,velocity_Y({settings.nCells[0]+2,settings.nCells[1]+2})
+//:pressure({partitioning.nCells()[0]+2,partitioning.nCells()[1]+2})
+//,velocity_X({partitioning.nCells()[0]+2,partitioning.nCells()[1]+2})
+//,velocity_Y({partitioning.nCells()[0]+2,partitioning.nCells()[1]+2})
 //,settings_(settings)
 
 { 
-    setSize_(settings.nCells);
-    delta_x=settings_.physicalSize[0] / (1.0*settings_.nCells[0]);
-    delta_y=settings_.physicalSize[1] / (1.0*settings_.nCells[1]);
+    setSize_(partitioning.nCells());
+    delta_x=settings_.physicalSize[0] / (1.0*partitioning_.nCells()[0]);
+    delta_y=settings_.physicalSize[1] / (1.0*partitioning_.nCells()[1]);
     epsilon=settings.epsilon;
 }
 
@@ -148,7 +148,7 @@ std::array<double,2> StaggeredGrid::meshWidth()  const
 }
 std::array<int,2> StaggeredGrid::nCells() const
 {
-    return settings_.nCells;
+    return partitioning_.nCells();
 }
 double StaggeredGrid::getepsilon() const
 {

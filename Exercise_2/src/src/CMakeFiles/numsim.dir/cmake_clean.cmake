@@ -10,6 +10,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o"
   "CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.o"
   "CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o"
+  "CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o"
   "CMakeFiles/numsim.dir/partitioning/partitioning.cpp.o"
   "CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o"
   "CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.o"

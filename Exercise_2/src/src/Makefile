@@ -468,6 +468,33 @@ output_writer/output_writer_text.cpp.s:
 	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.s
 .PHONY : output_writer/output_writer_text.cpp.s
 
+output_writer/output_writer_text_parallel.o: output_writer/output_writer_text_parallel.cpp.o
+
+.PHONY : output_writer/output_writer_text_parallel.o
+
+# target to build an object file
+output_writer/output_writer_text_parallel.cpp.o:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o
+.PHONY : output_writer/output_writer_text_parallel.cpp.o
+
+output_writer/output_writer_text_parallel.i: output_writer/output_writer_text_parallel.cpp.i
+
+.PHONY : output_writer/output_writer_text_parallel.i
+
+# target to preprocess a source file
+output_writer/output_writer_text_parallel.cpp.i:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.i
+.PHONY : output_writer/output_writer_text_parallel.cpp.i
+
+output_writer/output_writer_text_parallel.s: output_writer/output_writer_text_parallel.cpp.s
+
+.PHONY : output_writer/output_writer_text_parallel.s
+
+# target to generate assembly for a file
+output_writer/output_writer_text_parallel.cpp.s:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.s
+.PHONY : output_writer/output_writer_text_parallel.cpp.s
+
 partitioning/partitioning.o: partitioning/partitioning.cpp.o
 
 .PHONY : partitioning/partitioning.o
@@ -649,6 +676,9 @@ help:
 	@echo "... output_writer/output_writer_text.o"
 	@echo "... output_writer/output_writer_text.i"
 	@echo "... output_writer/output_writer_text.s"
+	@echo "... output_writer/output_writer_text_parallel.o"
+	@echo "... output_writer/output_writer_text_parallel.i"
+	@echo "... output_writer/output_writer_text_parallel.s"
 	@echo "... partitioning/partitioning.o"
 	@echo "... partitioning/partitioning.i"
 	@echo "... partitioning/partitioning.s"

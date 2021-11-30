@@ -38,14 +38,14 @@ protected:
 public:
     Partitioning(Settings settings);
     
-    int ownRankNo();
+    int ownRankNo() const;
     int ownPartitionContainsBottomBoundary() const;
     int ownPartitionContainsLeftBoundary() const;
     int ownPartitionContainsRightBoundary() const;
     int ownPartitionContainsTopBoundary() const;
-    std::array<int,2> nodeOffset(); 
-    std::array<int,2> nCells(); 
-    std::array<int,2> nCellsGlobal(); 
-    int coordiantesToRank(int i, int j);     
-    int first();
+    std::array<int,2> nodeOffset() const; 
+    std::array<int,2> nCells() const;
+    std::array<int,2> nCellsGlobal() const; 
+    int coordiantesToRank(int i, int j) const;     
+    int first() const;
 };

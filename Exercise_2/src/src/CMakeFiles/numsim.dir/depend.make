@@ -3,6 +3,7 @@
 
 src/CMakeFiles/numsim.dir/computation/computation.cpp.o: computation/computation.cpp
 src/CMakeFiles/numsim.dir/computation/computation.cpp.o: computation/computation.h
+src/CMakeFiles/numsim.dir/computation/computation.cpp.o: output_writer/output_writer_text_parallel.h
 src/CMakeFiles/numsim.dir/computation/computation.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/mpi.h
 src/CMakeFiles/numsim.dir/computation/computation.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/mpi_portable_platform.h
 src/CMakeFiles/numsim.dir/computation/computation.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/comm.h
@@ -262,6 +263,7 @@ src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.o: settings.h
 
 src/CMakeFiles/numsim.dir/main.cpp.o: computation/computation.h
 src/CMakeFiles/numsim.dir/main.cpp.o: main.cpp
+src/CMakeFiles/numsim.dir/main.cpp.o: output_writer/output_writer_text_parallel.h
 src/CMakeFiles/numsim.dir/main.cpp.o: partitioning/partitioning.h
 src/CMakeFiles/numsim.dir/main.cpp.o: settings.h
 src/CMakeFiles/numsim.dir/main.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/mpi.h
@@ -533,6 +535,50 @@ src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o: output_writer/
 src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o: output_writer/output_writer_text.h
 src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o: partitioning/partitioning.h
 src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o: settings.h
+
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: output_writer/output_writer_text_parallel.cpp
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/mpi.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/mpi_portable_platform.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/comm.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/comm_inln.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/constants.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/datatype.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/datatype_inln.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/errhandler.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/errhandler_inln.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/exception.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/file.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/file_inln.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/functions.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/functions_inln.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/group.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/group_inln.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/info.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/info_inln.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/intercomm.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/intercomm_inln.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/intracomm.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/intracomm_inln.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/mpicxx.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/op.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/op_inln.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/request.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/request_inln.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/status.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/status_inln.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/topology.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/topology_inln.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/win.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/ompi/mpi/cxx/win_inln.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: discretization_storage/array2d.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: discretization_storage/discretization.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: discretization_storage/fieldvariable.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: discretization_storage/staggeredgrid.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: output_writer/output_writer.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: output_writer/output_writer_text.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: output_writer/output_writer_text_parallel.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: partitioning/partitioning.h
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text_parallel.cpp.o: settings.h
 
 src/CMakeFiles/numsim.dir/partitioning/partitioning.cpp.o: partitioning/partitioning.cpp
 src/CMakeFiles/numsim.dir/partitioning/partitioning.cpp.o: partitioning/partitioning.h

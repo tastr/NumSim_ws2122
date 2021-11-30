@@ -3,8 +3,8 @@
 Partitioning::Partitioning(Settings settings):
 nCellsGlobal_(settings.nCells)
 {   // n=2 m=3 produziert error
-    n=2;  // predefined for Tests, use 3x3 since it contains all possible bordercases 
-    m=1;  // in the project these numbers need to be calculated in a function that defines the domainsplitting.
+    n=1;  // predefined for Tests, use 3x3 since it contains all possible bordercases 
+    m=2;  // in the project these numbers need to be calculated in a function that defines the domainsplitting.
     setOwnRankNo();//could be given to the partitioning
     setNodeOffset();
     setOwnPartitionContainsBottomBoundary();
@@ -28,7 +28,7 @@ nCellsGlobal_(settings.nCells)
 
 
 
-    int Partitioning::ownRankNo()
+    int Partitioning::ownRankNo() const
     {
         return ownRankNoValue;
 
@@ -49,20 +49,21 @@ nCellsGlobal_(settings.nCells)
     {
          return ownPartitionContainsTopBoundaryValue;
     }
-    std::array<int,2> Partitioning::nodeOffset()
+    std::array<int,2> Partitioning::nodeOffset() const
     {
        return nodeOffsetValue;
     }
 
-   std::array<int,2> Partitioning::nCells()
+   std::array<int,2> Partitioning::nCells() const
     {
      return nCells_;
     } 
-    std::array<int,2> Partitioning::nCellsGlobal(){
+    std::array<int,2> Partitioning::nCellsGlobal() const
+    {
      return nCellsGlobal_;
     } 
     
-    int Partitioning::coordiantesToRank(int i, int j)
+    int Partitioning::coordiantesToRank(int i, int j) const
     {
         return  j*n + i;
     }
@@ -163,7 +164,7 @@ nCellsGlobal_(settings.nCells)
     }
 
 
-    int Partitioning::first()
+    int Partitioning::first() const
     {
         return firstValue;
     }

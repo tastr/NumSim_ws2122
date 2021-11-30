@@ -1,7 +1,7 @@
-#include "output_writer/output_writer_paraview_parallel.h"
+#include "../output_writer/output_writer_paraview_parallel.h"
 
-#include "discretization_storage/field_variable.h"
-#include "discretization_storage/discretization.h"
+#include "../discretization_storage/fieldvariable.h"
+#include "../discretization_storage/discretization.h"
 
 #include <vtkImageData.h>
 #include <vtkDoubleArray.h>

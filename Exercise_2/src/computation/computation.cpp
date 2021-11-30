@@ -49,9 +49,8 @@ if (settings.pressureSolver == "SOR")
 }
 
 
-// std::shared_ptr<Discretization> pointer_to_myDiscretization (& myDiscretization); //vermutlich gibt es da einen besseren Weg, aber den habe ich nicht gefunden...
-OutputWriterText myOutputWriterText(myDiscretization, mypartitioning);
-OutputWriterParaview myOutputWriterParaview(myDiscretization, mypartitioning);
+OutputWriterTextParallel myOutputWriterText(myDiscretization, mypartitioning);
+// OutputWriterParaviewParallel myOutputWriterParaview(myDiscretization, mypartitioning);
 int Iterationszahl=0;
 // initialize time
 double current_time=0;
@@ -59,7 +58,7 @@ double current_time=0;
 
 myDiscretization->setBorderVelocityParalell(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
 myDiscretization->updateBoundaryFGParalell();
-myOutputWriterParaview.writeFile(current_time);
+// myOutputWriterParaview.writeFile(current_time);
 myOutputWriterText.writeFile(current_time);
 
 while (current_time<settings.endTime && Iterationszahl< settings.maximumNumberOfIterations )
@@ -76,8 +75,8 @@ while (current_time<settings.endTime && Iterationszahl< settings.maximumNumberOf
   
 
 
-  //myOutputWriterParaview.writeFile(current_time);
-  //myOutputWriterText.writeFile(current_time);
+  // myOutputWriterParaview.writeFile(current_time);
+  myOutputWriterText.writeFile(current_time);
 Iterationszahl=Iterationszahl+1;
 }
 std::cout<< "Noetige Iterationen " << Iterationszahl <<std::endl;

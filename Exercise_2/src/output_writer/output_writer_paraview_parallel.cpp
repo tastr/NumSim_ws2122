@@ -65,8 +65,8 @@ void OutputWriterParaviewParallel::gatherData()
       const double y = j*dy;
 
       // get global indices
-      int iGlobal = nodeOffset[0] + i;
-      int jGlobal = nodeOffset[1] + j;
+      int iGlobal = nodeOffset[0]*nCells[0] + i;
+      int jGlobal = nodeOffset[1]*nCells[1] + j;
 
       u_(iGlobal,jGlobal) = discretization_->u().interpolateAt(x,y);
       v_(iGlobal,jGlobal) = discretization_->v().interpolateAt(x,y);

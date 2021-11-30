@@ -3,8 +3,8 @@
 Partitioning::Partitioning(Settings settings):
 nCellsGlobal_(settings.nCells)
 {   // n=2 m=3 produziert error
-    n=3;  // predefined for Tests, use 3x3 since it contains all possible bordercases 
-    m=3;  // in the project these numbers need to be calculated in a function that defines the domainsplitting.
+    n=1;  // predefined for Tests, use 3x3 since it contains all possible bordercases 
+    m=2;  // in the project these numbers need to be calculated in a function that defines the domainsplitting.
     setOwnRankNo();//could be given to the partitioning
     setNodeOffset();
     setOwnPartitionContainsBottomBoundary();

@@ -16,22 +16,22 @@ StaggeredGrid::StaggeredGrid(Settings settings, Partitioning partitioning)
 //,settings_(settings)
 
 { 
-    setSize_(partitioning.nCells());
-    delta_x=settings_.physicalSize[0] / (1.0*partitioning_.nCells()[0]);
-    delta_y=settings_.physicalSize[1] / (1.0*partitioning_.nCells()[1]);
+    // setSize_(partitioning.nCells());
+    delta_x=settings_.physicalSize[0] / (1.0*partitioning_.nCellsGlobal()[0]);
+    delta_y=settings_.physicalSize[1] / (1.0*partitioning_.nCellsGlobal()[1]);
     epsilon=settings.epsilon;
 }
 
 
-void StaggeredGrid::setSize_(std::array<int,2> nCells)
-{
-size_={nCells[0]+2,nCells[1]+2};
-}
+// void StaggeredGrid::setSize_(std::array<int,2> nCells)
+// {
+// size_={nCells[0]+2,nCells[1]+2};
+// }
 
-std::array<int,2> StaggeredGrid::getSize() const
-{
-return size_;
-}
+// std::array<int,2> StaggeredGrid::getSize() const
+// {
+// return size_;
+// }
 
 int StaggeredGrid::getMaxIteration() const
 {

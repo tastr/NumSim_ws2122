@@ -31,7 +31,7 @@ std::shared_ptr<Discretization> myDiscretization;
 Partitioning mypartitioning(settings);
 //settings.nCells=mypartitioning.nCells();
 
-std::cout << "ncells" << settings.nCells[0] << settings.nCells[1] << std::endl;
+std::cout << "ncells" << mypartitioning.nCells[0] << mypartitioning.nCells[1] << std::endl;
 if (settings.useDonorCell)
 {
   myDiscretization=std::make_shared<DonorCell>(settings,mypartitioning);

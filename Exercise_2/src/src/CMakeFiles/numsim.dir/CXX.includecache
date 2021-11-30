@@ -90,14 +90,6 @@ donorcell.h
 discretization.h
 /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/discretization.h
 
-/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/fieldvariable.cpp
-fieldvariable.h
-/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/fieldvariable.h
-iostream
--
-cassert
--
-
 /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/fieldvariable.h
 array2d.h
 /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/discretization_storage/array2d.h

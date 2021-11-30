@@ -193,7 +193,7 @@ void Discretization::setPressureBCParalell()
         for (int j = pJBegin(); j < pJEnd(); j++)
             {
             pressure(pIBegin(),j)=pressure(pIBegin()+1,j);
-            Buffer_send[j]=pressure(i_max-2,j-pJBegin());
+            Buffer_send[j-pJBegin()]=pressure(i_max-2,j);
             }
         if (partitioning_.first())   
              {
@@ -250,8 +250,8 @@ void Discretization::setPressureBCParalell()
         
         for (int j = pJBegin(); j < pJEnd(); j++)
         {
-            Buffer_send_l[j]=pressure(pIBegin() + 1,j);
-            Buffer_send_r[j]=pressure(i_max-2,j);
+            Buffer_send_l[j-pJBegin()]=pressure(pIBegin() + 1,j);
+            Buffer_send_r[j-pJBegin()]=pressure(i_max-2,j);
         }
         if (partitioning_.first()) 
         {
@@ -269,8 +269,8 @@ void Discretization::setPressureBCParalell()
         }
         for (int j = pJBegin(); j < pJEnd(); j++)
          {
-            pressure(pIBegin(),j)=Buffer_recv_l[j];
-            pressure(i_max-1,j)=Buffer_recv_r[j];
+            pressure(pIBegin(),j)=Buffer_recv_l[j-pJBegin()];
+            pressure(i_max-1,j)=Buffer_recv_r[j-pJBegin()];
          }        
         }
 ////////////////////////////////////////////////////////////////////////////////
@@ -315,7 +315,7 @@ void Discretization::setPressureBCParalell()
             std::vector<double> Buffer_recv(li,0);
             int rank=partitioning_.coordiantesToRank(self_i,self_j-1);    
             
-             std::cout <<"rank " << rank  <<std::endl;
+            //  std::cout <<"rank " << rank  <<std::endl;
             
             for (int i = pIBegin(); i < pIEnd(); i++)
                 {
@@ -333,7 +333,7 @@ void Discretization::setPressureBCParalell()
             }
             for (int i = pIBegin(); i < pIEnd(); i++)
                 {
-                  pressure(i,j_max-1)=Buffer_recv[i-pIBegin()];
+                  pressure(i,pJBegin())=Buffer_recv[i-pIBegin()];
                 }
         }else //if (!partitioning_.ownPartitionContainsTopBoundary() && !partitioning_.ownPartitionContainsBottomBoundary())
         {
@@ -657,7 +657,7 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
         for (int i = vIBegin()+1; i < vIEnd()-1; i++)
         {
             velocity_X(i, uJEnd()-1) = Buffer_recv_u_T[i-(vIBegin()+1)]; //hier angepasst
-           // velocity_Y(i, vJEnd()-1) = Buffer_recv_v_T[i-(vIBegin()+1)];
+            velocity_Y(i, vJEnd()-1) = Buffer_recv_v_T[i-(vIBegin()+1)];
          //std::cout<< (vIEnd()-1) -(vIBegin()+1) << " "  << (uIEnd()-1)- (uIBegin()+1) <<std::endl;        
         } 
          

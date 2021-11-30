@@ -100,7 +100,7 @@ void GaussSeidel::calculateP()
 
     resterm_loc=(residuum()*residuum())/Nnumber;
      
-    MPI_Reduce(&resterm_loc,&resterm_glob,1,MPI_DOUBLE,MPI_MAX,0,MPI_COMM_WORLD);
+    MPI_Allreduce(&resterm_loc,&resterm_glob,1,MPI_DOUBLE,MPI_MAX,MPI_COMM_WORLD);
     resterm=resterm_glob;
 
 

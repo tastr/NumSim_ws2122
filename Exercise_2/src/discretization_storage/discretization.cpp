@@ -396,9 +396,8 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
                 velocity_Y(i_v_begin,j)=2*left[1]-velocity_Y(i_v_begin+1,j); 
                 velocity_Y(i_v_max-1,j)=2*right[1]-velocity_Y(i_v_max-2,j);
             }
-     }//else if (partitioning_.ownPartitionContainsLeftBoundary() && !partitioning_.ownPartitionContainsRightBoundary())
-   else if (!partitioning_.ownPartitionContainsRightBoundary())
-   {  
+     }else if (partitioning_.ownPartitionContainsLeftBoundary() && !partitioning_.ownPartitionContainsRightBoundary())
+    {  
          std::vector<double> Buffer_send_u(lu,0);
         std::vector<double> Buffer_send_v(lv,0);
         std::vector<double> Buffer_recv_u(lu,0);
@@ -454,7 +453,7 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
        
         
     
-    }else if (!partitioning_.ownPartitionContainsLeftBoundary() )//&& partitioning_.ownPartitionContainsRightBoundary())
+    }else if (!partitioning_.ownPartitionContainsLeftBoundary() && partitioning_.ownPartitionContainsRightBoundary())
    {    std::vector<double> Buffer_send_u(lu,0);
         std::vector<double> Buffer_send_v(lv,0);
         std::vector<double> Buffer_recv_u(lu,0);
@@ -506,7 +505,7 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
         }
    
     
-    }/* else //if (!partitioning_.ownPartitionContainsLeftBoundary() && !partitioning_.ownPartitionContainsRightBoundary())    
+    } else //if (!partitioning_.ownPartitionContainsLeftBoundary() && !partitioning_.ownPartitionContainsRightBoundary())    
     {
         std::vector<double> Buffer_send_u_l(lu,0);
         std::vector<double> Buffer_send_v_l(lv,0);
@@ -566,7 +565,7 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
             velocity_Y(i_v_begin,j)=Buffer_recv_v_l[j-(vJBegin()+1)];
             velocity_Y(i_v_max-1,j)=Buffer_recv_v_r[j-(vJBegin()+1)];
           }
-    }*/
+    }
 
     // top-bottom -------------------------------------------------------------------------------------------
     lu=(uIEnd()-1)-(uIBegin()+1);

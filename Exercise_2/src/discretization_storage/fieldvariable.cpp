@@ -107,3 +107,13 @@ double FieldVariable::interpolateAt(double x, double y)
   return  averaged ;
 //    return 1;
 }
+
+void FieldVariable::setToZero()
+{
+    std::fill(data_.begin(), data_.end(), 0.0);
+}
+
+double* FieldVariable::data()
+{
+    return data_.data();
+}

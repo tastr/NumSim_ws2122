@@ -23,7 +23,7 @@ nCellsGlobal_(settings.nCells)
     //std::cout<< ownRankNo() << " TOP "<< ownPartitionContainsTopBoundary() <<std::endl;
     //std::cout<< ownRankNo() << " Bottom "<< ownPartitionContainsBottomBoundary() <<std::endl;
    
-    }
+}
 
 
 

@@ -441,6 +441,33 @@ output_writer/output_writer_paraview.cpp.s:
 	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.s
 .PHONY : output_writer/output_writer_paraview.cpp.s
 
+output_writer/output_writer_paraview_parallel.o: output_writer/output_writer_paraview_parallel.cpp.o
+
+.PHONY : output_writer/output_writer_paraview_parallel.o
+
+# target to build an object file
+output_writer/output_writer_paraview_parallel.cpp.o:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_paraview_parallel.cpp.o
+.PHONY : output_writer/output_writer_paraview_parallel.cpp.o
+
+output_writer/output_writer_paraview_parallel.i: output_writer/output_writer_paraview_parallel.cpp.i
+
+.PHONY : output_writer/output_writer_paraview_parallel.i
+
+# target to preprocess a source file
+output_writer/output_writer_paraview_parallel.cpp.i:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_paraview_parallel.cpp.i
+.PHONY : output_writer/output_writer_paraview_parallel.cpp.i
+
+output_writer/output_writer_paraview_parallel.s: output_writer/output_writer_paraview_parallel.cpp.s
+
+.PHONY : output_writer/output_writer_paraview_parallel.s
+
+# target to generate assembly for a file
+output_writer/output_writer_paraview_parallel.cpp.s:
+	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_paraview_parallel.cpp.s
+.PHONY : output_writer/output_writer_paraview_parallel.cpp.s
+
 output_writer/output_writer_text.o: output_writer/output_writer_text.cpp.o
 
 .PHONY : output_writer/output_writer_text.o
@@ -673,6 +700,9 @@ help:
 	@echo "... output_writer/output_writer_paraview.o"
 	@echo "... output_writer/output_writer_paraview.i"
 	@echo "... output_writer/output_writer_paraview.s"
+	@echo "... output_writer/output_writer_paraview_parallel.o"
+	@echo "... output_writer/output_writer_paraview_parallel.i"
+	@echo "... output_writer/output_writer_paraview_parallel.s"
 	@echo "... output_writer/output_writer_text.o"
 	@echo "... output_writer/output_writer_text.i"
 	@echo "... output_writer/output_writer_text.s"

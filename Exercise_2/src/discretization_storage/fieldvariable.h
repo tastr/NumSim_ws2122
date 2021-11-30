@@ -26,6 +26,10 @@ public:
     //returns the std array index of a array2D variable 
     int indexconvert(int i, int j) const;    
     
+    void setToZero();
+
+    // returns pointer to first element
+    double* data();
     
 };
 

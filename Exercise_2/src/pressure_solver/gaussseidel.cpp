@@ -104,7 +104,7 @@ void GaussSeidel::calculateP()
     resterm=resterm_glob;
 
 
-    }while(resterm > epsilonquad  && safe<20000);
+    }while(resterm > epsilonquad  && safe<discretization_.getMaxIteration());
     std::cout<< "Residuum " << residuum() << " Safe "<< safe <<std::endl;
     //discretization_.updatedPressureBC();    
     }

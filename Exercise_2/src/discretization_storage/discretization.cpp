@@ -172,6 +172,9 @@ void Discretization::setPressureBCParalell()
     int self_j=partitioning_.nodeOffset()[1];
         
     int i_max = pIEnd(), j_max = pJEnd();
+    
+    int lj=pJEnd()-pJBegin();
+    int li=pIEnd()-pIBegin();
     if (partitioning_.ownPartitionContainsLeftBoundary() && partitioning_.ownPartitionContainsRightBoundary())
         {
             for (int j = pJBegin(); j < pJEnd(); j++)
@@ -181,8 +184,8 @@ void Discretization::setPressureBCParalell()
             }
 
     }else if (partitioning_.ownPartitionContainsLeftBoundary() && !partitioning_.ownPartitionContainsRightBoundary()) 
-        {  std::vector<double> Buffer_send(j_max,0);
-           std::vector<double> Buffer_recv(j_max,0);
+        {  std::vector<double> Buffer_send(lj,0);
+           std::vector<double> Buffer_recv(lj,0);
            int rank=partitioning_.coordiantesToRank(self_i+1,self_j);  
         
         //std::cout<<"notright "<< rank <<std::endl;
@@ -190,17 +193,25 @@ void Discretization::setPressureBCParalell()
         for (int j = pJBegin(); j < pJEnd(); j++)
             {
             pressure(pIBegin(),j)=pressure(pIBegin()+1,j);
-            Buffer_send[j]=pressure(i_max-2,j);
+            Buffer_send[j]=pressure(i_max-2,j-pJBegin());
             }
-        MPI_Send(Buffer_send.data(),j_max,MPI_DOUBLE,rank,1,MPI_COMM_WORLD);
-        MPI_Recv(Buffer_recv.data(),j_max,MPI_DOUBLE,rank,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+        if (partitioning_.first())   
+             {
+             MPI_Send(Buffer_send.data(),lj,MPI_DOUBLE,rank,3,MPI_COMM_WORLD);
+             MPI_Recv(Buffer_recv.data(),lj,MPI_DOUBLE,rank,4,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+             }else
+            {
+             MPI_Recv(Buffer_recv.data(),lj,MPI_DOUBLE,rank,4,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+             MPI_Send(Buffer_send.data(),lj,MPI_DOUBLE,rank,3,MPI_COMM_WORLD);
+             }
+                
         for (int j = pJBegin(); j < j_max; j++)
             {
-            pressure(i_max-1,j)=Buffer_recv[j];
+             pressure(i_max-1,j)=Buffer_recv[j-pJBegin()];
             } 
     }else if (!partitioning_.ownPartitionContainsLeftBoundary() && partitioning_.ownPartitionContainsRightBoundary()) 
-    {   std::vector<double> Buffer_send(j_max,0);
-        std::vector<double> Buffer_recv(j_max,0);
+    {   std::vector<double> Buffer_send(lj,0);
+        std::vector<double> Buffer_recv(lj,0);
         int rank=partitioning_.coordiantesToRank(self_i-1,self_j);  
         
        // std::cout<<"notleft " << rank <<std::endl;
@@ -208,28 +219,28 @@ void Discretization::setPressureBCParalell()
         for (int j = pJBegin(); j < pJEnd(); j++)
             {
             pressure(i_max-1,j)=pressure(i_max-2,j);
-            Buffer_send[j]=pressure(pJBegin()+1,j);
+            Buffer_send[j-pJBegin()]=pressure(pJBegin()+1,j);
             }
          if (partitioning_.first())   
          {
-           MPI_Send(Buffer_send.data(),j_max,MPI_DOUBLE,rank,1,MPI_COMM_WORLD);
-           MPI_Recv(Buffer_recv.data(),j_max,MPI_DOUBLE,rank,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+           MPI_Send(Buffer_send.data(),lj,MPI_DOUBLE,rank,4,MPI_COMM_WORLD);
+           MPI_Recv(Buffer_recv.data(),lj,MPI_DOUBLE,rank,3,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
          } else {
-          MPI_Recv(Buffer_recv.data(),j_max,MPI_DOUBLE,rank,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
-          MPI_Send(Buffer_send.data(),j_max,MPI_DOUBLE,rank,1,MPI_COMM_WORLD);
+          MPI_Recv(Buffer_recv.data(),lj,MPI_DOUBLE,rank,3,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+          MPI_Send(Buffer_send.data(),lj,MPI_DOUBLE,rank,4,MPI_COMM_WORLD);
          } 
           
           for (int j = pJBegin(); j < pJEnd(); j++)
             {
-            pressure(pIBegin(),j)=Buffer_recv[j];
+            pressure(pIBegin(),j)=Buffer_recv[j-pJBegin()];
             } 
     }else //if (!partitioning_.ownPartitionContainsLeftBoundary() && !partitioning_.ownPartitionContainsRightBoundary()) 
         {  
         std::vector<double> Buffer_send(j_max,0);  
-        std::vector<double> Buffer_send_l(j_max,0);
-        std::vector<double> Buffer_send_r(j_max,0);
-        std::vector<double> Buffer_recv_l(j_max,0);
-        std::vector<double> Buffer_recv_r(j_max,0);
+        std::vector<double> Buffer_send_l(lj,0);
+        std::vector<double> Buffer_send_r(lj,0);
+        std::vector<double> Buffer_recv_l(lj,0);
+        std::vector<double> Buffer_recv_r(lj,0);
         int rank_r=partitioning_.coordiantesToRank(self_i+1,self_j);  
         int rank_l=partitioning_.coordiantesToRank(self_i-1,self_j);  
         
@@ -244,17 +255,17 @@ void Discretization::setPressureBCParalell()
         }
         if (partitioning_.first()) 
         {
-          MPI_Send(Buffer_send_l.data(),j_max,MPI_DOUBLE,rank_l,1,MPI_COMM_WORLD);
-          MPI_Send(Buffer_send_r.data(),j_max,MPI_DOUBLE,rank_r,1,MPI_COMM_WORLD);           
-          MPI_Recv(Buffer_recv_r.data(),j_max,MPI_DOUBLE,rank_r,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
-          MPI_Recv(Buffer_recv_l.data(),j_max,MPI_DOUBLE,rank_l,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
+          MPI_Send(Buffer_send_l.data(),lj,MPI_DOUBLE,rank_l,4,MPI_COMM_WORLD);
+          MPI_Send(Buffer_send_r.data(),lj,MPI_DOUBLE,rank_r,3,MPI_COMM_WORLD);           
+          MPI_Recv(Buffer_recv_r.data(),lj,MPI_DOUBLE,rank_r,4,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+          MPI_Recv(Buffer_recv_l.data(),lj,MPI_DOUBLE,rank_l,3,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
        
         } else
         {
-          MPI_Recv(Buffer_recv_r.data(),j_max,MPI_DOUBLE,rank_r,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
-          MPI_Recv(Buffer_recv_l.data(),j_max,MPI_DOUBLE,rank_l,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
-          MPI_Send(Buffer_send_l.data(),j_max,MPI_DOUBLE,rank_l,1,MPI_COMM_WORLD);
-          MPI_Send(Buffer_send_r.data(),j_max,MPI_DOUBLE,rank_r,1,MPI_COMM_WORLD);               
+          MPI_Recv(Buffer_recv_r.data(),lj,MPI_DOUBLE,rank_r,4,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+          MPI_Recv(Buffer_recv_l.data(),lj,MPI_DOUBLE,rank_l,3,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
+          MPI_Send(Buffer_send_l.data(),lj,MPI_DOUBLE,rank_l,4,MPI_COMM_WORLD);
+          MPI_Send(Buffer_send_r.data(),lj,MPI_DOUBLE,rank_r,3,MPI_COMM_WORLD);               
         }
         for (int j = pJBegin(); j < pJEnd(); j++)
          {
@@ -272,8 +283,8 @@ void Discretization::setPressureBCParalell()
             }
       } else if (!partitioning_.ownPartitionContainsTopBoundary() && partitioning_.ownPartitionContainsBottomBoundary())
         { 
-            std::vector<double> Buffer_send(i_max,0);
-            std::vector<double> Buffer_recv(i_max,0);
+            std::vector<double> Buffer_send(li,0);
+            std::vector<double> Buffer_recv(li,0);
             int rank=partitioning_.coordiantesToRank(self_i,self_j+1);    
             
            // std::cout <<"rank " <<rank  <<std::endl;
@@ -281,27 +292,27 @@ void Discretization::setPressureBCParalell()
             for (int i = pIBegin(); i < pIEnd(); i++)
                 {
                     pressure(i,pJBegin())=pressure(i,pJBegin()+1);
-                    Buffer_send[i]=pressure(i,j_max-2);
+                    Buffer_send[i-pIBegin()]=pressure(i,j_max-2);
                 }
             if (partitioning_.first()) 
             {
-            MPI_Send(Buffer_send.data(),i_max,MPI_DOUBLE,rank,1,MPI_COMM_WORLD);
-            MPI_Recv(Buffer_recv.data(),i_max,MPI_DOUBLE,rank,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);          
+            MPI_Send(Buffer_send.data(),li,MPI_DOUBLE,rank,5,MPI_COMM_WORLD);
+            MPI_Recv(Buffer_recv.data(),li,MPI_DOUBLE,rank,6,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);          
             }else
             {
-            MPI_Recv(Buffer_recv.data(),i_max,MPI_DOUBLE,rank,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);
-            MPI_Send(Buffer_send.data(),i_max,MPI_DOUBLE,rank,1,MPI_COMM_WORLD);           
+            MPI_Recv(Buffer_recv.data(),li,MPI_DOUBLE,rank,6,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);
+            MPI_Send(Buffer_send.data(),li,MPI_DOUBLE,rank,5,MPI_COMM_WORLD);           
             }
            
             for (int i = pIBegin(); i < pIEnd(); i++)
                 {
-                    pressure(i,j_max-1)=Buffer_recv[i];
+                  pressure(i,j_max-1)=Buffer_recv[i-pIBegin()];
                 }
 
          }else if (partitioning_.ownPartitionContainsTopBoundary() && !partitioning_.ownPartitionContainsBottomBoundary())
             {
-            std::vector<double> Buffer_send(i_max,0);
-            std::vector<double> Buffer_recv(i_max,0);
+            std::vector<double> Buffer_send(li,0);
+            std::vector<double> Buffer_recv(li,0);
             int rank=partitioning_.coordiantesToRank(self_i,self_j-1);    
             
              std::cout <<"rank " << rank  <<std::endl;
@@ -309,53 +320,53 @@ void Discretization::setPressureBCParalell()
             for (int i = pIBegin(); i < pIEnd(); i++)
                 {
                     pressure(i,j_max-1)=pressure(i,j_max-2);
-                    Buffer_send[i]=pressure(i,pJBegin()+1);
+                    Buffer_send[i-pIBegin()]=pressure(i,pJBegin()+1);
                 }
             if (partitioning_.first()) 
             {
-            MPI_Send(Buffer_send.data(),i_max,MPI_DOUBLE,rank,1,MPI_COMM_WORLD);
-            MPI_Recv(Buffer_recv.data(),i_max,MPI_DOUBLE,rank,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);           
+              MPI_Send(Buffer_send.data(),li,MPI_DOUBLE,rank,6,MPI_COMM_WORLD);
+              MPI_Recv(Buffer_recv.data(),li,MPI_DOUBLE,rank,5,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);           
             }else
             {
-            MPI_Recv(Buffer_recv.data(),i_max,MPI_DOUBLE,rank,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);
-            MPI_Send(Buffer_send.data(),i_max,MPI_DOUBLE,rank,1,MPI_COMM_WORLD);           
+              MPI_Recv(Buffer_recv.data(),li,MPI_DOUBLE,rank,5,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);
+              MPI_Send(Buffer_send.data(),li,MPI_DOUBLE,rank,6,MPI_COMM_WORLD);           
             }
             for (int i = pIBegin(); i < pIEnd(); i++)
                 {
-                    pressure(i,j_max-1)=Buffer_recv[i];
+                  pressure(i,j_max-1)=Buffer_recv[i-pIBegin()];
                 }
         }else //if (!partitioning_.ownPartitionContainsTopBoundary() && !partitioning_.ownPartitionContainsBottomBoundary())
         {
-        std::vector<double> Buffer_send_B(i_max,0);
-        std::vector<double> Buffer_send_T(i_max,0);
-        std::vector<double> Buffer_recv_B(i_max,0);
-        std::vector<double> Buffer_recv_T(i_max,0);
+        std::vector<double> Buffer_send_B(li,0);
+        std::vector<double> Buffer_send_T(li,0);
+        std::vector<double> Buffer_recv_B(li,0);
+        std::vector<double> Buffer_recv_T(li,0);
         int rank_T=partitioning_.coordiantesToRank(self_i,self_j+1);  
         int rank_B=partitioning_.coordiantesToRank(self_i,self_j-1);  
         
         for (int i = pIBegin(); i < pIEnd(); i++)
         {
-            Buffer_send_B[i]=pressure(i,pJBegin()+1);
-            Buffer_send_T[i]=pressure(i,j_max-2);
+            Buffer_send_B[i-pIBegin()]=pressure(i,pJBegin()+1);
+            Buffer_send_T[i-pIBegin()]=pressure(i,j_max-2);
         }
         if (partitioning_.first()) 
         {
-          MPI_Send(Buffer_send_T.data(),i_max,MPI_DOUBLE,rank_T,1,MPI_COMM_WORLD);
-          MPI_Send(Buffer_send_B.data(),i_max,MPI_DOUBLE,rank_B,1,MPI_COMM_WORLD);           
-          MPI_Recv(Buffer_recv_T.data(),i_max,MPI_DOUBLE,rank_T,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
-          MPI_Recv(Buffer_recv_B.data(),i_max,MPI_DOUBLE,rank_B,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
+          MPI_Send(Buffer_send_T.data(),li,MPI_DOUBLE,rank_T,5,MPI_COMM_WORLD);
+          MPI_Send(Buffer_send_B.data(),li,MPI_DOUBLE,rank_B,6,MPI_COMM_WORLD);           
+          MPI_Recv(Buffer_recv_T.data(),li,MPI_DOUBLE,rank_T,6,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+          MPI_Recv(Buffer_recv_B.data(),li,MPI_DOUBLE,rank_B,5,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
        
         } else
         {
-          MPI_Recv(Buffer_recv_T.data(),i_max,MPI_DOUBLE,rank_T,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
-          MPI_Recv(Buffer_recv_B.data(),i_max,MPI_DOUBLE,rank_B,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
-          MPI_Send(Buffer_send_T.data(),i_max,MPI_DOUBLE,rank_T,1,MPI_COMM_WORLD);
-          MPI_Send(Buffer_send_B.data(),i_max,MPI_DOUBLE,rank_B,1,MPI_COMM_WORLD);                          
+          MPI_Recv(Buffer_recv_T.data(),li,MPI_DOUBLE,rank_T,6,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+          MPI_Recv(Buffer_recv_B.data(),li,MPI_DOUBLE,rank_B,5,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
+          MPI_Send(Buffer_send_T.data(),li,MPI_DOUBLE,rank_T,5,MPI_COMM_WORLD);
+          MPI_Send(Buffer_send_B.data(),li,MPI_DOUBLE,rank_B,6,MPI_COMM_WORLD);                          
         }
         for (int i = pIBegin(); i < pIEnd(); i++)
          {
-            pressure(i,j_max-1)=Buffer_recv_T[i];
-            pressure(i,pJBegin())=Buffer_recv_B[i];
+            pressure(i,j_max-1)=Buffer_recv_T[i-pIBegin()];
+            pressure(i,pJBegin())=Buffer_recv_B[i-pIBegin()];
          }        
         }
 }  
@@ -385,8 +396,10 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
                 velocity_Y(i_v_begin,j)=2*left[1]-velocity_Y(i_v_begin+1,j); 
                 velocity_Y(i_v_max-1,j)=2*right[1]-velocity_Y(i_v_max-2,j);
             }
-     }else if (partitioning_.ownPartitionContainsLeftBoundary() && !partitioning_.ownPartitionContainsRightBoundary())
-   {    std::vector<double> Buffer_send_u(lu,0);
+     }//else if (partitioning_.ownPartitionContainsLeftBoundary() && !partitioning_.ownPartitionContainsRightBoundary())
+   else if (!partitioning_.ownPartitionContainsRightBoundary())
+   {  
+         std::vector<double> Buffer_send_u(lu,0);
         std::vector<double> Buffer_send_v(lv,0);
         std::vector<double> Buffer_recv_u(lu,0);
         std::vector<double> Buffer_recv_v(lv,0);
@@ -414,16 +427,16 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
 
         if (partitioning_.first()) 
         {
-            MPI_Send(Buffer_send_u.data(),lu,MPI_DOUBLE,rank,1,MPI_COMM_WORLD);
-            MPI_Send(Buffer_send_v.data(),lv,MPI_DOUBLE,rank,1,MPI_COMM_WORLD);           
-            MPI_Recv(Buffer_recv_u.data(),lu,MPI_DOUBLE,rank,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
-            MPI_Recv(Buffer_recv_v.data(),lv,MPI_DOUBLE,rank,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
+            MPI_Send(Buffer_send_u.data(),lu,MPI_DOUBLE,rank,7,MPI_COMM_WORLD);
+            MPI_Send(Buffer_send_v.data(),lv,MPI_DOUBLE,rank,9,MPI_COMM_WORLD);           
+            MPI_Recv(Buffer_recv_u.data(),lu,MPI_DOUBLE,rank,8,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+            MPI_Recv(Buffer_recv_v.data(),lv,MPI_DOUBLE,rank,10,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
         }else
         {
-            MPI_Recv(Buffer_recv_u.data(),lu,MPI_DOUBLE,rank,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
-            MPI_Recv(Buffer_recv_v.data(),lv,MPI_DOUBLE,rank,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
-            MPI_Send(Buffer_send_u.data(),lu,MPI_DOUBLE,rank,1,MPI_COMM_WORLD);
-            MPI_Send(Buffer_send_v.data(),lv,MPI_DOUBLE,rank,1,MPI_COMM_WORLD);            
+            MPI_Recv(Buffer_recv_u.data(),lu,MPI_DOUBLE,rank,8,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+            MPI_Recv(Buffer_recv_v.data(),lv,MPI_DOUBLE,rank,10,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
+            MPI_Send(Buffer_send_u.data(),lu,MPI_DOUBLE,rank,7,MPI_COMM_WORLD);
+            MPI_Send(Buffer_send_v.data(),lv,MPI_DOUBLE,rank,9,MPI_COMM_WORLD);            
         }
         
          
@@ -441,7 +454,7 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
        
         
     
-    }else if (!partitioning_.ownPartitionContainsLeftBoundary() && partitioning_.ownPartitionContainsRightBoundary())
+    }else if (!partitioning_.ownPartitionContainsLeftBoundary() )//&& partitioning_.ownPartitionContainsRightBoundary())
    {    std::vector<double> Buffer_send_u(lu,0);
         std::vector<double> Buffer_send_v(lv,0);
         std::vector<double> Buffer_recv_u(lu,0);
@@ -467,16 +480,16 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
            }
         if (partitioning_.first()) 
         {
-           MPI_Send(Buffer_send_u.data(),lu,MPI_DOUBLE,rank,1,MPI_COMM_WORLD);
-           MPI_Send(Buffer_send_v.data(),lv,MPI_DOUBLE,rank,1,MPI_COMM_WORLD);           
-           MPI_Recv(Buffer_recv_u.data(),lu,MPI_DOUBLE,rank,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
-           MPI_Recv(Buffer_recv_v.data(),lv,MPI_DOUBLE,rank,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
+           MPI_Send(Buffer_send_u.data(),lu,MPI_DOUBLE,rank,8,MPI_COMM_WORLD);
+           MPI_Send(Buffer_send_v.data(),lv,MPI_DOUBLE,rank,10,MPI_COMM_WORLD);           
+           MPI_Recv(Buffer_recv_u.data(),lu,MPI_DOUBLE,rank,7,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+           MPI_Recv(Buffer_recv_v.data(),lv,MPI_DOUBLE,rank,9,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
         }else
         {
-           MPI_Recv(Buffer_recv_u.data(),lu,MPI_DOUBLE,rank,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
-           MPI_Recv(Buffer_recv_v.data(),lv,MPI_DOUBLE,rank,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
-           MPI_Send(Buffer_send_u.data(),lu,MPI_DOUBLE,rank,1,MPI_COMM_WORLD);
-           MPI_Send(Buffer_send_v.data(),lv,MPI_DOUBLE,rank,1,MPI_COMM_WORLD);            
+           MPI_Recv(Buffer_recv_u.data(),lu,MPI_DOUBLE,rank,7,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+           MPI_Recv(Buffer_recv_v.data(),lv,MPI_DOUBLE,rank,9,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
+           MPI_Send(Buffer_send_u.data(),lu,MPI_DOUBLE,rank,8,MPI_COMM_WORLD);
+           MPI_Send(Buffer_send_v.data(),lv,MPI_DOUBLE,rank,10,MPI_COMM_WORLD);            
         }
         
        
@@ -492,8 +505,8 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
             velocity_Y(i_v_begin,j)=Buffer_recv_v[j-(vJBegin()+1)];
         }
    
-
-    }else //if (!partitioning_.ownPartitionContainsLeftBoundary() && !partitioning_.ownPartitionContainsRightBoundary())    
+    
+    }/* else //if (!partitioning_.ownPartitionContainsLeftBoundary() && !partitioning_.ownPartitionContainsRightBoundary())    
     {
         std::vector<double> Buffer_send_u_l(lu,0);
         std::vector<double> Buffer_send_v_l(lv,0);
@@ -522,24 +535,24 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
            }
         if (partitioning_.first()) 
         {
-          MPI_Send(Buffer_send_u_r.data(),lu,MPI_DOUBLE,rank_r,1,MPI_COMM_WORLD);
-          MPI_Send(Buffer_send_v_r.data(),lv,MPI_DOUBLE,rank_r,1,MPI_COMM_WORLD);           
-          MPI_Send(Buffer_send_u_l.data(),lu,MPI_DOUBLE,rank_l,1,MPI_COMM_WORLD);
-          MPI_Send(Buffer_send_v_l.data(),lv,MPI_DOUBLE,rank_l,1,MPI_COMM_WORLD);           
-          MPI_Recv(Buffer_recv_u_r.data(),lu,MPI_DOUBLE,rank_r,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
-          MPI_Recv(Buffer_recv_v_r.data(),lv,MPI_DOUBLE,rank_r,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
-          MPI_Recv(Buffer_recv_u_l.data(),lu,MPI_DOUBLE,rank_l,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
-          MPI_Recv(Buffer_recv_v_l.data(),lv,MPI_DOUBLE,rank_l,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
+          MPI_Send(Buffer_send_u_r.data(),lu,MPI_DOUBLE,rank_r,7,MPI_COMM_WORLD);
+          MPI_Send(Buffer_send_v_r.data(),lv,MPI_DOUBLE,rank_r,9,MPI_COMM_WORLD);           
+          MPI_Send(Buffer_send_u_l.data(),lu,MPI_DOUBLE,rank_l,8,MPI_COMM_WORLD);
+          MPI_Send(Buffer_send_v_l.data(),lv,MPI_DOUBLE,rank_l,10,MPI_COMM_WORLD);           
+          MPI_Recv(Buffer_recv_u_r.data(),lu,MPI_DOUBLE,rank_r,7,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+          MPI_Recv(Buffer_recv_v_r.data(),lv,MPI_DOUBLE,rank_r,9,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
+          MPI_Recv(Buffer_recv_u_l.data(),lu,MPI_DOUBLE,rank_l,8,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+          MPI_Recv(Buffer_recv_v_l.data(),lv,MPI_DOUBLE,rank_l,10,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
         }else
         {
-          MPI_Recv(Buffer_recv_u_r.data(),lu,MPI_DOUBLE,rank_r,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
-          MPI_Recv(Buffer_recv_v_r.data(),lv,MPI_DOUBLE,rank_r,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
-          MPI_Recv(Buffer_recv_u_l.data(),lu,MPI_DOUBLE,rank_l,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
-          MPI_Recv(Buffer_recv_v_l.data(),lv,MPI_DOUBLE,rank_l,MPI_ANY_TAG,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
-          MPI_Send(Buffer_send_u_r.data(),lu,MPI_DOUBLE,rank_r,1,MPI_COMM_WORLD);
-          MPI_Send(Buffer_send_v_r.data(),lv,MPI_DOUBLE,rank_r,1,MPI_COMM_WORLD);           
-          MPI_Send(Buffer_send_u_l.data(),lu,MPI_DOUBLE,rank_l,1,MPI_COMM_WORLD);
-          MPI_Send(Buffer_send_v_l.data(),lv,MPI_DOUBLE,rank_l,1,MPI_COMM_WORLD);           
+          MPI_Recv(Buffer_recv_u_r.data(),lu,MPI_DOUBLE,rank_r,7,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+          MPI_Recv(Buffer_recv_v_r.data(),lv,MPI_DOUBLE,rank_r,9,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
+          MPI_Recv(Buffer_recv_u_l.data(),lu,MPI_DOUBLE,rank_l,8,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+          MPI_Recv(Buffer_recv_v_l.data(),lv,MPI_DOUBLE,rank_l,10,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
+          MPI_Send(Buffer_send_u_r.data(),lu,MPI_DOUBLE,rank_r,7,MPI_COMM_WORLD);
+          MPI_Send(Buffer_send_v_r.data(),lv,MPI_DOUBLE,rank_r,9,MPI_COMM_WORLD);           
+          MPI_Send(Buffer_send_u_l.data(),lu,MPI_DOUBLE,rank_l,8,MPI_COMM_WORLD);
+          MPI_Send(Buffer_send_v_l.data(),lv,MPI_DOUBLE,rank_l,10,MPI_COMM_WORLD);           
         }   
             for (int j = uJBegin()+1; j < j_u_max-1; j++)
         {
@@ -553,7 +566,7 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
             velocity_Y(i_v_begin,j)=Buffer_recv_v_l[j-(vJBegin()+1)];
             velocity_Y(i_v_max-1,j)=Buffer_recv_v_r[j-(vJBegin()+1)];
           }
-    }
+    }*/
 
     // top-bottom -------------------------------------------------------------------------------------------
     lu=(uIEnd()-1)-(uIBegin()+1);
@@ -603,7 +616,7 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
             velocity_Y(i, vJBegin()) = Buffer_send_v_B[i-(vIBegin()+1)];
         }
     }
-    
+   
     if (partitioning_.ownPartitionContainsTopBoundary())
     {
         for (int i = uIBegin() + 1; i < i_u_max-1; i++) // i starts at 1 and goes to i_u_max-1 so that the wall is the BC in corners
@@ -644,9 +657,13 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
 
         for (int i = vIBegin()+1; i < vIEnd()-1; i++)
         {
-            velocity_X(i, vIEnd()-1) = Buffer_recv_u_T[i-(vIBegin()+1)];
-            velocity_Y(i, vJEnd()-1) = Buffer_recv_v_T[i-(vIBegin()+1)];
-        }
+            velocity_X(i, uJEnd()-1) = Buffer_recv_u_T[i-(vIBegin()+1)]; //hier angepasst
+           // velocity_Y(i, vJEnd()-1) = Buffer_recv_v_T[i-(vIBegin()+1)];
+         //std::cout<< (vIEnd()-1) -(vIBegin()+1) << " "  << (uIEnd()-1)- (uIBegin()+1) <<std::endl;        
+        } 
+         
+
+           
     }
     
 

@@ -189,7 +189,6 @@ void Discretization::setPressureBCParalell()
         
         for (int j = pJBegin(); j < pJEnd(); j++)
             {
-            pressure(pIBegin(),j)=pressure(pIBegin()+1,j);
             Buffer_send[j-pJBegin()]=pressure(i_max-2,j);          
             }
         if (partitioning_.first())   
@@ -223,7 +222,6 @@ void Discretization::setPressureBCParalell()
 
         for (int j = pJBegin(); j < pJEnd(); j++)
             {
-            pressure(i_max-1,j)=pressure(i_max-2,j);
             Buffer_send[j-pJBegin()]=pressure(pJBegin()+1,j);           
             }
          if (partitioning_.first())   
@@ -258,7 +256,6 @@ void Discretization::setPressureBCParalell()
             
             for (int i = pIBegin(); i < pIEnd(); i++)
                 {
-                    pressure(i,pJBegin())=pressure(i,pJBegin()+1);
                     Buffer_send[i-pIBegin()]=pressure(i,j_max-2);
                 }
             if (partitioning_.first()) 
@@ -290,7 +287,6 @@ void Discretization::setPressureBCParalell()
                    
             for (int i = pIBegin(); i < pIEnd(); i++)
                 {
-                    pressure(i,j_max-1)=pressure(i,j_max-2);
                     Buffer_send[i-pIBegin()]=pressure(i,pJBegin()+1);
                 }
             if (partitioning_.first()) 

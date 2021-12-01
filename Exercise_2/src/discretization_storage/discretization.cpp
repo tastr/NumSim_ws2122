@@ -312,8 +312,8 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
     int self_j=partitioning_.nodeOffset()[1];
    
    //u left right
-   int i_u_max  = velocity_X.size()[0], j_u_max = velocity_X.size()[1];
-   int i_v_max  = velocity_Y.size()[0], j_v_max = velocity_Y.size()[1];
+   int i_u_max  = uIEnd(), j_u_max = uJEnd();
+   int i_v_max  = vIEnd(), j_v_max = vJEnd();
    int i_u_begin  = uIBegin(), j_u_begin = uJBegin();
    int i_v_begin  = vIBegin(), j_v_begin = vJBegin();
    int lu=(j_u_max-1)-(uJBegin()+1);
@@ -321,13 +321,13 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
       if (partitioning_.ownPartitionContainsRightBoundary() )
    {       for (int j = uJBegin(); j < j_u_max; j++)
             {
-                   // velocity_X(i_u_begin,j)=left[0];
-                    velocity_X(i_u_max-1,j)=right[0];
+                // velocity_X(i_u_begin,j)=left[0];
+                velocity_X(i_u_max-1,j)=right[0];
             }
-                for (int j = vJBegin(); j < j_v_max; j++)
+            for (int j = vJBegin(); j < j_v_max; j++)
             {
                // velocity_Y(i_v_begin,j)=2*left[1]-velocity_Y(i_v_begin+1,j); 
-            velocity_Y(i_v_max-1,j)=2*right[1]-velocity_Y(i_v_max-2,j);
+                velocity_Y(i_v_max-1,j)=2*right[1]-velocity_Y(i_v_max-2,j);
             }
         }else{
         std::vector<double> Buffer_send_u(lu,0);
@@ -446,9 +446,13 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
         std::vector<double> Buffer_recv_v_B(lv,0);
         int rank_B=partitioning_.coordiantesToRank(self_i,self_j-1);
 
+        for (int i = uIBegin()+1; i < uIEnd()-1; i++)
+        {
+            Buffer_send_u_B[i-(uIBegin()+1)] = velocity_X(i, uJBegin()+1);
+        }
+        
         for (int i = vIBegin()+1; i < vIEnd()-1; i++)
         {
-            Buffer_send_u_B[i-(vIBegin()+1)] = velocity_X(i, vIBegin()+1);
             Buffer_send_v_B[i-(vIBegin()+1)] = velocity_Y(i, vJBegin()+2);
         }
         
@@ -456,19 +460,23 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
         {
           MPI_Send(Buffer_send_u_B.data(),lu,MPI_DOUBLE,rank_B,1,MPI_COMM_WORLD);
           MPI_Send(Buffer_send_v_B.data(),lv,MPI_DOUBLE,rank_B,2,MPI_COMM_WORLD);           
-          MPI_Recv(Buffer_recv_u_B.data(),lu,MPI_DOUBLE,rank_B,1,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
-          MPI_Recv(Buffer_recv_v_B.data(),lv,MPI_DOUBLE,rank_B,2,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
+          MPI_Recv(Buffer_recv_u_B.data(),lu,MPI_DOUBLE,rank_B,11,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+          MPI_Recv(Buffer_recv_v_B.data(),lv,MPI_DOUBLE,rank_B,12,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
         }else
         {
-          MPI_Recv(Buffer_recv_u_B.data(),lu,MPI_DOUBLE,rank_B,1,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
-          MPI_Recv(Buffer_recv_v_B.data(),lv,MPI_DOUBLE,rank_B,2,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
+          MPI_Recv(Buffer_recv_u_B.data(),lu,MPI_DOUBLE,rank_B,11,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+          MPI_Recv(Buffer_recv_v_B.data(),lv,MPI_DOUBLE,rank_B,12,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
           MPI_Send(Buffer_send_u_B.data(),lu,MPI_DOUBLE,rank_B,1,MPI_COMM_WORLD);
           MPI_Send(Buffer_send_v_B.data(),lv,MPI_DOUBLE,rank_B,2,MPI_COMM_WORLD);            
         }
 
+        for (int i = uIBegin()+1; i < uIEnd()-1; i++)
+        {
+            velocity_X(i, uJBegin()) = Buffer_send_u_B[i-(uIBegin()+1)];
+        }
+
         for (int i = vIBegin()+1; i < vIEnd()-1; i++)
         {
-            velocity_X(i, vJBegin()) = Buffer_send_u_B[i-(vIBegin()+1)];
             velocity_Y(i, vJBegin()) = Buffer_send_v_B[i-(vIBegin()+1)];
         }
     }
@@ -491,31 +499,36 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
         std::vector<double> Buffer_recv_v_T(lv,0);
         int rank_T=partitioning_.coordiantesToRank(self_i,self_j+1);
 
+        for (int i = uIBegin()+1; i < uIEnd()-1; i++)
+        {
+            Buffer_send_u_T[i-(uIBegin()+1)] = velocity_X(i, uJEnd()-2);
+        }
+
         for (int i = vIBegin()+1; i < vIEnd()-1; i++)
         {
-            Buffer_send_u_T[i-(vIBegin()+1)] = velocity_X(i, vJEnd()-2);
             Buffer_send_v_T[i-(vIBegin()+1)] = velocity_Y(i, vJEnd()-3);
         }
 
         if (partitioning_.first()) 
         {
-          MPI_Send(Buffer_send_u_T.data(),lu,MPI_DOUBLE,rank_T,1,MPI_COMM_WORLD);
-          MPI_Send(Buffer_send_v_T.data(),lv,MPI_DOUBLE,rank_T,2,MPI_COMM_WORLD);           
+          MPI_Send(Buffer_send_u_T.data(),lu,MPI_DOUBLE,rank_T,11,MPI_COMM_WORLD);
+          MPI_Send(Buffer_send_v_T.data(),lv,MPI_DOUBLE,rank_T,12,MPI_COMM_WORLD);           
           MPI_Recv(Buffer_recv_u_T.data(),lu,MPI_DOUBLE,rank_T,1,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
           MPI_Recv(Buffer_recv_v_T.data(),lv,MPI_DOUBLE,rank_T,2,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
         }else
         {
           MPI_Recv(Buffer_recv_u_T.data(),lu,MPI_DOUBLE,rank_T,1,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
           MPI_Recv(Buffer_recv_v_T.data(),lv,MPI_DOUBLE,rank_T,2,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
-          MPI_Send(Buffer_send_u_T.data(),lu,MPI_DOUBLE,rank_T,1,MPI_COMM_WORLD);
-          MPI_Send(Buffer_send_v_T.data(),lv,MPI_DOUBLE,rank_T,2,MPI_COMM_WORLD);            
+          MPI_Send(Buffer_send_u_T.data(),lu,MPI_DOUBLE,rank_T,11,MPI_COMM_WORLD);
+          MPI_Send(Buffer_send_v_T.data(),lv,MPI_DOUBLE,rank_T,12,MPI_COMM_WORLD);            
         }
-
+        for (int i = uIBegin()+1; i < uIEnd()-1; i++)
+        {
+            velocity_X(i, uJEnd()-1) = Buffer_recv_u_T[i-(uIBegin()+1)]; 
+        }
         for (int i = vIBegin()+1; i < vIEnd()-1; i++)
         {
-            velocity_X(i, uJEnd()-1) = Buffer_recv_u_T[i-(vIBegin()+1)]; //hier angepasst
             velocity_Y(i, vJEnd()-1) = Buffer_recv_v_T[i-(vIBegin()+1)];
-         //std::cout<< (vIEnd()-1) -(vIBegin()+1) << " "  << (uIEnd()-1)- (uIBegin()+1) <<std::endl;        
         } 
          
 

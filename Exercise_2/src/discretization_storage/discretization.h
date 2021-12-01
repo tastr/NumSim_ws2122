@@ -52,7 +52,8 @@ public:
     double rhs(int i, int j) const; 
     double getOmega() const;
     double getDeltaT() const;
-
+    
+    int getOwnRankNo();
     // set functions
     void setRHS(int i, int j, double value);
 

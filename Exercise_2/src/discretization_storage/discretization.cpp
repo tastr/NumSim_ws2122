@@ -189,7 +189,9 @@ void Discretization::setPressureBCParalell()
         
         for (int j = pJBegin(); j < pJEnd(); j++)
             {
-            Buffer_send[j-pJBegin()]=pressure(i_max-2,j);          
+            Buffer_send[j-pJBegin()]=pressure(i_max-2,j);
+            //Buffer_send[j-pJBegin()]=100;
+            //pressure(i_max-2,j)=400;          
             }
         if (partitioning_.first())   
              {
@@ -204,7 +206,7 @@ void Discretization::setPressureBCParalell()
         for (int j = pJBegin(); j < j_max; j++)
             {
              pressure(i_max-1,j)=Buffer_recv[j-pJBegin()];
-   
+             //pressure(i_max-1,j)=300;
             }
     }    
     if (partitioning_.ownPartitionContainsLeftBoundary()) 
@@ -222,7 +224,9 @@ void Discretization::setPressureBCParalell()
 
         for (int j = pJBegin(); j < pJEnd(); j++)
             {
-            Buffer_send[j-pJBegin()]=pressure(pJBegin()+1,j);           
+            Buffer_send[j-pJBegin()]=pressure(pJBegin()+1,j);
+            //pressure(pJBegin()+1,j)=400;
+            //Buffer_send[j-pJBegin()]=200;           
             }
          if (partitioning_.first())   
          {
@@ -236,7 +240,9 @@ void Discretization::setPressureBCParalell()
           for (int j = pJBegin(); j < pJEnd(); j++)
             {
             pressure(pIBegin(),j)=Buffer_recv[j-pJBegin()];
+            //pressure(pIBegin(),j)=300;
             } 
+
     } 
     
     
@@ -248,15 +254,14 @@ void Discretization::setPressureBCParalell()
                pressure(i,j_max-1)=pressure(i,j_max-2);
             }  
         }else 
-        { 
-
-            std::vector<double> Buffer_send(li,0);
+        {   std::vector<double> Buffer_send(li,0);
             std::vector<double> Buffer_recv(li,0);
             int rank=partitioning_.coordiantesToRank(self_i,self_j+1);     
             
             for (int i = pIBegin(); i < pIEnd(); i++)
                 {
                     Buffer_send[i-pIBegin()]=pressure(i,j_max-2);
+                    //pressure(i,j_max-2)=400;
                 }
             if (partitioning_.first()) 
             {
@@ -271,13 +276,14 @@ void Discretization::setPressureBCParalell()
             for (int i = pIBegin(); i < pIEnd(); i++)
                 {
                   pressure(i,j_max-1)=Buffer_recv[i-pIBegin()];
+                 // pressure(i,j_max-1)=300;
                 }
         } 
    if (partitioning_.ownPartitionContainsBottomBoundary())
             { 
             for (int i = pIBegin(); i < pIEnd(); i++)
                {
-               pressure(i,pJBegin())=pressure(i,pJBegin()+1);                            
+               pressure(i,pJBegin())=pressure(i,pJBegin()+1);                  
                }
            }else
            {
@@ -288,6 +294,7 @@ void Discretization::setPressureBCParalell()
             for (int i = pIBegin(); i < pIEnd(); i++)
                 {
                     Buffer_send[i-pIBegin()]=pressure(i,pJBegin()+1);
+                    //pressure(i,pJBegin()+1)=400;
                 }
             if (partitioning_.first()) 
             {
@@ -301,6 +308,7 @@ void Discretization::setPressureBCParalell()
             for (int i = pIBegin(); i < pIEnd(); i++)
                 {
                   pressure(i,pJBegin())=Buffer_recv[i-pIBegin()];
+                  //pressure(i,pJBegin())=300;
                 }
         } 
 }  
@@ -318,6 +326,7 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
    int i_v_begin  = vIBegin(), j_v_begin = vJBegin();
    int lu=(j_u_max-1)-(uJBegin()+1);
    int lv=(j_v_max-1)-(vJBegin()+1);
+
       if (partitioning_.ownPartitionContainsRightBoundary() )
    {       for (int j = uJBegin(); j < j_u_max; j++)
             {
@@ -340,10 +349,12 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
            {
             Buffer_send_u[j-(j_u_begin+1)]=velocity_X(i_u_max-3,j);
             // Buffer_send_u[lu+j-(uJBegin()+1)]=velocity_X(i_u_max-3,j);
+           //velocity_X(i_u_max-3,j)=200;
            }
         for (int j = vJBegin()+1; j < j_v_max-1; j++)
            {
-            Buffer_send_v[j-(vJBegin()+1)]= velocity_Y(i_v_max-2,j);
+            Buffer_send_v[j-(vJBegin()+1)]= velocity_Y(i_v_max-3,j);
+           //velocity_Y(i_v_max-3,j)=200;
            }
 
         if (partitioning_.first()) 
@@ -363,10 +374,12 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
         for (int j = uJBegin()+1; j < j_u_max-1; j++)
         {
              velocity_X(i_u_max-1,j)=Buffer_recv_u[j-(uJBegin()+1)];
+            //velocity_X(i_u_max-1,j)=100;
         } 
         for (int j = vJBegin()+1; j < j_v_max-1; j++)
          {
             velocity_Y(i_v_max-1,j)=Buffer_recv_v[j-(vJBegin()+1)];
+            //velocity_Y(i_v_max-1,j)=100;
         }
     } 
    // }else if (!partitioning_.ownPartitionContainsLeftBoundary() && partitioning_.ownPartitionContainsRightBoundary())
@@ -393,10 +406,12 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
         for (int j = uJBegin()+1; j < j_u_max-1; j++)
            {
             Buffer_send_u[j-(uJBegin()+1)]=velocity_X(i_u_begin+2,j);
+            //velocity_X(i_u_begin+2,j)=200;
             }
         for (int j = vJBegin()+1; j < j_v_max-1; j++)
            {
-             Buffer_send_v[j-(vJBegin()+1)]=velocity_Y(i_v_begin+1,j);
+             Buffer_send_v[j-(vJBegin()+1)]=velocity_Y(i_v_begin+2,j);
+            //velocity_Y(i_v_begin+2,j)=200;
            }
         if (partitioning_.first()) 
         {
@@ -416,10 +431,12 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
         {
              velocity_X(i_u_begin,j)=Buffer_recv_u[j-(uJBegin()+1)];
             //  velocity_X(i_u_begin,j)=Buffer_recv_u[(lu-2)+j-(uJBegin()+1)];
+           //velocity_X(i_u_begin,j)=100;
         } 
         for (int j = vJBegin()+1; j < j_v_max-1; j++)
          {
             velocity_Y(i_v_begin,j)=Buffer_recv_v[j-(vJBegin()+1)];
+            //velocity_Y(i_v_begin,j)=100;
         }
    
         
@@ -449,11 +466,13 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
         for (int i = uIBegin()+1; i < uIEnd()-1; i++)
         {
             Buffer_send_u_B[i-(uIBegin()+1)] = velocity_X(i, uJBegin()+1);
+            //velocity_X(i, uJBegin()+2)=200;
         }
         
         for (int i = vIBegin()+1; i < vIEnd()-1; i++)
         {
             Buffer_send_v_B[i-(vIBegin()+1)] = velocity_Y(i, vJBegin()+2);
+            //velocity_Y(i, vJBegin()+3)=200;
         }
         
         if (partitioning_.first()) 
@@ -473,11 +492,14 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
         for (int i = uIBegin()+1; i < uIEnd()-1; i++)
         {
             velocity_X(i, uJBegin()) = Buffer_send_u_B[i-(uIBegin()+1)];
+           // velocity_X(i, uJBegin()) =100;
         }
 
         for (int i = vIBegin()+1; i < vIEnd()-1; i++)
         {
-            velocity_Y(i, vJBegin()) = Buffer_send_v_B[i-(vIBegin()+1)];
+            velocity_Y(i, vJBegin()+1) = Buffer_send_v_B[i-(vIBegin()+1)];
+          //  velocity_Y(i, vJBegin()) = Buffer_send_v_B[i-(vIBegin()+1)];
+          //velocity_Y(i, vJBegin()+1)=100;
         }
     }
    
@@ -501,12 +523,14 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
 
         for (int i = uIBegin()+1; i < uIEnd()-1; i++)
         {
-            Buffer_send_u_T[i-(uIBegin()+1)] = velocity_X(i, uJEnd()-2);
+            Buffer_send_u_T[i-(uIBegin()+1)] = velocity_X(i, uJEnd()-3);
+            //velocity_X(i, uJEnd()-3)=200;
         }
 
         for (int i = vIBegin()+1; i < vIEnd()-1; i++)
         {
             Buffer_send_v_T[i-(vIBegin()+1)] = velocity_Y(i, vJEnd()-3);
+            //velocity_Y(i, vJEnd()-3)=200;
         }
 
         if (partitioning_.first()) 
@@ -525,10 +549,13 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
         for (int i = uIBegin()+1; i < uIEnd()-1; i++)
         {
             velocity_X(i, uJEnd()-1) = Buffer_recv_u_T[i-(uIBegin()+1)]; 
+           // velocity_X(i, uJEnd()-1)=100;
         }
         for (int i = vIBegin()+1; i < vIEnd()-1; i++)
         {
             velocity_Y(i, vJEnd()-1) = Buffer_recv_v_T[i-(vIBegin()+1)];
+            //velocity_Y(i, vJEnd()-1) = 100;
+       
         } 
          
 

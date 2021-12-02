@@ -29,9 +29,13 @@ MPI_Init(NULL, NULL);
 
 std::shared_ptr<Discretization> myDiscretization;
 Partitioning mypartitioning(settings);
+printf("Zellen Global  %d %d \n",mypartitioning.nCellsGlobal()[0],mypartitioning.nCellsGlobal()[1]);
+printf("Gridsize %d %d \n",mypartitioning.getSubGridSize()[0],mypartitioning.getSubGridSize()[1]);
+
 //settings.nCells=mypartitioning.nCells();
 
-std::cout << "ncells" << mypartitioning.nCells()[0] << mypartitioning.nCells()[1] << std::endl;
+//std::cout << "ncells" << mypartitioning.nCells()[0] << mypartitioning.nCells()[1] << std::endl;
+
 if (settings.useDonorCell)
 {
   myDiscretization=std::make_shared<DonorCell>(settings,mypartitioning);
@@ -82,9 +86,10 @@ Iterationszahl=Iterationszahl+1;
 //printf("Iterationszahl %d \n",Iterationszahl);
 }
 //std::cout<< "Noetige Iterationen " << Iterationszahl <<std::endl;
+
 time1=clock()-tstart;
 time1=time1/CLOCKS_PER_SEC;
-printf("Rank %d Iterationszahl %d Laufzeit in s %f\n",mypartitioning.ownRankNo(),Iterationszahl,time1);
+//printf("Rank %d Iterationszahl %d Laufzeit in s %f\n",mypartitioning.ownRankNo(),Iterationszahl,time1);
 
 //MPI_Finalize();
 

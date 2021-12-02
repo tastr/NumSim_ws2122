@@ -34,6 +34,7 @@ protected:
     void setNodeOffset(); 
     void setNCells();
     void setFirst();
+    void setSubgrid();
 
 public:
     Partitioning(Settings settings);
@@ -48,4 +49,5 @@ public:
     std::array<int,2> nCellsGlobal() const; 
     int coordiantesToRank(int i, int j) const;     
     int first() const;
+    std::array<int,2> getSubGridSize() const; 
 };

@@ -3,8 +3,9 @@
 Partitioning::Partitioning(Settings settings):
 nCellsGlobal_(settings.nCells)
 {   // n=2 m=3 produziert error
-    n=1;  // predefined for Tests, use 3x3 since it contains all possible bordercases 
-    m=2;  // in the project these numbers need to be calculated in a function that defines the domainsplitting.
+    //n=1;  // predefined for Tests, use 3x3 since it contains all possible bordercases 
+    //m=2;  // in the project these numbers need to be calculated in a function that defines the domainsplitting.
+    setSubgrid();
     setOwnRankNo();//could be given to the partitioning
     setNodeOffset();
     setOwnPartitionContainsBottomBoundary();
@@ -16,7 +17,7 @@ nCellsGlobal_(settings.nCells)
 
     //std::cout<< n << m <<std::endl; 
     //std::cout<< ownRankNoValue <<std::endl;  
-    std::cout<<"Node offset "<< nodeOffsetValue[0] << nodeOffsetValue[1] << std::endl;  
+    //std::cout<<"Node offset "<< nodeOffsetValue[0] << nodeOffsetValue[1] << std::endl;  
     //std::cout<<  nCells_[0] <<  nCells_[1] << std::endl;
     //std::cout<< ownRankNo() << " Left "<< ownPartitionContainsLeftBoundary() <<std::endl;
     //std::cout<< ownRankNo() << " Right "<< ownPartitionContainsRightBoundary() <<std::endl;
@@ -183,11 +184,48 @@ nCellsGlobal_(settings.nCells)
 
 
 
+ void Partitioning::setSubgrid()
+{
+ int world_size;
+  MPI_Comm_size(MPI_COMM_WORLD, &world_size);
+  n=world_size;
+  m=1; 
+
+ int Xcells=nCellsGlobal_[0]/n;
+ int Ycells=nCellsGlobal_[1]/m;
+
+int newXcells;
+int newYcells;
+  
+  for (int i = 1; i < world_size+1; i++)
+  {
+    for (int j = 1; j < world_size+1 ; j++)
+    {
+     if (i*j == world_size)
+    {
+        newXcells=nCellsGlobal_[0]/i;
+        newYcells=nCellsGlobal_[1]/j;
+        if ((newXcells+newYcells) <( Ycells+Xcells))
+        {
+           n=i;
+           m=j;
+           Xcells=nCellsGlobal_[0]/n;
+           Ycells=nCellsGlobal_[1]/m;
+        }
+    }
+
+    }
+    
+  }
+  
+}
 
 
-
-
-
+std::array<int,2> Partitioning::getSubGridSize() const
+    {   
+     return {n,m};
+    } 
+   
 
 
 

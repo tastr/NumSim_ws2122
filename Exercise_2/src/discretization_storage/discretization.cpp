@@ -39,16 +39,16 @@ void Discretization::updateDeltaT()
       }
   */ 
    //Safer Variant, put leads to bigger deltat, maxiumumdt has to be chosen carefully
-   /*
+   
    if (fullSecondsPast-currentTime<settings_.maximumDt/2*settings_.tau)
    {
     deltat=fullSecondsPast-currentTime;
     fullSecondsPast++;
    }
-   */
+   
 
 // Variant with smaller dt
-   if (fullSecondsPast-currentTime<deltat && fullSecondsPast-currentTime > settings_.maximumDt/100)  
+  /* if (fullSecondsPast-currentTime<deltat && fullSecondsPast-currentTime > settings_.maximumDt/100)  
    {
     deltat=fullSecondsPast-currentTime;
     fullSecondsPast++;
@@ -57,7 +57,7 @@ void Discretization::updateDeltaT()
     deltat=deltat/2;
     fullSecondsPast++;
    }
- 
+ */
 
    currentTime+=deltat;
 
@@ -654,4 +654,8 @@ double Discretization::getCurrentTime() const
 {
     return currentTime;
 }
-   
+
+double Discretization::getFullSecondsPast() const
+{
+    return fullSecondsPast;
+}

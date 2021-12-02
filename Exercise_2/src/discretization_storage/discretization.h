@@ -55,7 +55,7 @@ public:
     double getOmega() const;
     double getDeltaT() const;
     double getCurrentTime() const;
-   
+    double getFullSecondsPast() const;   
      
     int getOwnRankNo() const; 
     // set functions

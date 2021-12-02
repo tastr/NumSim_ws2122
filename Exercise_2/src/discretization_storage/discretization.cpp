@@ -9,6 +9,8 @@ Discretization::Discretization(Settings settings, Partitioning partitioning):Sta
 ,F({partitioning.nCells()[0]+3 - partitioning.ownPartitionContainsRightBoundary(), partitioning.nCells()[1]+3}, {1,1.5}, {settings.physicalSize[0] / (1.0*partitioning.nCellsGlobal()[0]), settings.physicalSize[1] / (1.0*partitioning.nCellsGlobal()[1])}) // is actually smaller than this, but makes handling easier
 ,G({partitioning.nCells()[0]+3, partitioning.nCells()[1]+3 - partitioning.ownPartitionContainsTopBoundary()}, {1.5,1}, {settings.physicalSize[0] / (1.0*partitioning.nCellsGlobal()[0]), settings.physicalSize[1] / (1.0*partitioning.nCellsGlobal()[1])}) // is actually smaller than this, but makes handling easier
 ,rhs_({partitioning.nCells()[0]+3, partitioning.nCells()[1]+3}, {1.5,1.5}, {settings.physicalSize[0] / (1.0*partitioning.nCellsGlobal()[0]), settings.physicalSize[1] / (1.0*partitioning.nCellsGlobal()[1])}) // is actually smaller than this, but makes handling easier
+,currentTime(0)
+,fullSecondsPast(1)
 // ,partitioning_(partitioning)
 {
 
@@ -24,8 +26,41 @@ void Discretization::updateDeltaT()
   //   std::cout<< "Rank this  "<< partitioning_.ownRankNo()<< " " << deltat_loc <<std::endl;
     double deltat_glob=0; 
     MPI_Allreduce(&deltat_loc,&deltat_glob,1,MPI_DOUBLE,MPI_MIN,MPI_COMM_WORLD); //Allreduce as every rank needs the global deltat
+   
     deltat=deltat_glob;
    // std::cout << deltat <<std::endl;
+ 
+ /*
+   if (currentTime+deltat> fullSecondsPast) //&& fullSecondsPast+1-(currentTime+deltat)>0)
+   {
+      deltat=fullSecondsPast-currentTime;
+      printf("deltat %f \n",deltat);
+      fullSecondsPast++;
+      }
+  */ 
+   //Safer Variant, put leads to bigger deltat, maxiumumdt has to be chosen carefully
+   /*
+   if (fullSecondsPast-currentTime<settings_.maximumDt/2*settings_.tau)
+   {
+    deltat=fullSecondsPast-currentTime;
+    fullSecondsPast++;
+   }
+   */
+
+// Variant with smaller dt
+   if (fullSecondsPast-currentTime<deltat && fullSecondsPast-currentTime > settings_.maximumDt/100)  
+   {
+    deltat=fullSecondsPast-currentTime;
+    fullSecondsPast++;
+   } else  if (fullSecondsPast-currentTime-2*deltat<settings_.maximumDt/100)  
+   {
+    deltat=deltat/2;
+    fullSecondsPast++;
+   }
+ 
+
+   currentTime+=deltat;
+
 }
 
 //destructor
@@ -610,12 +645,13 @@ void Discretization::updateBoundaryFGParalell()
 }
 
 
-
-
-
-
-int Discretization::getOwnRankNo()
+int Discretization::getOwnRankNo() const
 {
     return partitioning_.ownRankNo();
 }
 
+double Discretization::getCurrentTime() const
+{
+    return currentTime;
+}
+   

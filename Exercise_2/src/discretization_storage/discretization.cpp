@@ -353,7 +353,7 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
            }
         for (int j = vJBegin()+1; j < j_v_max-1; j++)
            {
-            Buffer_send_v[j-(vJBegin()+1)]= velocity_Y(i_v_max-3,j);
+            Buffer_send_v[j-(vJBegin()+1)]= velocity_Y(i_v_max-2,j);
            //velocity_Y(i_v_max-3,j)=200;
            }
 
@@ -410,7 +410,7 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
             }
         for (int j = vJBegin()+1; j < j_v_max-1; j++)
            {
-             Buffer_send_v[j-(vJBegin()+1)]=velocity_Y(i_v_begin+2,j);
+             Buffer_send_v[j-(vJBegin()+1)]=velocity_Y(i_v_begin+1,j);
             //velocity_Y(i_v_begin+2,j)=200;
            }
         if (partitioning_.first()) 
@@ -491,13 +491,13 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
 
         for (int i = uIBegin()+1; i < uIEnd()-1; i++)
         {
-            velocity_X(i, uJBegin()) = Buffer_send_u_B[i-(uIBegin()+1)];
+            velocity_X(i, uJBegin()) = Buffer_recv_u_B[i-(uIBegin()+1)];
            // velocity_X(i, uJBegin()) =100;
         }
 
         for (int i = vIBegin()+1; i < vIEnd()-1; i++)
         {
-            velocity_Y(i, vJBegin()+1) = Buffer_send_v_B[i-(vIBegin()+1)];
+            velocity_Y(i, vJBegin()) = Buffer_recv_v_B[i-(vIBegin()+1)];
           //  velocity_Y(i, vJBegin()) = Buffer_send_v_B[i-(vIBegin()+1)];
           //velocity_Y(i, vJBegin()+1)=100;
         }
@@ -523,7 +523,7 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
 
         for (int i = uIBegin()+1; i < uIEnd()-1; i++)
         {
-            Buffer_send_u_T[i-(uIBegin()+1)] = velocity_X(i, uJEnd()-3);
+            Buffer_send_u_T[i-(uIBegin()+1)] = velocity_X(i, uJEnd()-2);
             //velocity_X(i, uJEnd()-3)=200;
         }
 

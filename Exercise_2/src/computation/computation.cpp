@@ -59,7 +59,7 @@ double current_time=0;
 
 myDiscretization->setBorderVelocityParalell(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
 myDiscretization->updateBoundaryFGParalell();
-myOutputWriterParaview.writeFile(current_time);
+//myOutputWriterParaview.writeFile(current_time);
 myOutputWriterText.writeFile(current_time);
 
 while (current_time<settings.endTime && Iterationszahl< settings.maximumNumberOfIterations )
@@ -72,20 +72,26 @@ while (current_time<settings.endTime && Iterationszahl< settings.maximumNumberOf
   myDiscretization->updateVelocity();
   //myDiscretization->setBorderVelocity(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
     myDiscretization->setBorderVelocityParalell(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
- myDiscretization->updateBoundaryFGParalell();
+    myDiscretization->updateBoundaryFGParalell();
   
 
 
-  myOutputWriterParaview.writeFile(current_time);
+  //myOutputWriterParaview.writeFile(current_time);
   myOutputWriterText.writeFile(current_time);
 Iterationszahl=Iterationszahl+1;
+//printf("Iterationszahl %d \n",Iterationszahl);
 }
-std::cout<< "Noetige Iterationen " << Iterationszahl <<std::endl;
+//std::cout<< "Noetige Iterationen " << Iterationszahl <<std::endl;
 time1=clock()-tstart;
 time1=time1/CLOCKS_PER_SEC;
+printf("Rank %d Iterationszahl %d Laufzeit in s %f\n",mypartitioning.ownRankNo(),Iterationszahl,time1);
+
 //MPI_Finalize();
+
 MPI_Finalize; // wenn ich () stopt er bei mir das Programm nicht
-std::cout<< "Laufzeit in s " << time1  <<std::endl;
+
+//std::cout<< "Laufzeit in s " << time1  <<std::endl;
+//printf("Laufzeit in s %f \n",time1); //sendet es hier auch mehrmals
 }
 
 

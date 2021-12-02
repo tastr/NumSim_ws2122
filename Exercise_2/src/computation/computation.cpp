@@ -63,7 +63,7 @@ double current_time=0;
 
 myDiscretization->setBorderVelocityParalell(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
 myDiscretization->updateBoundaryFGParalell();
-//myOutputWriterParaview.writeFile(myDiscretization->getCurrentTime());
+myOutputWriterParaview.writeFile(myDiscretization->getCurrentTime());
 myOutputWriterText.writeFile(myDiscretization->getCurrentTime());
 
 while (myDiscretization->getCurrentTime()<settings.endTime && Iterationszahl< settings.maximumNumberOfIterations )
@@ -80,8 +80,8 @@ while (myDiscretization->getCurrentTime()<settings.endTime && Iterationszahl< se
     myDiscretization->updateBoundaryFGParalell();
   
 if ((myDiscretization->getCurrentTime()+1-myDiscretization->getFullSecondsPast()) < 1.0/1000000000)
- {
- // myOutputWriterParaview.writeFile(myDiscretization->getCurrentTime());
+  {
+  myOutputWriterParaview.writeFile(myDiscretization->getCurrentTime());
   myOutputWriterText.writeFile(myDiscretization->getCurrentTime());
   }
 

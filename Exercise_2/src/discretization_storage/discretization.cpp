@@ -6,9 +6,9 @@
 
 //constructor
 Discretization::Discretization(Settings settings, Partitioning partitioning):StaggeredGrid(settings, partitioning) //maybe replace settings nCell with partitioning nCells.
-,F({partitioning.nCells()[0]+3 - partitioning.ownPartitionContainsRightBoundary(), partitioning.nCells()[1]+3}, {1,1.5}, {settings.physicalSize[0] / (1.0*partitioning.nCells()[0]), settings.physicalSize[1] / (1.0*partitioning.nCells()[1])}) // is actually smaller than this, but makes handling easier
-,G({partitioning.nCells()[0]+3, partitioning.nCells()[1]+3 - partitioning.ownPartitionContainsTopBoundary()}, {1.5,1}, {settings.physicalSize[0] / (1.0*partitioning.nCells()[0]), settings.physicalSize[1] / (1.0*partitioning.nCells()[1])}) // is actually smaller than this, but makes handling easier
-,rhs_({partitioning.nCells()[0]+3, partitioning.nCells()[1]+3}, {1.5,1.5}, {settings.physicalSize[0] / (1.0*partitioning.nCells()[0]), settings.physicalSize[1] / (1.0*partitioning.nCells()[1])}) // is actually smaller than this, but makes handling easier
+,F({partitioning.nCells()[0]+3 - partitioning.ownPartitionContainsRightBoundary(), partitioning.nCells()[1]+3}, {1,1.5}, {settings.physicalSize[0] / (1.0*partitioning.nCellsGlobal()[0]), settings.physicalSize[1] / (1.0*partitioning.nCellsGlobal()[1])}) // is actually smaller than this, but makes handling easier
+,G({partitioning.nCells()[0]+3, partitioning.nCells()[1]+3 - partitioning.ownPartitionContainsTopBoundary()}, {1.5,1}, {settings.physicalSize[0] / (1.0*partitioning.nCellsGlobal()[0]), settings.physicalSize[1] / (1.0*partitioning.nCellsGlobal()[1])}) // is actually smaller than this, but makes handling easier
+,rhs_({partitioning.nCells()[0]+3, partitioning.nCells()[1]+3}, {1.5,1.5}, {settings.physicalSize[0] / (1.0*partitioning.nCellsGlobal()[0]), settings.physicalSize[1] / (1.0*partitioning.nCellsGlobal()[1])}) // is actually smaller than this, but makes handling easier
 // ,partitioning_(partitioning)
 {
 

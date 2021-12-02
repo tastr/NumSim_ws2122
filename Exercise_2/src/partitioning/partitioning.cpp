@@ -54,7 +54,15 @@ nCellsGlobal_(settings.nCells)
     {
        return nodeOffsetValue;
     }
+    std::array<int,2> Partitioning::cellsNodeOffset() const
+    {
+        int standart_cell_count_x = nCellsGlobal_[0]/n;
+        int standart_cell_count_y = nCellsGlobal_[1]/m;
+        int cell_offset_x = nodeOffsetValue[0]*standart_cell_count_x;
+        int cell_offset_y = nodeOffsetValue[1]*standart_cell_count_y;
 
+        return {cell_offset_x, cell_offset_y};
+    }
    std::array<int,2> Partitioning::nCells() const
     {
      return nCells_;
@@ -154,7 +162,7 @@ nCellsGlobal_(settings.nCells)
         nCells_[1]=nCellsGlobal_[1]/m;
         if (nodeOffsetValue[0]==n-1)
         {
-            nCells_[0]=nCellsGlobal_[0]-(nodeOffsetValue[0])*nCells_[0];
+            nCells_[0]=nCellsGlobal_[0]-(nodeOffsetValue[0])*nCells_[0]; // Attention: if this is to be changed that not only the last node is smaller, the outputwriter also has to be changed.
         }
         if (nodeOffsetValue[1]==m-1)
         {

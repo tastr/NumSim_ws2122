@@ -63,7 +63,7 @@ double current_time=0;
 
 myDiscretization->setBorderVelocityParalell(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
 myDiscretization->updateBoundaryFGParalell();
-//myOutputWriterParaview.writeFile(current_time);
+myOutputWriterParaview.writeFile(current_time);
 myOutputWriterText.writeFile(current_time);
 
 while (current_time<settings.endTime && Iterationszahl< settings.maximumNumberOfIterations )
@@ -80,7 +80,7 @@ while (current_time<settings.endTime && Iterationszahl< settings.maximumNumberOf
   
 
 
-  //myOutputWriterParaview.writeFile(current_time);
+  myOutputWriterParaview.writeFile(current_time);
   myOutputWriterText.writeFile(current_time);
 Iterationszahl=Iterationszahl+1;
 //printf("Iterationszahl %d \n",Iterationszahl);

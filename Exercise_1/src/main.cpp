@@ -64,7 +64,7 @@ if (settings.pressureSolver == "SOR")
 }
 
 // std::shared_ptr<Discretization> pointer_to_myDiscretization (& myDiscretization); //vermutlich gibt es da einen besseren Weg, aber den habe ich nicht gefunden...
-// OutputWriterText myOutputWriterText(myDiscretization);
+OutputWriterText myOutputWriterText(myDiscretization);
 OutputWriterParaview myOutputWriterParaview(myDiscretization);
 int Iterationszahl=0;
 // initialize time
@@ -73,8 +73,8 @@ double current_time=0;
 
 myDiscretization->setBorderVelocity(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
 myDiscretization->updateBoundaryFG();
-// myOutputWriterParaview.writeFile(current_time);
-// myOutputWriterText.writeFile(current_time);
+myOutputWriterParaview.writeFile(current_time);
+myOutputWriterText.writeFile(current_time);
 
 while (current_time<settings.endTime && Iterationszahl< settings.maximumNumberOfIterations )
 {
@@ -88,7 +88,7 @@ while (current_time<settings.endTime && Iterationszahl< settings.maximumNumberOf
   myDiscretization->updateBoundaryFG();
   
   myOutputWriterParaview.writeFile(current_time);
-  // myOutputWriterText.writeFile(current_time);
+  myOutputWriterText.writeFile(current_time);
 Iterationszahl=Iterationszahl+1;
 }
 std::cout<< "Noetige Iterationen " << Iterationszahl <<std::endl;

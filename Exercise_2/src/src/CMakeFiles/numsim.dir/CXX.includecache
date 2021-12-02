@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/computation/computation.cpp
-computation.h
-/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/computation/computation.h
-
 /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/computation/computation.h
 iostream
 -
@@ -46,6 +42,26 @@ discretization_storage/centraldifferences.h
 partitioning/partitioning.h
 /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/computation/partitioning/partitioning.h
 
+/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/main.cpp
+iostream
+-
+cstdlib
+-
+cassert
+-
+unistd.h
+-
+time.h
+-
+settings.h
+/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/settings.h
+partitioning/partitioning.h
+/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/partitioning/partitioning.h
+computation/computation.h
+/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/computation/computation.h
+mpi.h
+-
+
 /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/output_writer/output_writer_paraview_parallel.h
 output_writer/output_writer.h
 /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/output_writer/output_writer/output_writer.h
@@ -63,6 +79,22 @@ output_writer/output_writer_text.h
 /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/output_writer/output_writer/output_writer_text.h
 partitioning/partitioning.h
 /home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/output_writer/partitioning/partitioning.h
+
+/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/partitioning/partitioning.h
+cstdlib
+-
+array
+-
+settings.h
+/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/partitioning/settings.h
+mpi.h
+-
+
+/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/settings.h
+iostream
+-
+array
+-
 
 /usr/lib/x86_64-linux-gnu/openmpi/include/mpi.h
 stddef.h

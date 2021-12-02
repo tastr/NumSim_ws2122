@@ -44,7 +44,8 @@ public:
     int ownPartitionContainsLeftBoundary() const;
     int ownPartitionContainsRightBoundary() const;
     int ownPartitionContainsTopBoundary() const;
-    std::array<int,2> nodeOffset() const; 
+    std::array<int,2> nodeOffset() const; // returns how many nodes are before this node in each direction
+    std::array<int,2> cellsNodeOffset() const; // returns how many cells this node is offset
     std::array<int,2> nCells() const;
     std::array<int,2> nCellsGlobal() const; 
     int coordiantesToRank(int i, int j) const;     

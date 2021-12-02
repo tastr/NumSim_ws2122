@@ -5,9 +5,9 @@
 
 //StaggeredGrid::StaggeredGrid(std::array<int,2> size) 
 StaggeredGrid::StaggeredGrid(Settings settings, Partitioning partitioning) 
-:pressure({partitioning.nCells()[0]+3, partitioning.nCells()[1]+3}, {0.5,0.5}, {settings.physicalSize[0] / (1.0*partitioning.nCells()[0]), settings.physicalSize[1] / (1.0*partitioning.nCells()[1])}) 
-,velocity_X({partitioning.nCells()[0]+3 - partitioning.ownPartitionContainsRightBoundary(), partitioning.nCells()[1]+3}, {0,0.5}, {settings.physicalSize[0] / (1.0*partitioning.nCells()[0]), settings.physicalSize[1] / (1.0*partitioning.nCells()[1])})
-,velocity_Y({partitioning.nCells()[0]+3, partitioning.nCells()[1]+3 - partitioning.ownPartitionContainsTopBoundary()}, {0.5,0}, {settings.physicalSize[0] / (1.0*partitioning.nCells()[0]), settings.physicalSize[1] / (1.0*partitioning.nCells()[1])})
+:pressure({partitioning.nCells()[0]+3, partitioning.nCells()[1]+3}, {1.5,1.5}, {settings.physicalSize[0] / (1.0*partitioning.nCells()[0]), settings.physicalSize[1] / (1.0*partitioning.nCells()[1])}) 
+,velocity_X({partitioning.nCells()[0]+3 - partitioning.ownPartitionContainsRightBoundary(), partitioning.nCells()[1]+3}, {1,1.5}, {settings.physicalSize[0] / (1.0*partitioning.nCells()[0]), settings.physicalSize[1] / (1.0*partitioning.nCells()[1])})
+,velocity_Y({partitioning.nCells()[0]+3, partitioning.nCells()[1]+3 - partitioning.ownPartitionContainsTopBoundary()}, {1.5,1}, {settings.physicalSize[0] / (1.0*partitioning.nCells()[0]), settings.physicalSize[1] / (1.0*partitioning.nCells()[1])})
 ,settings_(settings)
 ,partitioning_(partitioning)
 //:pressure({partitioning.nCells()[0]+2,partitioning.nCells()[1]+2})

@@ -14,6 +14,8 @@ protected:
    double deltat;
    FieldVariable F, G, rhs_;
 //    Partitioning partitioning_;
+    double currentTime;
+    int fullSecondsPast;
 public:
    Discretization(Settings settings, Partitioning partitioning);
    virtual ~Discretization();
@@ -53,8 +55,10 @@ public:
     double rhs(int i, int j) const; 
     double getOmega() const;
     double getDeltaT() const;
-    
-    int getOwnRankNo();
+    double getCurrentTime();
+    double getFullSecondsPast();   
+     
+    int getOwnRankNo() const; 
     // set functions
     void setRHS(int i, int j, double value);
 

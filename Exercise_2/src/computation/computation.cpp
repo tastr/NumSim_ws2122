@@ -53,7 +53,7 @@ if (settings.pressureSolver == "SOR")
 }
 
 
-// OutputWriterTextParallel myOutputWriterText(myDiscretization, mypartitioning);
+OutputWriterTextParallel myOutputWriterText(myDiscretization, mypartitioning);
 OutputWriterParaviewParallel myOutputWriterParaview(myDiscretization, mypartitioning);
 
 int Iterationszahl=0;
@@ -66,14 +66,17 @@ myDiscretization->updateBoundaryFGParalell();
 // myOutputWriterParaview.writeFile(current_time);
 // myOutputWriterText.writeFile(current_time);
 double time_check = 1;
+double time_stretch = 1.2;
 int make_output = 0;
 
-while (current_time<settings.endTime && Iterationszahl< settings.maximumNumberOfIterations )
+while (current_time<settings.endTime)
 {
   myDiscretization->updateDeltaT();
-  if (current_time+myDiscretization->getDeltaT() > time_check)
+  
+
+   if (current_time+((myDiscretization->getDeltaT())*time_stretch) > time_check)
   {
-    myDiscretization->setDeltaT(current_time+myDiscretization->getDeltaT() - time_check);
+    myDiscretization->setDeltaT(time_check - current_time);
     time_check+=1;
     make_output=1;
   }
@@ -91,11 +94,12 @@ while (current_time<settings.endTime && Iterationszahl< settings.maximumNumberOf
   if (make_output)
   {
     myOutputWriterParaview.writeFile(current_time);
+    myOutputWriterText.writeFile(current_time);
+
     make_output=0;
   }
   
 
-  // myOutputWriterText.writeFile(current_time);
 Iterationszahl=Iterationszahl+1;
 //printf("Iterationszahl %d \n",Iterationszahl);
 }

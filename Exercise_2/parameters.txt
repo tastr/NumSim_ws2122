@@ -2,26 +2,26 @@
 # Run ./numsim lid_driven_cavity.txt
 
 # Problem description
-physicalSizeX = 1.0   # physical size of the domain
-physicalSizeY = 1.5
+physicalSizeX = 2.0   # physical size of the domain
+physicalSizeY = 2.0
 endTime = 10.0        # duration of the simulation
-re = 1000             # Reynolds number
+re = 2000             # Reynolds number
 gX = 0.0              # external forces, set to (gX,gY) = (0,-9.81) to account for gravity
 gY = 0.0
 
 # Dirichlet boundary conditions
 dirichletBottomX = 0
-dirichletBottomY = 0
+dirichletBottomY = -0.1
 dirichletTopX    = 1
-dirichletTopY    = 0
-dirichletLeftX   = 0 # 1 for debuging (should be 0 else)  
-dirichletLeftY   = 0
-dirichletRightX  = 0
+dirichletTopY    = 1
+dirichletLeftX   = 1 # 1 for debuging (should be 0 else)  
+dirichletLeftY   = 1
+dirichletRightX  = -0.1
 dirichletRightY  = 0
 
 # Discretization parameters
-nCellsX = 20         # number of cells in x and y direction
-nCellsY = 10
+nCellsX = 12        # number of cells in x and y direction
+nCellsY = 8
 useDonorCell = true   # if donor cell discretization should be used, possible values: true false
 alpha = 0.5           # factor for donor-cell scheme, 0 is equivalent to central differences
 tau = 0.5             # safety factor for time step width

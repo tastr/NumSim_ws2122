@@ -451,11 +451,11 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
 
     if (partitioning_.ownPartitionContainsBottomBoundary())
     {
-        for (int i = uIBegin() + 1; i < i_u_max-1; i++) // i starts at 1 and goes to i_u_max-1 so that the wall is the BC in corners
+        for (int i = uIBegin()+partitioning_.ownPartitionContainsLeftBoundary(); i < i_u_max-partitioning_.ownPartitionContainsRightBoundary(); i++) // i starts at 1 and goes to i_u_max-1 so that the wall is the BC in corners
         {
             velocity_X(i,uJBegin())=2*bottom[0]-velocity_X(i,vJBegin()+1);
         }
-        for (int i = vIBegin()+1; i < vIEnd()-1; i++) // i starts at 1 and goes to i_u_max-1 so that the wall is the BC in corners
+        for (int i = vIBegin()+partitioning_.ownPartitionContainsLeftBoundary(); i < vIEnd()-partitioning_.ownPartitionContainsRightBoundary(); i++) // i starts at 1 and goes to i_u_max-1 so that the wall is the BC in corners
         {
             velocity_Y(i,vJBegin())=bottom[1]; 
         }
@@ -506,14 +506,14 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
           //velocity_Y(i, vJBegin()+1)=100;
         }
     }
-   
+    
     if (partitioning_.ownPartitionContainsTopBoundary())
     {
-        for (int i = uIBegin() + 1; i < i_u_max-1; i++) // i starts at 1 and goes to i_u_max-1 so that the wall is the BC in corners
+        for (int i = uIBegin()+partitioning_.ownPartitionContainsLeftBoundary(); i < i_u_max-partitioning_.ownPartitionContainsRightBoundary(); i++) // i starts at 1 and goes to i_u_max-1 so that the wall is the BC in corners
         {
             velocity_X(i,j_u_max-1)=2*top[0]-velocity_X(i,j_u_max-2);
         }
-        for (int i = vIBegin()+1; i < vIEnd()-1; i++) // i starts at 1 and goes to i_u_max-1 so that the wall is the BC in corners
+        for (int i = vIBegin()+partitioning_.ownPartitionContainsLeftBoundary(); i < vIEnd()-partitioning_.ownPartitionContainsRightBoundary(); i++) // i starts at 1 and goes to i_u_max-1 so that the wall is the BC in corners
         {
             velocity_Y(i,vJEnd()-1)=top[1]; 
         }

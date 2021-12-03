@@ -82,12 +82,12 @@ double FieldVariable::interpolateAt(double x, double y)
   y=y+ offset_[1]*dy_; 
  
 
-    while (x>(i_right*dx_))
+    while (x>(i_right*dx_)+0.00000001)
     {
         i_right=++i_right;
        // std::cout << i_right <<std::endl;
     }
-    while (y>(dy_*j_top))
+    while (y>(dy_*j_top)+0.00000001)
     { 
         j_top=++j_top;     
     }

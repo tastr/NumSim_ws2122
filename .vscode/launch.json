@@ -31,7 +31,7 @@
             "name": "Parallel attach numsim",
             "type": "cppdbg",
             "request": "attach",
-            "program": "${fileDirname}/../build/numsim",
+            "program": "${fileDirname}/../build/numsim_parallel",
             "processId": "${command:pickProcess}",
             "args": ["../parameters.txt"],
             "stopAtEntry": false,

@@ -25,6 +25,7 @@ public:
 
 
    void updateDeltaT();
+   void setDeltaT(double delta_t);
    double  min2(double value1, double value2) const; 
    double  min3(double value1, double value2, double value3) const;
    

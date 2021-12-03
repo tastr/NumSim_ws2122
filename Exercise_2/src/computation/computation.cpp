@@ -53,7 +53,7 @@ if (settings.pressureSolver == "SOR")
 }
 
 
-OutputWriterTextParallel myOutputWriterText(myDiscretization, mypartitioning);
+// OutputWriterTextParallel myOutputWriterText(myDiscretization, mypartitioning);
 OutputWriterParaviewParallel myOutputWriterParaview(myDiscretization, mypartitioning);
 
 int Iterationszahl=0;
@@ -63,25 +63,39 @@ double current_time=0;
 
 myDiscretization->setBorderVelocityParalell(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
 myDiscretization->updateBoundaryFGParalell();
-myOutputWriterParaview.writeFile(current_time);
-myOutputWriterText.writeFile(current_time);
+// myOutputWriterParaview.writeFile(current_time);
+// myOutputWriterText.writeFile(current_time);
+double time_check = 1;
+int make_output = 0;
 
 while (current_time<settings.endTime && Iterationszahl< settings.maximumNumberOfIterations )
 {
   myDiscretization->updateDeltaT();
+  if (current_time+myDiscretization->getDeltaT() > time_check)
+  {
+    myDiscretization->setDeltaT(current_time+myDiscretization->getDeltaT() - time_check);
+    time_check+=1;
+    make_output=1;
+  }
+  
   current_time+=myDiscretization->getDeltaT();
   myDiscretization->calculation();
   myPressureSolver->calculateRHS();
   myPressureSolver->calculateP();
   myDiscretization->updateVelocity();
   //myDiscretization->setBorderVelocity(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
-    myDiscretization->setBorderVelocityParalell(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
-    myDiscretization->updateBoundaryFGParalell();
+  myDiscretization->setBorderVelocityParalell(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
+  myDiscretization->updateBoundaryFGParalell();
   
 
+  if (make_output)
+  {
+    myOutputWriterParaview.writeFile(current_time);
+    make_output=0;
+  }
+  
 
-  myOutputWriterParaview.writeFile(current_time);
-  myOutputWriterText.writeFile(current_time);
+  // myOutputWriterText.writeFile(current_time);
 Iterationszahl=Iterationszahl+1;
 //printf("Iterationszahl %d \n",Iterationszahl);
 }
@@ -93,7 +107,7 @@ time1=time1/CLOCKS_PER_SEC;
 
 //MPI_Finalize();
 
-MPI_Finalize; // wenn ich () stopt er bei mir das Programm nicht
+MPI_Finalize(); // wenn ich () stopt er bei mir das Programm nicht
 
 //std::cout<< "Laufzeit in s " << time1  <<std::endl;
 //printf("Laufzeit in s %f \n",time1); //sendet es hier auch mehrmals

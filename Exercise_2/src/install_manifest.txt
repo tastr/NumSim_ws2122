@@ -1,1 +1,1 @@
-/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/../build/numsim
+/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/../build/numsim_parallel

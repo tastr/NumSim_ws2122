@@ -157,17 +157,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named numsim
+# Target rules for targets named numsim_parallel
 
 # Build rule for target.
-numsim: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 numsim
-.PHONY : numsim
+numsim_parallel: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 numsim_parallel
+.PHONY : numsim_parallel
 
 # fast build rule for target.
-numsim/fast:
-	$(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/build
-.PHONY : numsim/fast
+numsim_parallel/fast:
+	$(MAKE) -f src/CMakeFiles/numsim_parallel.dir/build.make src/CMakeFiles/numsim_parallel.dir/build
+.PHONY : numsim_parallel/fast
 
 # Help Target
 help:
@@ -181,7 +181,7 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... numsim"
+	@echo "... numsim_parallel"
 .PHONY : help
 
 

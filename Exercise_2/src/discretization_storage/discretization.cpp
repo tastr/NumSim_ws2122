@@ -27,6 +27,10 @@ void Discretization::updateDeltaT()
     deltat=deltat_glob;
    // std::cout << deltat <<std::endl;
 }
+void Discretization::setDeltaT(double delta_t)
+{
+   deltat=delta_t;
+}
 
 //destructor
 Discretization::~Discretization()

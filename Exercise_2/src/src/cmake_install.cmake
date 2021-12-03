@@ -38,29 +38,29 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  if(EXISTS "$ENV{DESTDIR}/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/../build/numsim" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/../build/numsim")
+  if(EXISTS "$ENV{DESTDIR}/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/../build/numsim_parallel" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/../build/numsim_parallel")
     file(RPATH_CHECK
-         FILE "$ENV{DESTDIR}/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/../build/numsim"
+         FILE "$ENV{DESTDIR}/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/../build/numsim_parallel"
          RPATH "")
   endif()
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/../build/numsim")
+   "/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/../build/numsim_parallel")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/../build" TYPE EXECUTABLE FILES "/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/src/numsim")
-  if(EXISTS "$ENV{DESTDIR}/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/../build/numsim" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/../build/numsim")
+file(INSTALL DESTINATION "/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/../build" TYPE EXECUTABLE FILES "/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/src/numsim_parallel")
+  if(EXISTS "$ENV{DESTDIR}/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/../build/numsim_parallel" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/../build/numsim_parallel")
     file(RPATH_CHANGE
-         FILE "$ENV{DESTDIR}/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/../build/numsim"
+         FILE "$ENV{DESTDIR}/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/../build/numsim_parallel"
          OLD_RPATH "/usr/local/lib:/usr/lib/x86_64-linux-gnu/openmpi/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/../build/numsim")
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/../build/numsim_parallel")
     endif()
   endif()
 endif()

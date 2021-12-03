@@ -145,7 +145,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=numsim
+CMAKE_PROJECT_NAME:STATIC=numsim_parallel
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -285,6 +285,12 @@ numsim_BINARY_DIR:STATIC=/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/src
 
 //Value Computed by CMake
 numsim_SOURCE_DIR:STATIC=/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src
+
+//Value Computed by CMake
+numsim_parallel_BINARY_DIR:STATIC=/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src/src
+
+//Value Computed by CMake
+numsim_parallel_SOURCE_DIR:STATIC=/home/david/uni/numSim/NumSim_ws2122/Exercise_2/src
 
 
 ########################

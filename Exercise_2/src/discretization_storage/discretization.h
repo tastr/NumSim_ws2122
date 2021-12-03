@@ -54,8 +54,8 @@ public:
     double rhs(int i, int j) const; 
     double getOmega() const;
     double getDeltaT() const;
-    double getCurrentTime() const;
-    double getFullSecondsPast() const;   
+    double getCurrentTime();
+    double getFullSecondsPast();   
      
     int getOwnRankNo() const; 
     // set functions

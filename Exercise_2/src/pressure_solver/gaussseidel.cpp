@@ -105,7 +105,7 @@ void GaussSeidel::calculateP()
 
     }while(resterm > epsilonquad  && safe<discretization_.getMaxIteration());
     //std::cout<< "Residuum " << residuum() << " Safe "<< safe <<std::endl;
-    printf("Rank %d Residuum %f Safe %d \n",discretization_.getOwnRankNo(),residuum(),safe);
+    //printf("Rank %d Residuum %f Safe %d \n",discretization_.getOwnRankNo(),residuum(),safe);
     //discretization_.updatedPressureBC();    
     }
 

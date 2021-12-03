@@ -63,9 +63,11 @@ double current_time=0;
 
 myDiscretization->setBorderVelocityParalell(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
 myDiscretization->updateBoundaryFGParalell();
-myOutputWriterParaview.writeFile(myDiscretization->getCurrentTime());
-myOutputWriterText.writeFile(myDiscretization->getCurrentTime());
+//myOutputWriterParaview.writeFile(myDiscretization->getCurrentTime());
+//myOutputWriterText.writeFile(myDiscretization->getCurrentTime());
 
+
+int k;
 while (myDiscretization->getCurrentTime()<settings.endTime && Iterationszahl< settings.maximumNumberOfIterations )
 {
   myDiscretization->updateDeltaT();
@@ -76,23 +78,32 @@ while (myDiscretization->getCurrentTime()<settings.endTime && Iterationszahl< se
   myPressureSolver->calculateP();
   myDiscretization->updateVelocity();
   //myDiscretization->setBorderVelocity(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
-    myDiscretization->setBorderVelocityParalell(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
-    myDiscretization->updateBoundaryFGParalell();
-  
-if ((myDiscretization->getCurrentTime()+1-myDiscretization->getFullSecondsPast()) < 1.0/1000000000)
+   myDiscretization->setBorderVelocityParalell(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
+   myDiscretization->updateBoundaryFGParalell();
+   
+k=myDiscretization->getCurrentTime();
+//if ((myDiscretization->getCurrentTime()+1-myDiscretization->getFullSecondsPast()) < 1.0/1000000000)
+//if (myDiscretization->getCurrentTime()== (int) myDiscretization->getCurrentTime())
+//printf("Zeit %f \n", myDiscretization->getCurrentTime());
+    
+if (myDiscretization->getCurrentTime()==k)
   {
-  myOutputWriterParaview.writeFile(myDiscretization->getCurrentTime());
-  myOutputWriterText.writeFile(myDiscretization->getCurrentTime());
+   // printf("Zeit %f \n", myDiscretization->getCurrentTime());
+   //printf("Zeit %d \n", k);
+    myOutputWriterParaview.writeFile(myDiscretization->getCurrentTime());
+//  myOutputWriterText.writeFile(myDiscretization->getCurrentTime());
   }
 
 Iterationszahl=Iterationszahl+1;
 //printf("Iterationszahl %d \n",Iterationszahl);
 }
 //std::cout<< "Noetige Iterationen " << Iterationszahl <<std::endl;
-
 time1=clock()-tstart;
 time1=time1/CLOCKS_PER_SEC;
-printf("Rank %d Iterationszahl %d Laufzeit in s %f\n",mypartitioning.ownRankNo(),Iterationszahl,time1);
+//printf("Rank %d Iterationszahl %d Laufzeit in s %f\n",mypartitioning.ownRankNo(),Iterationszahl,time1);
+
+
+
 
 //MPI_Finalize();
 

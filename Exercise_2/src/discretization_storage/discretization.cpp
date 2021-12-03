@@ -28,38 +28,18 @@ void Discretization::updateDeltaT()
     MPI_Allreduce(&deltat_loc,&deltat_glob,1,MPI_DOUBLE,MPI_MIN,MPI_COMM_WORLD); //Allreduce as every rank needs the global deltat
    
     deltat=deltat_glob;
-   // std::cout << deltat <<std::endl;
+
+
+   if (fullSecondsPast-currentTime< 1.5*deltat && settings_.maximumDt)  //settings_.maximumDt/4*settings_.tau)
+       {
+       deltat=fullSecondsPast-currentTime;
+       fullSecondsPast++;
+       }
+    
+
+
+  currentTime=currentTime+deltat;
  
- /*
-   if (currentTime+deltat> fullSecondsPast) //&& fullSecondsPast+1-(currentTime+deltat)>0)
-   {
-      deltat=fullSecondsPast-currentTime;
-      printf("deltat %f \n",deltat);
-      fullSecondsPast++;
-      }
-  */ 
-   //Safer Variant, put leads to bigger deltat, maxiumumdt has to be chosen carefully
-   
-   if (fullSecondsPast-currentTime<settings_.maximumDt/2*settings_.tau)
-   {
-    deltat=fullSecondsPast-currentTime;
-    fullSecondsPast++;
-   }
-   
-
-// Variant with smaller dt
-  /* if (fullSecondsPast-currentTime<deltat && fullSecondsPast-currentTime > settings_.maximumDt/100)  
-   {
-    deltat=fullSecondsPast-currentTime;
-    fullSecondsPast++;
-   } else  if (fullSecondsPast-currentTime-2*deltat<settings_.maximumDt/100)  
-   {
-    deltat=deltat/2;
-    fullSecondsPast++;
-   }
- */
-
-   currentTime+=deltat;
 
 }
 
@@ -374,47 +354,55 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
                 velocity_Y(i_v_max-1,j)=2*right[1]-velocity_Y(i_v_max-2,j);
             }
         }else{
-        std::vector<double> Buffer_send_u(lu,0);
-        std::vector<double> Buffer_send_v(lv,0);
-        std::vector<double> Buffer_recv_u(lu,0);
-        std::vector<double> Buffer_recv_v(lv,0);
+        //std::vector<double> Buffer_send_u(lu,0);
+        //std::vector<double> Buffer_send_v(lv,0);
+       // std::vector<double> Buffer_recv_u(lu,0);
+       // std::vector<double> Buffer_recv_v(lv,0);
+        std::vector<double> Buffer_send(lu+lv,0);
+        std::vector<double> Buffer_recv(lu+lv,0);
+        
         int rank=partitioning_.coordiantesToRank(self_i+1,self_j);  
         
               for (int j = uJBegin()+1; j < j_u_max-1; j++)
-           {
-            Buffer_send_u[j-(j_u_begin+1)]=velocity_X(i_u_max-3,j);
-            // Buffer_send_u[lu+j-(uJBegin()+1)]=velocity_X(i_u_max-3,j);
-           //velocity_X(i_u_max-3,j)=200;
-           }
-        for (int j = vJBegin()+1; j < j_v_max-1; j++)
-           {
-            Buffer_send_v[j-(vJBegin()+1)]= velocity_Y(i_v_max-2,j);
-           //velocity_Y(i_v_max-3,j)=200;
-           }
+            {
+            //Buffer_send_u[j-(j_u_begin+1)]=velocity_X(i_u_max-3,j);
+             Buffer_send[j-(j_u_begin+1)]=velocity_X(i_u_max-3,j);
+           
+            }
+           for (int j = vJBegin()+1; j < j_v_max-1; j++)
+            {
+            //Buffer_send_v[j-(vJBegin()+1)]= velocity_Y(i_v_max-2,j);
+              Buffer_send[lu+j-(vJBegin()+1)]= velocity_Y(i_v_max-2,j);
+            }
 
         if (partitioning_.first()) 
         {
-            MPI_Send(Buffer_send_u.data(),lu,MPI_DOUBLE,rank,7,MPI_COMM_WORLD);
-            MPI_Recv(Buffer_recv_u.data(),lu,MPI_DOUBLE,rank,8,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
-            MPI_Send(Buffer_send_v.data(),lv,MPI_DOUBLE,rank,9,MPI_COMM_WORLD);           
-            MPI_Recv(Buffer_recv_v.data(),lv,MPI_DOUBLE,rank,10,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
+         //   MPI_Send(Buffer_send_u.data(),lu,MPI_DOUBLE,rank,7,MPI_COMM_WORLD);
+         //   MPI_Recv(Buffer_recv_u.data(),lu,MPI_DOUBLE,rank,8,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+         //   MPI_Send(Buffer_send_v.data(),lv,MPI_DOUBLE,rank,9,MPI_COMM_WORLD);           
+         //   MPI_Recv(Buffer_recv_v.data(),lv,MPI_DOUBLE,rank,10,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
+              MPI_Send(Buffer_send.data(),lu+lv,MPI_DOUBLE,rank,7,MPI_COMM_WORLD);
+              MPI_Recv(Buffer_recv.data(),lu+lv,MPI_DOUBLE,rank,8,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+        
         }else
         {
-            MPI_Recv(Buffer_recv_u.data(),lu,MPI_DOUBLE,rank,8,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
-            MPI_Send(Buffer_send_u.data(),lu,MPI_DOUBLE,rank,7,MPI_COMM_WORLD);
-            MPI_Recv(Buffer_recv_v.data(),lv,MPI_DOUBLE,rank,10,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);     
-            MPI_Send(Buffer_send_v.data(),lv,MPI_DOUBLE,rank,9,MPI_COMM_WORLD);            
+         //   MPI_Recv(Buffer_recv_u.data(),lu,MPI_DOUBLE,rank,8,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+         //   MPI_Send(Buffer_send_u.data(),lu,MPI_DOUBLE,rank,7,MPI_COMM_WORLD);
+         //   MPI_Recv(Buffer_recv_v.data(),lv,MPI_DOUBLE,rank,10,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);     
+         //   MPI_Send(Buffer_send_v.data(),lv,MPI_DOUBLE,rank,9,MPI_COMM_WORLD);            
+              MPI_Recv(Buffer_recv.data(),lu+lv,MPI_DOUBLE,rank,8,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+              MPI_Send(Buffer_send.data(),lu+lv,MPI_DOUBLE,rank,7,MPI_COMM_WORLD);
+        
         }
         
         for (int j = uJBegin()+1; j < j_u_max-1; j++)
         {
-             velocity_X(i_u_max-1,j)=Buffer_recv_u[j-(uJBegin()+1)];
-            //velocity_X(i_u_max-1,j)=100;
-        } 
+             velocity_X(i_u_max-1,j)=Buffer_recv[j-(uJBegin()+1)];
+        }
+
         for (int j = vJBegin()+1; j < j_v_max-1; j++)
          {
-            velocity_Y(i_v_max-1,j)=Buffer_recv_v[j-(vJBegin()+1)];
-            //velocity_Y(i_v_max-1,j)=100;
+            velocity_Y(i_v_max-1,j)=Buffer_recv[lu+j-(vJBegin()+1)];
         }
     } 
    // }else if (!partitioning_.ownPartitionContainsLeftBoundary() && partitioning_.ownPartitionContainsRightBoundary())
@@ -431,48 +419,60 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
                 //velocity_Y(i_v_max-1,j)=2*right[1]-velocity_Y(i_v_max-2,j);
             }
      }else{
-         std::vector<double> Buffer_send_u(lu,0);
-        std::vector<double> Buffer_send_v(lv,0);
-        std::vector<double> Buffer_recv_u(lu,0);
-        std::vector<double> Buffer_recv_v(lv,0);
+        //std::vector<double> Buffer_send_u(lu,0);
+        //std::vector<double> Buffer_send_v(lv,0);
+        //std::vector<double> Buffer_recv_u(lu,0);
+        //std::vector<double> Buffer_recv_v(lv,0);
+          std::vector<double> Buffer_send(lu+lv,0);
+          std::vector<double> Buffer_recv(lu+lv,0);
+       
         int rank=partitioning_.coordiantesToRank(self_i-1,self_j);  
         
         
         for (int j = uJBegin()+1; j < j_u_max-1; j++)
            {
-            Buffer_send_u[j-(uJBegin()+1)]=velocity_X(i_u_begin+2,j);
-            //velocity_X(i_u_begin+2,j)=200;
+          //  Buffer_send_u[j-(uJBegin()+1)]=velocity_X(i_u_begin+2,j);
+            Buffer_send[j-(uJBegin()+1)]=velocity_X(i_u_begin+2,j);
+          
             }
         for (int j = vJBegin()+1; j < j_v_max-1; j++)
            {
-             Buffer_send_v[j-(vJBegin()+1)]=velocity_Y(i_v_begin+1,j);
-            //velocity_Y(i_v_begin+2,j)=200;
+           //  Buffer_send_v[j-(vJBegin()+1)]=velocity_Y(i_v_begin+1,j);
+               Buffer_send[lu+j-(vJBegin()+1)]=velocity_Y(i_v_begin+1,j);
+          
            }
         if (partitioning_.first()) 
         {
-           MPI_Send(Buffer_send_u.data(),lu,MPI_DOUBLE,rank,8,MPI_COMM_WORLD);
-           MPI_Recv(Buffer_recv_u.data(),lu,MPI_DOUBLE,rank,7,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
-           MPI_Send(Buffer_send_v.data(),lv,MPI_DOUBLE,rank,10,MPI_COMM_WORLD);           
-           MPI_Recv(Buffer_recv_v.data(),lv,MPI_DOUBLE,rank,9,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
+          // MPI_Send(Buffer_send_u.data(),lu,MPI_DOUBLE,rank,8,MPI_COMM_WORLD);
+         //  MPI_Recv(Buffer_recv_u.data(),lu,MPI_DOUBLE,rank,7,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+         //  MPI_Send(Buffer_send_v.data(),lv,MPI_DOUBLE,rank,10,MPI_COMM_WORLD);           
+         //  MPI_Recv(Buffer_recv_v.data(),lv,MPI_DOUBLE,rank,9,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
+             MPI_Send(Buffer_send.data(),lu+lv,MPI_DOUBLE,rank,8,MPI_COMM_WORLD);
+             MPI_Recv(Buffer_recv.data(),lu+lv,MPI_DOUBLE,rank,7,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+        
         }else
         {
-           MPI_Recv(Buffer_recv_u.data(),lu,MPI_DOUBLE,rank,7,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
-           MPI_Send(Buffer_send_u.data(),lu,MPI_DOUBLE,rank,8,MPI_COMM_WORLD);
-           MPI_Recv(Buffer_recv_v.data(),lv,MPI_DOUBLE,rank,9,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
-           MPI_Send(Buffer_send_v.data(),lv,MPI_DOUBLE,rank,10,MPI_COMM_WORLD);            
+         //  MPI_Recv(Buffer_recv_u.data(),lu,MPI_DOUBLE,rank,7,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+         //  MPI_Send(Buffer_send_u.data(),lu,MPI_DOUBLE,rank,8,MPI_COMM_WORLD);
+         //  MPI_Recv(Buffer_recv_v.data(),lv,MPI_DOUBLE,rank,9,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
+         //  MPI_Send(Buffer_send_v.data(),lv,MPI_DOUBLE,rank,10,MPI_COMM_WORLD);            
+             MPI_Recv(Buffer_recv.data(),lu+lv,MPI_DOUBLE,rank,7,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+             MPI_Send(Buffer_send.data(),lu+lv,MPI_DOUBLE,rank,8,MPI_COMM_WORLD);
+        
         }
           
         for (int j = uJBegin()+1; j < j_u_max-1; j++)
         {
-             velocity_X(i_u_begin,j)=Buffer_recv_u[j-(uJBegin()+1)];
-            //  velocity_X(i_u_begin,j)=Buffer_recv_u[(lu-2)+j-(uJBegin()+1)];
-           //velocity_X(i_u_begin,j)=100;
-        } 
+           //  velocity_X(i_u_begin,j)=Buffer_recv_u[j-(uJBegin()+1)];
+             velocity_X(i_u_begin,j)=Buffer_recv[j-(uJBegin()+1)];
+           
+                 } 
         for (int j = vJBegin()+1; j < j_v_max-1; j++)
          {
-            velocity_Y(i_v_begin,j)=Buffer_recv_v[j-(vJBegin()+1)];
-            //velocity_Y(i_v_begin,j)=100;
-        }
+            //velocity_Y(i_v_begin,j)=Buffer_recv_v[j-(vJBegin()+1)];
+            velocity_Y(i_v_begin,j)=Buffer_recv[lu+j-(vJBegin()+1)];
+            
+                   }
    
         
     } 
@@ -492,49 +492,60 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
         }
     } else // send/recive at bottom
     {
-        std::vector<double> Buffer_send_u_B(lu,0);
-        std::vector<double> Buffer_send_v_B(lv,0);
-        std::vector<double> Buffer_recv_u_B(lu,0);
-        std::vector<double> Buffer_recv_v_B(lv,0);
+       // std::vector<double> Buffer_send_u_B(lu,0);
+       // std::vector<double> Buffer_send_v_B(lv,0);
+       // std::vector<double> Buffer_recv_u_B(lu,0);
+       // std::vector<double> Buffer_recv_v_B(lv,0);
+         std::vector<double> Buffer_send(lu+lv,0);
+         std::vector<double> Buffer_recv(lu+lv,0);
+       
         int rank_B=partitioning_.coordiantesToRank(self_i,self_j-1);
 
         for (int i = uIBegin()+1; i < uIEnd()-1; i++)
         {
-            Buffer_send_u_B[i-(uIBegin()+1)] = velocity_X(i, uJBegin()+1);
-            //velocity_X(i, uJBegin()+2)=200;
+       //  Buffer_send_u_B[i-(uIBegin()+1)] = velocity_X(i, uJBegin()+1);
+           Buffer_send[i-(uIBegin()+1)] = velocity_X(i, uJBegin()+1);
         }
         
         for (int i = vIBegin()+1; i < vIEnd()-1; i++)
         {
-            Buffer_send_v_B[i-(vIBegin()+1)] = velocity_Y(i, vJBegin()+2);
-            //velocity_Y(i, vJBegin()+3)=200;
+            //Buffer_send_v_B[i-(vIBegin()+1)] = velocity_Y(i, vJBegin()+2);
+            Buffer_send[lu+i-(vIBegin()+1)] = velocity_Y(i, vJBegin()+2);
+            
         }
         
         if (partitioning_.first()) 
         {
-          MPI_Send(Buffer_send_u_B.data(),lu,MPI_DOUBLE,rank_B,1,MPI_COMM_WORLD);
-          MPI_Send(Buffer_send_v_B.data(),lv,MPI_DOUBLE,rank_B,2,MPI_COMM_WORLD);           
-          MPI_Recv(Buffer_recv_u_B.data(),lu,MPI_DOUBLE,rank_B,11,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
-          MPI_Recv(Buffer_recv_v_B.data(),lv,MPI_DOUBLE,rank_B,12,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
+      //    MPI_Send(Buffer_send_u_B.data(),lu,MPI_DOUBLE,rank_B,1,MPI_COMM_WORLD);
+      //    MPI_Send(Buffer_send_v_B.data(),lv,MPI_DOUBLE,rank_B,2,MPI_COMM_WORLD);           
+      //    MPI_Recv(Buffer_recv_u_B.data(),lu,MPI_DOUBLE,rank_B,11,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+       //   MPI_Recv(Buffer_recv_v_B.data(),lv,MPI_DOUBLE,rank_B,12,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
+            MPI_Send(Buffer_send.data(),lu+lv,MPI_DOUBLE,rank_B,1,MPI_COMM_WORLD);
+            MPI_Recv(Buffer_recv.data(),lu+lv,MPI_DOUBLE,rank_B,2,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);           
+      
         }else
         {
-          MPI_Recv(Buffer_recv_u_B.data(),lu,MPI_DOUBLE,rank_B,11,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
-          MPI_Recv(Buffer_recv_v_B.data(),lv,MPI_DOUBLE,rank_B,12,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
-          MPI_Send(Buffer_send_u_B.data(),lu,MPI_DOUBLE,rank_B,1,MPI_COMM_WORLD);
-          MPI_Send(Buffer_send_v_B.data(),lv,MPI_DOUBLE,rank_B,2,MPI_COMM_WORLD);            
+       //   MPI_Recv(Buffer_recv_u_B.data(),lu,MPI_DOUBLE,rank_B,11,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+       //   MPI_Recv(Buffer_recv_v_B.data(),lv,MPI_DOUBLE,rank_B,12,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
+       //   MPI_Send(Buffer_send_u_B.data(),lu,MPI_DOUBLE,rank_B,1,MPI_COMM_WORLD);
+       //   MPI_Send(Buffer_send_v_B.data(),lv,MPI_DOUBLE,rank_B,2,MPI_COMM_WORLD);            
+            MPI_Recv(Buffer_recv.data(),lu+lv,MPI_DOUBLE,rank_B,2,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+            MPI_Send(Buffer_send.data(),lu+lv,MPI_DOUBLE,rank_B,1,MPI_COMM_WORLD);
+        
         }
 
         for (int i = uIBegin()+1; i < uIEnd()-1; i++)
         {
-            velocity_X(i, uJBegin()) = Buffer_recv_u_B[i-(uIBegin()+1)];
-           // velocity_X(i, uJBegin()) =100;
+          //  velocity_X(i, uJBegin()) = Buffer_recv_u_B[i-(uIBegin()+1)];
+            velocity_X(i, uJBegin()) = Buffer_recv[i-(uIBegin()+1)];
+          
         }
 
         for (int i = vIBegin()+1; i < vIEnd()-1; i++)
         {
-            velocity_Y(i, vJBegin()) = Buffer_recv_v_B[i-(vIBegin()+1)];
-          //  velocity_Y(i, vJBegin()) = Buffer_send_v_B[i-(vIBegin()+1)];
-          //velocity_Y(i, vJBegin()+1)=100;
+          //  velocity_Y(i, vJBegin()) = Buffer_recv_v_B[i-(vIBegin()+1)];
+            velocity_Y(i, vJBegin()) = Buffer_recv[lu+i-(vIBegin()+1)];
+       
         }
     }
    
@@ -550,47 +561,59 @@ void Discretization::setBorderVelocityParalell(std::array<double,2> top,std::arr
         }
     } else // send/recive top
     {
-        std::vector<double> Buffer_send_u_T(lu,0);
-        std::vector<double> Buffer_send_v_T(lv,0);
-        std::vector<double> Buffer_recv_u_T(lu,0);
-        std::vector<double> Buffer_recv_v_T(lv,0);
+     //   std::vector<double> Buffer_send_u_T(lu,0);
+     //   std::vector<double> Buffer_send_v_T(lv,0);
+     //   std::vector<double> Buffer_recv_u_T(lu,0);
+     //   std::vector<double> Buffer_recv_v_T(lv,0);
+          std::vector<double> Buffer_send(lu+lv,0);
+          std::vector<double> Buffer_recv(lu+lv,0);
+      
+      
         int rank_T=partitioning_.coordiantesToRank(self_i,self_j+1);
 
         for (int i = uIBegin()+1; i < uIEnd()-1; i++)
         {
-            Buffer_send_u_T[i-(uIBegin()+1)] = velocity_X(i, uJEnd()-2);
-            //velocity_X(i, uJEnd()-3)=200;
-        }
+         //   Buffer_send_u_T[i-(uIBegin()+1)] = velocity_X(i, uJEnd()-2);
+            Buffer_send[i-(uIBegin()+1)] = velocity_X(i, uJEnd()-2);
+         
+          }
 
         for (int i = vIBegin()+1; i < vIEnd()-1; i++)
         {
-            Buffer_send_v_T[i-(vIBegin()+1)] = velocity_Y(i, vJEnd()-3);
-            //velocity_Y(i, vJEnd()-3)=200;
+            //Buffer_send_v_T[i-(vIBegin()+1)] = velocity_Y(i, vJEnd()-3);
+            Buffer_send[lu+i-(vIBegin()+1)] = velocity_Y(i, vJEnd()-3);
+         
         }
 
         if (partitioning_.first()) 
         {
-          MPI_Send(Buffer_send_u_T.data(),lu,MPI_DOUBLE,rank_T,11,MPI_COMM_WORLD);
-          MPI_Send(Buffer_send_v_T.data(),lv,MPI_DOUBLE,rank_T,12,MPI_COMM_WORLD);           
-          MPI_Recv(Buffer_recv_u_T.data(),lu,MPI_DOUBLE,rank_T,1,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
-          MPI_Recv(Buffer_recv_v_T.data(),lv,MPI_DOUBLE,rank_T,2,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
+   //       MPI_Send(Buffer_send_u_T.data(),lu,MPI_DOUBLE,rank_T,11,MPI_COMM_WORLD);
+    //      MPI_Send(Buffer_send_v_T.data(),lv,MPI_DOUBLE,rank_T,12,MPI_COMM_WORLD);           
+     //     MPI_Recv(Buffer_recv_u_T.data(),lu,MPI_DOUBLE,rank_T,1,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+      //    MPI_Recv(Buffer_recv_v_T.data(),lv,MPI_DOUBLE,rank_T,2,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
+            MPI_Send(Buffer_send.data(),lu+lv,MPI_DOUBLE,rank_T,2,MPI_COMM_WORLD);
+            MPI_Recv(Buffer_recv.data(),lu+lv,MPI_DOUBLE,rank_T,1,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+   
         }else
         {
-          MPI_Recv(Buffer_recv_u_T.data(),lu,MPI_DOUBLE,rank_T,1,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
-          MPI_Recv(Buffer_recv_v_T.data(),lv,MPI_DOUBLE,rank_T,2,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
-          MPI_Send(Buffer_send_u_T.data(),lu,MPI_DOUBLE,rank_T,11,MPI_COMM_WORLD);
-          MPI_Send(Buffer_send_v_T.data(),lv,MPI_DOUBLE,rank_T,12,MPI_COMM_WORLD);            
+        //  MPI_Recv(Buffer_recv_u_T.data(),lu,MPI_DOUBLE,rank_T,1,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+        //  MPI_Recv(Buffer_recv_v_T.data(),lv,MPI_DOUBLE,rank_T,2,MPI_COMM_WORLD,MPI_STATUSES_IGNORE);    
+        //  MPI_Send(Buffer_send_u_T.data(),lu,MPI_DOUBLE,rank_T,11,MPI_COMM_WORLD);
+        //  MPI_Send(Buffer_send_v_T.data(),lv,MPI_DOUBLE,rank_T,12,MPI_COMM_WORLD);            
+            MPI_Recv(Buffer_recv.data(),lu+lv,MPI_DOUBLE,rank_T,1,MPI_COMM_WORLD,MPI_STATUSES_IGNORE); 
+            MPI_Send(Buffer_send.data(),lu+lv,MPI_DOUBLE,rank_T,2,MPI_COMM_WORLD);
+        
         }
         for (int i = uIBegin()+1; i < uIEnd()-1; i++)
         {
-            velocity_X(i, uJEnd()-1) = Buffer_recv_u_T[i-(uIBegin()+1)]; 
-           // velocity_X(i, uJEnd()-1)=100;
+          //  velocity_X(i, uJEnd()-1) = Buffer_recv_u_T[i-(uIBegin()+1)]; 
+            velocity_X(i, uJEnd()-1) = Buffer_recv[i-(uIBegin()+1)]; 
+   
         }
         for (int i = vIBegin()+1; i < vIEnd()-1; i++)
         {
-            velocity_Y(i, vJEnd()-1) = Buffer_recv_v_T[i-(vIBegin()+1)];
-            //velocity_Y(i, vJEnd()-1) = 100;
-       
+            //velocity_Y(i, vJEnd()-1) = Buffer_recv_v_T[i-(vIBegin()+1)];
+            velocity_Y(i, vJEnd()-1) = Buffer_recv[lu+i-(vIBegin()+1)];  
         } 
          
 
@@ -650,12 +673,12 @@ int Discretization::getOwnRankNo() const
     return partitioning_.ownRankNo();
 }
 
-double Discretization::getCurrentTime() const
+double Discretization::getCurrentTime() 
 {
     return currentTime;
 }
 
-double Discretization::getFullSecondsPast() const
+double Discretization::getFullSecondsPast() 
 {
     return fullSecondsPast;
 }

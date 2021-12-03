@@ -70,7 +70,7 @@ int make_output = 0;
 
 
 int k;
-while (myDiscretization->getCurrentTime()<settings.endTime && Iterationszahl< settings.maximumNumberOfIterations )
+while (current_time<settings.endTime && Iterationszahl< settings.maximumNumberOfIterations )
 {
   myDiscretization->updateDeltaT();
   if (current_time+myDiscretization->getDeltaT() > time_check)

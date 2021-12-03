@@ -30,11 +30,11 @@ void Discretization::updateDeltaT()
     deltat=deltat_glob;
 
 
-   if (fullSecondsPast-currentTime< 1.5*deltat && settings_.maximumDt)  //settings_.maximumDt/4*settings_.tau)
-       {
-       deltat=fullSecondsPast-currentTime;
-       fullSecondsPast++;
-       }
+//    if (fullSecondsPast-currentTime< 1.5*deltat && settings_.maximumDt)  //settings_.maximumDt/4*settings_.tau)
+//        {
+//        deltat=fullSecondsPast-currentTime;
+//        fullSecondsPast++;
+//        }
     
 
 

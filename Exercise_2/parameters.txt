@@ -11,17 +11,17 @@ gY = 0.0
 
 # Dirichlet boundary conditions
 dirichletBottomX = 0
-dirichletBottomY = -0.1
+dirichletBottomY = 0
 dirichletTopX    = 1
-dirichletTopY    = 1
-dirichletLeftX   = 1 # 1 for debuging (should be 0 else)  
-dirichletLeftY   = 1
-dirichletRightX  = -0.1
+dirichletTopY    = 0
+dirichletLeftX   = 0 # 1 for debuging (should be 0 else)  
+dirichletLeftY   = 0
+dirichletRightX  = 0
 dirichletRightY  = 0
 
 # Discretization parameters
-nCellsX = 12        # number of cells in x and y direction
-nCellsY = 8
+nCellsX = 48        # number of cells in x and y direction
+nCellsY = 48
 useDonorCell = true   # if donor cell discretization should be used, possible values: true false
 alpha = 0.5           # factor for donor-cell scheme, 0 is equivalent to central differences
 tau = 0.5             # safety factor for time step width

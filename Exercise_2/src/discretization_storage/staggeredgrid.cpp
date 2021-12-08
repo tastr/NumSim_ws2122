@@ -150,6 +150,10 @@ std::array<int,2> StaggeredGrid::nCells() const
 {
     return partitioning_.nCells();
 }
+std::array<int,2> StaggeredGrid::nCellsGlobal() const
+{
+    return partitioning_.nCellsGlobal();
+}
 double StaggeredGrid::getepsilon() const
 {
  return epsilon;

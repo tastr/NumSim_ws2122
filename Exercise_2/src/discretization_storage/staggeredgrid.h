@@ -33,6 +33,7 @@ public:
     //  std::array<int,2> getSize() const; 
      
      std::array<int,2> nCells() const; 
+     std::array<int,2> nCellsGlobal() const; 
      FieldVariable p() const; 
      double p(int i, int j) const; 
      FieldVariable u() const; 

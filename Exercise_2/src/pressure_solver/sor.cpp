@@ -31,7 +31,7 @@ void SOR::calculateP()
     
     double epsilonquad=discretization_.getepsilon() *discretization_.getepsilon() ;   
     double resterm;
-    int Nnumber= (discretization_.nCells()[0]*discretization_.nCells()[1]);  
+    int Nnumber= (discretization_.nCellsGlobal()[0]*discretization_.nCellsGlobal()[1]);  
     
     double resterm_glob;
     double resterm_loc;
@@ -106,7 +106,7 @@ void SOR::calculateP()
 
     resterm_loc=(residuum()*residuum())/Nnumber;
      
-    MPI_Allreduce(&resterm_loc,&resterm_glob,1,MPI_DOUBLE,MPI_MAX,MPI_COMM_WORLD);
+    MPI_Allreduce(&resterm_loc,&resterm_glob,1,MPI_DOUBLE,MPI_SUM,MPI_COMM_WORLD);
     resterm=resterm_glob;
 
 

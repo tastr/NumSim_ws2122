@@ -1,0 +1,855 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 27.78      0.30     0.30   106194     0.00     0.01  PressureSolver::residuum()
+ 16.67      0.48     0.18 180681800     0.00     0.00  StaggeredGrid::p(int, int) const
+ 13.89      0.63     0.15 215211256     0.00     0.00  Array2D::operator()(int, int) const
+  9.26      0.73     0.10 25380838     0.00     0.00  Array2D::operator()(int, int)
+  8.33      0.82     0.09      200     0.45     4.88  SOR::calculateP()
+  3.70      0.86     0.04 50397168     0.00     0.00  Array2D::size() const
+  3.70      0.90     0.04  1140844     0.00     0.00  StaggeredGrid::u(int, int) const
+  3.70      0.94     0.04   106194     0.00     0.00  Discretization::setPressureBCParalell()
+  2.78      0.97     0.03 42518000     0.00     0.00  StaggeredGrid::dx() const
+  2.78      1.00     0.03 42518000     0.00     0.00  StaggeredGrid::dy() const
+  2.78      1.03     0.03        6     5.00     5.00  Array2D::~Array2D()
+  1.85      1.05     0.02    80000     0.00     0.00  Discretization::g(int, int) const
+  0.93      1.06     0.01 31858200     0.00     0.00  Discretization::rhs(int, int) const
+  0.93      1.07     0.01 10619400     0.00     0.00  StaggeredGrid::setP(int, int, double)
+  0.93      1.08     0.01                             Partitioning::setNCells()
+  0.00      1.08     0.00 40504114     0.00     0.00  StaggeredGrid::pIEnd() const
+  0.00      1.08     0.00 11897928     0.00     0.00  StaggeredGrid::pIBegin() const
+  0.00      1.08     0.00  9668054     0.00     0.00  StaggeredGrid::pJEnd() const
+  0.00      1.08     0.00  3186220     0.00     0.00  StaggeredGrid::pJBegin() const
+  0.00      1.08     0.00  1370412     0.00     0.00  StaggeredGrid::v(int, int) const
+  0.00      1.08     0.00   304000     0.00     0.00  StaggeredGrid::abs(double) const
+  0.00      1.08     0.00   212790     0.00     0.00  Partitioning::nodeOffset() const
+  0.00      1.08     0.00   128465     0.00     0.00  Partitioning::ownPartitionContainsLeftBoundary() const
+  0.00      1.08     0.00   116443     0.00     0.00  Partitioning::ownPartitionContainsBottomBoundary() const
+  0.00      1.08     0.00   115545     0.00     0.00  Array2D::abs(int, int) const
+  0.00      1.08     0.00   110819     0.00     0.00  Partitioning::ownPartitionContainsRightBoundary() const
+  0.00      1.08     0.00   106598     0.00     0.00  Partitioning::ownPartitionContainsTopBoundary() const
+  0.00      1.08     0.00   106395     0.00     0.00  Partitioning::coordiantesToRank(int, int) const
+  0.00      1.08     0.00   106395     0.00     0.00  Partitioning::first() const
+  0.00      1.08     0.00    97648     0.00     0.00  StaggeredGrid::vIEnd() const
+  0.00      1.08     0.00    93266     0.00     0.00  StaggeredGrid::uIEnd() const
+  0.00      1.08     0.00    80000     0.00     0.00  Discretization::f(int, int) const
+  0.00      1.08     0.00    52897     0.00     0.00  StaggeredGrid::getMaxIteration() const
+  0.00      1.08     0.00    40400     0.00     0.00  Discretization::getDeltaT() const
+  0.00      1.08     0.00    40000     0.00     0.00  Discretization::setRHS(int, int, double)
+  0.00      1.08     0.00    40000     0.00     0.00  Discretization::computeDvDx2(int, int) const
+  0.00      1.08     0.00    40000     0.00     0.00  Discretization::computeDvDy2(int, int) const
+  0.00      1.08     0.00    40000     0.00     0.00  DonorCell::computeDuvDx(int, int) const
+  0.00      1.08     0.00    40000     0.00     0.00  DonorCell::computeDv2Dy(int, int) const
+  0.00      1.08     0.00    36000     0.00     0.00  Discretization::computeDuDx2(int, int) const
+  0.00      1.08     0.00    36000     0.00     0.00  Discretization::computeDuDy2(int, int) const
+  0.00      1.08     0.00    36000     0.00     0.00  DonorCell::computeDu2Dx(int, int) const
+  0.00      1.08     0.00    36000     0.00     0.00  DonorCell::computeDuvDy(int, int) const
+  0.00      1.08     0.00    21467     0.00     0.00  StaggeredGrid::uIBegin() const
+  0.00      1.08     0.00    21465     0.00     0.00  StaggeredGrid::uJEnd() const
+  0.00      1.08     0.00    13226     0.00     0.00  StaggeredGrid::vIBegin() const
+  0.00      1.08     0.00    12621     0.00     0.00  StaggeredGrid::vJEnd() const
+  0.00      1.08     0.00     9847     0.00     0.00  StaggeredGrid::vJBegin() const
+  0.00      1.08     0.00     3415     0.00     0.00  StaggeredGrid::uJBegin() const
+  0.00      1.08     0.00      416     0.00     0.00  Partitioning::nCellsGlobal() const
+  0.00      1.08     0.00      400     0.00     0.00  FieldVariable::absmax()
+  0.00      1.08     0.00      400     0.00     0.00  StaggeredGrid::getepsilon() const
+  0.00      1.08     0.00      400     0.00     0.00  StaggeredGrid::nCellsGlobal() const
+  0.00      1.08     0.00      201     0.00     0.00  Discretization::updateBoundaryFGParalell()
+  0.00      1.08     0.00      201     0.00     0.00  Discretization::setBorderVelocityParalell(std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>)
+  0.00      1.08     0.00      200     0.00     0.00  Discretization::updateDeltaT()
+  0.00      1.08     0.00      200     0.00     0.00  Discretization::updateVelocity()
+  0.00      1.08     0.00      200     0.00     0.10  PressureSolver::calculateRHS()
+  0.00      1.08     0.00      200     0.00     0.21  DonorCell::calculation()
+  0.00      1.08     0.00      200     0.00     0.00  Discretization::getOmega() const
+  0.00      1.08     0.00       12     0.00     0.00  Partitioning::nCells() const
+  0.00      1.08     0.00       10     0.00     0.00  Discretization::setDeltaT(double)
+  0.00      1.08     0.00        6     0.00     0.00  FieldVariable::FieldVariable(std::array<int, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>)
+  0.00      1.08     0.00        6     0.00     0.00  FieldVariable::~FieldVariable()
+  0.00      1.08     0.00        6     0.00     0.00  Array2D::Array2D(std::array<int, 2ul>)
+  0.00      1.08     0.00        2     0.00     0.00  Partitioning::getSubGridSize() const
+  0.00      1.08     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN11ComputationC2E8Settings
+  0.00      1.08     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN11GaussSeidelC2ER14Discretization
+  0.00      1.08     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN12OutputWriterC2ESt10shared_ptrI14DiscretizationERK12Partitioning
+  0.00      1.08     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN12PartitioningC2E8Settings
+  0.00      1.08     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN13FieldVariableC2ESt5arrayIiLm2EES0_IdLm2EES2_
+  0.00      1.08     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN13StaggeredGridC2E8Settings12Partitioning
+  0.00      1.08     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN14DiscretizationC2E8Settings12Partitioning
+  0.00      1.08     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN14PressureSolverC2ER14Discretization
+  0.00      1.08     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN16OutputWriterText9writeFileEd
+  0.00      1.08     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN18CentralDifferencesC2E8Settings12Partitioning
+  0.00      1.08     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN20OutputWriterParaviewC2ESt10shared_ptrI14DiscretizationERK12Partitioning
+  0.00      1.08     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN24OutputWriterTextParallel9writeFileEd
+  0.00      1.08     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN28OutputWriterParaviewParallelC2ESt10shared_ptrI14DiscretizationERK12Partitioning
+  0.00      1.08     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN3SORC2ER14Discretization
+  0.00      1.08     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN8Settings12loadFromFileENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
+  0.00      1.08     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN9DonorCellC2E8Settings12Partitioning
+  0.00      1.08     0.00        1     0.00     0.00  _GLOBAL__sub_I_main
+  0.00      1.08     0.00        1     0.00     0.00  Partitioning::Partitioning(Settings)
+  0.00      1.08     0.00        1     0.00     0.00  StaggeredGrid::StaggeredGrid(Settings, Partitioning)
+  0.00      1.08     0.00        1     0.00     0.00  Discretization::Discretization(Settings, Partitioning)
+  0.00      1.08     0.00        1     0.00    30.00  Discretization::~Discretization()
+  0.00      1.08     0.00        1     0.00     0.00  PressureSolver::PressureSolver(Discretization&)
+  0.00      1.08     0.00        1     0.00     0.00  PressureSolver::~PressureSolver()
+  0.00      1.08     0.00        1     0.00     0.00  SOR::SOR(Discretization&)
+  0.00      1.08     0.00        1     0.00     0.00  SOR::~SOR()
+  0.00      1.08     0.00        1     0.00     0.00  DonorCell::DonorCell(Settings, Partitioning)
+  0.00      1.08     0.00        1     0.00     0.00  DonorCell::~DonorCell()
+  0.00      1.08     0.00        1     0.00     0.00  std::ctype<char>::do_widen(char) const
+  0.00      1.08     0.00        1     0.00     0.00  std::_Sp_counted_ptr_inplace<SOR, std::allocator<SOR>, (__gnu_cxx::_Lock_policy)2>::_M_destroy()
+  0.00      1.08     0.00        1     0.00     0.00  std::_Sp_counted_ptr_inplace<SOR, std::allocator<SOR>, (__gnu_cxx::_Lock_policy)2>::_M_dispose()
+  0.00      1.08     0.00        1     0.00     0.00  std::_Sp_counted_ptr_inplace<DonorCell, std::allocator<DonorCell>, (__gnu_cxx::_Lock_policy)2>::_M_destroy()
+  0.00      1.08     0.00        1     0.00     0.00  std::_Sp_counted_ptr_inplace<DonorCell, std::allocator<DonorCell>, (__gnu_cxx::_Lock_policy)2>::_M_dispose()
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) for 0.93% of 1.08 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]     99.1    0.00    1.07                 Computation::runSimulation(Settings) [1]
+                0.09    0.89     200/200         SOR::calculateP() [2]
+                0.00    0.04     200/200         DonorCell::calculation() [9]
+                0.00    0.03       1/1           Discretization::~Discretization() [16]
+                0.00    0.02     200/200         PressureSolver::calculateRHS() [17]
+                0.00    0.00     200/200         Discretization::updateVelocity() [27]
+                0.00    0.00     201/201         Discretization::updateBoundaryFGParalell() [28]
+                0.00    0.00     201/201         Discretization::setBorderVelocityParalell(std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>) [30]
+                0.00    0.00     400/40400       Discretization::getDeltaT() const [59]
+                0.00    0.00     200/200         Discretization::updateDeltaT() [68]
+                0.00    0.00      10/10          Discretization::setDeltaT(double) [71]
+                0.00    0.00       2/416         Partitioning::nCellsGlobal() const [64]
+                0.00    0.00       2/2           Partitioning::getSubGridSize() const [75]
+                0.00    0.00       1/1           Partitioning::Partitioning(Settings) [93]
+                0.00    0.00       1/1           DonorCell::DonorCell(Settings, Partitioning) [100]
+                0.00    0.00       1/1           SOR::SOR(Discretization&) [98]
+                0.00    0.00       1/1           DonorCell::~DonorCell() [101]
+                0.00    0.00       1/1           std::_Sp_counted_ptr_inplace<DonorCell, std::allocator<DonorCell>, (__gnu_cxx::_Lock_policy)2>::_M_dispose() [106]
+                0.00    0.00       1/1           std::_Sp_counted_ptr_inplace<DonorCell, std::allocator<DonorCell>, (__gnu_cxx::_Lock_policy)2>::_M_destroy() [105]
+                0.00    0.00       1/1           PressureSolver::~PressureSolver() [97]
+                0.00    0.00       1/1           SOR::~SOR() [99]
+                0.00    0.00       1/1           std::_Sp_counted_ptr_inplace<SOR, std::allocator<SOR>, (__gnu_cxx::_Lock_policy)2>::_M_dispose() [104]
+                0.00    0.00       1/1           std::_Sp_counted_ptr_inplace<SOR, std::allocator<SOR>, (__gnu_cxx::_Lock_policy)2>::_M_destroy() [103]
+-----------------------------------------------
+                0.09    0.89     200/200         Computation::runSimulation(Settings) [1]
+[2]     90.4    0.09    0.89     200         SOR::calculateP() [2]
+                0.30    0.32  106194/106194      PressureSolver::residuum() [3]
+                0.04    0.06  106194/106194      Discretization::setPressureBCParalell() [6]
+                0.05    0.00 53097000/180681800     StaggeredGrid::p(int, int) const [4]
+                0.01    0.04 10619400/10619400     StaggeredGrid::setP(int, int, double) [8]
+                0.04    0.00 63716400/215211256     Array2D::operator()(int, int) const [5]
+                0.00    0.01 12743480/40504114     StaggeredGrid::pIEnd() const [12]
+                0.00    0.00 10619400/31858200     Discretization::rhs(int, int) const [21]
+                0.00    0.00 2336468/9668054     StaggeredGrid::pJEnd() const [23]
+                0.00    0.00     400/42518000     StaggeredGrid::dx() const [13]
+                0.00    0.00     400/42518000     StaggeredGrid::dy() const [14]
+                0.00    0.00 2124080/11897928     StaggeredGrid::pIBegin() const [45]
+                0.00    0.00  212588/3186220     StaggeredGrid::pJBegin() const [46]
+                0.00    0.00   52897/52897       StaggeredGrid::getMaxIteration() const [58]
+                0.00    0.00     400/400         StaggeredGrid::getepsilon() const [66]
+                0.00    0.00     400/416         Partitioning::nCellsGlobal() const [64]
+                0.00    0.00     400/400         StaggeredGrid::nCellsGlobal() const [67]
+                0.00    0.00     200/200         Discretization::getOmega() const [69]
+-----------------------------------------------
+                0.30    0.32  106194/106194      SOR::calculateP() [2]
+[3]     57.2    0.30    0.32  106194         PressureSolver::residuum() [3]
+                0.13    0.00 127432800/180681800     StaggeredGrid::p(int, int) const [4]
+                0.10    0.00 148671600/215211256     Array2D::operator()(int, int) const [5]
+                0.03    0.00 42477600/42518000     StaggeredGrid::dx() const [13]
+                0.03    0.00 42477600/42518000     StaggeredGrid::dy() const [14]
+                0.00    0.02 23362680/40504114     StaggeredGrid::pIEnd() const [12]
+                0.01    0.00 21238800/31858200     Discretization::rhs(int, int) const [21]
+                0.00    0.00 2230074/9668054     StaggeredGrid::pJEnd() const [23]
+                0.00    0.00 2123880/11897928     StaggeredGrid::pIBegin() const [45]
+                0.00    0.00  106194/3186220     StaggeredGrid::pJBegin() const [46]
+-----------------------------------------------
+                0.00    0.00  152000/180681800     Discretization::updateVelocity() [27]
+                0.05    0.00 53097000/180681800     SOR::calculateP() [2]
+                0.13    0.00 127432800/180681800     PressureSolver::residuum() [3]
+[4]     16.7    0.18    0.00 180681800         StaggeredGrid::p(int, int) const [4]
+-----------------------------------------------
+                0.00    0.00   11256/215211256     Discretization::updateBoundaryFGParalell() [28]
+                0.00    0.00   76000/215211256     DonorCell::calculation() [9]
+                0.00    0.00  108000/215211256     Discretization::computeDuDx2(int, int) const [25]
+                0.00    0.00  108000/215211256     Discretization::computeDuDy2(int, int) const [26]
+                0.00    0.00  120000/215211256     Discretization::computeDvDy2(int, int) const [33]
+                0.00    0.00  120000/215211256     Discretization::computeDvDx2(int, int) const [32]
+                0.00    0.00  152000/215211256     Discretization::updateVelocity() [27]
+                0.00    0.00  160000/215211256     PressureSolver::calculateRHS() [17]
+                0.00    0.00  432000/215211256     DonorCell::computeDu2Dx(int, int) const [19]
+                0.00    0.00  480000/215211256     DonorCell::computeDv2Dy(int, int) const [29]
+                0.00    0.00  480000/215211256     DonorCell::computeDuvDx(int, int) const [24]
+                0.00    0.00  576000/215211256     DonorCell::computeDuvDy(int, int) const [20]
+                0.04    0.00 63716400/215211256     SOR::calculateP() [2]
+                0.10    0.00 148671600/215211256     PressureSolver::residuum() [3]
+[5]     13.9    0.15    0.00 215211256         Array2D::operator()(int, int) const [5]
+-----------------------------------------------
+                0.04    0.06  106194/106194      SOR::calculateP() [2]
+[6]      9.7    0.04    0.06  106194         Discretization::setPressureBCParalell() [6]
+                0.06    0.00 14442384/25380838     Array2D::operator()(int, int) [7]
+                0.00    0.00 5097312/9668054     StaggeredGrid::pJEnd() const [23]
+                0.00    0.00 4353954/40504114     StaggeredGrid::pIEnd() const [12]
+                0.00    0.00 7645968/11897928     StaggeredGrid::pIBegin() const [45]
+                0.00    0.00 2867238/3186220     StaggeredGrid::pJBegin() const [46]
+                0.00    0.00  212388/212790      Partitioning::nodeOffset() const [49]
+                0.00    0.00  106194/110819      Partitioning::ownPartitionContainsRightBoundary() const [53]
+                0.00    0.00  106194/128465      Partitioning::ownPartitionContainsLeftBoundary() const [50]
+                0.00    0.00  106194/106598      Partitioning::ownPartitionContainsTopBoundary() const [54]
+                0.00    0.00  106194/106395      Partitioning::coordiantesToRank(int, int) const [55]
+                0.00    0.00  106194/106395      Partitioning::first() const [56]
+                0.00    0.00  106194/116443      Partitioning::ownPartitionContainsBottomBoundary() const [51]
+-----------------------------------------------
+                0.00    0.00   11256/25380838     Discretization::updateBoundaryFGParalell() [28]
+                0.00    0.00   39798/25380838     Discretization::setBorderVelocityParalell(std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>) [30]
+                0.00    0.00   40000/25380838     Discretization::setRHS(int, int, double) [31]
+                0.00    0.00   76000/25380838     DonorCell::calculation() [9]
+                0.00    0.00  152000/25380838     Discretization::updateVelocity() [27]
+                0.04    0.00 10619400/25380838     StaggeredGrid::setP(int, int, double) [8]
+                0.06    0.00 14442384/25380838     Discretization::setPressureBCParalell() [6]
+[7]      9.3    0.10    0.00 25380838         Array2D::operator()(int, int) [7]
+-----------------------------------------------
+                0.01    0.04 10619400/10619400     SOR::calculateP() [2]
+[8]      4.8    0.01    0.04 10619400         StaggeredGrid::setP(int, int, double) [8]
+                0.04    0.00 10619400/25380838     Array2D::operator()(int, int) [7]
+-----------------------------------------------
+                0.00    0.04     200/200         Computation::runSimulation(Settings) [1]
+[9]      3.9    0.00    0.04     200         DonorCell::calculation() [9]
+                0.00    0.02   36000/36000       DonorCell::computeDu2Dx(int, int) const [19]
+                0.00    0.01   36000/36000       DonorCell::computeDuvDy(int, int) const [20]
+                0.00    0.01   40000/40000       DonorCell::computeDuvDx(int, int) const [24]
+                0.00    0.00   36000/36000       Discretization::computeDuDx2(int, int) const [25]
+                0.00    0.00   36000/36000       Discretization::computeDuDy2(int, int) const [26]
+                0.00    0.00   36000/1140844     StaggeredGrid::u(int, int) const [11]
+                0.00    0.00   40000/40000       DonorCell::computeDv2Dy(int, int) const [29]
+                0.00    0.00   76000/25380838     Array2D::operator()(int, int) [7]
+                0.00    0.00   40000/40000       Discretization::computeDvDx2(int, int) const [32]
+                0.00    0.00   40000/40000       Discretization::computeDvDy2(int, int) const [33]
+                0.00    0.00   76000/215211256     Array2D::operator()(int, int) const [5]
+                0.00    0.00   44000/97648       StaggeredGrid::vIEnd() const [34]
+                0.00    0.00   40000/93266       StaggeredGrid::uIEnd() const [35]
+                0.00    0.00    4200/21465       StaggeredGrid::uJEnd() const [36]
+                0.00    0.00    4200/12621       StaggeredGrid::vJEnd() const [37]
+                0.00    0.00   40000/1370412     StaggeredGrid::v(int, int) const [47]
+                0.00    0.00    4000/128465      Partitioning::ownPartitionContainsLeftBoundary() const [50]
+                0.00    0.00    4000/21467       StaggeredGrid::uIBegin() const [60]
+                0.00    0.00    4000/13226       StaggeredGrid::vIBegin() const [61]
+                0.00    0.00     200/3415        StaggeredGrid::uJBegin() const [63]
+                0.00    0.00     200/116443      Partitioning::ownPartitionContainsBottomBoundary() const [51]
+                0.00    0.00     200/9847        StaggeredGrid::vJBegin() const [62]
+-----------------------------------------------
+                0.00    0.00   12621/50397168     StaggeredGrid::vJEnd() const [37]
+                0.00    0.00   21465/50397168     StaggeredGrid::uJEnd() const [36]
+                0.00    0.00   93266/50397168     StaggeredGrid::uIEnd() const [35]
+                0.00    0.00   97648/50397168     StaggeredGrid::vIEnd() const [34]
+                0.01    0.00 9668054/50397168     StaggeredGrid::pJEnd() const [23]
+                0.03    0.00 40504114/50397168     StaggeredGrid::pIEnd() const [12]
+[10]     3.7    0.04    0.00 50397168         Array2D::size() const [10]
+-----------------------------------------------
+                0.00    0.00    8844/1140844     Discretization::updateBoundaryFGParalell() [28]
+                0.00    0.00   36000/1140844     DonorCell::calculation() [9]
+                0.00    0.00  108000/1140844     Discretization::computeDuDx2(int, int) const [25]
+                0.00    0.00  108000/1140844     Discretization::computeDuDy2(int, int) const [26]
+                0.01    0.00  160000/1140844     DonorCell::computeDuvDx(int, int) const [24]
+                0.01    0.00  288000/1140844     DonorCell::computeDuvDy(int, int) const [20]
+                0.02    0.00  432000/1140844     DonorCell::computeDu2Dx(int, int) const [19]
+[11]     3.7    0.04    0.00 1140844         StaggeredGrid::u(int, int) const [11]
+-----------------------------------------------
+                0.00    0.00   44000/40504114     PressureSolver::calculateRHS() [17]
+                0.00    0.00 4353954/40504114     Discretization::setPressureBCParalell() [6]
+                0.00    0.01 12743480/40504114     SOR::calculateP() [2]
+                0.00    0.02 23362680/40504114     PressureSolver::residuum() [3]
+[12]     3.0    0.00    0.03 40504114         StaggeredGrid::pIEnd() const [12]
+                0.03    0.00 40504114/50397168     Array2D::size() const [10]
+-----------------------------------------------
+                0.00    0.00     400/42518000     SOR::calculateP() [2]
+                0.00    0.00   40000/42518000     PressureSolver::calculateRHS() [17]
+                0.03    0.00 42477600/42518000     PressureSolver::residuum() [3]
+[13]     2.8    0.03    0.00 42518000         StaggeredGrid::dx() const [13]
+-----------------------------------------------
+                0.00    0.00     400/42518000     SOR::calculateP() [2]
+                0.00    0.00   40000/42518000     PressureSolver::calculateRHS() [17]
+                0.03    0.00 42477600/42518000     PressureSolver::residuum() [3]
+[14]     2.8    0.03    0.00 42518000         StaggeredGrid::dy() const [14]
+-----------------------------------------------
+                0.03    0.00       6/6           Discretization::~Discretization() [16]
+[15]     2.8    0.03    0.00       6         Array2D::~Array2D() [15]
+-----------------------------------------------
+                0.00    0.03       1/1           Computation::runSimulation(Settings) [1]
+[16]     2.8    0.00    0.03       1         Discretization::~Discretization() [16]
+                0.03    0.00       6/6           Array2D::~Array2D() [15]
+                0.00    0.00       6/6           FieldVariable::~FieldVariable() [73]
+-----------------------------------------------
+                0.00    0.02     200/200         Computation::runSimulation(Settings) [1]
+[17]     1.9    0.00    0.02     200         PressureSolver::calculateRHS() [17]
+                0.02    0.00   80000/80000       Discretization::g(int, int) const [18]
+                0.00    0.00   40000/40000       Discretization::setRHS(int, int, double) [31]
+                0.00    0.00  160000/215211256     Array2D::operator()(int, int) const [5]
+                0.00    0.00   44000/40504114     StaggeredGrid::pIEnd() const [12]
+                0.00    0.00   40000/42518000     StaggeredGrid::dx() const [13]
+                0.00    0.00   40000/42518000     StaggeredGrid::dy() const [14]
+                0.00    0.00    4200/9668054     StaggeredGrid::pJEnd() const [23]
+                0.00    0.00   80000/80000       Discretization::f(int, int) const [57]
+                0.00    0.00   40000/40400       Discretization::getDeltaT() const [59]
+                0.00    0.00    4000/11897928     StaggeredGrid::pIBegin() const [45]
+                0.00    0.00     200/3186220     StaggeredGrid::pJBegin() const [46]
+-----------------------------------------------
+                0.02    0.00   80000/80000       PressureSolver::calculateRHS() [17]
+[18]     1.9    0.02    0.00   80000         Discretization::g(int, int) const [18]
+-----------------------------------------------
+                0.00    0.02   36000/36000       DonorCell::calculation() [9]
+[19]     1.4    0.00    0.02   36000         DonorCell::computeDu2Dx(int, int) const [19]
+                0.02    0.00  432000/1140844     StaggeredGrid::u(int, int) const [11]
+                0.00    0.00  432000/215211256     Array2D::operator()(int, int) const [5]
+                0.00    0.00   72000/304000      StaggeredGrid::abs(double) const [48]
+-----------------------------------------------
+                0.00    0.01   36000/36000       DonorCell::calculation() [9]
+[20]     1.0    0.00    0.01   36000         DonorCell::computeDuvDy(int, int) const [20]
+                0.01    0.00  288000/1140844     StaggeredGrid::u(int, int) const [11]
+                0.00    0.00  576000/215211256     Array2D::operator()(int, int) const [5]
+                0.00    0.00  288000/1370412     StaggeredGrid::v(int, int) const [47]
+                0.00    0.00   72000/304000      StaggeredGrid::abs(double) const [48]
+-----------------------------------------------
+                0.00    0.00 10619400/31858200     SOR::calculateP() [2]
+                0.01    0.00 21238800/31858200     PressureSolver::residuum() [3]
+[21]     0.9    0.01    0.00 31858200         Discretization::rhs(int, int) const [21]
+-----------------------------------------------
+                                                 <spontaneous>
+[22]     0.9    0.01    0.00                 Partitioning::setNCells() [22]
+-----------------------------------------------
+                0.00    0.00    4200/9668054     PressureSolver::calculateRHS() [17]
+                0.00    0.00 2230074/9668054     PressureSolver::residuum() [3]
+                0.00    0.00 2336468/9668054     SOR::calculateP() [2]
+                0.00    0.00 5097312/9668054     Discretization::setPressureBCParalell() [6]
+[23]     0.7    0.00    0.01 9668054         StaggeredGrid::pJEnd() const [23]
+                0.01    0.00 9668054/50397168     Array2D::size() const [10]
+-----------------------------------------------
+                0.00    0.01   40000/40000       DonorCell::calculation() [9]
+[24]     0.6    0.00    0.01   40000         DonorCell::computeDuvDx(int, int) const [24]
+                0.01    0.00  160000/1140844     StaggeredGrid::u(int, int) const [11]
+                0.00    0.00  480000/215211256     Array2D::operator()(int, int) const [5]
+                0.00    0.00  320000/1370412     StaggeredGrid::v(int, int) const [47]
+                0.00    0.00   80000/304000      StaggeredGrid::abs(double) const [48]
+-----------------------------------------------
+                0.00    0.00   36000/36000       DonorCell::calculation() [9]
+[25]     0.4    0.00    0.00   36000         Discretization::computeDuDx2(int, int) const [25]
+                0.00    0.00  108000/1140844     StaggeredGrid::u(int, int) const [11]
+                0.00    0.00  108000/215211256     Array2D::operator()(int, int) const [5]
+-----------------------------------------------
+                0.00    0.00   36000/36000       DonorCell::calculation() [9]
+[26]     0.4    0.00    0.00   36000         Discretization::computeDuDy2(int, int) const [26]
+                0.00    0.00  108000/1140844     StaggeredGrid::u(int, int) const [11]
+                0.00    0.00  108000/215211256     Array2D::operator()(int, int) const [5]
+-----------------------------------------------
+                0.00    0.00     200/200         Computation::runSimulation(Settings) [1]
+[27]     0.1    0.00    0.00     200         Discretization::updateVelocity() [27]
+                0.00    0.00  152000/25380838     Array2D::operator()(int, int) [7]
+                0.00    0.00  152000/180681800     StaggeredGrid::p(int, int) const [4]
+                0.00    0.00  152000/215211256     Array2D::operator()(int, int) const [5]
+                0.00    0.00   44000/97648       StaggeredGrid::vIEnd() const [34]
+                0.00    0.00   40000/93266       StaggeredGrid::uIEnd() const [35]
+                0.00    0.00    4200/21465       StaggeredGrid::uJEnd() const [36]
+                0.00    0.00    4200/12621       StaggeredGrid::vJEnd() const [37]
+                0.00    0.00    4000/128465      Partitioning::ownPartitionContainsLeftBoundary() const [50]
+                0.00    0.00    4000/21467       StaggeredGrid::uIBegin() const [60]
+                0.00    0.00    4000/13226       StaggeredGrid::vIBegin() const [61]
+                0.00    0.00     200/3415        StaggeredGrid::uJBegin() const [63]
+                0.00    0.00     200/116443      Partitioning::ownPartitionContainsBottomBoundary() const [51]
+                0.00    0.00     200/9847        StaggeredGrid::vJBegin() const [62]
+-----------------------------------------------
+                0.00    0.00     201/201         Computation::runSimulation(Settings) [1]
+[28]     0.0    0.00    0.00     201         Discretization::updateBoundaryFGParalell() [28]
+                0.00    0.00    8844/1140844     StaggeredGrid::u(int, int) const [11]
+                0.00    0.00   11256/25380838     Array2D::operator()(int, int) [7]
+                0.00    0.00   11256/215211256     Array2D::operator()(int, int) const [5]
+                0.00    0.00    9246/21465       StaggeredGrid::uJEnd() const [36]
+                0.00    0.00    8844/93266       StaggeredGrid::uIEnd() const [35]
+                0.00    0.00    2613/97648       StaggeredGrid::vIEnd() const [34]
+                0.00    0.00    9045/128465      Partitioning::ownPartitionContainsLeftBoundary() const [50]
+                0.00    0.00    8844/21467       StaggeredGrid::uIBegin() const [60]
+                0.00    0.00    5025/116443      Partitioning::ownPartitionContainsBottomBoundary() const [51]
+                0.00    0.00    4824/9847        StaggeredGrid::vJBegin() const [62]
+                0.00    0.00    2412/1370412     StaggeredGrid::v(int, int) const [47]
+                0.00    0.00     402/3415        StaggeredGrid::uJBegin() const [63]
+                0.00    0.00     201/110819      Partitioning::ownPartitionContainsRightBoundary() const [53]
+                0.00    0.00     201/13226       StaggeredGrid::vIBegin() const [61]
+                0.00    0.00     201/106598      Partitioning::ownPartitionContainsTopBoundary() const [54]
+-----------------------------------------------
+                0.00    0.00   40000/40000       DonorCell::calculation() [9]
+[29]     0.0    0.00    0.00   40000         DonorCell::computeDv2Dy(int, int) const [29]
+                0.00    0.00  480000/215211256     Array2D::operator()(int, int) const [5]
+                0.00    0.00  480000/1370412     StaggeredGrid::v(int, int) const [47]
+                0.00    0.00   80000/304000      StaggeredGrid::abs(double) const [48]
+-----------------------------------------------
+                0.00    0.00     201/201         Computation::runSimulation(Settings) [1]
+[30]     0.0    0.00    0.00     201         Discretization::setBorderVelocityParalell(std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>) [30]
+                0.00    0.00   39798/25380838     Array2D::operator()(int, int) [7]
+                0.00    0.00    7035/97648       StaggeredGrid::vIEnd() const [34]
+                0.00    0.00    4422/93266       StaggeredGrid::uIEnd() const [35]
+                0.00    0.00    4221/12621       StaggeredGrid::vJEnd() const [37]
+                0.00    0.00    3819/21465       StaggeredGrid::uJEnd() const [36]
+                0.00    0.00    5226/128465      Partitioning::ownPartitionContainsLeftBoundary() const [50]
+                0.00    0.00    5025/13226       StaggeredGrid::vIBegin() const [61]
+                0.00    0.00    4824/116443      Partitioning::ownPartitionContainsBottomBoundary() const [51]
+                0.00    0.00    4623/21467       StaggeredGrid::uIBegin() const [60]
+                0.00    0.00    4623/9847        StaggeredGrid::vJBegin() const [62]
+                0.00    0.00    4422/110819      Partitioning::ownPartitionContainsRightBoundary() const [53]
+                0.00    0.00    2613/3415        StaggeredGrid::uJBegin() const [63]
+                0.00    0.00     402/212790      Partitioning::nodeOffset() const [49]
+                0.00    0.00     201/106598      Partitioning::ownPartitionContainsTopBoundary() const [54]
+                0.00    0.00     201/106395      Partitioning::coordiantesToRank(int, int) const [55]
+                0.00    0.00     201/106395      Partitioning::first() const [56]
+-----------------------------------------------
+                0.00    0.00   40000/40000       PressureSolver::calculateRHS() [17]
+[31]     0.0    0.00    0.00   40000         Discretization::setRHS(int, int, double) [31]
+                0.00    0.00   40000/25380838     Array2D::operator()(int, int) [7]
+-----------------------------------------------
+                0.00    0.00   40000/40000       DonorCell::calculation() [9]
+[32]     0.0    0.00    0.00   40000         Discretization::computeDvDx2(int, int) const [32]
+                0.00    0.00  120000/215211256     Array2D::operator()(int, int) const [5]
+                0.00    0.00  120000/1370412     StaggeredGrid::v(int, int) const [47]
+-----------------------------------------------
+                0.00    0.00   40000/40000       DonorCell::calculation() [9]
+[33]     0.0    0.00    0.00   40000         Discretization::computeDvDy2(int, int) const [33]
+                0.00    0.00  120000/215211256     Array2D::operator()(int, int) const [5]
+                0.00    0.00  120000/1370412     StaggeredGrid::v(int, int) const [47]
+-----------------------------------------------
+                0.00    0.00    2613/97648       Discretization::updateBoundaryFGParalell() [28]
+                0.00    0.00    7035/97648       Discretization::setBorderVelocityParalell(std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>) [30]
+                0.00    0.00   44000/97648       DonorCell::calculation() [9]
+                0.00    0.00   44000/97648       Discretization::updateVelocity() [27]
+[34]     0.0    0.00    0.00   97648         StaggeredGrid::vIEnd() const [34]
+                0.00    0.00   97648/50397168     Array2D::size() const [10]
+-----------------------------------------------
+                0.00    0.00    4422/93266       Discretization::setBorderVelocityParalell(std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>) [30]
+                0.00    0.00    8844/93266       Discretization::updateBoundaryFGParalell() [28]
+                0.00    0.00   40000/93266       DonorCell::calculation() [9]
+                0.00    0.00   40000/93266       Discretization::updateVelocity() [27]
+[35]     0.0    0.00    0.00   93266         StaggeredGrid::uIEnd() const [35]
+                0.00    0.00   93266/50397168     Array2D::size() const [10]
+-----------------------------------------------
+                0.00    0.00    3819/21465       Discretization::setBorderVelocityParalell(std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>) [30]
+                0.00    0.00    4200/21465       DonorCell::calculation() [9]
+                0.00    0.00    4200/21465       Discretization::updateVelocity() [27]
+                0.00    0.00    9246/21465       Discretization::updateBoundaryFGParalell() [28]
+[36]     0.0    0.00    0.00   21465         StaggeredGrid::uJEnd() const [36]
+                0.00    0.00   21465/50397168     Array2D::size() const [10]
+-----------------------------------------------
+                0.00    0.00    4200/12621       DonorCell::calculation() [9]
+                0.00    0.00    4200/12621       Discretization::updateVelocity() [27]
+                0.00    0.00    4221/12621       Discretization::setBorderVelocityParalell(std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>) [30]
+[37]     0.0    0.00    0.00   12621         StaggeredGrid::vJEnd() const [37]
+                0.00    0.00   12621/50397168     Array2D::size() const [10]
+-----------------------------------------------
+                0.00    0.00    4000/11897928     PressureSolver::calculateRHS() [17]
+                0.00    0.00 2123880/11897928     PressureSolver::residuum() [3]
+                0.00    0.00 2124080/11897928     SOR::calculateP() [2]
+                0.00    0.00 7645968/11897928     Discretization::setPressureBCParalell() [6]
+[45]     0.0    0.00    0.00 11897928         StaggeredGrid::pIBegin() const [45]
+-----------------------------------------------
+                0.00    0.00     200/3186220     PressureSolver::calculateRHS() [17]
+                0.00    0.00  106194/3186220     PressureSolver::residuum() [3]
+                0.00    0.00  212588/3186220     SOR::calculateP() [2]
+                0.00    0.00 2867238/3186220     Discretization::setPressureBCParalell() [6]
+[46]     0.0    0.00    0.00 3186220         StaggeredGrid::pJBegin() const [46]
+-----------------------------------------------
+                0.00    0.00    2412/1370412     Discretization::updateBoundaryFGParalell() [28]
+                0.00    0.00   40000/1370412     DonorCell::calculation() [9]
+                0.00    0.00  120000/1370412     Discretization::computeDvDy2(int, int) const [33]
+                0.00    0.00  120000/1370412     Discretization::computeDvDx2(int, int) const [32]
+                0.00    0.00  288000/1370412     DonorCell::computeDuvDy(int, int) const [20]
+                0.00    0.00  320000/1370412     DonorCell::computeDuvDx(int, int) const [24]
+                0.00    0.00  480000/1370412     DonorCell::computeDv2Dy(int, int) const [29]
+[47]     0.0    0.00    0.00 1370412         StaggeredGrid::v(int, int) const [47]
+-----------------------------------------------
+                0.00    0.00   72000/304000      DonorCell::computeDu2Dx(int, int) const [19]
+                0.00    0.00   72000/304000      DonorCell::computeDuvDy(int, int) const [20]
+                0.00    0.00   80000/304000      DonorCell::computeDv2Dy(int, int) const [29]
+                0.00    0.00   80000/304000      DonorCell::computeDuvDx(int, int) const [24]
+[48]     0.0    0.00    0.00  304000         StaggeredGrid::abs(double) const [48]
+-----------------------------------------------
+                0.00    0.00     402/212790      Discretization::setBorderVelocityParalell(std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>) [30]
+                0.00    0.00  212388/212790      Discretization::setPressureBCParalell() [6]
+[49]     0.0    0.00    0.00  212790         Partitioning::nodeOffset() const [49]
+-----------------------------------------------
+                0.00    0.00    4000/128465      DonorCell::calculation() [9]
+                0.00    0.00    4000/128465      Discretization::updateVelocity() [27]
+                0.00    0.00    5226/128465      Discretization::setBorderVelocityParalell(std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>) [30]
+                0.00    0.00    9045/128465      Discretization::updateBoundaryFGParalell() [28]
+                0.00    0.00  106194/128465      Discretization::setPressureBCParalell() [6]
+[50]     0.0    0.00    0.00  128465         Partitioning::ownPartitionContainsLeftBoundary() const [50]
+-----------------------------------------------
+                0.00    0.00     200/116443      DonorCell::calculation() [9]
+                0.00    0.00     200/116443      Discretization::updateVelocity() [27]
+                0.00    0.00    4824/116443      Discretization::setBorderVelocityParalell(std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>) [30]
+                0.00    0.00    5025/116443      Discretization::updateBoundaryFGParalell() [28]
+                0.00    0.00  106194/116443      Discretization::setPressureBCParalell() [6]
+[51]     0.0    0.00    0.00  116443         Partitioning::ownPartitionContainsBottomBoundary() const [51]
+-----------------------------------------------
+                0.00    0.00  115545/115545      FieldVariable::absmax() [65]
+[52]     0.0    0.00    0.00  115545         Array2D::abs(int, int) const [52]
+-----------------------------------------------
+                0.00    0.00       1/110819      Discretization::Discretization(Settings, Partitioning) [95]
+                0.00    0.00       1/110819      StaggeredGrid::StaggeredGrid(Settings, Partitioning) [94]
+                0.00    0.00     201/110819      Discretization::updateBoundaryFGParalell() [28]
+                0.00    0.00    4422/110819      Discretization::setBorderVelocityParalell(std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>) [30]
+                0.00    0.00  106194/110819      Discretization::setPressureBCParalell() [6]
+[53]     0.0    0.00    0.00  110819         Partitioning::ownPartitionContainsRightBoundary() const [53]
+-----------------------------------------------
+                0.00    0.00       1/106598      Discretization::Discretization(Settings, Partitioning) [95]
+                0.00    0.00       1/106598      StaggeredGrid::StaggeredGrid(Settings, Partitioning) [94]
+                0.00    0.00     201/106598      Discretization::setBorderVelocityParalell(std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>) [30]
+                0.00    0.00     201/106598      Discretization::updateBoundaryFGParalell() [28]
+                0.00    0.00  106194/106598      Discretization::setPressureBCParalell() [6]
+[54]     0.0    0.00    0.00  106598         Partitioning::ownPartitionContainsTopBoundary() const [54]
+-----------------------------------------------
+                0.00    0.00     201/106395      Discretization::setBorderVelocityParalell(std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>) [30]
+                0.00    0.00  106194/106395      Discretization::setPressureBCParalell() [6]
+[55]     0.0    0.00    0.00  106395         Partitioning::coordiantesToRank(int, int) const [55]
+-----------------------------------------------
+                0.00    0.00     201/106395      Discretization::setBorderVelocityParalell(std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>) [30]
+                0.00    0.00  106194/106395      Discretization::setPressureBCParalell() [6]
+[56]     0.0    0.00    0.00  106395         Partitioning::first() const [56]
+-----------------------------------------------
+                0.00    0.00   80000/80000       PressureSolver::calculateRHS() [17]
+[57]     0.0    0.00    0.00   80000         Discretization::f(int, int) const [57]
+-----------------------------------------------
+                0.00    0.00   52897/52897       SOR::calculateP() [2]
+[58]     0.0    0.00    0.00   52897         StaggeredGrid::getMaxIteration() const [58]
+-----------------------------------------------
+                0.00    0.00     400/40400       Computation::runSimulation(Settings) [1]
+                0.00    0.00   40000/40400       PressureSolver::calculateRHS() [17]
+[59]     0.0    0.00    0.00   40400         Discretization::getDeltaT() const [59]
+-----------------------------------------------
+                0.00    0.00    4000/21467       DonorCell::calculation() [9]
+                0.00    0.00    4000/21467       Discretization::updateVelocity() [27]
+                0.00    0.00    4623/21467       Discretization::setBorderVelocityParalell(std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>) [30]
+                0.00    0.00    8844/21467       Discretization::updateBoundaryFGParalell() [28]
+[60]     0.0    0.00    0.00   21467         StaggeredGrid::uIBegin() const [60]
+-----------------------------------------------
+                0.00    0.00     201/13226       Discretization::updateBoundaryFGParalell() [28]
+                0.00    0.00    4000/13226       DonorCell::calculation() [9]
+                0.00    0.00    4000/13226       Discretization::updateVelocity() [27]
+                0.00    0.00    5025/13226       Discretization::setBorderVelocityParalell(std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>) [30]
+[61]     0.0    0.00    0.00   13226         StaggeredGrid::vIBegin() const [61]
+-----------------------------------------------
+                0.00    0.00     200/9847        DonorCell::calculation() [9]
+                0.00    0.00     200/9847        Discretization::updateVelocity() [27]
+                0.00    0.00    4623/9847        Discretization::setBorderVelocityParalell(std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>) [30]
+                0.00    0.00    4824/9847        Discretization::updateBoundaryFGParalell() [28]
+[62]     0.0    0.00    0.00    9847         StaggeredGrid::vJBegin() const [62]
+-----------------------------------------------
+                0.00    0.00     200/3415        DonorCell::calculation() [9]
+                0.00    0.00     200/3415        Discretization::updateVelocity() [27]
+                0.00    0.00     402/3415        Discretization::updateBoundaryFGParalell() [28]
+                0.00    0.00    2613/3415        Discretization::setBorderVelocityParalell(std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>) [30]
+[63]     0.0    0.00    0.00    3415         StaggeredGrid::uJBegin() const [63]
+-----------------------------------------------
+                0.00    0.00       2/416         Computation::runSimulation(Settings) [1]
+                0.00    0.00       6/416         Discretization::Discretization(Settings, Partitioning) [95]
+                0.00    0.00       8/416         StaggeredGrid::StaggeredGrid(Settings, Partitioning) [94]
+                0.00    0.00     400/416         SOR::calculateP() [2]
+[64]     0.0    0.00    0.00     416         Partitioning::nCellsGlobal() const [64]
+-----------------------------------------------
+                0.00    0.00     400/400         Discretization::updateDeltaT() [68]
+[65]     0.0    0.00    0.00     400         FieldVariable::absmax() [65]
+                0.00    0.00  115545/115545      Array2D::abs(int, int) const [52]
+-----------------------------------------------
+                0.00    0.00     400/400         SOR::calculateP() [2]
+[66]     0.0    0.00    0.00     400         StaggeredGrid::getepsilon() const [66]
+-----------------------------------------------
+                0.00    0.00     400/400         SOR::calculateP() [2]
+[67]     0.0    0.00    0.00     400         StaggeredGrid::nCellsGlobal() const [67]
+-----------------------------------------------
+                0.00    0.00     200/200         Computation::runSimulation(Settings) [1]
+[68]     0.0    0.00    0.00     200         Discretization::updateDeltaT() [68]
+                0.00    0.00     400/400         FieldVariable::absmax() [65]
+-----------------------------------------------
+                0.00    0.00     200/200         SOR::calculateP() [2]
+[69]     0.0    0.00    0.00     200         Discretization::getOmega() const [69]
+-----------------------------------------------
+                0.00    0.00       6/12          Discretization::Discretization(Settings, Partitioning) [95]
+                0.00    0.00       6/12          StaggeredGrid::StaggeredGrid(Settings, Partitioning) [94]
+[70]     0.0    0.00    0.00      12         Partitioning::nCells() const [70]
+-----------------------------------------------
+                0.00    0.00      10/10          Computation::runSimulation(Settings) [1]
+[71]     0.0    0.00    0.00      10         Discretization::setDeltaT(double) [71]
+-----------------------------------------------
+                0.00    0.00       3/6           Discretization::Discretization(Settings, Partitioning) [95]
+                0.00    0.00       3/6           StaggeredGrid::StaggeredGrid(Settings, Partitioning) [94]
+[72]     0.0    0.00    0.00       6         FieldVariable::FieldVariable(std::array<int, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>) [72]
+                0.00    0.00       6/6           Array2D::Array2D(std::array<int, 2ul>) [74]
+-----------------------------------------------
+                0.00    0.00       6/6           Discretization::~Discretization() [16]
+[73]     0.0    0.00    0.00       6         FieldVariable::~FieldVariable() [73]
+-----------------------------------------------
+                0.00    0.00       6/6           FieldVariable::FieldVariable(std::array<int, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>) [72]
+[74]     0.0    0.00    0.00       6         Array2D::Array2D(std::array<int, 2ul>) [74]
+-----------------------------------------------
+                0.00    0.00       2/2           Computation::runSimulation(Settings) [1]
+[75]     0.0    0.00    0.00       2         Partitioning::getSubGridSize() const [75]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [207]
+[76]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN11ComputationC2E8Settings [76]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [207]
+[77]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN11GaussSeidelC2ER14Discretization [77]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [207]
+[78]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN12OutputWriterC2ESt10shared_ptrI14DiscretizationERK12Partitioning [78]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [207]
+[79]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN12PartitioningC2E8Settings [79]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [207]
+[80]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN13FieldVariableC2ESt5arrayIiLm2EES0_IdLm2EES2_ [80]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [207]
+[81]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN13StaggeredGridC2E8Settings12Partitioning [81]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [207]
+[82]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN14DiscretizationC2E8Settings12Partitioning [82]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [207]
+[83]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN14PressureSolverC2ER14Discretization [83]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [207]
+[84]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN16OutputWriterText9writeFileEd [84]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [207]
+[85]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN18CentralDifferencesC2E8Settings12Partitioning [85]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [207]
+[86]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN20OutputWriterParaviewC2ESt10shared_ptrI14DiscretizationERK12Partitioning [86]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [207]
+[87]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN24OutputWriterTextParallel9writeFileEd [87]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [207]
+[88]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN28OutputWriterParaviewParallelC2ESt10shared_ptrI14DiscretizationERK12Partitioning [88]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [207]
+[89]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN3SORC2ER14Discretization [89]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [207]
+[90]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN8Settings12loadFromFileENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE [90]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [207]
+[91]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN9DonorCellC2E8Settings12Partitioning [91]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [207]
+[92]     0.0    0.00    0.00       1         _GLOBAL__sub_I_main [92]
+-----------------------------------------------
+                0.00    0.00       1/1           Computation::runSimulation(Settings) [1]
+[93]     0.0    0.00    0.00       1         Partitioning::Partitioning(Settings) [93]
+-----------------------------------------------
+                0.00    0.00       1/1           Discretization::Discretization(Settings, Partitioning) [95]
+[94]     0.0    0.00    0.00       1         StaggeredGrid::StaggeredGrid(Settings, Partitioning) [94]
+                0.00    0.00       8/416         Partitioning::nCellsGlobal() const [64]
+                0.00    0.00       6/12          Partitioning::nCells() const [70]
+                0.00    0.00       3/6           FieldVariable::FieldVariable(std::array<int, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>) [72]
+                0.00    0.00       1/110819      Partitioning::ownPartitionContainsRightBoundary() const [53]
+                0.00    0.00       1/106598      Partitioning::ownPartitionContainsTopBoundary() const [54]
+-----------------------------------------------
+                0.00    0.00       1/1           DonorCell::DonorCell(Settings, Partitioning) [100]
+[95]     0.0    0.00    0.00       1         Discretization::Discretization(Settings, Partitioning) [95]
+                0.00    0.00       6/416         Partitioning::nCellsGlobal() const [64]
+                0.00    0.00       6/12          Partitioning::nCells() const [70]
+                0.00    0.00       3/6           FieldVariable::FieldVariable(std::array<int, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>) [72]
+                0.00    0.00       1/1           StaggeredGrid::StaggeredGrid(Settings, Partitioning) [94]
+                0.00    0.00       1/110819      Partitioning::ownPartitionContainsRightBoundary() const [53]
+                0.00    0.00       1/106598      Partitioning::ownPartitionContainsTopBoundary() const [54]
+-----------------------------------------------
+                0.00    0.00       1/1           SOR::SOR(Discretization&) [98]
+[96]     0.0    0.00    0.00       1         PressureSolver::PressureSolver(Discretization&) [96]
+-----------------------------------------------
+                0.00    0.00       1/1           Computation::runSimulation(Settings) [1]
+[97]     0.0    0.00    0.00       1         PressureSolver::~PressureSolver() [97]
+-----------------------------------------------
+                0.00    0.00       1/1           Computation::runSimulation(Settings) [1]
+[98]     0.0    0.00    0.00       1         SOR::SOR(Discretization&) [98]
+                0.00    0.00       1/1           PressureSolver::PressureSolver(Discretization&) [96]
+-----------------------------------------------
+                0.00    0.00       1/1           Computation::runSimulation(Settings) [1]
+[99]     0.0    0.00    0.00       1         SOR::~SOR() [99]
+-----------------------------------------------
+                0.00    0.00       1/1           Computation::runSimulation(Settings) [1]
+[100]    0.0    0.00    0.00       1         DonorCell::DonorCell(Settings, Partitioning) [100]
+                0.00    0.00       1/1           Discretization::Discretization(Settings, Partitioning) [95]
+-----------------------------------------------
+                0.00    0.00       1/1           Computation::runSimulation(Settings) [1]
+[101]    0.0    0.00    0.00       1         DonorCell::~DonorCell() [101]
+-----------------------------------------------
+                0.00    0.00       1/1           frame_dummy [42]
+[102]    0.0    0.00    0.00       1         std::ctype<char>::do_widen(char) const [102]
+-----------------------------------------------
+                0.00    0.00       1/1           Computation::runSimulation(Settings) [1]
+[103]    0.0    0.00    0.00       1         std::_Sp_counted_ptr_inplace<SOR, std::allocator<SOR>, (__gnu_cxx::_Lock_policy)2>::_M_destroy() [103]
+-----------------------------------------------
+                0.00    0.00       1/1           Computation::runSimulation(Settings) [1]
+[104]    0.0    0.00    0.00       1         std::_Sp_counted_ptr_inplace<SOR, std::allocator<SOR>, (__gnu_cxx::_Lock_policy)2>::_M_dispose() [104]
+-----------------------------------------------
+                0.00    0.00       1/1           Computation::runSimulation(Settings) [1]
+[105]    0.0    0.00    0.00       1         std::_Sp_counted_ptr_inplace<DonorCell, std::allocator<DonorCell>, (__gnu_cxx::_Lock_policy)2>::_M_destroy() [105]
+-----------------------------------------------
+                0.00    0.00       1/1           Computation::runSimulation(Settings) [1]
+[106]    0.0    0.00    0.00       1         std::_Sp_counted_ptr_inplace<DonorCell, std::allocator<DonorCell>, (__gnu_cxx::_Lock_policy)2>::_M_dispose() [106]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+  [76] _GLOBAL__sub_I__ZN11ComputationC2E8Settings (computation.cpp) [17] PressureSolver::calculateRHS() [23] StaggeredGrid::pJEnd() const
+  [77] _GLOBAL__sub_I__ZN11GaussSeidelC2ER14Discretization (gaussseidel.cpp) [3] PressureSolver::residuum() [35] StaggeredGrid::uIEnd() const
+  [78] _GLOBAL__sub_I__ZN12OutputWriterC2ESt10shared_ptrI14DiscretizationERK12Partitioning (output_writer.cpp) [96] PressureSolver::PressureSolver(Discretization&) [36] StaggeredGrid::uJEnd() const
+  [79] _GLOBAL__sub_I__ZN12PartitioningC2E8Settings (partitioning.cpp) [97] PressureSolver::~PressureSolver() [34] StaggeredGrid::vIEnd() const
+  [80] _GLOBAL__sub_I__ZN13FieldVariableC2ESt5arrayIiLm2EES0_IdLm2EES2_ (fieldvariable.cpp) [2] SOR::calculateP() [37] StaggeredGrid::vJEnd() const
+  [81] _GLOBAL__sub_I__ZN13StaggeredGridC2E8Settings12Partitioning (staggeredgrid.cpp) [98] SOR::SOR(Discretization&) [45] StaggeredGrid::pIBegin() const
+  [82] _GLOBAL__sub_I__ZN14DiscretizationC2E8Settings12Partitioning (discretization.cpp) [99] SOR::~SOR() [46] StaggeredGrid::pJBegin() const
+  [83] _GLOBAL__sub_I__ZN14PressureSolverC2ER14Discretization (pressuresolver.cpp) [74] Array2D::Array2D(std::array<int, 2ul>) [60] StaggeredGrid::uIBegin() const
+  [84] _GLOBAL__sub_I__ZN16OutputWriterText9writeFileEd (output_writer_text.cpp) [15] Array2D::~Array2D() [63] StaggeredGrid::uJBegin() const
+  [85] _GLOBAL__sub_I__ZN18CentralDifferencesC2E8Settings12Partitioning (centraldifferences.cpp) [7] Array2D::operator()(int, int) [61] StaggeredGrid::vIBegin() const
+  [86] _GLOBAL__sub_I__ZN20OutputWriterParaviewC2ESt10shared_ptrI14DiscretizationERK12Partitioning (output_writer_paraview.cpp) [9] DonorCell::calculation() [62] StaggeredGrid::vJBegin() const
+  [87] _GLOBAL__sub_I__ZN24OutputWriterTextParallel9writeFileEd (output_writer_text_parallel.cpp) [100] DonorCell::DonorCell(Settings, Partitioning) [25] Discretization::computeDuDx2(int, int) const
+  [88] _GLOBAL__sub_I__ZN28OutputWriterParaviewParallelC2ESt10shared_ptrI14DiscretizationERK12Partitioning (output_writer_paraview_parallel.cpp) [101] DonorCell::~DonorCell() [26] Discretization::computeDuDy2(int, int) const
+  [89] _GLOBAL__sub_I__ZN3SORC2ER14Discretization (sor.cpp) [49] Partitioning::nodeOffset() const [32] Discretization::computeDvDx2(int, int) const
+  [90] _GLOBAL__sub_I__ZN8Settings12loadFromFileENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE (settings.cpp) [64] Partitioning::nCellsGlobal() const [33] Discretization::computeDvDy2(int, int) const
+  [91] _GLOBAL__sub_I__ZN9DonorCellC2E8Settings12Partitioning (donorcell.cpp) [75] Partitioning::getSubGridSize() const [57] Discretization::f(int, int) const
+  [92] _GLOBAL__sub_I_main (main.cpp) [55] Partitioning::coordiantesToRank(int, int) const [18] Discretization::g(int, int) const
+  [22] Partitioning::setNCells() [54] Partitioning::ownPartitionContainsTopBoundary() const [21] Discretization::rhs(int, int) const
+  [93] Partitioning::Partitioning(Settings) [50] Partitioning::ownPartitionContainsLeftBoundary() const [69] Discretization::getOmega() const
+  [65] FieldVariable::absmax() [53] Partitioning::ownPartitionContainsRightBoundary() const [59] Discretization::getDeltaT() const
+  [72] FieldVariable::FieldVariable(std::array<int, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>) [51] Partitioning::ownPartitionContainsBottomBoundary() const [52] Array2D::abs(int, int) const
+  [73] FieldVariable::~FieldVariable() [56] Partitioning::first() const [10] Array2D::size() const
+   [8] StaggeredGrid::setP(int, int, double) [70] Partitioning::nCells() const [5] Array2D::operator()(int, int) const
+  [94] StaggeredGrid::StaggeredGrid(Settings, Partitioning) [66] StaggeredGrid::getepsilon() const [19] DonorCell::computeDu2Dx(int, int) const
+  [68] Discretization::updateDeltaT() [67] StaggeredGrid::nCellsGlobal() const [24] DonorCell::computeDuvDx(int, int) const
+  [27] Discretization::updateVelocity() [58] StaggeredGrid::getMaxIteration() const [20] DonorCell::computeDuvDy(int, int) const
+   [6] Discretization::setPressureBCParalell() [4] StaggeredGrid::p(int, int) const [29] DonorCell::computeDv2Dy(int, int) const
+  [28] Discretization::updateBoundaryFGParalell() [11] StaggeredGrid::u(int, int) const [102] std::ctype<char>::do_widen(char) const
+  [30] Discretization::setBorderVelocityParalell(std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>, std::array<double, 2ul>) [47] StaggeredGrid::v(int, int) const [103] std::_Sp_counted_ptr_inplace<SOR, std::allocator<SOR>, (__gnu_cxx::_Lock_policy)2>::_M_destroy()
+  [31] Discretization::setRHS(int, int, double) [13] StaggeredGrid::dx() const [104] std::_Sp_counted_ptr_inplace<SOR, std::allocator<SOR>, (__gnu_cxx::_Lock_policy)2>::_M_dispose()
+  [71] Discretization::setDeltaT(double) [14] StaggeredGrid::dy() const [105] std::_Sp_counted_ptr_inplace<DonorCell, std::allocator<DonorCell>, (__gnu_cxx::_Lock_policy)2>::_M_destroy()
+  [95] Discretization::Discretization(Settings, Partitioning) [48] StaggeredGrid::abs(double) const [106] std::_Sp_counted_ptr_inplace<DonorCell, std::allocator<DonorCell>, (__gnu_cxx::_Lock_policy)2>::_M_dispose()
+  [16] Discretization::~Discretization() [12] StaggeredGrid::pIEnd() const

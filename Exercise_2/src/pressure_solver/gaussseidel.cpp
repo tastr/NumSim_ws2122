@@ -104,7 +104,7 @@ double GaussSeidel::calculateP()
        
       //resterm=(residuum()*residuum())/Nnumber;
 
-    resterm_loc=(residuum()*residuum())/Nnumber;
+    resterm_loc=residuum()/Nnumber;
      
     MPI_Allreduce(&resterm_loc,&resterm_glob,1,MPI_DOUBLE,MPI_SUM,MPI_COMM_WORLD);
     resterm=resterm_glob;

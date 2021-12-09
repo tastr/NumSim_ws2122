@@ -112,7 +112,7 @@ double SOR::calculateP()
        
       //resterm=(residuum()*residuum())/Nnumber;
 
-    resterm_loc=(residuum()*residuum())/Nnumber;
+    resterm_loc=residuum()/Nnumber;
 
     time_communication_start=MPI_Wtime(); 
     MPI_Allreduce(&resterm_loc,&resterm_glob,1,MPI_DOUBLE,MPI_SUM,MPI_COMM_WORLD);
@@ -121,7 +121,7 @@ double SOR::calculateP()
 
 
     }while(resterm > epsilonquad  && safe<discretization_.getMaxIteration());
-    //std::cout<< "Residuum " << residuum() << " Safe "<< safe <<std::endl;
+    // std::cout<< "Residuum " << residuum() << " Safe "<< safe <<std::endl;
     //discretization_.updatedPressureBC();    
     // printf("Rank %2d Residuum %f Safe %d \n",discretization_.getOwnRankNo(),residuum(),safe);
 

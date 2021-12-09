@@ -54,7 +54,7 @@ if (settings.pressureSolver == "SOR")
 
 
 // OutputWriterTextParallel myOutputWriterText(myDiscretization, mypartitioning);
-// OutputWriterParaviewParallel myOutputWriterParaview(myDiscretization, mypartitioning);
+OutputWriterParaviewParallel myOutputWriterParaview(myDiscretization, mypartitioning);
 
 int Iterationszahl=0;
 // initialize time
@@ -111,7 +111,7 @@ while (current_time<settings.endTime)
 
   if (make_output)
   {
-    // myOutputWriterParaview.writeFile(current_time);
+    myOutputWriterParaview.writeFile(current_time);
     // myOutputWriterText.writeFile(current_time);
 
     make_output=0;

@@ -12,7 +12,7 @@ SOR::~SOR()
 
 
 
-void SOR::calculateP()
+double SOR::calculateP()
     {
     double deltax_quad = discretization_.dx() * discretization_.dx();
     double deltay_quad = discretization_.dy() * discretization_.dy();
@@ -35,6 +35,10 @@ void SOR::calculateP()
     
     double resterm_glob;
     double resterm_loc;
+
+    double time_communication_start = 0;
+    double time_communication = 0;
+
     
     
     do
@@ -65,8 +69,10 @@ void SOR::calculateP()
               }  
                   
         }
+
+      time_communication_start=MPI_Wtime();  
       discretization_.setPressureBCParalell(); // halbe Iteration vorbei,update pressureboundaries
-      
+      time_communication = time_communication + MPI_Wtime() - time_communication_start;
       // Red Part
       //Erste Schleife geht ueber alle ungeraden Spalten und geraden Zeilen
       //Zweite Schleife ueber alle ungeraden Zeilen und geraden Spalten
@@ -93,8 +99,10 @@ void SOR::calculateP()
                }  
                   
         }
+
+      time_communication_start=MPI_Wtime();    
       discretization_.setPressureBCParalell(); // halbe Iteration vorbei,update pressureboundaries
-      
+      time_communication = time_communication + MPI_Wtime() - time_communication_start;
 
 
                 
@@ -105,16 +113,23 @@ void SOR::calculateP()
       //resterm=(residuum()*residuum())/Nnumber;
 
     resterm_loc=(residuum()*residuum())/Nnumber;
-     
+
+    time_communication_start=MPI_Wtime(); 
     MPI_Allreduce(&resterm_loc,&resterm_glob,1,MPI_DOUBLE,MPI_SUM,MPI_COMM_WORLD);
     resterm=resterm_glob;
+    time_communication = time_communication + MPI_Wtime() - time_communication_start;
 
 
     }while(resterm > epsilonquad  && safe<discretization_.getMaxIteration());
     //std::cout<< "Residuum " << residuum() << " Safe "<< safe <<std::endl;
     //discretization_.updatedPressureBC();    
     // printf("Rank %2d Residuum %f Safe %d \n",discretization_.getOwnRankNo(),residuum(),safe);
-    }
+
+return time_communication;
+
+}
+
+
 
 
 

@@ -16,7 +16,7 @@ public:
       GaussSeidel(Discretization& discretization_);
       ~GaussSeidel();
       //FieldVariable calculateP();
-      virtual void calculateP();
+      virtual double calculateP();
      
      
     

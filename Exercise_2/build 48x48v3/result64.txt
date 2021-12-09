@@ -446,3 +446,135 @@ Settings:
   dirichletBC: bottom: (0,0), top: (1,0), left: (0,0), right: (0,0)
   useDonorCell: true, alpha: 0.5
   pressureSolver: SOR, omega: 1.6, epsilon: 1e-05, maximumNumberOfIterations: 10000
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+Zellen Global  48 48 
+Gridsize 8 8 
+
+real	2m11.853s
+user	0m0.085s
+sys	0m0.196s

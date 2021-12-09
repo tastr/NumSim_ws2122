@@ -16,7 +16,7 @@ public:
       SOR(Discretization& discretization_);
       ~SOR();
       //FieldVariable calculateP();
-      virtual void calculateP();
+      virtual double calculateP();
 
      
     

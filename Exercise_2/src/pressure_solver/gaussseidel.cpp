@@ -11,7 +11,7 @@ GaussSeidel::~GaussSeidel()
 {
 }
 
-void GaussSeidel::calculateP()
+double GaussSeidel::calculateP()
         {//FieldVariable p=discretization_.p();
 
     double deltax_quad = discretization_.dx() * discretization_.dx();
@@ -27,10 +27,13 @@ void GaussSeidel::calculateP()
 
     double epsilonquad=discretization_.getepsilon() *discretization_.getepsilon() ;   
     double resterm;
-    int Nnumber= (discretization_.nCells()[0]*discretization_.nCells()[1]);
+    int Nnumber= (discretization_.nCellsGlobal()[0]*discretization_.nCellsGlobal()[1]);
 
     double resterm_glob;
     double resterm_loc;
+
+    double time_communication_start = 0;
+    double time_communication = 0;
     
     do
     {  
@@ -59,7 +62,9 @@ void GaussSeidel::calculateP()
               }  
                   
         }
+      time_communication_start=MPI_Wtime();  
       discretization_.setPressureBCParalell(); // halbe Iteration vorbei,update pressureboundaries
+      time_communication = time_communication + MPI_Wtime() - time_communication_start;
       
       // Red Part
       //Erste Schleife geht ueber alle ungeraden Spalten und geraden Zeilen
@@ -86,7 +91,9 @@ void GaussSeidel::calculateP()
               }  
                   
         }
+      time_communication_start=MPI_Wtime();    
       discretization_.setPressureBCParalell(); // halbe Iteration vorbei,update pressureboundaries
+      time_communication = time_communication + MPI_Wtime() - time_communication_start;
       
 
 
@@ -99,7 +106,7 @@ void GaussSeidel::calculateP()
 
     resterm_loc=(residuum()*residuum())/Nnumber;
      
-    MPI_Allreduce(&resterm_loc,&resterm_glob,1,MPI_DOUBLE,MPI_MAX,MPI_COMM_WORLD);
+    MPI_Allreduce(&resterm_loc,&resterm_glob,1,MPI_DOUBLE,MPI_SUM,MPI_COMM_WORLD);
     resterm=resterm_glob;
 
 
@@ -107,7 +114,10 @@ void GaussSeidel::calculateP()
     //std::cout<< "Residuum " << residuum() << " Safe "<< safe <<std::endl;
     printf("Rank %d Residuum %f Safe %d \n",discretization_.getOwnRankNo(),residuum(),safe);
     //discretization_.updatedPressureBC();    
-    }
+
+return time_communication;
+
+}
 
 
 

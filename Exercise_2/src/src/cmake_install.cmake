@@ -37,11 +37,6 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-# Set default install directory permissions.
-if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/usr/bin/objdump")
-endif()
-
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   if(EXISTS "$ENV{DESTDIR}/home/goeseldd/NumSim_ws2122/Exercise_2/src/../build/numsim_parallel" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}/home/goeseldd/NumSim_ws2122/Exercise_2/src/../build/numsim_parallel")
@@ -60,6 +55,10 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 file(INSTALL DESTINATION "/home/goeseldd/NumSim_ws2122/Exercise_2/src/../build" TYPE EXECUTABLE FILES "/home/goeseldd/NumSim_ws2122/Exercise_2/src/src/numsim_parallel")
   if(EXISTS "$ENV{DESTDIR}/home/goeseldd/NumSim_ws2122/Exercise_2/src/../build/numsim_parallel" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}/home/goeseldd/NumSim_ws2122/Exercise_2/src/../build/numsim_parallel")
+    file(RPATH_CHANGE
+         FILE "$ENV{DESTDIR}/home/goeseldd/NumSim_ws2122/Exercise_2/src/../build/numsim_parallel"
+         OLD_RPATH "/usr/local.nfs/sgs/software/vtk/vtk-9.0.1/install/lib:/import/sgs.local/software/openmpi/3.1.6-gcc10.2/lib:"
+         NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/goeseldd/NumSim_ws2122/Exercise_2/src/../build/numsim_parallel")
     endif()

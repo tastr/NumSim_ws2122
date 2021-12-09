@@ -1,0 +1,10 @@
+Filename: "../parameters.txt"
+Settings: 
+  physicalSize: 2 x 2, nCells: 48 x 48
+  endTime: 10 s, re: 2000, g: (0,0), tau: 0.5, maximum dt: 0.5
+  dirichletBC: bottom: (0,0), top: (1,0), left: (0,0), right: (0,0)
+  useDonorCell: true, alpha: 0.5
+  pressureSolver: SOR, omega: 1.6, epsilon: 1e-05, maximumNumberOfIterations: 10000
+slurmstepd-sgscl1n1: error: *** JOB 2621 ON sgscl1n1 CANCELLED AT 2021-12-09T09:00:16 DUE TO TIME LIMIT ***
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd-sgscl1n1: error: *** STEP 2621.0 ON sgscl1n1 CANCELLED AT 2021-12-09T09:00:16 DUE TO TIME LIMIT ***

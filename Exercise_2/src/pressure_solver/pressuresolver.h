@@ -17,7 +17,7 @@ public:
        double abs_(double number);
        void setPressureBoundaries();
        void calculateRHS();
-       virtual void calculateP();
+       virtual double calculateP() = 0;
        
        double residuum();
 };

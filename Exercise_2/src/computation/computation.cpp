@@ -29,8 +29,8 @@ MPI_Init(NULL, NULL);
 
 std::shared_ptr<Discretization> myDiscretization;
 Partitioning mypartitioning(settings);
-printf("Zellen Global  %d %d \n",mypartitioning.nCellsGlobal()[0],mypartitioning.nCellsGlobal()[1]);
-printf("Gridsize %d %d \n",mypartitioning.getSubGridSize()[0],mypartitioning.getSubGridSize()[1]);
+printf("Rank: %d. Zellen Global:  %d %d. Zellen lokal: %d %d. \n", mypartitioning.ownRankNo(),mypartitioning.nCellsGlobal()[0],mypartitioning.nCellsGlobal()[1],mypartitioning.nCells()[0],mypartitioning.nCells()[1]);
+// printf("Gridsize %d %d \n",mypartitioning.getSubGridSize()[0],mypartitioning.getSubGridSize()[1]);
 
 //settings.nCells=mypartitioning.nCells();
 
@@ -61,6 +61,15 @@ int Iterationszahl=0;
 double current_time=0;
  //write after initialization
 
+ // profiler
+ double time_computation = 0;
+ double time_computation_start = 0;
+ double time_communication = 0;
+ double delta_communication_pressure = 0;
+ double time_communication_pressure = 0;
+ double time_communication_start = 0;
+
+
 myDiscretization->setBorderVelocityParalell(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
 myDiscretization->updateBoundaryFGParalell();
 // myOutputWriterParaview.writeFile(current_time);
@@ -71,6 +80,7 @@ int make_output = 0;
 
 while (current_time<settings.endTime)
 {
+
   myDiscretization->updateDeltaT();
   
 
@@ -82,13 +92,21 @@ while (current_time<settings.endTime)
   }
   
   current_time+=myDiscretization->getDeltaT();
+  // start stopping the time
+  time_computation_start=MPI_Wtime();
   myDiscretization->calculation();
   myPressureSolver->calculateRHS();
-  myPressureSolver->calculateP();
+  delta_communication_pressure = myPressureSolver->calculateP();
   myDiscretization->updateVelocity();
+
+  time_computation = time_computation+MPI_Wtime()-time_computation_start - delta_communication_pressure;
+
+  time_communication_start = MPI_Wtime();
   //myDiscretization->setBorderVelocity(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
   myDiscretization->setBorderVelocityParalell(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
   myDiscretization->updateBoundaryFGParalell();
+  time_communication = time_communication+MPI_Wtime()-time_communication_start;
+  time_communication_pressure += delta_communication_pressure;
   
 
   if (make_output)
@@ -107,7 +125,18 @@ Iterationszahl=Iterationszahl+1;
 
 time1=clock()-tstart;
 time1=time1/CLOCKS_PER_SEC;
-//printf("Rank %d Iterationszahl %d Laufzeit in s %f\n",mypartitioning.ownRankNo(),Iterationszahl,time1);
+printf("Rank: %d. Iterationszahl: %d. Laufzeit in s %f. Zeit für Berechnung: %f. Zeit für Kommunikation (ohne Druck): %f. Zeit für Druck kommuikation: %f.\n",mypartitioning.ownRankNo(),Iterationszahl,time1, time_computation,time_communication, time_communication_pressure);
+
+MPI_Allreduce(&time_computation,&time_computation,1,MPI_DOUBLE,MPI_MAX,MPI_COMM_WORLD);
+MPI_Allreduce(&time_communication,&time_communication,1,MPI_DOUBLE,MPI_MAX,MPI_COMM_WORLD);
+MPI_Allreduce(&time_communication_pressure,&time_communication_pressure,1,MPI_DOUBLE,MPI_MAX,MPI_COMM_WORLD);
+
+if (mypartitioning.ownRankNo()==0)
+{
+  printf("!!!Maximum aller Ranks: Zeit für Berechnung: %f. Zeit für Kommunikation (ohne Druck): %f. Zeit für Druck kommuikation: %f.\n", time_computation,time_communication, time_communication_pressure);
+} 
+
+
 
 //MPI_Finalize();
 

@@ -1,0 +1,14 @@
+Filename: "../parameters.txt"
+Settings: 
+  physicalSize: 2 x 2, nCells: 64 x 128
+  endTime: 10 s, re: 2000, g: (0,0), tau: 0.5, maximum dt: 0.5
+  dirichletBC: bottom: (0,0), top: (1,0), left: (0,0), right: (0,0)
+  useDonorCell: true, alpha: 0.5
+  pressureSolver: SOR, omega: 1.6, epsilon: 1e-05, maximumNumberOfIterations: 10000
+Rank: 0. Zellen Global:  64 128. Zellen lokal: 64 128. 
+Rank: 0. Iterationszahl: 1280. Laufzeit in s 461.515287. Zeit für Berechnung: 454.046337. Zeit für Kommunikation (ohne Druck): 0.010444. Zeit für Druck kommuikation: 6.818547.
+!!!Maximum aller Ranks: Laufzeit: 461.515287 Zeit für Berechnung: 454.046337. Zeit für Kommunikation (ohne Druck): 0.010444. Zeit für Druck kommuikation: 6.818547.
+
+real	7m42.605s
+user	0m0.017s
+sys	0m0.019s

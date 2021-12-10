@@ -1,0 +1,41 @@
+Filename: "../parameters.txt"
+Filename: "../parameters.txt"
+Filename: "../parameters.txt"
+Filename: "../parameters.txt"
+Settings: 
+Settings: 
+  physicalSize: 2 x 2, nCells: 64 x 128
+  endTime: 10 s, re: 2000, g: (0,0), tau: 0.5, maximum dt: 0.5
+  dirichletBC: bottom: (0,0), top: (1,0), left: (0,0), right: (0,0)
+  useDonorCell: true, alpha: 0.5
+  pressureSolver: SOR, omega: 1.6, epsilon: 1e-05, maximumNumberOfIterations: 10000
+Settings: 
+  physicalSize: 2 x 2, nCells: 64 x 128
+  endTime: 10 s, re: 2000, g: (0,0), tau: 0.5, maximum dt: 0.5
+  dirichletBC: bottom: (0,0), top: (1,0), left: (0,0), right: (0,0)
+  useDonorCell: true, alpha: 0.5
+  pressureSolver: SOR, omega: 1.6, epsilon: 1e-05, maximumNumberOfIterations: 10000
+  physicalSize: 2 x 2, nCells: 64 x 128
+  endTime: 10 s, re: 2000, g: (0,0), tau: 0.5, maximum dt: 0.5
+  dirichletBC: bottom: (0,0), top: (1,0), left: (0,0), right: (0,0)
+  useDonorCell: true, alpha: 0.5
+  pressureSolver: SOR, omega: 1.6, epsilon: 1e-05, maximumNumberOfIterations: 10000
+Settings: 
+  physicalSize: 2 x 2, nCells: 64 x 128
+  endTime: 10 s, re: 2000, g: (0,0), tau: 0.5, maximum dt: 0.5
+  dirichletBC: bottom: (0,0), top: (1,0), left: (0,0), right: (0,0)
+  useDonorCell: true, alpha: 0.5
+  pressureSolver: SOR, omega: 1.6, epsilon: 1e-05, maximumNumberOfIterations: 10000
+Rank: 1. Zellen Global:  64 128. Zellen lokal: 64 32. 
+Rank: 1. Iterationszahl: 1280. Laufzeit in s 136.597756. Zeit für Berechnung: 120.455464. Zeit für Kommunikation (ohne Druck): 0.013131. Zeit für Druck kommuikation: 15.802846.
+Rank: 2. Zellen Global:  64 128. Zellen lokal: 64 32. 
+Rank: 2. Iterationszahl: 1280. Laufzeit in s 136.602108. Zeit für Berechnung: 120.344501. Zeit für Kommunikation (ohne Druck): 0.018044. Zeit für Druck kommuikation: 15.914591.
+Rank: 0. Zellen Global:  64 128. Zellen lokal: 64 32. 
+Rank: 0. Iterationszahl: 1280. Laufzeit in s 136.498269. Zeit für Berechnung: 120.260977. Zeit für Kommunikation (ohne Druck): 0.010200. Zeit für Druck kommuikation: 15.996653.
+!!!Maximum aller Ranks: Laufzeit: 136.602108 Zeit für Berechnung: 120.455464. Zeit für Kommunikation (ohne Druck): 0.019663. Zeit für Druck kommuikation: 15.996653.
+Rank: 3. Zellen Global:  64 128. Zellen lokal: 64 32. 
+Rank: 3. Iterationszahl: 1280. Laufzeit in s 136.591898. Zeit für Berechnung: 120.307972. Zeit für Kommunikation (ohne Druck): 0.019663. Zeit für Druck kommuikation: 15.951317.
+
+real	2m19.681s
+user	0m0.015s
+sys	0m0.023s

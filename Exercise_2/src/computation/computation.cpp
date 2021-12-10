@@ -130,10 +130,11 @@ printf("Rank: %d. Iterationszahl: %d. Laufzeit in s %f. Zeit für Berechnung: %f
 MPI_Allreduce(&time_computation,&time_computation,1,MPI_DOUBLE,MPI_MAX,MPI_COMM_WORLD);
 MPI_Allreduce(&time_communication,&time_communication,1,MPI_DOUBLE,MPI_MAX,MPI_COMM_WORLD);
 MPI_Allreduce(&time_communication_pressure,&time_communication_pressure,1,MPI_DOUBLE,MPI_MAX,MPI_COMM_WORLD);
+MPI_Allreduce(&time1,&time1,1,MPI_DOUBLE,MPI_MAX,MPI_COMM_WORLD);
 
 if (mypartitioning.ownRankNo()==0)
 {
-  printf("!!!Maximum aller Ranks: Zeit für Berechnung: %f. Zeit für Kommunikation (ohne Druck): %f. Zeit für Druck kommuikation: %f.\n", time_computation,time_communication, time_communication_pressure);
+  printf("!!!Maximum aller Ranks: Laufzeit: %f Zeit für Berechnung: %f. Zeit für Kommunikation (ohne Druck): %f. Zeit für Druck kommuikation: %f.\n", time1, time_computation,time_communication, time_communication_pressure);
 } 
 
 

@@ -1,0 +1,149 @@
+Filename: "../parameters.txt"
+Filename: "../parameters.txt"
+Settings: 
+  physicalSize: 2 x 2, nCells: 64 x 128
+  endTime: 10 s, re: 2000, g: (0,0), tau: 0.5, maximum dt: 0.5
+  dirichletBC: bottom: (0,0), top: (1,0), left: (0,0), right: (0,0)
+  useDonorCell: true, alpha: 0.5
+  pressureSolver: SOR, omega: 1.6, epsilon: 1e-05, maximumNumberOfIterations: 10000
+Settings: 
+  physicalSize: 2 x 2, nCells: 64 x 128
+  endTime: 10 s, re: 2000, g: (0,0), tau: 0.5, maximum dt: 0.5
+  dirichletBC: bottom: (0,0), top: (1,0), left: (0,0), right: (0,0)
+  useDonorCell: true, alpha: 0.5
+  pressureSolver: SOR, omega: 1.6, epsilon: 1e-05, maximumNumberOfIterations: 10000
+Filename: "../parameters.txt"
+Settings: 
+  physicalSize: 2 x 2, nCells: 64 x 128
+  endTime: 10 s, re: 2000, g: (0,0), tau: 0.5, maximum dt: 0.5
+  dirichletBC: bottom: (0,0), top: (1,0), left: (0,0), right: (0,0)
+  useDonorCell: true, alpha: 0.5
+  pressureSolver: SOR, omega: 1.6, epsilon: 1e-05, maximumNumberOfIterations: 10000
+Filename: "../parameters.txt"
+Settings: 
+  physicalSize: 2 x 2, nCells: 64 x 128
+  endTime: 10 s, re: 2000, g: (0,0), tau: 0.5, maximum dt: 0.5
+  dirichletBC: bottom: (0,0), top: (1,0), left: (0,0), right: (0,0)
+  useDonorCell: true, alpha: 0.5
+  pressureSolver: SOR, omega: 1.6, epsilon: 1e-05, maximumNumberOfIterations: 10000
+Filename: "../parameters.txt"
+Filename: "../parameters.txt"
+Settings: 
+Settings: 
+  physicalSize: 2 x 2, nCells: 64 x 128
+  endTime: 10 s, re: 2000, g: (0,0), tau: 0.5, maximum dt: 0.5
+  physicalSize: 2 x 2, nCells: 64 x 128
+  endTime: 10 s, re: 2000, g: (0,0), tau: 0.5, maximum dt: 0.5
+  dirichletBC: bottom: (0,0), top: (1,0), left: (0,0), right: (0,0)
+  useDonorCell: true, alpha: 0.5
+  pressureSolver: SOR, omega: 1.6, epsilon: 1e-05, maximumNumberOfIterations: 10000
+  dirichletBC: bottom: (0,0), top: (1,0), left: (0,0), right: (0,0)
+  useDonorCell: true, alpha: 0.5
+  pressureSolver: SOR, omega: 1.6, epsilon: 1e-05, maximumNumberOfIterations: 10000
+Filename: "../parameters.txt"
+Filename: "../parameters.txt"
+Settings: 
+  physicalSize: 2 x 2, nCells: 64 x 128
+  endTime: 10 s, re: 2000, g: (0,0), tau: 0.5, maximum dt: 0.5
+  dirichletBC: bottom: (0,0), top: (1,0), left: (0,0), right: (0,0)
+  useDonorCell: true, alpha: 0.5
+  pressureSolver: SOR, omega: 1.6, epsilon: 1e-05, maximumNumberOfIterations: 10000
+Settings: 
+  physicalSize: 2 x 2, nCells: 64 x 128
+  endTime: 10 s, re: 2000, g: (0,0), tau: 0.5, maximum dt: 0.5
+  dirichletBC: bottom: (0,0), top: (1,0), left: (0,0), right: (0,0)
+  useDonorCell: true, alpha: 0.5
+  pressureSolver: SOR, omega: 1.6, epsilon: 1e-05, maximumNumberOfIterations: 10000
+Filename: "../parameters.txt"
+Filename: "../parameters.txt"
+Filename: "../parameters.txt"
+Filename: "../parameters.txt"
+Settings: 
+  physicalSize: 2 x 2, nCells: 64 x 128
+  endTime: 10 s, re: 2000, g: (0,0), tau: 0.5, maximum dt: 0.5
+  dirichletBC: bottom: (0,0), top: (1,0), left: (0,0), right: (0,0)
+  useDonorCell: true, alpha: 0.5
+  pressureSolver: SOR, omega: 1.6, epsilon: 1e-05, maximumNumberOfIterations: 10000
+Settings: 
+Settings: 
+  physicalSize: 2 x 2, nCells: 64 x 128
+  endTime: 10 s, re: 2000, g: (0,0), tau: 0.5, maximum dt: 0.5
+  physicalSize: 2 x 2, nCells: 64 x 128
+  endTime: 10 s, re: 2000, g: (0,0), tau: 0.5, maximum dt: 0.5
+  dirichletBC: bottom: (0,0), top: (1,0), left: (0,0), right: (0,0)
+  useDonorCell: true, alpha: 0.5
+  pressureSolver: SOR, omega: 1.6, epsilon: 1e-05, maximumNumberOfIterations: 10000
+  dirichletBC: bottom: (0,0), top: (1,0), left: (0,0), right: (0,0)
+  useDonorCell: true, alpha: 0.5
+  pressureSolver: SOR, omega: 1.6, epsilon: 1e-05, maximumNumberOfIterations: 10000
+Settings: 
+  physicalSize: 2 x 2, nCells: 64 x 128
+  endTime: 10 s, re: 2000, g: (0,0), tau: 0.5, maximum dt: 0.5
+  dirichletBC: bottom: (0,0), top: (1,0), left: (0,0), right: (0,0)
+  useDonorCell: true, alpha: 0.5
+  pressureSolver: SOR, omega: 1.6, epsilon: 1e-05, maximumNumberOfIterations: 10000
+Filename: "../parameters.txt"
+Filename: "../parameters.txt"
+Filename: "../parameters.txt"
+Filename: "../parameters.txt"
+Settings: 
+Settings: 
+Settings: 
+Settings: 
+  physicalSize: 2 x 2, nCells: 64 x 128
+  physicalSize: 2 x 2, nCells: 64 x 128
+  endTime: 10 s, re: 2000, g: (0,0), tau: 0.5, maximum dt: 0.5
+  endTime: 10 s, re: 2000, g: (0,0), tau: 0.5, maximum dt: 0.5
+  dirichletBC: bottom: (0,0), top: (1,0), left: (0,0), right: (0,0)
+  dirichletBC: bottom: (0,0), top: (1,0), left: (0,0), right: (0,0)
+  useDonorCell: true, alpha: 0.5
+  pressureSolver: SOR, omega: 1.6, epsilon: 1e-05, maximumNumberOfIterations: 10000
+  useDonorCell: true, alpha: 0.5
+  pressureSolver: SOR, omega: 1.6, epsilon: 1e-05, maximumNumberOfIterations: 10000
+  physicalSize: 2 x 2, nCells: 64 x 128
+  physicalSize: 2 x 2, nCells: 64 x 128
+  endTime: 10 s, re: 2000, g: (0,0), tau: 0.5, maximum dt: 0.5
+  endTime: 10 s, re: 2000, g: (0,0), tau: 0.5, maximum dt: 0.5
+  dirichletBC: bottom: (0,0), top: (1,0), left: (0,0), right: (0,0)
+  useDonorCell: true, alpha: 0.5
+  dirichletBC: bottom: (0,0), top: (1,0), left: (0,0), right: (0,0)
+  useDonorCell: true, alpha: 0.5
+  pressureSolver: SOR, omega: 1.6, epsilon: 1e-05, maximumNumberOfIterations: 10000
+  pressureSolver: SOR, omega: 1.6, epsilon: 1e-05, maximumNumberOfIterations: 10000
+Rank: 2. Zellen Global:  64 128. Zellen lokal: 32 16. 
+Rank: 2. Iterationszahl: 1280. Laufzeit in s 280.389536. Zeit für Berechnung: 32.171320. Zeit für Kommunikation (ohne Druck): 0.170142. Zeit für Druck kommuikation: 247.018061.
+Rank: 5. Zellen Global:  64 128. Zellen lokal: 32 16. 
+Rank: 5. Iterationszahl: 1280. Laufzeit in s 280.327248. Zeit für Berechnung: 31.716756. Zeit für Kommunikation (ohne Druck): 0.161008. Zeit für Druck kommuikation: 247.480788.
+Rank: 6. Zellen Global:  64 128. Zellen lokal: 32 16. 
+Rank: 6. Iterationszahl: 1280. Laufzeit in s 280.375905. Zeit für Berechnung: 31.974856. Zeit für Kommunikation (ohne Druck): 0.350421. Zeit für Druck kommuikation: 247.225477.
+Rank: 1. Zellen Global:  64 128. Zellen lokal: 32 16. 
+Rank: 1. Iterationszahl: 1280. Laufzeit in s 280.386611. Zeit für Berechnung: 32.675707. Zeit für Kommunikation (ohne Druck): 0.029750. Zeit für Druck kommuikation: 246.511367.
+Rank: 7. Zellen Global:  64 128. Zellen lokal: 32 16. 
+Rank: 7. Iterationszahl: 1280. Laufzeit in s 280.373678. Zeit für Berechnung: 31.949511. Zeit für Kommunikation (ohne Druck): 0.466824. Zeit für Druck kommuikation: 247.253030.
+Rank: 3. Zellen Global:  64 128. Zellen lokal: 32 16. 
+Rank: 3. Iterationszahl: 1280. Laufzeit in s 280.355833. Zeit für Berechnung: 32.751518. Zeit für Kommunikation (ohne Druck): 0.329091. Zeit für Druck kommuikation: 246.441509.
+Rank: 4. Zellen Global:  64 128. Zellen lokal: 32 16. 
+Rank: 4. Iterationszahl: 1280. Laufzeit in s 280.400664. Zeit für Berechnung: 31.510751. Zeit für Kommunikation (ohne Druck): 0.344256. Zeit für Druck kommuikation: 247.686644.
+Rank: 0. Zellen Global:  64 128. Zellen lokal: 32 16. 
+Rank: 0. Iterationszahl: 1280. Laufzeit in s 280.351873. Zeit für Berechnung: 31.371374. Zeit für Kommunikation (ohne Druck): 0.030745. Zeit für Druck kommuikation: 247.812739.
+!!!Maximum aller Ranks: Laufzeit: 280.400664 Zeit für Berechnung: 34.473803. Zeit für Kommunikation (ohne Druck): 0.516624. Zeit für Druck kommuikation: 247.812739.
+Rank: 15. Zellen Global:  64 128. Zellen lokal: 32 16. 
+Rank: 15. Iterationszahl: 1280. Laufzeit in s 280.050194. Zeit für Berechnung: 31.867985. Zeit für Kommunikation (ohne Druck): 0.381311. Zeit für Druck kommuikation: 247.359336.
+Rank: 13. Zellen Global:  64 128. Zellen lokal: 32 16. 
+Rank: 13. Iterationszahl: 1280. Laufzeit in s 280.037292. Zeit für Berechnung: 31.476134. Zeit für Kommunikation (ohne Druck): 0.375743. Zeit für Druck kommuikation: 247.747567.
+Rank: 14. Zellen Global:  64 128. Zellen lokal: 32 16. 
+Rank: 14. Iterationszahl: 1280. Laufzeit in s 280.042681. Zeit für Berechnung: 31.662433. Zeit für Kommunikation (ohne Druck): 0.513516. Zeit für Druck kommuikation: 247.563417.
+Rank: 12. Zellen Global:  64 128. Zellen lokal: 32 16. 
+Rank: 12. Iterationszahl: 1280. Laufzeit in s 280.029389. Zeit für Berechnung: 31.535353. Zeit für Kommunikation (ohne Druck): 0.514655. Zeit für Druck kommuikation: 247.689911.
+Rank: 8. Zellen Global:  64 128. Zellen lokal: 32 16. 
+Rank: 8. Iterationszahl: 1280. Laufzeit in s 280.049240. Zeit für Berechnung: 34.473803. Zeit für Kommunikation (ohne Druck): 0.457059. Zeit für Druck kommuikation: 244.739743.
+Rank: 9. Zellen Global:  64 128. Zellen lokal: 32 16. 
+Rank: 9. Iterationszahl: 1280. Laufzeit in s 280.004139. Zeit für Berechnung: 32.691086. Zeit für Kommunikation (ohne Druck): 0.312757. Zeit für Druck kommuikation: 246.524826.
+Rank: 10. Zellen Global:  64 128. Zellen lokal: 32 16. 
+Rank: 10. Iterationszahl: 1280. Laufzeit in s 280.050838. Zeit für Berechnung: 32.516928. Zeit für Kommunikation (ohne Druck): 0.458008. Zeit für Druck kommuikation: 246.701639.
+Rank: 11. Zellen Global:  64 128. Zellen lokal: 32 16. 
+Rank: 11. Iterationszahl: 1280. Laufzeit in s 280.043457. Zeit für Berechnung: 32.164073. Zeit für Kommunikation (ohne Druck): 0.516624. Zeit für Druck kommuikation: 247.058948.
+
+real	4m42.397s
+user	0m0.027s
+sys	0m0.024s

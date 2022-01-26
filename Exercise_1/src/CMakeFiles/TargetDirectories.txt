@@ -1,0 +1,13 @@
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/CMakeFiles/install/strip.dir
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/CMakeFiles/install/local.dir
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/CMakeFiles/install.dir
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/CMakeFiles/list_install_components.dir
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/CMakeFiles/rebuild_cache.dir
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/CMakeFiles/edit_cache.dir
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src/CMakeFiles/install/local.dir
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src/CMakeFiles/install.dir
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src/CMakeFiles/list_install_components.dir
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src/CMakeFiles/rebuild_cache.dir
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src/CMakeFiles/edit_cache.dir
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src/CMakeFiles/install/strip.dir
+/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src/CMakeFiles/numsim.dir

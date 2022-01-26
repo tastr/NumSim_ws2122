@@ -43,3 +43,20 @@ double Array2D::operator()(int i, int j) const
   return data_[index];
 }
 
+float Array2D::abs(int i, int j) const
+{  const int index = j*size_[0] + i;
+
+  // assert that indices are in range
+  assert(0 <= i && i < size_[0]);
+  assert(0 <= j && j < size_[1]);
+  assert(j*size_[0] + i < (int)data_.size());
+ float value=data_[index];
+ 
+  if (value>=0)
+  {
+    return value;
+  }else
+  {
+    return -value;
+  }
+}

@@ -1,0 +1,77 @@
+[
+{
+  "directory": "/home/david/uni/numSim/NumSim_ws2122/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9  -DH5_BUILT_AS_DYNAMIC_LIB -I/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src -isystem /usr/local/include/vtk-8.2 -isystem /usr/local/include/vtk-8.2/vtkogg/include  -g   -o CMakeFiles/numsim.dir/main.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/main.cpp",
+  "file": "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/main.cpp"
+},
+{
+  "directory": "/home/david/uni/numSim/NumSim_ws2122/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9  -DH5_BUILT_AS_DYNAMIC_LIB -I/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src -isystem /usr/local/include/vtk-8.2 -isystem /usr/local/include/vtk-8.2/vtkogg/include  -g   -o CMakeFiles/numsim.dir/settings.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/settings.cpp",
+  "file": "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/settings.cpp"
+},
+{
+  "directory": "/home/david/uni/numSim/NumSim_ws2122/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9  -DH5_BUILT_AS_DYNAMIC_LIB -I/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src -isystem /usr/local/include/vtk-8.2 -isystem /usr/local/include/vtk-8.2/vtkogg/include  -g   -o CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/output_writer/output_writer_paraview.cpp",
+  "file": "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/output_writer/output_writer_paraview.cpp"
+},
+{
+  "directory": "/home/david/uni/numSim/NumSim_ws2122/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9  -DH5_BUILT_AS_DYNAMIC_LIB -I/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src -isystem /usr/local/include/vtk-8.2 -isystem /usr/local/include/vtk-8.2/vtkogg/include  -g   -o CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/output_writer/output_writer_text.cpp",
+  "file": "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/output_writer/output_writer_text.cpp"
+},
+{
+  "directory": "/home/david/uni/numSim/NumSim_ws2122/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9  -DH5_BUILT_AS_DYNAMIC_LIB -I/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src -isystem /usr/local/include/vtk-8.2 -isystem /usr/local/include/vtk-8.2/vtkogg/include  -g   -o CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/output_writer/output_writer.cpp",
+  "file": "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/output_writer/output_writer.cpp"
+},
+{
+  "directory": "/home/david/uni/numSim/NumSim_ws2122/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9  -DH5_BUILT_AS_DYNAMIC_LIB -I/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src -isystem /usr/local/include/vtk-8.2 -isystem /usr/local/include/vtk-8.2/vtkogg/include  -g   -o CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/array2d.cpp",
+  "file": "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/array2d.cpp"
+},
+{
+  "directory": "/home/david/uni/numSim/NumSim_ws2122/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9  -DH5_BUILT_AS_DYNAMIC_LIB -I/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src -isystem /usr/local/include/vtk-8.2 -isystem /usr/local/include/vtk-8.2/vtkogg/include  -g   -o CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/centraldifferences.cpp",
+  "file": "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/centraldifferences.cpp"
+},
+{
+  "directory": "/home/david/uni/numSim/NumSim_ws2122/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9  -DH5_BUILT_AS_DYNAMIC_LIB -I/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src -isystem /usr/local/include/vtk-8.2 -isystem /usr/local/include/vtk-8.2/vtkogg/include  -g   -o CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/donorcell.cpp",
+  "file": "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/donorcell.cpp"
+},
+{
+  "directory": "/home/david/uni/numSim/NumSim_ws2122/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9  -DH5_BUILT_AS_DYNAMIC_LIB -I/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src -isystem /usr/local/include/vtk-8.2 -isystem /usr/local/include/vtk-8.2/vtkogg/include  -g   -o CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/discretization.cpp",
+  "file": "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/discretization.cpp"
+},
+{
+  "directory": "/home/david/uni/numSim/NumSim_ws2122/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9  -DH5_BUILT_AS_DYNAMIC_LIB -I/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src -isystem /usr/local/include/vtk-8.2 -isystem /usr/local/include/vtk-8.2/vtkogg/include  -g   -o CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/fieldvariable.cpp",
+  "file": "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/fieldvariable.cpp"
+},
+{
+  "directory": "/home/david/uni/numSim/NumSim_ws2122/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9  -DH5_BUILT_AS_DYNAMIC_LIB -I/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src -isystem /usr/local/include/vtk-8.2 -isystem /usr/local/include/vtk-8.2/vtkogg/include  -g   -o CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/staggeredgrid.cpp",
+  "file": "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/staggeredgrid.cpp"
+},
+{
+  "directory": "/home/david/uni/numSim/NumSim_ws2122/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9  -DH5_BUILT_AS_DYNAMIC_LIB -I/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src -isystem /usr/local/include/vtk-8.2 -isystem /usr/local/include/vtk-8.2/vtkogg/include  -g   -o CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/pressuresolver.cpp",
+  "file": "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/pressuresolver.cpp"
+},
+{
+  "directory": "/home/david/uni/numSim/NumSim_ws2122/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9  -DH5_BUILT_AS_DYNAMIC_LIB -I/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src -isystem /usr/local/include/vtk-8.2 -isystem /usr/local/include/vtk-8.2/vtkogg/include  -g   -o CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/gaussseidel.cpp",
+  "file": "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/gaussseidel.cpp"
+},
+{
+  "directory": "/home/david/uni/numSim/NumSim_ws2122/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9  -DH5_BUILT_AS_DYNAMIC_LIB -I/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src -isystem /usr/local/include/vtk-8.2 -isystem /usr/local/include/vtk-8.2/vtkogg/include  -g   -o CMakeFiles/numsim.dir/pressure_solver/sor.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/sor.cpp",
+  "file": "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/sor.cpp"
+},
+{
+  "directory": "/home/david/uni/numSim/NumSim_ws2122/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9  -DH5_BUILT_AS_DYNAMIC_LIB -I/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src -isystem /usr/local/include/vtk-8.2 -isystem /usr/local/include/vtk-8.2/vtkogg/include  -g   -o CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/test_and_debug/mytestfunctions.cpp",
+  "file": "/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/test_and_debug/mytestfunctions.cpp"
+}
+]

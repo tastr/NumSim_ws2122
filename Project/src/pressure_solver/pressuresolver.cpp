@@ -6,7 +6,7 @@ PressureSolver::PressureSolver(Discretization& discretization)
 {
     
 }
-
+  
 PressureSolver::~PressureSolver()
 {
 }
@@ -79,9 +79,12 @@ double PressureSolver::residuum()
   for (int j = discretization_.pJBegin()+1; j < discretization_.pJEnd()-1; j++)
   {
     for (int i = discretization_.pIBegin()+1; i < discretization_.pIEnd()-1; i++)
+    {
+      if (discretization_.typ(i-1,j-1)==0)
       {
        res = res + abs_( (discretization_.p(i-1,j)  - 2 * discretization_.p(i,j) + discretization_.p(i+1,j))/(discretization_.dx() * discretization_.dx()) + (discretization_.p(i,j-1) - 2 * discretization_.p(i,j)  + discretization_.p(i,j+1)) / (discretization_.dy() * discretization_.dy()) - discretization_.rhs(i,j));
       }     
+    }
   }
   return res;
 }

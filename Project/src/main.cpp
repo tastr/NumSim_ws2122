@@ -72,9 +72,12 @@ double current_time=0;
  //write after initialization
 
 myDiscretization->setBorderVelocity(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
+myDiscretization->setObstacleVelocity();
 myDiscretization->updateBoundaryFG();
 myOutputWriterParaview.writeFile(current_time);
 myOutputWriterText.writeFile(current_time);
+
+ myDiscretization->setObstacle();
 
 while (current_time<settings.endTime && Iterationszahl< settings.maximumNumberOfIterations )
 {
@@ -86,7 +89,8 @@ while (current_time<settings.endTime && Iterationszahl< settings.maximumNumberOf
   myDiscretization->updateVelocity();
   myDiscretization->setBorderVelocity(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
   myDiscretization->updateBoundaryFG();
-  
+  myDiscretization->setObstacleVelocity();
+
   myOutputWriterParaview.writeFile(current_time);
   myOutputWriterText.writeFile(current_time);
 Iterationszahl=Iterationszahl+1;

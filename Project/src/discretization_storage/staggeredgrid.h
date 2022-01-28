@@ -73,6 +73,9 @@ public:
      void setObstaclePressure(int i, int j);      
 
      //void getValue(std::string str,int i, int j);
+   
+     void setObstacle(); 
+
 };
 
 

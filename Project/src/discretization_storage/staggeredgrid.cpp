@@ -20,6 +20,7 @@ StaggeredGrid::StaggeredGrid(Settings settings)
     delta_x=settings_.physicalSize[0] / (1.0*settings_.nCells[0]);
     delta_y=settings_.physicalSize[1] / (1.0*settings_.nCells[1]);
     epsilon=settings.epsilon;
+
 }
 
 
@@ -287,11 +288,10 @@ double StaggeredGrid::abs(double number) const
 
 void StaggeredGrid::setObstacleVelocity()
 {
- for (int j = 0; i < type.size()[1] ; j++)
+ for (int j = 0; j < type.size()[1] ; j++)
  {
-    for (i=0 ; i < type.size()[0] ; i++)
-    {   i=i+1;
-        j=j+1;
+    for (int i=0 ; i < type.size()[0] ; i++)
+    {  
         if (type(i,j)==2)
         {
             velocity_Y(i,j)=0;
@@ -321,13 +321,13 @@ void StaggeredGrid::setObstacleVelocity()
         {
             velocity_Y(i,j)=0;
             velocity_X(i-1,j)=0;
-            velocity_X(i,j)=-u(i,j+1)
+            velocity_X(i,j)=-u(i,j+1);
         }else if(type(i,j)==8)
         {
             velocity_Y(i,j)=-v(i-1,j);
             velocity_Y(i,j-1)=0;
             velocity_X(i-1,j)=0;
-            velocity_X(i,j)=-u(i,j-1)
+            velocity_X(i,j)=-u(i,j-1);
         }else if(type(i,j)==9)
         {
             velocity_Y(i,j)=-v(i+1,j);
@@ -341,7 +341,7 @@ void StaggeredGrid::setObstacleVelocity()
 
 
 void StaggeredGrid::setObstaclePressure(int i, int j)   
-{
+{ 
     
      if (type(i-1,j-1)==2)
         {
@@ -377,6 +377,14 @@ void StaggeredGrid::setObstaclePressure(int i, int j)
           
         }
     }
- }
-
+ 
+void StaggeredGrid::setObstacle()
+{
+for (int i = 0; i < type.size()[0] ; i++)
+{
+    type(i,20)=2;
+    type(i,21)=3;
 }
+
+
+} 

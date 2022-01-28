@@ -380,11 +380,25 @@ void StaggeredGrid::setObstaclePressure(int i, int j)
  
 void StaggeredGrid::setObstacle()
 {
-for (int i = 0; i < type.size()[0] ; i++)
+
+for (int i = 0; i <6 ; i++)
 {
-    type(i,20)=2;
-    type(i,21)=3;
+    type(i,15)=2;
+    type(i,16)=3;
 }
 
+
+for (int i = 14; i < type.size()[0] ; i++)
+{
+    type(i,15)=2;
+    type(i,16)=3;
+}
+
+    type(7,15)=6;
+    type(7,16)=9;
+    
+    type(13,15)=7;
+    type(13,16)=8;
+    
 
 } 

@@ -74,7 +74,6 @@ void PressureSolver::calculateP()
 double PressureSolver::residuum()
 {
   double res = 0;
-  double res = 0;
   double pxx = 0;
   double pyy = 0;
   double temp= 0;

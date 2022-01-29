@@ -40,7 +40,7 @@ void GaussSeidel::calculateP()
 
         for (int i = discretization_.pIBegin()+1; i < discretization_.pIEnd()-1; i++)
             {   
-            if(discretization_.typ(i-1,j-1)==0){
+            if(discretization_.getTyp(i,j)==0){
             //discretization_.setP(i,1, v*((discretization_.p(i-1,1)+discretization_.p(i+1,1))/dx2+       discretization_.p(i,2)/dy2-discretization_.rhs(i,1))/div_y);
         
 
@@ -49,8 +49,6 @@ void GaussSeidel::calculateP()
               // value of pij gets overwritten with the new approximation
           
             discretization_.setP(i,j, vorfaktor*( x_term + y_term   - discretization_.rhs(i,j))) ;
-            }else{
-            discretization_.setObstaclePressure(i,j); //would be more efficient to itetrate through them at the end
             }
                //discretization_.setP(i,jend, v*((discretization_.p(i-1,jend)+discretization_.p(i+1,jend))/dx2+ discretization_.p(i,jend-1)/dy2-discretization_.rhs(i,jend))/div_y);
          
@@ -65,6 +63,8 @@ void GaussSeidel::calculateP()
         // discretization_.setP(p);
       // Ohne den konvergiert er doppelt so schnell  
       discretization_.updatedPressureBC();
+      discretization_.setObstaclePressure(); //would be more efficient to itetrate through them at the end
+            
          resterm=(residuum()*residuum())/Nnumber;
          
          

@@ -8,7 +8,7 @@ StaggeredGrid::StaggeredGrid(Settings settings)
 :pressure({settings.nCells[0]+2, settings.nCells[1]+2}, settings,{0.5,0.5}) 
 ,velocity_X({settings.nCells[0]+1,settings.nCells[1]+2},settings,{0,0.5})
 ,velocity_Y({settings.nCells[0]+2,settings.nCells[1]+1},settings,{0.5,0})
-,type({settings.nCells[0],settings.nCells[1]},settings,{0,0})
+,type({settings.nCells[0]+2,settings.nCells[1]+2},settings,{0,0})
 ,settings_(settings)
 //:pressure({settings.nCells[0]+2,settings.nCells[1]+2})
 //,velocity_X({settings.nCells[0]+2,settings.nCells[1]+2})
@@ -173,7 +173,7 @@ double StaggeredGrid::v(int i, int j) const
     return velocity_Y(i,j);
 }
 
-double StaggeredGrid::typ(int i, int j) const
+double StaggeredGrid::getTyp(int i, int j) const
 {
     return type(i,j);
 }
@@ -285,54 +285,70 @@ double StaggeredGrid::abs(double number) const
   }
    }
 
-
+// needs to be divided in loops for u and v, alternatively, no 2...9 obstacles on the bounderies
 void StaggeredGrid::setObstacleVelocity()
 {
- for (int j = 0; j < type.size()[1] ; j++)
+ for (int j = 0; j < type.size()[1]-2 ; j++)
  {
-    for (int i=0 ; i < type.size()[0] ; i++)
+    for (int i=0 ; i < type.size()[0]-2 ; i++)
     {  
         if (type(i,j)==2)
         {
             velocity_Y(i,j)=0;
             velocity_X(i,j)=-u(i,j+1);
+            velocity_X(i-1,j)=-u(i-1,j+1);
             
         }else if(type(i,j)==3)
         {
             velocity_Y(i,j-1)=0;
             velocity_X(i,j)=-u(i,j-1);
+            velocity_X(i-1,j)=-u(i-1,j-1);
 
         }else if(type(i,j)==4)
         {
             velocity_Y(i,j)=-v(i+1,j);
             velocity_X(i,j)=0;
+            velocity_Y(i,j-1)=-v(i+1,j-1);
             
         }else if(type(i,j)==5)
         {
             velocity_Y(i,j)=-v(i-1,j);
             velocity_X(i-1,j)=0;
-            
-        }else if(type(i,j)==6)
+            velocity_Y(i,j-1)=-v(i-1,j-1);
+
+        }
+        
+        
+        
+        else if(type(i,j)==6)
         {
             velocity_Y(i,j)=0;
             velocity_X(i,j)=0;
+
+            velocity_Y(i,j-1)=-v(i+1,j-1);
+            velocity_X(i-1,j)=-u(i-1,j+1);
 
         }else if(type(i,j)==7)
         {
             velocity_Y(i,j)=0;
             velocity_X(i-1,j)=0;
             velocity_X(i,j)=-u(i,j+1);
+
+            velocity_Y(i,j-1)=-v(i-1,j-1);
+
         }else if(type(i,j)==8)
         {
             velocity_Y(i,j)=-v(i-1,j);
             velocity_Y(i,j-1)=0;
             velocity_X(i-1,j)=0;
             velocity_X(i,j)=-u(i,j-1);
+
         }else if(type(i,j)==9)
         {
             velocity_Y(i,j)=-v(i+1,j);
             velocity_Y(i,j-1)=0;
             velocity_X(i-1,j)=0;
+            velocity_X(i-1,j)=-u(i-1,j-1);
         }
     }
  }
@@ -340,55 +356,59 @@ void StaggeredGrid::setObstacleVelocity()
 }
 
 
-void StaggeredGrid::setObstaclePressure(int i, int j)   
+void StaggeredGrid::setObstaclePressure()   
 { 
-    
-     if (type(i-1,j-1)==2)
+for (int j = 0; j < type.size()[1]-1 ; j++)
+ {
+    for (int i=0 ; i < type.size()[0]-1 ; i++)
+    {  
+     if (type(i,j)==2)
         {
           pressure(i,j)=p(i,j+1);
 
-        }else if(type(i-1,j-1)==3)
+        }else if(type(i,j)==3)
         {
           pressure(i,j)=p(i,j-1);
 
-        }else if(type(i-1,j-1)==4)
+        }else if(type(i,j)==4)
         {
           pressure(i,j)=p(i=1,j);  
 
-        }else if(type(i-1,j-1)==5)
+        }else if(type(i,j)==5)
         {
            pressure(i,j)=p(i-1,j); 
 
-        }else if(type(i-1,j-1)==6)
+        }else if(type(i,j)==6)
         {
             pressure(i,j)=0.5*(p(i+1,j)+p(i,j+1));
             
-        }else if(type(i-1,j-1)==7)
+        }else if(type(i,j)==7)
         {
            pressure(i,j)= 0.5*(p(i-1,j)+p(i,j+1));
 
-        }else if(type(i-1,j-1)==8)
+        }else if(type(i,j)==8)
         {
             pressure(i,j)=0.5*(p(i-1,j)+p(i,j-1));
           
-        }else if(type(i-1,j-1)==9)
+        }else if(type(i,j)==9)
         {
             pressure(i,j)=0.5*(p(i-1,j)+p(i,j+1));
           
         }
     }
- 
+ }
+}
 void StaggeredGrid::setObstacle()
 {
 
-for (int i = 0; i <6 ; i++)
+for (int i = 1; i <7 ; i++)
 {
     type(i,15)=2;
     type(i,16)=3;
 }
 
 
-for (int i = 14; i < type.size()[0] ; i++)
+for (int i = 14; i < type.size()[0]-1 ; i++)
 {
     type(i,15)=2;
     type(i,16)=3;
@@ -402,3 +422,5 @@ for (int i = 14; i < type.size()[0] ; i++)
     
 
 } 
+
+//TODO setObstacleFG

@@ -85,15 +85,21 @@ void Discretization::updateVelocity()
     {
         for (int i = uIBegin()+1; i < uIEnd()-1; i++)
         {
+            if (type(i,j)==0)
+            {
             velocity_X(i, j)=F(i, j)-deltat*computeDpDx(i, j);
+            }
         }
         
     }
     for (int j = vJBegin()+1; j < vJEnd()-1; j++)
     {
         for (int i = vIBegin()+1; i < vIEnd()-1; i++)
-        {
+        {   
+            if (type(i,j)==0)
+            {
             velocity_Y(i, j)=G(i, j)-deltat*computeDpDy(i, j);
+            }
         }
         
     }

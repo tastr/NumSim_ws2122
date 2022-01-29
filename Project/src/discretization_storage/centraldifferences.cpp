@@ -51,22 +51,20 @@ void CentralDifferences::calculation() // copied it over from donorCell
     {
         for (int i = uIBegin()+1; i < uIEnd()-1; i++)
         { 
-        //if (type(i,j)==0)
-         // {  
+        if (type(i,j)==0)
+         {  
             F(i,j) = u(i,j) + deltat * ((computeDuDx2(i,j) + computeDuDy2(i,j)) / settings_.re - computeDuvDy(i,j) - computeDu2Dx(i,j) + settings_.g[0]);
-          //}//else
-          //{
-          //setObstacleVelocity(i,j) only nedded in one loop alternatively use loop in the function
-          }
+         }
+        }
     }  
     for (int j = vJBegin()+1; j < vJEnd()-1; j++)
     {
       for (int i = vIBegin()+1; i < vIEnd()-1; i++)
       {
-     // if (type(i,j)==0)
-      //  {  
+         if (type(i,j)==0)
+        {  
         G(i,j) = v(i,j) + deltat * ((computeDvDx2(i,j) + computeDvDy2(i,j)) / settings_.re - computeDuvDx(i,j) - computeDv2Dy(i,j) + settings_.g[1]);
-       // }
+        }
       }
       
     }

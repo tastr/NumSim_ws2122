@@ -54,8 +54,8 @@ void PressureSolver::calculateRHS()
   {
     for (int i = discretization_.pIBegin()+1; i < discretization_.pIEnd()-1; i++)
     {
-      // current_rhs=((discretization_.f(i,j)-discretization_.f(i-1,j))/discretization_.dx()+(discretization_.g(i,j)-discretization_.g(i,j-1))/discretization_.dy())/discretization_.getDeltaT();
-
+     if (discretization_.getTyp(i,j)==0)
+      {
       Fij=discretization_.f(i,j);
       Fim1j=discretization_.f(i-1,j);
       Gij=discretization_.g(i,j);
@@ -63,6 +63,7 @@ void PressureSolver::calculateRHS()
       
       current_rhs=((Fij-Fim1j)/discretization_.dx()+(Gij-Gijm1)/discretization_.dy())/discretization_.getDeltaT();
       discretization_.setRHS(i,j, current_rhs);
+      }    
     }
   }
 }
@@ -80,7 +81,7 @@ double PressureSolver::residuum()
   {
     for (int i = discretization_.pIBegin()+1; i < discretization_.pIEnd()-1; i++)
     {
-      if (discretization_.typ(i-1,j-1)==0)
+      if (discretization_.getTyp(i,j)==0)
       {
        res = res + abs_( (discretization_.p(i-1,j)  - 2 * discretization_.p(i,j) + discretization_.p(i+1,j))/(discretization_.dx() * discretization_.dx()) + (discretization_.p(i,j-1) - 2 * discretization_.p(i,j)  + discretization_.p(i,j+1)) / (discretization_.dy() * discretization_.dy()) - discretization_.rhs(i,j));
       }     

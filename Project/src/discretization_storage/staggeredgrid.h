@@ -38,7 +38,7 @@ public:
      FieldVariable v() const; 
      double v(int i, int j) const;
      //FieldVariable typ() const; 
-     double typ(int i, int j) const;
+     double getTyp(int i, int j) const;
 
      double dx() const; //ist das nicht identisch zu meshwidth?
      double dy() const; //ist das nicht identisch zu meshwidth?
@@ -70,11 +70,15 @@ public:
      void setP(FieldVariable value);    
          
      void setObstacleVelocity();      
-     void setObstaclePressure(int i, int j);      
-
+     void setObstaclePressure();      
+     
      //void getValue(std::string str,int i, int j);
    
      void setObstacle(); 
+     
+
+    //TODO setObstacleFG
+   
 
 };
 

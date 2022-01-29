@@ -74,13 +74,20 @@ void PressureSolver::calculateP()
 double PressureSolver::residuum()
 {
   double res = 0;
+  double res = 0;
+  double pxx = 0;
+  double pyy = 0;
+  double temp= 0;
   for (int j = discretization_.pJBegin() + 1; j < discretization_.pJEnd() - 1; j++)
   {
     for (int i = discretization_.pIBegin() + 1; i < discretization_.pIEnd() - 1; i++)
     {
       if (discretization_.getTyp(i, j) == 0)
       {
-        res = res + abs_((discretization_.p(i - 1, j) - 2 * discretization_.p(i, j) + discretization_.p(i + 1, j)) / (discretization_.dx() * discretization_.dx()) + (discretization_.p(i, j - 1) - 2 * discretization_.p(i, j) + discretization_.p(i, j + 1)) / (discretization_.dy() * discretization_.dy()) - discretization_.rhs(i, j));
+      pxx = (discretization_.p(i - 1, j) - 2 * discretization_.p(i, j) + discretization_.p(i + 1, j)) / (discretization_.dx() * discretization_.dx());
+      pyy = (discretization_.p(i, j - 1) - 2 * discretization_.p(i, j) + discretization_.p(i, j + 1)) / (discretization_.dy() * discretization_.dy());
+      temp = pxx + pyy - discretization_.rhs(i, j);
+      res = res + (temp * temp);
       }
     }
   }

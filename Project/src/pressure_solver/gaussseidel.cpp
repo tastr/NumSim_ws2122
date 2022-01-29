@@ -50,7 +50,7 @@ void GaussSeidel::calculateP()
 
     discretization_.updatedPressureBC();
     discretization_.setObstaclePressure();
-    resterm = (residuum() * residuum()) / Nnumber;
+    resterm = residuum() / Nnumber;
 
   } while (resterm > epsilonquad && safe < 20000);
   std::cout << "Residuum " << residuum() << " Safe " << safe << std::endl;

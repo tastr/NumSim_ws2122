@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/david/uni/numSim/NumSim_ws2122/Exercise_1
+CMAKE_SOURCE_DIR = /home/david/uni/numSim/NumSim_ws2122/Project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src
+CMAKE_BINARY_DIR = /home/david/uni/numSim/NumSim_ws2122/Project/src
 
 # Include any dependencies generated for this target.
 include src/CMakeFiles/numsim.dir/depend.make
@@ -59,198 +59,198 @@ include src/CMakeFiles/numsim.dir/flags.make
 
 src/CMakeFiles/numsim.dir/main.cpp.o: src/CMakeFiles/numsim.dir/flags.make
 src/CMakeFiles/numsim.dir/main.cpp.o: main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/numsim.dir/main.cpp.o"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/main.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Project/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/numsim.dir/main.cpp.o"
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/main.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Project/src/main.cpp
 
 src/CMakeFiles/numsim.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/main.cpp.i"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/main.cpp > CMakeFiles/numsim.dir/main.cpp.i
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/uni/numSim/NumSim_ws2122/Project/src/main.cpp > CMakeFiles/numsim.dir/main.cpp.i
 
 src/CMakeFiles/numsim.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/main.cpp.s"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/main.cpp -o CMakeFiles/numsim.dir/main.cpp.s
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/uni/numSim/NumSim_ws2122/Project/src/main.cpp -o CMakeFiles/numsim.dir/main.cpp.s
 
 src/CMakeFiles/numsim.dir/settings.cpp.o: src/CMakeFiles/numsim.dir/flags.make
 src/CMakeFiles/numsim.dir/settings.cpp.o: settings.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/CMakeFiles/numsim.dir/settings.cpp.o"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/settings.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/settings.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Project/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/CMakeFiles/numsim.dir/settings.cpp.o"
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/settings.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Project/src/settings.cpp
 
 src/CMakeFiles/numsim.dir/settings.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/settings.cpp.i"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/settings.cpp > CMakeFiles/numsim.dir/settings.cpp.i
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/uni/numSim/NumSim_ws2122/Project/src/settings.cpp > CMakeFiles/numsim.dir/settings.cpp.i
 
 src/CMakeFiles/numsim.dir/settings.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/settings.cpp.s"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/settings.cpp -o CMakeFiles/numsim.dir/settings.cpp.s
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/uni/numSim/NumSim_ws2122/Project/src/settings.cpp -o CMakeFiles/numsim.dir/settings.cpp.s
 
 src/CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.o: src/CMakeFiles/numsim.dir/flags.make
 src/CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.o: output_writer/output_writer_paraview.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.o"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/output_writer/output_writer_paraview.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Project/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.o"
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Project/src/output_writer/output_writer_paraview.cpp
 
 src/CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.i"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/output_writer/output_writer_paraview.cpp > CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.i
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/uni/numSim/NumSim_ws2122/Project/src/output_writer/output_writer_paraview.cpp > CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.i
 
 src/CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.s"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/output_writer/output_writer_paraview.cpp -o CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.s
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/uni/numSim/NumSim_ws2122/Project/src/output_writer/output_writer_paraview.cpp -o CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.s
 
 src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o: src/CMakeFiles/numsim.dir/flags.make
 src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o: output_writer/output_writer_text.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/output_writer/output_writer_text.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Project/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o"
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Project/src/output_writer/output_writer_text.cpp
 
 src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.i"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/output_writer/output_writer_text.cpp > CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.i
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/uni/numSim/NumSim_ws2122/Project/src/output_writer/output_writer_text.cpp > CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.i
 
 src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.s"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/output_writer/output_writer_text.cpp -o CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.s
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/uni/numSim/NumSim_ws2122/Project/src/output_writer/output_writer_text.cpp -o CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.s
 
 src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o: src/CMakeFiles/numsim.dir/flags.make
 src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o: output_writer/output_writer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/output_writer/output_writer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Project/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o"
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Project/src/output_writer/output_writer.cpp
 
 src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/output_writer/output_writer.cpp.i"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/output_writer/output_writer.cpp > CMakeFiles/numsim.dir/output_writer/output_writer.cpp.i
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/uni/numSim/NumSim_ws2122/Project/src/output_writer/output_writer.cpp > CMakeFiles/numsim.dir/output_writer/output_writer.cpp.i
 
 src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/output_writer/output_writer.cpp.s"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/output_writer/output_writer.cpp -o CMakeFiles/numsim.dir/output_writer/output_writer.cpp.s
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/uni/numSim/NumSim_ws2122/Project/src/output_writer/output_writer.cpp -o CMakeFiles/numsim.dir/output_writer/output_writer.cpp.s
 
 src/CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.o: src/CMakeFiles/numsim.dir/flags.make
 src/CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.o: discretization_storage/array2d.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.o"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/array2d.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Project/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.o"
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Project/src/discretization_storage/array2d.cpp
 
 src/CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.i"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/array2d.cpp > CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.i
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/uni/numSim/NumSim_ws2122/Project/src/discretization_storage/array2d.cpp > CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.i
 
 src/CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.s"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/array2d.cpp -o CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.s
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/uni/numSim/NumSim_ws2122/Project/src/discretization_storage/array2d.cpp -o CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.s
 
 src/CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.o: src/CMakeFiles/numsim.dir/flags.make
 src/CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.o: discretization_storage/centraldifferences.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.o"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/centraldifferences.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Project/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.o"
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Project/src/discretization_storage/centraldifferences.cpp
 
 src/CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.i"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/centraldifferences.cpp > CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.i
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/uni/numSim/NumSim_ws2122/Project/src/discretization_storage/centraldifferences.cpp > CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.i
 
 src/CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.s"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/centraldifferences.cpp -o CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.s
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/uni/numSim/NumSim_ws2122/Project/src/discretization_storage/centraldifferences.cpp -o CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.s
 
 src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o: src/CMakeFiles/numsim.dir/flags.make
 src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o: discretization_storage/donorcell.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/donorcell.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Project/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o"
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Project/src/discretization_storage/donorcell.cpp
 
 src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.i"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/donorcell.cpp > CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.i
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/uni/numSim/NumSim_ws2122/Project/src/discretization_storage/donorcell.cpp > CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.i
 
 src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.s"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/donorcell.cpp -o CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.s
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/uni/numSim/NumSim_ws2122/Project/src/discretization_storage/donorcell.cpp -o CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.s
 
 src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o: src/CMakeFiles/numsim.dir/flags.make
 src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o: discretization_storage/discretization.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/discretization.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Project/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o"
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Project/src/discretization_storage/discretization.cpp
 
 src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.i"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/discretization.cpp > CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.i
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/uni/numSim/NumSim_ws2122/Project/src/discretization_storage/discretization.cpp > CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.i
 
 src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.s"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/discretization.cpp -o CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.s
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/uni/numSim/NumSim_ws2122/Project/src/discretization_storage/discretization.cpp -o CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.s
 
 src/CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.o: src/CMakeFiles/numsim.dir/flags.make
 src/CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.o: discretization_storage/fieldvariable.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.o"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/fieldvariable.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Project/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.o"
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Project/src/discretization_storage/fieldvariable.cpp
 
 src/CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.i"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/fieldvariable.cpp > CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.i
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/uni/numSim/NumSim_ws2122/Project/src/discretization_storage/fieldvariable.cpp > CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.i
 
 src/CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.s"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/fieldvariable.cpp -o CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.s
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/uni/numSim/NumSim_ws2122/Project/src/discretization_storage/fieldvariable.cpp -o CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.s
 
 src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.o: src/CMakeFiles/numsim.dir/flags.make
 src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.o: discretization_storage/staggeredgrid.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.o"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/staggeredgrid.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Project/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.o"
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Project/src/discretization_storage/staggeredgrid.cpp
 
 src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.i"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/staggeredgrid.cpp > CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.i
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/uni/numSim/NumSim_ws2122/Project/src/discretization_storage/staggeredgrid.cpp > CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.i
 
 src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.s"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/discretization_storage/staggeredgrid.cpp -o CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.s
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/uni/numSim/NumSim_ws2122/Project/src/discretization_storage/staggeredgrid.cpp -o CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.s
 
 src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.o: src/CMakeFiles/numsim.dir/flags.make
 src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.o: pressure_solver/pressuresolver.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.o"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/pressuresolver.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Project/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.o"
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Project/src/pressure_solver/pressuresolver.cpp
 
 src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.i"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/pressuresolver.cpp > CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.i
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/uni/numSim/NumSim_ws2122/Project/src/pressure_solver/pressuresolver.cpp > CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.i
 
 src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.s"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/pressuresolver.cpp -o CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.s
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/uni/numSim/NumSim_ws2122/Project/src/pressure_solver/pressuresolver.cpp -o CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.s
 
 src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o: src/CMakeFiles/numsim.dir/flags.make
 src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o: pressure_solver/gaussseidel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/gaussseidel.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Project/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o"
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Project/src/pressure_solver/gaussseidel.cpp
 
 src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.i"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/gaussseidel.cpp > CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.i
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/uni/numSim/NumSim_ws2122/Project/src/pressure_solver/gaussseidel.cpp > CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.i
 
 src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.s"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/gaussseidel.cpp -o CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.s
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/uni/numSim/NumSim_ws2122/Project/src/pressure_solver/gaussseidel.cpp -o CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.s
 
 src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.o: src/CMakeFiles/numsim.dir/flags.make
 src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.o: pressure_solver/sor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.o"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/pressure_solver/sor.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/sor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Project/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.o"
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/pressure_solver/sor.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Project/src/pressure_solver/sor.cpp
 
 src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/pressure_solver/sor.cpp.i"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/sor.cpp > CMakeFiles/numsim.dir/pressure_solver/sor.cpp.i
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/uni/numSim/NumSim_ws2122/Project/src/pressure_solver/sor.cpp > CMakeFiles/numsim.dir/pressure_solver/sor.cpp.i
 
 src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/pressure_solver/sor.cpp.s"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/pressure_solver/sor.cpp -o CMakeFiles/numsim.dir/pressure_solver/sor.cpp.s
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/uni/numSim/NumSim_ws2122/Project/src/pressure_solver/sor.cpp -o CMakeFiles/numsim.dir/pressure_solver/sor.cpp.s
 
 src/CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.o: src/CMakeFiles/numsim.dir/flags.make
 src/CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.o: test_and_debug/mytestfunctions.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object src/CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.o"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/test_and_debug/mytestfunctions.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Project/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object src/CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.o"
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.o -c /home/david/uni/numSim/NumSim_ws2122/Project/src/test_and_debug/mytestfunctions.cpp
 
 src/CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.i"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/test_and_debug/mytestfunctions.cpp > CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.i
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/uni/numSim/NumSim_ws2122/Project/src/test_and_debug/mytestfunctions.cpp > CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.i
 
 src/CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.s"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/test_and_debug/mytestfunctions.cpp -o CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.s
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/uni/numSim/NumSim_ws2122/Project/src/test_and_debug/mytestfunctions.cpp -o CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.s
 
 # Object files for target numsim
 numsim_OBJECTS = \
@@ -415,8 +415,8 @@ src/numsim: /usr/local/lib/libvtksys-8.2.so.1
 src/numsim: /usr/local/lib/libvtkfreetype-8.2.so.1
 src/numsim: /usr/local/lib/libvtkzlib-8.2.so.1
 src/numsim: src/CMakeFiles/numsim.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable numsim"
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/numsim.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/david/uni/numSim/NumSim_ws2122/Project/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable numsim"
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/numsim.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/CMakeFiles/numsim.dir/build: src/numsim
@@ -424,10 +424,10 @@ src/CMakeFiles/numsim.dir/build: src/numsim
 .PHONY : src/CMakeFiles/numsim.dir/build
 
 src/CMakeFiles/numsim.dir/clean:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src && $(CMAKE_COMMAND) -P CMakeFiles/numsim.dir/cmake_clean.cmake
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src/src && $(CMAKE_COMMAND) -P CMakeFiles/numsim.dir/cmake_clean.cmake
 .PHONY : src/CMakeFiles/numsim.dir/clean
 
 src/CMakeFiles/numsim.dir/depend:
-	cd /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/david/uni/numSim/NumSim_ws2122/Exercise_1 /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src /home/david/uni/numSim/NumSim_ws2122/Exercise_1/src/src/CMakeFiles/numsim.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/david/uni/numSim/NumSim_ws2122/Project/src && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/david/uni/numSim/NumSim_ws2122/Project /home/david/uni/numSim/NumSim_ws2122/Project/src /home/david/uni/numSim/NumSim_ws2122/Project/src /home/david/uni/numSim/NumSim_ws2122/Project/src/src /home/david/uni/numSim/NumSim_ws2122/Project/src/src/CMakeFiles/numsim.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/CMakeFiles/numsim.dir/depend
 

@@ -6,5 +6,5 @@ CXX_FLAGS = -g
 
 CXX_DEFINES = -DH5_BUILT_AS_DYNAMIC_LIB
 
-CXX_INCLUDES = -I/home/david/uni/numSim/NumSim_ws2122/Exercise_1/src -isystem /usr/local/include/vtk-8.2 -isystem /usr/local/include/vtk-8.2/vtkogg/include 
+CXX_INCLUDES = -I/home/david/uni/numSim/NumSim_ws2122/Project/src -isystem /usr/local/include/vtk-8.2 -isystem /usr/local/include/vtk-8.2/vtkogg/include 
 

@@ -58,8 +58,8 @@ void writeParaviewOutput(int fileNo)
   {
     for (int i = 0; i < 10; i++)
     {
-      int index = j*10 + i;
-      arrayPressure->SetValue(index, i+j-fileNo*(i-j));
+      int index = j * 10 + i;
+      arrayPressure->SetValue(index, i + j - fileNo * (i - j));
     }
   }
 
@@ -72,8 +72,8 @@ void writeParaviewOutput(int fileNo)
   // Write the data
   vtkWriter->SetInputData(dataSet);
 
-  //vtkWriter->SetDataModeToAscii();     // comment this in to get ascii text files: those can be checked in an editor
-  vtkWriter->SetDataModeToBinary();      // set file mode to binary files: smaller file sizes
+  // vtkWriter->SetDataModeToAscii();     // comment this in to get ascii text files: those can be checked in an editor
+  vtkWriter->SetDataModeToBinary(); // set file mode to binary files: smaller file sizes
 
   // finally write out the data
   vtkWriter->Write();

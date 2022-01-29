@@ -2,20 +2,16 @@
 
 #include "discretization.h"
 
-class CentralDifferences :
-    public Discretization
+class CentralDifferences : public Discretization
 {
- private:
-     /* data */
- public:
+private:
+public:
     CentralDifferences(Settings settings);
-     ~CentralDifferences();
+    ~CentralDifferences();
     double computeDu2Dx(int i, int j) const;
     double computeDv2Dy(int i, int j) const;
     double computeDuvDx(int i, int j) const;
     double computeDuvDy(int i, int j) const;
-    
+
     void calculation();
 };
-
-

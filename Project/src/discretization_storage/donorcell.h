@@ -2,14 +2,12 @@
 
 #include "discretization.h"
 
-class DonorCell :
-    public Discretization
-{ 
+class DonorCell : public Discretization
+{
 private:
-   
 public:
-       DonorCell(Settings settings);
-       ~DonorCell();
+    DonorCell(Settings settings);
+    ~DonorCell();
     double computeDu2Dx(int i, int j) const;
     double computeDv2Dy(int i, int j) const;
     double computeDuvDx(int i, int j) const;
@@ -17,5 +15,3 @@ public:
 
     void calculation();
 };
-
-

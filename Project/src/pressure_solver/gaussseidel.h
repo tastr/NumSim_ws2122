@@ -4,22 +4,14 @@
 #include <array>
 #include "pressuresolver.h"
 
-
-
-class GaussSeidel:
-     public PressureSolver
+class GaussSeidel : public PressureSolver
 {
-protected: 
-        double tol;
- 
+protected:
+      double tol;
+
 public:
-      GaussSeidel(Discretization& discretization_);
+      GaussSeidel(Discretization &discretization_);
       ~GaussSeidel();
-      //FieldVariable calculateP();
+      // FieldVariable calculateP();
       virtual void calculateP();
-     
-     
-    
-    
-    
 };

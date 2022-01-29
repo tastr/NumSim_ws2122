@@ -12,8 +12,7 @@
  *  All values are given for the nodes of the mesh, i.e., the corners of each cell.
  *  This means, values will be interpolated because the values are stored at positions given by the staggered grid.
  */
-class OutputWriterParaview : 
-  public OutputWriter
+class OutputWriterParaview : public OutputWriter
 {
 public:
   //! constructor
@@ -24,6 +23,5 @@ public:
   void writeFile(double currentTime);
 
 private:
-
-  vtkSmartPointer<vtkXMLImageDataWriter> vtkWriter_;   //< vtk writer to write ImageData
+  vtkSmartPointer<vtkXMLImageDataWriter> vtkWriter_; //< vtk writer to write ImageData
 };

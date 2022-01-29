@@ -34,20 +34,21 @@ void SOR::calculateP()
     {
       for (int i = 1; i < i_max - 1; i++)
       {
-        // Gaussseideltermj1= v*((discretization_.p(i-1,1)+discretization_.p(i+1,1))/dx2+ discretization_.p(i,2)/ dy2-discretization_.rhs(i,1))/div_y;
-        // discretization_.setP(i,1, (1-omega) * discretization_.p(i,1)+ omega*  Gaussseideltermj1);
+        if (discretization_.getTyp(i, j) == 0)
+        {
+          x_term = (discretization_.p(i - 1, j) + discretization_.p(i + 1, j)) / deltax_quad;
+          y_term = (discretization_.p(i, j - 1) + discretization_.p(i, j + 1)) / deltay_quad;
+          // value of pij gets overwritten with the new approximation
+          discretization_.setP(i, j, (1 - omega) * discretization_.p(i, j) + omega * vorfaktor * (x_term + y_term - discretization_.rhs(i, j)));
 
-        x_term = (discretization_.p(i - 1, j) + discretization_.p(i + 1, j)) / deltax_quad;
-        y_term = (discretization_.p(i, j - 1) + discretization_.p(i, j + 1)) / deltay_quad;
-        // value of pij gets overwritten with the new approximation
-        discretization_.setP(i, j, (1 - omega) * discretization_.p(i, j) + omega * vorfaktor * (x_term + y_term - discretization_.rhs(i, j)));
-
-        // Gaussseideltermijend= v*((discretization_.p(i-1,jend)+discretization_.p(i+1,jend))/dx2+ discretization_.p(i,jend-1)/dy2-discretization_.rhs(i,jend))/div_y;
-        // discretization_.setP(i,jend, (1-omega) * discretization_.p(i,jend)+ omega* Gaussseideltermijend);
+          // Gaussseideltermijend= v*((discretization_.p(i-1,jend)+discretization_.p(i+1,jend))/dx2+ discretization_.p(i,jend-1)/dy2-discretization_.rhs(i,jend))/div_y;
+          // discretization_.setP(i,jend, (1-omega) * discretization_.p(i,jend)+ omega* Gaussseideltermijend);
+        }
       }
     }
     safe++;
     discretization_.updatedPressureBC();
+    discretization_.setObstaclePressure();
     resterm = (residuum() * residuum()) / Nnumber;
 
   } while (resterm > epsilonquad && safe < 20000);

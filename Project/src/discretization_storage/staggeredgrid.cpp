@@ -347,7 +347,7 @@ void StaggeredGrid::setObstaclePressure()
             }
             else if (type(i, j) == 4)
             {
-                pressure(i, j) = p(i = 1, j);
+                pressure(i, j) = p(i + 1, j);
             }
             else if (type(i, j) == 5)
             {

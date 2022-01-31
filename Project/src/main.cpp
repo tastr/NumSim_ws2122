@@ -14,6 +14,9 @@
 #include "discretization_storage/donorcell.h"
 #include "discretization_storage/centraldifferences.h"
 #include "test_and_debug/mytestfunctions.h"
+#include "discretization_storage/IntArray2d.h"
+#include "Geometry.h"
+
 // void loadFromFile(std::string filename);
 
 int main(int argc, char *argv[])
@@ -26,6 +29,24 @@ int main(int argc, char *argv[])
     return EXIT_FAILURE;
   }
 
+std::string filename = argv[1];
+std::ifstream file(filename.c_str(), std::ios::in);
+    if (!file.is_open())
+  {
+    std::cout << "Could not open Geometrie file \"" << filename << "\"." << std::endl;
+  }else
+  {
+  file.close();
+  file.~ifstream();
+  
+  Geometry geometrie(filename);
+  geometrie.printMatrix();
+  printf("\n");
+  geometrie.printGeometry();
+
+
+
+/*
   // read in the first argument
   std::string filename = argv[1];
 
@@ -102,4 +123,6 @@ int main(int argc, char *argv[])
   std::cout << "Laufzeit in s " << time1 << std::endl;
 
   return EXIT_SUCCESS;
+*/
+}
 }

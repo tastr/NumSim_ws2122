@@ -29,5 +29,11 @@ public:
     
 void  printMatrix();
 void printGeometry();
+std::array<int, 2> getFluidCellsIndices(int i) const;
+int getLengthFluidCellsIndices(int i) const;
+std::array<int, 2> getObstacleCellsIndices(int i) const;
+int getLengthObstacleCellsIndices(int i) const;
+
+
 
 };

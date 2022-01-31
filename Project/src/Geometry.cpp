@@ -155,8 +155,6 @@ void Geometry::createGeometry()
             if (geometry(i, j) == 1)
             {
                 int isfluidcell[4] = {geometry(i, j + 1) == 0, geometry(i + 1, j) == 0, geometry(i, j - 1) == 0, geometry(i - 1, j) == 0};
-                printf("%d %d %d %d \n", isfluidcell[0], isfluidcell[1], isfluidcell[2], isfluidcell[3]);
-                printf("%d %d %d %d \n", geometry(i, j + 1), geometry(i + 1, j), geometry(i, j - 1), geometry(i - 1, j));
                 sumisfluidcell = 0;
                 for (int k = 0; k < 4; k++)
                 {
@@ -222,4 +220,21 @@ void Geometry::createGeometry()
             }
         }
     }
+}
+
+std::array<int, 2> Geometry::getFluidCellsIndices(int i) const
+{
+    return {fluidCellsIndices(0, i), fluidCellsIndices(1, i)};
+}
+int Geometry::getLengthFluidCellsIndices(int i) const
+{
+    return fluidCellsIndices.size()[1];
+}
+std::array<int, 2> Geometry::getObstacleCellsIndices(int i) const
+{
+    return {obstacleCellsIndices(0, i), obstacleCellsIndices(1, i)};
+}
+int Geometry::getLengthObstacleCellsIndices(int i) const
+{
+    return obstacleCellsIndices.size()[1];
 }

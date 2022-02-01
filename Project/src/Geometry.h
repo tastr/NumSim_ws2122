@@ -4,8 +4,7 @@
 #include <array>
 #include "discretization_storage/IntArray2d.h"
 
-/** All settings that parametrize a simulation run.
- */
+
 class Geometry
 {
 private:

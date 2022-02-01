@@ -79,7 +79,7 @@ void Geometry::printMatrix()
     {
         for (int i = 0; i < matrix.size()[0]; i++)
         {
-            printf("%d ", matrix(i, j));
+            printf("%d ", matrix(i, matrix.size()[1]-1-j));
         }
         printf("\n");
     }

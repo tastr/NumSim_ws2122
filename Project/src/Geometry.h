@@ -88,4 +88,6 @@ public:
     int getLengthObstacleCellsIndices(int i) const;
 
     IntArray2D getGeometry() const;
+
+    std::array<int, 2> getNumberOfCells() const;
 };

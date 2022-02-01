@@ -51,7 +51,7 @@ void SOR::calculateP()
     discretization_.setObstaclePressure();
     resterm = residuum() / Nnumber;
 
-  } while (resterm > epsilonquad && safe < settings.maximumNumberOfIterations);
+  } while (resterm > epsilonquad && safe < discretization_.getMaxIteration());
    std::cout<< "Residuum " << residuum() << " Safe "<< safe <<std::endl;
   // setPressureBoundaries();
   // discretization_.updatedPressureBC();

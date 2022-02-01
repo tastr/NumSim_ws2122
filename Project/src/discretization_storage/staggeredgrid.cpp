@@ -273,134 +273,74 @@ double StaggeredGrid::abs(double number) const
     }
 }
 
-// needs to be divided in loops for u and v, alternatively, no 2...9 obstacles on the bounderies
-void StaggeredGrid::setObstacleVelocity()
-{
-    for (int j = 0; j < type.size()[1] - 2; j++)
-    {
-        for (int i = 0; i < type.size()[0] - 2; i++)
-        {
-            if (type(i, j) == 2)
-            {
-                velocity_Y(i, j) = 0;
-                velocity_X(i, j) = -u(i, j + 1);
-                velocity_X(i - 1, j) = -u(i - 1, j + 1);
-            }
-            else if (type(i, j) == 3)
-            {
-                velocity_Y(i, j - 1) = 0;
-                velocity_X(i, j) = -u(i, j - 1);
-                velocity_X(i - 1, j) = -u(i - 1, j - 1);
-            }
-            else if (type(i, j) == 4)
-            {
-                velocity_Y(i, j) = -v(i + 1, j);
-                velocity_X(i, j) = 0;
-                velocity_Y(i, j - 1) = -v(i + 1, j - 1);
-            }
-            else if (type(i, j) == 5)
-            {
-                velocity_Y(i, j) = -v(i - 1, j);
-                velocity_X(i - 1, j) = 0;
-                velocity_Y(i, j - 1) = -v(i - 1, j - 1);
-            }
 
-            else if (type(i, j) == 6)
-            {
-                velocity_Y(i, j) = 0;
-                velocity_X(i, j) = 0;
-
-                velocity_Y(i, j - 1) = -v(i + 1, j - 1);
-                velocity_X(i - 1, j) = -u(i - 1, j + 1);
-            }
-            else if (type(i, j) == 7)
-            {
-                velocity_Y(i, j) = 0;
-                velocity_X(i - 1, j) = 0;
-                velocity_X(i, j) = -u(i, j + 1);
-
-                velocity_Y(i, j - 1) = -v(i - 1, j - 1);
-            }
-            else if (type(i, j) == 8)
-            {
-                velocity_Y(i, j) = -v(i - 1, j);
-                velocity_Y(i, j - 1) = 0;
-                velocity_X(i - 1, j) = 0;
-                velocity_X(i, j) = -u(i, j - 1);
-            }
-            else if (type(i, j) == 9)
-            {
-                velocity_Y(i, j) = -v(i + 1, j);
-                velocity_Y(i, j - 1) = 0;
-                velocity_X(i - 1, j) = 0;
-                velocity_X(i - 1, j) = -u(i - 1, j - 1);
-            }
-        }
-    }
-}
 
 void StaggeredGrid::setObstaclePressure()
 {
-    for (int j = 0; j < type.size()[1] - 1; j++)
+    for (int j = 1; j < type.size()[1] - 1; j++)
     {
-        for (int i = 0; i < type.size()[0] - 1; i++)
+        for (int i = 1; i < type.size()[0] - 1; i++)
         {
-            if (type(i, j) == 2)
+            if (type(i, j) != 0 && type(i, j) != 1)
             {
-                pressure(i, j) = p(i, j + 1);
-            }
-            else if (type(i, j) == 3)
-            {
-                pressure(i, j) = p(i, j - 1);
-            }
-            else if (type(i, j) == 4)
-            {
-                pressure(i, j) = p(i + 1, j);
-            }
-            else if (type(i, j) == 5)
-            {
-                pressure(i, j) = p(i - 1, j);
-            }
-            else if (type(i, j) == 6)
-            {
-                pressure(i, j) = 0.5 * (p(i + 1, j) + p(i, j + 1));
-            }
-            else if (type(i, j) == 7)
-            {
-                pressure(i, j) = 0.5 * (p(i - 1, j) + p(i, j + 1));
-            }
-            else if (type(i, j) == 8)
-            {
-                pressure(i, j) = 0.5 * (p(i - 1, j) + p(i, j - 1));
-            }
-            else if (type(i, j) == 9)
-            {
-                pressure(i, j) = 0.5 * (p(i + 1, j) + p(i, j - 1));
+                if (type(i, j) == 2)
+                {
+                    pressure(i, j) = p(i, j + 1);
+                }
+                else if (type(i, j) == 3)
+                {
+                    pressure(i, j) = p(i, j - 1);
+                }
+                else if (type(i, j) == 4)
+                {
+                    pressure(i, j) = p(i + 1, j);
+                }
+                else if (type(i, j) == 5)
+                {
+                    pressure(i, j) = p(i - 1, j);
+                }
+                else if (type(i, j) == 6)
+                {
+                    pressure(i, j) = 0.5 * (p(i + 1, j) + p(i, j + 1));
+                }
+                else if (type(i, j) == 7)
+                {
+                    pressure(i, j) = 0.5 * (p(i - 1, j) + p(i, j + 1));
+                }
+                else if (type(i, j) == 8)
+                {
+                    pressure(i, j) = 0.5 * (p(i - 1, j) + p(i, j - 1));
+                }
+                else if (type(i, j) == 9)
+                {
+                    pressure(i, j) = 0.5 * (p(i + 1, j) + p(i, j - 1));
+                }
             }
         }
     }
 }
 void StaggeredGrid::setObstacle(Geometry geometrie)
 {
-/* 20x30 grid
+    /*
     for (int i = 1; i < 7; i++)
     {
-        type(i, 15) = 2;
-        type(i, 16) = 3;
+        type(i, 15) = 3;
+        type(i, 16) = 2;
     }
 
     for (int i = 14; i < type.size()[0] - 1; i++)
     {
-        type(i, 15) = 2;
-        type(i, 16) = 3;
+        type(i, 15) = 3;
+        type(i, 16) = 2;
     }
 
-    type(7, 15) = 6;
-    type(7, 16) = 9;
+    type(7, 15) = 9;
+    type(7, 16) = 6;
 
-    type(13, 15) = 7;
-    type(13, 16) = 8;
-*/
+    type(13, 15) = 8;
+    type(13, 16) = 7;
+    */
+
 /*
  for (int i = 1; i < 7; i++)
     {

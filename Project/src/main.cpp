@@ -54,6 +54,8 @@ std::ifstream file(filename.c_str(), std::ios::in);
   geometrie.printMatrix();
   printf("\n");
   geometrie.printGeometry();
+  settings.nCells = geometrie.getNumberOfCells();
+  settings.printSettings();
 
 
 
@@ -94,7 +96,7 @@ std::ifstream file(filename.c_str(), std::ios::in);
   myDiscretization->setObstacle(geometrie);
 
   myDiscretization->setBorderVelocity(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
-  myDiscretization->setObstacleVelocity();
+  myDiscretization->setObstacleVelocityFG();
   myDiscretization->updateBoundaryFG();
   myOutputWriterParaview.writeFile(current_time);
   myOutputWriterText.writeFile(current_time);
@@ -111,7 +113,7 @@ std::ifstream file(filename.c_str(), std::ios::in);
     myDiscretization->updateVelocity();
     myDiscretization->setBorderVelocity(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
     myDiscretization->updateBoundaryFG();
-    myDiscretization->setObstacleVelocity();
+    myDiscretization->setObstacleVelocityFG();
 
     myOutputWriterParaview.writeFile(current_time);
     myOutputWriterText.writeFile(current_time);

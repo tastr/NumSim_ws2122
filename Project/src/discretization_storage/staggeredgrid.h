@@ -70,7 +70,7 @@ public:
     void setV(FieldVariable value);
     void setP(FieldVariable value);
 
-    void setObstacleVelocity();
+    // void setObstacleVelocity(); // --> moved to discretization
     void setObstaclePressure();
 
     // void getValue(std::string str,int i, int j);

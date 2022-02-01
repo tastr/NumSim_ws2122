@@ -18,6 +18,7 @@ public:
     virtual void calculation();
     void updateVelocity();
     void updateBoundaryFG(); // for driven cavity not neccessary, but for other cases maybe.
+    void setObstacleVelocityFG();
 
     void updateDeltaT();
     double min2(double value1, double value2) const;
@@ -50,4 +51,6 @@ public:
 
     // set functions
     void setRHS(int i, int j, double value);
+    void setF(int i, int j, double value);
+    void setG(int i, int j, double value);
 };

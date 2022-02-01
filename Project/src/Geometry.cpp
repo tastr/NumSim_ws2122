@@ -270,3 +270,8 @@ IntArray2D Geometry::getGeometry() const
 {
     return geometry;
 }
+
+std::array<int, 2> Geometry::getNumberOfCells() const
+{
+    return {rownumber, columnnumber};
+}

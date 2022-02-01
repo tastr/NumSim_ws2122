@@ -171,3 +171,84 @@ void Discretization::setRHS(int i, int j, double value)
 {
     rhs_(i, j) = value;
 }
+
+// needs to be divided in loops for u and v, alternatively, no 2...9 obstacles on the bounderies
+void Discretization::setObstacleVelocityFG()
+{
+    for (int j = 1; j < type.size()[1] - 1; j++)
+    {
+        for (int i = 1; i < type.size()[0] - 1; i++)
+        {
+            if (type(i, j) != 0 && type(i, j) != 1)
+            {
+                if (type(i, j) == 2)
+                {
+                    velocity_Y(i, j) = 0;
+                    velocity_X(i, j) = -u(i, j + 1);
+                    velocity_X(i - 1, j) = -u(i - 1, j + 1);
+                    G(i, j) = 0;
+                }
+                else if (type(i, j) == 3)
+                {
+                    velocity_Y(i, j - 1) = 0;
+                    velocity_X(i, j) = -u(i, j - 1);
+                    velocity_X(i - 1, j) = -u(i - 1, j - 1);
+                    G(i, j - 1) = 0;
+                }
+                else if (type(i, j) == 4)
+                {
+                    velocity_Y(i, j) = -v(i + 1, j);
+                    velocity_X(i, j) = 0;
+                    velocity_Y(i, j - 1) = -v(i + 1, j - 1);
+                    F(i, j) = 0;
+                }
+                else if (type(i, j) == 5)
+                {
+                    velocity_Y(i, j) = -v(i - 1, j);
+                    velocity_X(i - 1, j) = 0;
+                    velocity_Y(i, j - 1) = -v(i - 1, j - 1);
+                    F(i - 1, j) = 0;
+                }
+
+                else if (type(i, j) == 6)
+                {
+                    velocity_Y(i, j) = 0;
+                    velocity_X(i, j) = 0;
+                    F(i, j) = 0;
+                    G(i, j) = 0;
+
+                    velocity_Y(i, j - 1) = -v(i + 1, j - 1);
+                    velocity_X(i - 1, j) = -u(i - 1, j + 1);
+                }
+                else if (type(i, j) == 7)
+                {
+                    velocity_Y(i, j) = 0;
+                    velocity_X(i - 1, j) = 0;
+                    G(i, j) = 0;
+                    F(i - 1, j) = 0;
+                    velocity_X(i, j) = -u(i, j + 1);
+
+                    velocity_Y(i, j - 1) = -v(i - 1, j - 1);
+                }
+                else if (type(i, j) == 8)
+                {
+                    velocity_Y(i, j) = -v(i - 1, j);
+                    velocity_Y(i, j - 1) = 0;
+                    velocity_X(i - 1, j) = 0;
+                    G(i, j - 1) = 0;
+                    F(i - 1, j) = 0;
+                    velocity_X(i, j) = -u(i, j - 1);
+                }
+                else if (type(i, j) == 9)
+                {
+                    velocity_Y(i, j) = -v(i + 1, j);
+                    velocity_Y(i, j - 1) = 0;
+                    velocity_X(i, j) = 0;
+                    G(i, j - 1) = 0;
+                    F(i, j) = 0;
+                    velocity_X(i - 1, j) = -u(i - 1, j - 1);
+                }
+            }
+        }
+    }
+}

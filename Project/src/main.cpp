@@ -36,6 +36,7 @@ std::ifstream file(filename.c_str(), std::ios::in);
     std::cout << "Could not open Geometrie file \"" << filename << "\"." << std::endl;
   }else
   {
+/*
   file.close();
   file.~ifstream();
   
@@ -43,10 +44,10 @@ std::ifstream file(filename.c_str(), std::ios::in);
   geometrie.printMatrix();
   printf("\n");
   geometrie.printGeometry();
+*/
 
 
 
-/*
   // read in the first argument
   std::string filename = argv[1];
 
@@ -123,6 +124,6 @@ std::ifstream file(filename.c_str(), std::ios::in);
   std::cout << "Laufzeit in s " << time1 << std::endl;
 
   return EXIT_SUCCESS;
-*/
+
 }
 }

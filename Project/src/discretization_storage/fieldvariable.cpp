@@ -15,12 +15,13 @@ FieldVariable::~FieldVariable()
 
 void FieldVariable::print()
 {
-
-    for (int i = 0; i < size_[0]; i++)
+    //suboptimal Iterations are used
+    //to get the correct visualization on the commanmd window
+    for (int j = 0; j < size_[1]; j++)
     {
-        for (int j = 0; j < size_[1]; j++)
+        for (int i = 0; i < size_[0]; i++)
         {
-            std::cout << " " << (*this)(i, j) << " ";
+            std::cout << " " << (*this)(i,size_[1]-1-j) << " ";
         }
         std::cout << std::endl;
     }

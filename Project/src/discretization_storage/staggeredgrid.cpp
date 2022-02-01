@@ -2,6 +2,7 @@
 #include "settings.h"
 #include <iostream>
 #include <cassert>
+#include "Geometry.h"
 
 // StaggeredGrid::StaggeredGrid(std::array<int,2> size)
 StaggeredGrid::StaggeredGrid(Settings settings)
@@ -381,7 +382,7 @@ void StaggeredGrid::setObstaclePressure()
 }
 void StaggeredGrid::setObstacle()
 {
-
+/* 20x30 grid
     for (int i = 1; i < 7; i++)
     {
         type(i, 15) = 2;
@@ -399,6 +400,170 @@ void StaggeredGrid::setObstacle()
 
     type(13, 15) = 7;
     type(13, 16) = 8;
+*/
+/*
+ for (int i = 1; i < 7; i++)
+    {
+        type(i, 13) = 2;
+        type(i, 18) = 3;
+       
+        type(i, 14) = 1;
+        type(i, 15) = 1;
+        type(i, 16) = 1;
+        type(i, 17) = 1;
+    }
+
+    for (int i = 14; i < type.size()[0] - 1; i++)
+    {
+        type(i, 13) = 2;
+        type(i, 18) = 3;
+
+        type(i, 14) = 1;
+        type(i, 15) = 1;
+        type(i, 16) = 1;
+        type(i, 17) = 1;
+    }
+
+    type(7, 13) = 6;
+    type(7, 18) = 9;
+
+    type(7, 14) = 4;
+    type(7, 15) = 4;
+    type(7, 16) = 4;
+    type(7, 17) = 4;
+
+
+    type(13, 13) = 7;
+    type(13, 18) = 8;
+
+    type(13, 14) = 5;
+    type(13, 15) = 5;
+    type(13, 16) = 5;
+    type(13, 17) = 5;
+*/
+/*
+
+ for (int i = 1; i < 8; i++)
+    {
+        type(i, 12) = 2;
+        type(i, 19) = 3;
+       
+        type(i, 14) = 1;
+        type(i, 15) = 1;
+        type(i, 16) = 1;
+        type(i, 17) = 1;
+        type(i, 13) = 1;
+        type(i, 18) = 1;
+    }
+
+    for (int i = 13; i < type.size()[0] - 1; i++)
+    {
+        type(i, 12) = 2;
+        type(i, 19) = 3;
+
+        type(i, 14) = 1;
+        type(i, 15) = 1;
+        type(i, 16) = 1;
+        type(i, 17) = 1;
+        type(i, 13) = 1;
+        type(i, 18) = 1;
+        
+        
+
+    }
+
+    type(8, 19) = 6;
+    type(8, 12) = 9;
+
+    type(8, 14) = 4;
+    type(8, 15) = 4;
+    type(8, 16) = 4;
+    type(8, 17) = 4;
+    type(8, 13) = 4;
+    type(8, 18) = 4;
+    
+
+    type(12, 19) = 7;
+    type(12, 12) = 8;
+
+    type(12, 14) = 5;
+    type(12, 15) = 5;
+    type(12, 16) = 5;
+    type(12, 17) = 5;
+    type(12, 13) = 5;
+    type(12, 18) = 5;
+
+*/
+
+
+// 30x20 grid
+/*
+    for (int i = 1; i < 7; i++)
+    {
+        type(15, i) = 2;
+        type(16, i) = 3;
+    }
+
+    for (int i = 14; i < type.size()[1] - 1; i++)
+    {
+        type(15, i) = 2;
+        type(16, i) = 3;
+    }
+
+    type(15, 7) = 7;
+    type(16, 7) = 6;
+
+    type(15, 13) = 8;
+    type(16, 13) = 9;
+*/
+
+  for (int i = 1; i < 7; i++)
+    {   
+        type(14, i) = 5;
+        type(15, i) = 1;
+        type(16, i) = 1;
+        type(17, i) = 4;
+
+    }
+
+    type(14, 7) = 7;
+    type(15, 7) = 2;
+    type(16, 7) = 2;
+    type(17, 7) = 6;
+
+
+
+ 
+type.print();
+
+
+
+
+
+
+/*
+
+//insert Filename to read a external geometry into the System
+
+Geometry geometrie("channelwithstep2.txt");
+//Geometry geometrie("channelwithstepNULL.txt");
+printf("%d %d",geometrie.getGeometry().size()[0],geometrie.getGeometry().size()[1]);
+
+IntArray2D geo=geometrie.getGeometry();
+for (int i = 0; i<type.size()[0] ; i++)
+{
+    for (int j = 0; j<type.size()[1] ; j++)
+    {
+     type(i,j)=geo(i,j);
+    }
+    
+}
+*/
+
+
+
+
+
 }
 
 // TODO setObstacleFG

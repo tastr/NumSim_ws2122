@@ -2,6 +2,7 @@
 
 #include "fieldvariable.h"
 #include "settings.h"
+#include "Geometry.h"
 #include <cassert>
 
 class StaggeredGrid
@@ -74,7 +75,7 @@ public:
 
     // void getValue(std::string str,int i, int j);
 
-    void setObstacle();
+    void setObstacle(Geometry geometrie);
 
     // TODO setObstacleFG
 };

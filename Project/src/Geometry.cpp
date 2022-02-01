@@ -1,5 +1,6 @@
 #include <fstream>
 #include <iomanip>
+#include <stdexcept>
 #include "Geometry.h"
 
 Geometry::Geometry(std::string filename)
@@ -20,56 +21,82 @@ Geometry::~Geometry()
 int Geometry::getRowNumber(std::string filename)
 {
     std::ifstream file(filename.c_str(), std::ios::in);
-    int rownumber = -1;
-
-    while (!file.eof())
+    if (!file.is_open())
     {
-        std::string line;
-        getline(file, line);
-        rownumber++;
+        std::cout << "Could not open Geometrie file \"" << filename << "\"." << std::endl;
+        throw std::runtime_error("Could not open Geometrie file");
     }
-    return rownumber;
+    else
+    {
+        int rownumber = -1;
+
+        while (!file.eof())
+        {
+            std::string line;
+            getline(file, line);
+            rownumber++;
+        }
+        return rownumber;
+    }
+    
 }
 
 int Geometry::getColumnNumber(std::string filename)
 {
     std::ifstream file(filename.c_str(), std::ios::in);
-    int columnnumber = 0;
-    std::string line;
-
-    getline(file, line);
-    while (line.find(",") != std::string::npos)
+    if (!file.is_open())
     {
-        columnnumber++;
-        line.erase(line.find_first_of(","), 1);
+        std::cout << "Could not open Geometrie file \"" << filename << "\"." << std::endl;
+        throw std::runtime_error("Could not open Geometrie file");
     }
+        else
+        {
+        int columnnumber = 0;
+        std::string line;
 
-    return columnnumber;
+        getline(file, line);
+        while (line.find(",") != std::string::npos)
+        {
+            columnnumber++;
+            line.erase(line.find_first_of(","), 1);
+        }
+
+        return columnnumber;
+    }
 }
 
 void Geometry::writeMatrix(std::string filename)
 {
-    int i = 0;
-    int j = 0;
     std::ifstream file(filename.c_str(), std::ios::in);
-    std::string line;
-    std::string parameter = "";
-
-    while (!file.eof())
+    if (!file.is_open())
     {
-        getline(file, line);
-        // TODO Solution for the Problem, that , at the end of line is required
-        while (line.find(",") != std::string::npos)
-        {
+        std::cout << "Could not open Geometrie file \"" << filename << "\"." << std::endl;
+        throw std::runtime_error("Could not open Geometrie file");
+    }
+    else
+    {
+        int i = 0;
+        int j = 0;
+        
+        std::string line;
+        std::string parameter = "";
 
-            parameter = line.substr(0, line.find_first_of(","));
-            // matrix(i, j) = atof(parameter.c_str());
-            matrix(i, matrix.size()[1] - 1 - j) = atoi(parameter.c_str());
-            line.erase(0, line.find_first_of(",") + 1);
-            i++;
+        while (!file.eof())
+        {
+            getline(file, line);
+            // TODO Solution for the Problem, that , at the end of line is required
+            while (line.find(",") != std::string::npos)
+            {
+
+                parameter = line.substr(0, line.find_first_of(","));
+                // matrix(i, j) = atof(parameter.c_str());
+                matrix(i, matrix.size()[1] - 1 - j) = atoi(parameter.c_str());
+                line.erase(0, line.find_first_of(",") + 1);
+                i++;
+            }
+            i = 0;
+            j++;
         }
-        i = 0;
-        j++;
     }
 }
 
@@ -79,7 +106,7 @@ void Geometry::printMatrix()
     {
         for (int i = 0; i < matrix.size()[0]; i++)
         {
-            printf("%d ", matrix(i, matrix.size()[1]-1-j));
+            printf("%d ", matrix(i, matrix.size()[1] - 1 - j));
         }
         printf("\n");
     }
@@ -237,4 +264,9 @@ std::array<int, 2> Geometry::getObstacleCellsIndices(int i) const
 int Geometry::getLengthObstacleCellsIndices(int i) const
 {
     return obstacleCellsIndices.size()[1];
+}
+
+IntArray2D Geometry::getGeometry() const
+{
+    return geometry;
 }

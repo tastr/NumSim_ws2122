@@ -29,28 +29,14 @@ int main(int argc, char *argv[])
     return EXIT_FAILURE;
   }
 
+// read in the first argument
 std::string filename = argv[1];
 std::ifstream file(filename.c_str(), std::ios::in);
     if (!file.is_open())
   {
-    std::cout << "Could not open Geometrie file \"" << filename << "\"." << std::endl;
+    std::cout << "Could not open setting file \"" << filename << "\"." << std::endl;
   }else
   {
-/*
-  file.close();
-  file.~ifstream();
-  
-  Geometry geometrie(filename);
-  geometrie.printMatrix();
-  printf("\n");
-  geometrie.printGeometry();
-*/
-
-
-
-  // read in the first argument
-  std::string filename = argv[1];
-
   // print message
   std::cout << "Filename: \"" << filename << "\"" << std::endl;
   Settings settings;
@@ -58,6 +44,18 @@ std::ifstream file(filename.c_str(), std::ios::in);
   settings.loadFromFile(filename);
   // display all settings on console
   settings.printSettings();
+
+  
+  // read in the second argument
+  std::string geoFilename = argv[2];
+  file.close();
+  file.~ifstream();
+  Geometry geometrie(geoFilename);
+  geometrie.printMatrix();
+  printf("\n");
+  geometrie.printGeometry();
+
+
 
   // testing
   // MyTestFunctions myTest;
@@ -93,13 +91,15 @@ std::ifstream file(filename.c_str(), std::ios::in);
   double current_time = 0;
   // write after initialization
 
+  myDiscretization->setObstacle(geometrie);
+
   myDiscretization->setBorderVelocity(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
   myDiscretization->setObstacleVelocity();
   myDiscretization->updateBoundaryFG();
   myOutputWriterParaview.writeFile(current_time);
   myOutputWriterText.writeFile(current_time);
 
-  myDiscretization->setObstacle();
+  
 
   while (current_time < settings.endTime && Iterationszahl < settings.maximumNumberOfIterations)
   {

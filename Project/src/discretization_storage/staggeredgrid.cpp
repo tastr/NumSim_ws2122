@@ -380,7 +380,7 @@ void StaggeredGrid::setObstaclePressure()
         }
     }
 }
-void StaggeredGrid::setObstacle()
+void StaggeredGrid::setObstacle(Geometry geometrie)
 {
 /* 20x30 grid
     for (int i = 1; i < 7; i++)
@@ -517,6 +517,7 @@ void StaggeredGrid::setObstacle()
     type(16, 13) = 9;
 */
 
+/*
   for (int i = 1; i < 7; i++)
     {   
         type(14, i) = 5;
@@ -536,17 +537,14 @@ void StaggeredGrid::setObstacle()
  
 type.print();
 
+*/
 
 
 
 
 
-/*
 
-//insert Filename to read a external geometry into the System
 
-Geometry geometrie("channelwithstep2.txt");
-//Geometry geometrie("channelwithstepNULL.txt");
 printf("%d %d",geometrie.getGeometry().size()[0],geometrie.getGeometry().size()[1]);
 
 IntArray2D geo=geometrie.getGeometry();
@@ -558,7 +556,7 @@ for (int i = 0; i<type.size()[0] ; i++)
     }
     
 }
-*/
+
 
 
 

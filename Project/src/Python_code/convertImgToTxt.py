@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 #import otsuthreshold as ot
-import scipy.misc
+#import scipy.misc
 
 
 def deleteIllegalOnes(img):
@@ -96,23 +96,31 @@ def quadrupelPixels(img):
 
 
 #give the path to the image
-imgpath = "test.jpg"
+imgpath = "test.png"
 
-#converts the image into a 3 dimensinal array (may be important for inflow outflow, different bC etc)
+#reads image and scales it to uint8. Sometimes png is between 0 and 1.
 img = np.array(mpimg.imread(imgpath)) 
-img.astype(np.uint8)
+img = img*(1/np.max(img))*255
+img = img.astype(np.uint8)
 
-#converts the data to a grey scale i.e. black white image
-blackwhitedata = np.mean(img,axis=2).astype(np.uint8)
+print("shape of the image is: ", np.shape(img))
+#print(img.ndim)
+#print(img)
 
-# creates a binary array with only zeros and ones for fluid and obstacles respectively
-convertToBinaryGeometry(blackwhitedata)
+#if more dimension: reduction of one axis
+if img.ndim > 2:
+    img = np.mean(img,axis=2).astype(np.uint8)
+
+# creates a binary array with only zeros and ones for fluid and obstacles respectively. --> non zero is obstacl
+convertToBinaryGeometry(img)
 
 #deletes all obstacles that contain fluidcells on opposite sites
-deleteIllegalOnes(blackwhitedata)
+deleteIllegalOnes(img)
+
+print("This is how the result looks like: \n", img)
 
 #prints the data to a txt file
-printToFile(imgpath,blackwhitedata)
+printToFile(imgpath,img)
 
 
 

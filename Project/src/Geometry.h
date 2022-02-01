@@ -86,4 +86,6 @@ public:
      * returns the length of the obstaclecellvector (number of obstaclecells)
      */
     int getLengthObstacleCellsIndices(int i) const;
+
+    IntArray2D getGeometry() const;
 };

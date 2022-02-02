@@ -273,5 +273,5 @@ IntArray2D Geometry::getGeometry() const
 
 std::array<int, 2> Geometry::getNumberOfCells() const
 {
-    return {rownumber, columnnumber};
+    return {columnnumber,rownumber};
 }

@@ -87,8 +87,14 @@ double PressureSolver::residuum()
       pyy = (discretization_.p(i, j - 1) - 2 * discretization_.p(i, j) + discretization_.p(i, j + 1)) / (discretization_.dy() * discretization_.dy());
       temp = pxx + pyy - discretization_.rhs(i, j);
       res = res + (temp * temp);
+      //printf("%2.5f ",1000*temp);
+      }else
+      {
+      //printf("9.99999");
       }
     }
+    //printf("\n");
   }
+   //printf("\n\n\n\n");
   return res;
 }

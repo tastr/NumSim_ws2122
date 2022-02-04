@@ -176,6 +176,58 @@ void Settings::loadFromFile(std::string filename)
         maximumNumberOfIterations = (int)mA;
         // maximumNumberOfIterations=atoi(parameterValue.c_str());
       }
+      else if (parameterName == "outflowTop")
+      {
+        if (parameterValue == "true")
+          {
+            outflowTop=true;        
+          } 
+          else if (parameterValue == "false")
+          {
+            outflowTop=false; 
+          }
+      }
+      else if (parameterName == "outflowBottom")
+      {
+        if (parameterValue == "true")
+          {
+            outflowBottom=true;        
+          } 
+          else if (parameterValue == "false")
+          {
+            outflowBottom=false; 
+          }
+      }
+      else if (parameterName == "outflowLeft")
+      {
+        if (parameterValue == "true")
+          {
+            outflowLeft=true;        
+          } 
+          else if (parameterValue == "false")
+          {
+            outflowLeft=false; 
+          }
+      }
+      else if (parameterName == "outflowRight")
+      {
+        if (parameterValue == "true")
+          {
+            outflowRight=true;        
+          } 
+          else if (parameterValue == "false")
+          {
+            outflowRight=false; 
+          }
+      }
+      else if (parameterName =="underrelaxationRHS")
+      {
+        underrelaxationRHS =atof(parameterValue.c_str());
+      } 
+      else if (parameterName =="underrelaxationUV")
+      {
+        underrelaxationUV =atof(parameterValue.c_str());
+      }
       
     
     }
@@ -188,10 +240,11 @@ void Settings::printSettings()
   std::cout << "Settings: " << std::endl
     << "  physicalSize: " << physicalSize[0] << " x " << physicalSize[1] << ", nCells: " << nCells[0] << " x " << nCells[1] << std::endl
     << "  endTime: " << endTime << " s, re: " << re << ", g: (" << g[0] << "," << g[1] << "), tau: " << tau << ", maximum dt: " << maximumDt << std::endl
-    << "  dirichletBC: bottom: (" << dirichletBcBottom[0] << "," << dirichletBcBottom[1]  << ")"
-    << ", top: ("  << dirichletBcTop[0] << "," << dirichletBcTop[1]  << ")"
-    << ", left: ("  << dirichletBcLeft[0] << "," << dirichletBcLeft[1] << ")"
-    << ", right: ("  << dirichletBcRight[0] << "," << dirichletBcRight[1] << ")" << std::endl
+    << "  Boundary conditions:" << std::endl
+    << "\t  bottom: (" << dirichletBcBottom[0] << "," << dirichletBcBottom[1]  << ") \t" << "outflow: " << outflowBottom << std::endl
+    << "\t  top: ("  << dirichletBcTop[0] << "," << dirichletBcTop[1]  << ")   \t" << "outflow: " << outflowTop << std::endl
+    << "\t  left: ("  << dirichletBcLeft[0] << "," << dirichletBcLeft[1] << ")   \t" << "outflow: " << outflowLeft << std::endl
+    << "\t  right: ("  << dirichletBcRight[0] << "," << dirichletBcRight[1] << ")   \t" << "outflow: " << outflowRight << std::endl
     << "  useDonorCell: " << std::boolalpha << useDonorCell << ", alpha: " << alpha << std::endl
     << "  pressureSolver: " << pressureSolver << ", omega: " << omega << ", epsilon: " << epsilon << ", maximumNumberOfIterations: " << maximumNumberOfIterations << std::endl;
 }

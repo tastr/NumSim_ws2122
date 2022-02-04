@@ -47,6 +47,7 @@ void PressureSolver::calculateRHS()
   double Gij = 0;
   double Gijm1;
   double current_rhs = 0;
+  double sumRHS = 0;
   for (int j = discretization_.pJBegin() + 1; j < discretization_.pJEnd() - 1; j++)
   {
     for (int i = discretization_.pIBegin() + 1; i < discretization_.pIEnd() - 1; i++)
@@ -59,10 +60,13 @@ void PressureSolver::calculateRHS()
         Gijm1 = discretization_.g(i, j - 1);
 
         current_rhs = ((Fij - Fim1j) / discretization_.dx() + (Gij - Gijm1) / discretization_.dy()) / discretization_.getDeltaT();
+        current_rhs = ( 1- discretization_.getURrhs()) * discretization_.rhs(i, j) + discretization_.getURrhs() * current_rhs;
         discretization_.setRHS(i, j, current_rhs);
+        sumRHS += current_rhs;
       }
     }
   }
+  std::cout << "Summe RHS: " << sumRHS << "\t";
 }
 
 void PressureSolver::calculateP()

@@ -25,17 +25,22 @@ void SOR::calculateP()
 
   double epsilonquad = discretization_.getepsilon() * discretization_.getepsilon();
   double resterm;
-  int Nnumber = (discretization_.nCells()[0] * discretization_.nCells()[1]);
+  // int Nnumber = (discretization_.nCells()[0] * discretization_.nCells()[1]);
+  int Nnumber = 0;
 
+
+
+  // discretization_.setObstaclePressure();
   do
   {
-
+    Nnumber = 0;
     for (int j = 1; j < j_max - 1; j++)
     {
       for (int i = 1; i < i_max - 1; i++)
       {
         if (discretization_.getTyp(i, j) == 0)
         {
+          Nnumber++;
           x_term = (discretization_.p(i - 1, j) + discretization_.p(i + 1, j)) / deltax_quad;
           y_term = (discretization_.p(i, j - 1) + discretization_.p(i, j + 1)) / deltay_quad;
           // value of pij gets overwritten with the new approximation

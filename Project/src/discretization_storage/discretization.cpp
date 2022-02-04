@@ -213,7 +213,7 @@ void Discretization::setObstacleVelocityFG()
                 else if (type(i, j) == 6)
                 {
                     velocity_Y(i, j) = 0;
-                    velocity_X(i, j) = 0;
+                    //velocity_X(i, j) = 0;
                   
                    
                     F(i, j) = 0;
@@ -225,7 +225,7 @@ void Discretization::setObstacleVelocityFG()
                 else if (type(i, j) == 7)
                 {
                     velocity_Y(i, j) = 0;
-                    // velocity_X(i, j) = -u(i, j+1);
+                    velocity_X(i, j) = -u(i, j+1);
                     velocity_X(i - 1, j) = 0;
                     G(i, j) = 0;
                     F(i - 1, j) = 0;
@@ -247,7 +247,7 @@ void Discretization::setObstacleVelocityFG()
                 {
                     velocity_Y(i, j) = -v(i + 1, j);
                     velocity_Y(i, j - 1) = 0;
-                    velocity_X(i, j) = 0;
+                   // velocity_X(i, j) = 0;
                     G(i, j - 1) = 0;
                     F(i, j) = 0;
                     velocity_X(i - 1, j) = -u(i - 1, j - 1);

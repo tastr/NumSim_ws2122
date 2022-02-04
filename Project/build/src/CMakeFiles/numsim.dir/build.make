@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics
+CMAKE_SOURCE_DIR = /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/build
+CMAKE_BINARY_DIR = /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build
 
 # Include any dependencies generated for this target.
 include src/CMakeFiles/numsim.dir/depend.make
@@ -59,221 +59,395 @@ include src/CMakeFiles/numsim.dir/flags.make
 
 src/CMakeFiles/numsim.dir/main.cpp.o: src/CMakeFiles/numsim.dir/flags.make
 src/CMakeFiles/numsim.dir/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/numsim.dir/main.cpp.o"
-	cd /home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/main.cpp.o -c /home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/numsim.dir/main.cpp.o"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/main.cpp.o -c /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/main.cpp
 
 src/CMakeFiles/numsim.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/main.cpp.i"
-	cd /home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/src/main.cpp > CMakeFiles/numsim.dir/main.cpp.i
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/main.cpp > CMakeFiles/numsim.dir/main.cpp.i
 
 src/CMakeFiles/numsim.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/main.cpp.s"
-	cd /home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/src/main.cpp -o CMakeFiles/numsim.dir/main.cpp.s
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/main.cpp -o CMakeFiles/numsim.dir/main.cpp.s
 
-src/CMakeFiles/numsim.dir/output_writer/write_paraview_output.cpp.o: src/CMakeFiles/numsim.dir/flags.make
-src/CMakeFiles/numsim.dir/output_writer/write_paraview_output.cpp.o: ../src/output_writer/write_paraview_output.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/CMakeFiles/numsim.dir/output_writer/write_paraview_output.cpp.o"
-	cd /home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/output_writer/write_paraview_output.cpp.o -c /home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/src/output_writer/write_paraview_output.cpp
+src/CMakeFiles/numsim.dir/settings.cpp.o: src/CMakeFiles/numsim.dir/flags.make
+src/CMakeFiles/numsim.dir/settings.cpp.o: ../src/settings.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/CMakeFiles/numsim.dir/settings.cpp.o"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/settings.cpp.o -c /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/settings.cpp
 
-src/CMakeFiles/numsim.dir/output_writer/write_paraview_output.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/output_writer/write_paraview_output.cpp.i"
-	cd /home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/src/output_writer/write_paraview_output.cpp > CMakeFiles/numsim.dir/output_writer/write_paraview_output.cpp.i
+src/CMakeFiles/numsim.dir/settings.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/settings.cpp.i"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/settings.cpp > CMakeFiles/numsim.dir/settings.cpp.i
 
-src/CMakeFiles/numsim.dir/output_writer/write_paraview_output.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/output_writer/write_paraview_output.cpp.s"
-	cd /home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/src/output_writer/write_paraview_output.cpp -o CMakeFiles/numsim.dir/output_writer/write_paraview_output.cpp.s
+src/CMakeFiles/numsim.dir/settings.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/settings.cpp.s"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/settings.cpp -o CMakeFiles/numsim.dir/settings.cpp.s
+
+src/CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.o: src/CMakeFiles/numsim.dir/flags.make
+src/CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.o: ../src/output_writer/output_writer_paraview.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.o"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.o -c /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/output_writer/output_writer_paraview.cpp
+
+src/CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.i"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/output_writer/output_writer_paraview.cpp > CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.i
+
+src/CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.s"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/output_writer/output_writer_paraview.cpp -o CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.s
+
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o: src/CMakeFiles/numsim.dir/flags.make
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o: ../src/output_writer/output_writer_text.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o -c /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/output_writer/output_writer_text.cpp
+
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.i"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/output_writer/output_writer_text.cpp > CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.i
+
+src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.s"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/output_writer/output_writer_text.cpp -o CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.s
+
+src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o: src/CMakeFiles/numsim.dir/flags.make
+src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o: ../src/output_writer/output_writer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o -c /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/output_writer/output_writer.cpp
+
+src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/output_writer/output_writer.cpp.i"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/output_writer/output_writer.cpp > CMakeFiles/numsim.dir/output_writer/output_writer.cpp.i
+
+src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/output_writer/output_writer.cpp.s"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/output_writer/output_writer.cpp -o CMakeFiles/numsim.dir/output_writer/output_writer.cpp.s
+
+src/CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.o: src/CMakeFiles/numsim.dir/flags.make
+src/CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.o: ../src/discretization_storage/array2d.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.o"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.o -c /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/discretization_storage/array2d.cpp
+
+src/CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.i"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/discretization_storage/array2d.cpp > CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.i
+
+src/CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.s"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/discretization_storage/array2d.cpp -o CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.s
+
+src/CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.o: src/CMakeFiles/numsim.dir/flags.make
+src/CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.o: ../src/discretization_storage/centraldifferences.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.o"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.o -c /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/discretization_storage/centraldifferences.cpp
+
+src/CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.i"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/discretization_storage/centraldifferences.cpp > CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.i
+
+src/CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.s"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/discretization_storage/centraldifferences.cpp -o CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.s
+
+src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o: src/CMakeFiles/numsim.dir/flags.make
+src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o: ../src/discretization_storage/donorcell.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o -c /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/discretization_storage/donorcell.cpp
+
+src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.i"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/discretization_storage/donorcell.cpp > CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.i
+
+src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.s"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/discretization_storage/donorcell.cpp -o CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.s
+
+src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o: src/CMakeFiles/numsim.dir/flags.make
+src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o: ../src/discretization_storage/discretization.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o -c /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/discretization_storage/discretization.cpp
+
+src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.i"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/discretization_storage/discretization.cpp > CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.i
+
+src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.s"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/discretization_storage/discretization.cpp -o CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.s
+
+src/CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.o: src/CMakeFiles/numsim.dir/flags.make
+src/CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.o: ../src/discretization_storage/fieldvariable.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.o"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.o -c /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/discretization_storage/fieldvariable.cpp
+
+src/CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.i"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/discretization_storage/fieldvariable.cpp > CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.i
+
+src/CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.s"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/discretization_storage/fieldvariable.cpp -o CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.s
+
+src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.o: src/CMakeFiles/numsim.dir/flags.make
+src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.o: ../src/discretization_storage/staggeredgrid.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.o"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.o -c /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/discretization_storage/staggeredgrid.cpp
+
+src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.i"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/discretization_storage/staggeredgrid.cpp > CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.i
+
+src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.s"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/discretization_storage/staggeredgrid.cpp -o CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.s
+
+src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.o: src/CMakeFiles/numsim.dir/flags.make
+src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.o: ../src/pressure_solver/pressuresolver.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.o"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.o -c /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/pressure_solver/pressuresolver.cpp
+
+src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.i"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/pressure_solver/pressuresolver.cpp > CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.i
+
+src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.s"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/pressure_solver/pressuresolver.cpp -o CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.s
+
+src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o: src/CMakeFiles/numsim.dir/flags.make
+src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o: ../src/pressure_solver/gaussseidel.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o -c /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/pressure_solver/gaussseidel.cpp
+
+src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.i"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/pressure_solver/gaussseidel.cpp > CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.i
+
+src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.s"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/pressure_solver/gaussseidel.cpp -o CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.s
+
+src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.o: src/CMakeFiles/numsim.dir/flags.make
+src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.o: ../src/pressure_solver/sor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.o"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/pressure_solver/sor.cpp.o -c /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/pressure_solver/sor.cpp
+
+src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/pressure_solver/sor.cpp.i"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/pressure_solver/sor.cpp > CMakeFiles/numsim.dir/pressure_solver/sor.cpp.i
+
+src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/pressure_solver/sor.cpp.s"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/pressure_solver/sor.cpp -o CMakeFiles/numsim.dir/pressure_solver/sor.cpp.s
+
+src/CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.o: src/CMakeFiles/numsim.dir/flags.make
+src/CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.o: ../src/test_and_debug/mytestfunctions.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object src/CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.o"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.o -c /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/test_and_debug/mytestfunctions.cpp
+
+src/CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.i"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/test_and_debug/mytestfunctions.cpp > CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.i
+
+src/CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.s"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/test_and_debug/mytestfunctions.cpp -o CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.s
+
+src/CMakeFiles/numsim.dir/Geometry.cpp.o: src/CMakeFiles/numsim.dir/flags.make
+src/CMakeFiles/numsim.dir/Geometry.cpp.o: ../src/Geometry.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object src/CMakeFiles/numsim.dir/Geometry.cpp.o"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/Geometry.cpp.o -c /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/Geometry.cpp
+
+src/CMakeFiles/numsim.dir/Geometry.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/Geometry.cpp.i"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/Geometry.cpp > CMakeFiles/numsim.dir/Geometry.cpp.i
+
+src/CMakeFiles/numsim.dir/Geometry.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/Geometry.cpp.s"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/Geometry.cpp -o CMakeFiles/numsim.dir/Geometry.cpp.s
+
+src/CMakeFiles/numsim.dir/discretization_storage/IntArray2d.cpp.o: src/CMakeFiles/numsim.dir/flags.make
+src/CMakeFiles/numsim.dir/discretization_storage/IntArray2d.cpp.o: ../src/discretization_storage/IntArray2d.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object src/CMakeFiles/numsim.dir/discretization_storage/IntArray2d.cpp.o"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/numsim.dir/discretization_storage/IntArray2d.cpp.o -c /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/discretization_storage/IntArray2d.cpp
+
+src/CMakeFiles/numsim.dir/discretization_storage/IntArray2d.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/numsim.dir/discretization_storage/IntArray2d.cpp.i"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/discretization_storage/IntArray2d.cpp > CMakeFiles/numsim.dir/discretization_storage/IntArray2d.cpp.i
+
+src/CMakeFiles/numsim.dir/discretization_storage/IntArray2d.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/numsim.dir/discretization_storage/IntArray2d.cpp.s"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/discretization_storage/IntArray2d.cpp -o CMakeFiles/numsim.dir/discretization_storage/IntArray2d.cpp.s
 
 # Object files for target numsim
 numsim_OBJECTS = \
 "CMakeFiles/numsim.dir/main.cpp.o" \
-"CMakeFiles/numsim.dir/output_writer/write_paraview_output.cpp.o"
+"CMakeFiles/numsim.dir/settings.cpp.o" \
+"CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.o" \
+"CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o" \
+"CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o" \
+"CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.o" \
+"CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.o" \
+"CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o" \
+"CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o" \
+"CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.o" \
+"CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.o" \
+"CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.o" \
+"CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o" \
+"CMakeFiles/numsim.dir/pressure_solver/sor.cpp.o" \
+"CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.o" \
+"CMakeFiles/numsim.dir/Geometry.cpp.o" \
+"CMakeFiles/numsim.dir/discretization_storage/IntArray2d.cpp.o"
 
 # External object files for target numsim
 numsim_EXTERNAL_OBJECTS =
 
 src/numsim: src/CMakeFiles/numsim.dir/main.cpp.o
-src/numsim: src/CMakeFiles/numsim.dir/output_writer/write_paraview_output.cpp.o
+src/numsim: src/CMakeFiles/numsim.dir/settings.cpp.o
+src/numsim: src/CMakeFiles/numsim.dir/output_writer/output_writer_paraview.cpp.o
+src/numsim: src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o
+src/numsim: src/CMakeFiles/numsim.dir/output_writer/output_writer.cpp.o
+src/numsim: src/CMakeFiles/numsim.dir/discretization_storage/array2d.cpp.o
+src/numsim: src/CMakeFiles/numsim.dir/discretization_storage/centraldifferences.cpp.o
+src/numsim: src/CMakeFiles/numsim.dir/discretization_storage/donorcell.cpp.o
+src/numsim: src/CMakeFiles/numsim.dir/discretization_storage/discretization.cpp.o
+src/numsim: src/CMakeFiles/numsim.dir/discretization_storage/fieldvariable.cpp.o
+src/numsim: src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.o
+src/numsim: src/CMakeFiles/numsim.dir/pressure_solver/pressuresolver.cpp.o
+src/numsim: src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o
+src/numsim: src/CMakeFiles/numsim.dir/pressure_solver/sor.cpp.o
+src/numsim: src/CMakeFiles/numsim.dir/test_and_debug/mytestfunctions.cpp.o
+src/numsim: src/CMakeFiles/numsim.dir/Geometry.cpp.o
+src/numsim: src/CMakeFiles/numsim.dir/discretization_storage/IntArray2d.cpp.o
 src/numsim: src/CMakeFiles/numsim.dir/build.make
-src/numsim: /usr/lib/x86_64-linux-gnu/libfreetype.so
-src/numsim: /usr/lib/x86_64-linux-gnu/libz.so
-src/numsim: /usr/lib/x86_64-linux-gnu/libexpat.so
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkDomainsChemistryOpenGL2-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libjpeg.so
-src/numsim: /usr/lib/x86_64-linux-gnu/libpng.so
-src/numsim: /usr/lib/x86_64-linux-gnu/libtiff.so
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkFiltersGeneric-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkFiltersHyperTree-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkFiltersParallelDIY2-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkFiltersParallelFlowPaths-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkFiltersParallelGeometry-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkFiltersParallelImaging-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkFiltersParallelMPI-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkFiltersParallelStatistics-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkFiltersPoints-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkFiltersProgrammable-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkFiltersPython-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libpython3.8.so
-src/numsim: /usr/lib/libvtkWrappingTools-7.1.a
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkFiltersReebGraph-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkFiltersSMP-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkFiltersSelection-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkFiltersTexture-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkFiltersVerdict-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkverdict-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOAMR-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/hdf5/openmpi/libhdf5.so
-src/numsim: /usr/lib/x86_64-linux-gnu/libsz.so
-src/numsim: /usr/lib/x86_64-linux-gnu/libdl.so
-src/numsim: /usr/lib/x86_64-linux-gnu/libm.so
-src/numsim: /usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi.so
-src/numsim: /usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi_cxx.so
-src/numsim: /usr/lib/x86_64-linux-gnu/hdf5/openmpi/libhdf5_hl.so
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOEnSight-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libnetcdf_c++.so
-src/numsim: /usr/lib/x86_64-linux-gnu/libnetcdf.so
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOExport-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkRenderingGL2PSOpenGL2-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libgl2ps.so
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOFFMPEG-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOMovie-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libtheoraenc.so
-src/numsim: /usr/lib/x86_64-linux-gnu/libtheoradec.so
-src/numsim: /usr/lib/x86_64-linux-gnu/libogg.so
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOGDAL-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOGeoJSON-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libjsoncpp.so
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOImport-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOInfovis-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libxml2.so
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOMINC-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOMPIImage-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOMPIParallel-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOParallel-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIONetCDF-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOMySQL-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOODBC-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOPLY-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOParallelExodus-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOParallelLSDyna-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOParallelNetCDF-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOParallelXML-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOPostgreSQL-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOTecplotTable-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOVPIC-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkVPIC-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOVideo-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOXdmf2-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkxdmf2-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkImagingMorphological-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkImagingStatistics-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkImagingStencil-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkInfovisBoostGraphAlgorithms-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkInteractionImage-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkLocalExample-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkParallelMPI4Py-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkRenderingContextOpenGL2-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkRenderingExternal-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkRenderingFreeTypeFontConfig-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkRenderingImage-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkRenderingLOD-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkRenderingMatplotlib-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkRenderingParallel-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkRenderingParallelLIC-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkRenderingSceneGraph-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkRenderingVolumeAMR-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkRenderingVolumeOpenGL2-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkTestingGenericBridge-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkTestingIOSQL-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkTestingRendering-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkViewsContext2D-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkViewsGeovis-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkViewsInfovis-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkWrappingJava-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkDomainsChemistry-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkFiltersFlowPaths-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOGeometry-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOExodus-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkexoIIc-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libnetcdf_c++.so
-src/numsim: /usr/lib/x86_64-linux-gnu/libnetcdf.so
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOLSDyna-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/hdf5/openmpi/libhdf5.so
-src/numsim: /usr/lib/x86_64-linux-gnu/libsz.so
-src/numsim: /usr/lib/x86_64-linux-gnu/libdl.so
-src/numsim: /usr/lib/x86_64-linux-gnu/libm.so
-src/numsim: /usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi.so
-src/numsim: /usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi_cxx.so
-src/numsim: /usr/lib/x86_64-linux-gnu/hdf5/openmpi/libhdf5_hl.so
-src/numsim: /usr/lib/x86_64-linux-gnu/libxml2.so
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkWrappingPython38Core-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkPythonInterpreter-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libpython3.8.so
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkFiltersParallel-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkParallelMPI-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkRenderingLICOpenGL2-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkFiltersAMR-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkParallelCore-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOLegacy-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkRenderingOpenGL2-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libGLEW.so
+src/numsim: /usr/local/lib/libvtkDomainsChemistryOpenGL2-8.2.so.1
+src/numsim: /usr/local/lib/libvtkFiltersFlowPaths-8.2.so.1
+src/numsim: /usr/local/lib/libvtkFiltersGeneric-8.2.so.1
+src/numsim: /usr/local/lib/libvtkFiltersHyperTree-8.2.so.1
+src/numsim: /usr/local/lib/libvtkFiltersParallelImaging-8.2.so.1
+src/numsim: /usr/local/lib/libvtkFiltersPoints-8.2.so.1
+src/numsim: /usr/local/lib/libvtkFiltersProgrammable-8.2.so.1
+src/numsim: /usr/local/lib/libvtkFiltersSMP-8.2.so.1
+src/numsim: /usr/local/lib/libvtkFiltersSelection-8.2.so.1
+src/numsim: /usr/local/lib/libvtkFiltersTexture-8.2.so.1
+src/numsim: /usr/local/lib/libvtkFiltersTopology-8.2.so.1
+src/numsim: /usr/local/lib/libvtkFiltersVerdict-8.2.so.1
+src/numsim: /usr/local/lib/libvtkGeovisCore-8.2.so.1
+src/numsim: /usr/local/lib/libvtkIOAMR-8.2.so.1
+src/numsim: /usr/local/lib/libvtkIOAsynchronous-8.2.so.1
+src/numsim: /usr/local/lib/libvtkIOCityGML-8.2.so.1
+src/numsim: /usr/local/lib/libvtkIOEnSight-8.2.so.1
+src/numsim: /usr/local/lib/libvtkIOExodus-8.2.so.1
+src/numsim: /usr/local/lib/libvtkIOExportOpenGL2-8.2.so.1
+src/numsim: /usr/local/lib/libvtkIOExportPDF-8.2.so.1
+src/numsim: /usr/local/lib/libvtkIOImport-8.2.so.1
+src/numsim: /usr/local/lib/libvtkIOInfovis-8.2.so.1
+src/numsim: /usr/local/lib/libvtkIOLSDyna-8.2.so.1
+src/numsim: /usr/local/lib/libvtkIOMINC-8.2.so.1
+src/numsim: /usr/local/lib/libvtkIOMovie-8.2.so.1
+src/numsim: /usr/local/lib/libvtkIOPLY-8.2.so.1
+src/numsim: /usr/local/lib/libvtkIOParallel-8.2.so.1
+src/numsim: /usr/local/lib/libvtkIOParallelXML-8.2.so.1
+src/numsim: /usr/local/lib/libvtkIOSQL-8.2.so.1
+src/numsim: /usr/local/lib/libvtkIOSegY-8.2.so.1
+src/numsim: /usr/local/lib/libvtkIOTecplotTable-8.2.so.1
+src/numsim: /usr/local/lib/libvtkIOVeraOut-8.2.so.1
+src/numsim: /usr/local/lib/libvtkIOVideo-8.2.so.1
+src/numsim: /usr/local/lib/libvtkImagingMorphological-8.2.so.1
+src/numsim: /usr/local/lib/libvtkImagingStatistics-8.2.so.1
+src/numsim: /usr/local/lib/libvtkImagingStencil-8.2.so.1
+src/numsim: /usr/local/lib/libvtkInteractionImage-8.2.so.1
+src/numsim: /usr/local/lib/libvtkRenderingContextOpenGL2-8.2.so.1
+src/numsim: /usr/local/lib/libvtkRenderingImage-8.2.so.1
+src/numsim: /usr/local/lib/libvtkRenderingLOD-8.2.so.1
+src/numsim: /usr/local/lib/libvtkRenderingVolumeOpenGL2-8.2.so.1
+src/numsim: /usr/local/lib/libvtkViewsContext2D-8.2.so.1
+src/numsim: /usr/local/lib/libvtkViewsInfovis-8.2.so.1
+src/numsim: /usr/local/lib/libvtkDomainsChemistry-8.2.so.1
+src/numsim: /usr/local/lib/libvtkverdict-8.2.so.1
+src/numsim: /usr/local/lib/libvtkproj-8.2.so.1
+src/numsim: /usr/local/lib/libvtkFiltersAMR-8.2.so.1
+src/numsim: /usr/local/lib/libvtkpugixml-8.2.so.1
+src/numsim: /usr/local/lib/libvtkIOExport-8.2.so.1
+src/numsim: /usr/local/lib/libvtkRenderingGL2PSOpenGL2-8.2.so.1
+src/numsim: /usr/local/lib/libvtkgl2ps-8.2.so.1
+src/numsim: /usr/local/lib/libvtklibharu-8.2.so.1
+src/numsim: /usr/local/lib/libvtklibxml2-8.2.so.1
+src/numsim: /usr/local/lib/libvtktheora-8.2.so.1
+src/numsim: /usr/local/lib/libvtkogg-8.2.so.1
+src/numsim: /usr/local/lib/libvtkFiltersParallel-8.2.so.1
+src/numsim: /usr/local/lib/libvtkexodusII-8.2.so.1
+src/numsim: /usr/local/lib/libvtkIOGeometry-8.2.so.1
+src/numsim: /usr/local/lib/libvtkIONetCDF-8.2.so.1
+src/numsim: /usr/local/lib/libvtkNetCDF-8.2.so.1
+src/numsim: /usr/local/lib/libvtkjsoncpp-8.2.so.1
+src/numsim: /usr/local/lib/libvtkParallelCore-8.2.so.1
+src/numsim: /usr/local/lib/libvtkIOLegacy-8.2.so.1
+src/numsim: /usr/local/lib/libvtksqlite-8.2.so.1
+src/numsim: /usr/local/lib/libvtkhdf5_hl-8.2.so.1
+src/numsim: /usr/local/lib/libvtkhdf5-8.2.so.1
+src/numsim: /usr/local/lib/libvtkRenderingOpenGL2-8.2.so.1
+src/numsim: /usr/local/lib/libvtkglew-8.2.so.1
 src/numsim: /usr/lib/x86_64-linux-gnu/libSM.so
 src/numsim: /usr/lib/x86_64-linux-gnu/libICE.so
 src/numsim: /usr/lib/x86_64-linux-gnu/libX11.so
 src/numsim: /usr/lib/x86_64-linux-gnu/libXext.so
 src/numsim: /usr/lib/x86_64-linux-gnu/libXt.so
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkImagingMath-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOSQL-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkGeovisCore-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkproj4-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkChartsCore-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkRenderingContext2D-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkFiltersImaging-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkInfovisLayout-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkInfovisCore-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkViewsCore-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkInteractionWidgets-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkFiltersHybrid-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkImagingGeneral-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkImagingSources-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkFiltersModeling-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkImagingHybrid-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOImage-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkDICOMParser-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkmetaio-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libz.so
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkInteractionStyle-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkFiltersExtraction-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkFiltersStatistics-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkImagingFourier-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkalglib-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkRenderingAnnotation-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkImagingColor-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkRenderingVolume-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkImagingCore-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOXML-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOXMLParser-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkIOCore-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkRenderingLabel-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkRenderingFreeType-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkRenderingCore-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkCommonColor-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkFiltersGeometry-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkFiltersSources-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkFiltersGeneral-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkCommonComputationalGeometry-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkFiltersCore-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkCommonExecutionModel-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkCommonDataModel-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkCommonTransforms-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkCommonMisc-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkCommonMath-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkCommonSystem-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libfreetype.so
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtkCommonCore-7.1.so.7.1p.1
-src/numsim: /usr/lib/x86_64-linux-gnu/libvtksys-7.1.so.7.1p.1
+src/numsim: /usr/local/lib/libvtkImagingMath-8.2.so.1
+src/numsim: /usr/local/lib/libvtkChartsCore-8.2.so.1
+src/numsim: /usr/local/lib/libvtkRenderingContext2D-8.2.so.1
+src/numsim: /usr/local/lib/libvtkFiltersImaging-8.2.so.1
+src/numsim: /usr/local/lib/libvtkInfovisLayout-8.2.so.1
+src/numsim: /usr/local/lib/libvtkInfovisCore-8.2.so.1
+src/numsim: /usr/local/lib/libvtkViewsCore-8.2.so.1
+src/numsim: /usr/local/lib/libvtkInteractionWidgets-8.2.so.1
+src/numsim: /usr/local/lib/libvtkFiltersHybrid-8.2.so.1
+src/numsim: /usr/local/lib/libvtkImagingGeneral-8.2.so.1
+src/numsim: /usr/local/lib/libvtkImagingSources-8.2.so.1
+src/numsim: /usr/local/lib/libvtkFiltersModeling-8.2.so.1
+src/numsim: /usr/local/lib/libvtkImagingHybrid-8.2.so.1
+src/numsim: /usr/local/lib/libvtkIOImage-8.2.so.1
+src/numsim: /usr/local/lib/libvtkDICOMParser-8.2.so.1
+src/numsim: /usr/local/lib/libvtkmetaio-8.2.so.1
+src/numsim: /usr/local/lib/libvtkpng-8.2.so.1
+src/numsim: /usr/local/lib/libvtktiff-8.2.so.1
+src/numsim: /usr/local/lib/libvtkjpeg-8.2.so.1
+src/numsim: /usr/local/lib/libvtkInteractionStyle-8.2.so.1
+src/numsim: /usr/local/lib/libvtkFiltersExtraction-8.2.so.1
+src/numsim: /usr/local/lib/libvtkFiltersStatistics-8.2.so.1
+src/numsim: /usr/local/lib/libvtkImagingFourier-8.2.so.1
+src/numsim: /usr/local/lib/libvtkRenderingAnnotation-8.2.so.1
+src/numsim: /usr/local/lib/libvtkImagingColor-8.2.so.1
+src/numsim: /usr/local/lib/libvtkRenderingVolume-8.2.so.1
+src/numsim: /usr/local/lib/libvtkImagingCore-8.2.so.1
+src/numsim: /usr/local/lib/libvtkIOXML-8.2.so.1
+src/numsim: /usr/local/lib/libvtkIOXMLParser-8.2.so.1
+src/numsim: /usr/local/lib/libvtkIOCore-8.2.so.1
+src/numsim: /usr/local/lib/libvtkdoubleconversion-8.2.so.1
+src/numsim: /usr/local/lib/libvtklz4-8.2.so.1
+src/numsim: /usr/local/lib/libvtklzma-8.2.so.1
+src/numsim: /usr/local/lib/libvtkexpat-8.2.so.1
+src/numsim: /usr/local/lib/libvtkRenderingLabel-8.2.so.1
+src/numsim: /usr/local/lib/libvtkRenderingFreeType-8.2.so.1
+src/numsim: /usr/local/lib/libvtkRenderingCore-8.2.so.1
+src/numsim: /usr/local/lib/libvtkCommonColor-8.2.so.1
+src/numsim: /usr/local/lib/libvtkFiltersGeometry-8.2.so.1
+src/numsim: /usr/local/lib/libvtkFiltersSources-8.2.so.1
+src/numsim: /usr/local/lib/libvtkFiltersGeneral-8.2.so.1
+src/numsim: /usr/local/lib/libvtkCommonComputationalGeometry-8.2.so.1
+src/numsim: /usr/local/lib/libvtkFiltersCore-8.2.so.1
+src/numsim: /usr/local/lib/libvtkCommonExecutionModel-8.2.so.1
+src/numsim: /usr/local/lib/libvtkCommonDataModel-8.2.so.1
+src/numsim: /usr/local/lib/libvtkCommonMisc-8.2.so.1
+src/numsim: /usr/local/lib/libvtkCommonSystem-8.2.so.1
+src/numsim: /usr/local/lib/libvtkCommonTransforms-8.2.so.1
+src/numsim: /usr/local/lib/libvtkCommonMath-8.2.so.1
+src/numsim: /usr/local/lib/libvtkCommonCore-8.2.so.1
+src/numsim: /usr/local/lib/libvtksys-8.2.so.1
+src/numsim: /usr/local/lib/libvtkfreetype-8.2.so.1
+src/numsim: /usr/local/lib/libvtkzlib-8.2.so.1
 src/numsim: src/CMakeFiles/numsim.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable numsim"
-	cd /home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/numsim.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable numsim"
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/numsim.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/CMakeFiles/numsim.dir/build: src/numsim
@@ -281,10 +455,10 @@ src/CMakeFiles/numsim.dir/build: src/numsim
 .PHONY : src/CMakeFiles/numsim.dir/build
 
 src/CMakeFiles/numsim.dir/clean:
-	cd /home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/build/src && $(CMAKE_COMMAND) -P CMakeFiles/numsim.dir/cmake_clean.cmake
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src && $(CMAKE_COMMAND) -P CMakeFiles/numsim.dir/cmake_clean.cmake
 .PHONY : src/CMakeFiles/numsim.dir/clean
 
 src/CMakeFiles/numsim.dir/depend:
-	cd /home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics /home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/src /home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/build /home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/build/src /home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/build/src/CMakeFiles/numsim.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src/CMakeFiles/numsim.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/CMakeFiles/numsim.dir/depend
 

@@ -1,4 +1,4 @@
-# Install script for directory: /home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/src
+# Install script for directory: /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "Release")
+    set(CMAKE_INSTALL_CONFIG_NAME "")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -38,29 +38,29 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  if(EXISTS "$ENV{DESTDIR}/home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/src/../build/numsim" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/src/../build/numsim")
+  if(EXISTS "$ENV{DESTDIR}/home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/../build/numsim" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/../build/numsim")
     file(RPATH_CHECK
-         FILE "$ENV{DESTDIR}/home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/src/../build/numsim"
+         FILE "$ENV{DESTDIR}/home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/../build/numsim"
          RPATH "")
   endif()
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/src/../build/numsim")
+   "/home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/../build/numsim")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/src/../build" TYPE EXECUTABLE FILES "/home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/build/src/numsim")
-  if(EXISTS "$ENV{DESTDIR}/home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/src/../build/numsim" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/src/../build/numsim")
+file(INSTALL DESTINATION "/home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/../build" TYPE EXECUTABLE FILES "/home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src/numsim")
+  if(EXISTS "$ENV{DESTDIR}/home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/../build/numsim" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/../build/numsim")
     file(RPATH_CHANGE
-         FILE "$ENV{DESTDIR}/home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/src/../build/numsim"
-         OLD_RPATH "/usr/lib/x86_64-linux-gnu/hdf5/openmpi:/usr/lib/x86_64-linux-gnu/openmpi/lib:"
+         FILE "$ENV{DESTDIR}/home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/../build/numsim"
+         OLD_RPATH "/usr/local/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/src/../build/numsim")
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/../build/numsim")
     endif()
   endif()
 endif()

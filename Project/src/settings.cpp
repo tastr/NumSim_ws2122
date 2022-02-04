@@ -16,6 +16,8 @@ void Settings::loadFromFile(std::string filename)
     return;
   }
   // loop over lines of file
+  geometryfile="No file specified";
+
   while (!file.eof())
   {
 
@@ -193,6 +195,7 @@ void Settings::printSettings()
     << ", left: ("  << dirichletBcLeft[0] << "," << dirichletBcLeft[1] << ")"
     << ", right: ("  << dirichletBcRight[0] << "," << dirichletBcRight[1] << ")" << std::endl
     << "  useDonorCell: " << std::boolalpha << useDonorCell << ", alpha: " << alpha << std::endl
-    << "  pressureSolver: " << pressureSolver << ", omega: " << omega << ", epsilon: " << epsilon << ", maximumNumberOfIterations: " << maximumNumberOfIterations << std::endl;
+    << "  pressureSolver: " << pressureSolver << ", omega: " << omega << ", epsilon: " << epsilon << ", maximumNumberOfIterations: " << maximumNumberOfIterations << std::endl
+    << "  geometryfile: " << geometryfile <<std::endl ;
 }
 

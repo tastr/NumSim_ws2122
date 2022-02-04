@@ -8,6 +8,7 @@
 class StaggeredGrid
 {
 protected:
+    Geometry geometry;
     Settings settings_;
     std::array<int, 2> size_;
     FieldVariable pressure, velocity_X, velocity_Y, type;

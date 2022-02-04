@@ -1,4 +1,4 @@
-# Install script for directory: /home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics
+# Install script for directory: /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "Release")
+    set(CMAKE_INSTALL_CONFIG_NAME "")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/build/src/cmake_install.cmake")
+  include("/home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/src/cmake_install.cmake")
 
 endif()
 
@@ -51,5 +51,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/tastr/repos/uni/ws2021/NumSim_ws2122/Basics/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -55,6 +55,7 @@ std::ifstream file(filename.c_str(), std::ios::in);
   printf("\n");
   geometrie.printGeometry();
   settings.nCells = geometrie.getNumberOfCells();
+  settings.geometryfile=geoFilename;
   settings.printSettings();
 
 

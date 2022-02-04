@@ -34,4 +34,6 @@ struct Settings
 
   //! output all settings to console
   void printSettings();
+
+  std::string geometryfile;
 };

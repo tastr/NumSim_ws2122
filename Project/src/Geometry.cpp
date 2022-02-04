@@ -275,3 +275,6 @@ std::array<int, 2> Geometry::getNumberOfCells() const
 {
     return {columnnumber,rownumber};
 }
+
+
+

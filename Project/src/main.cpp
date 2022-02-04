@@ -104,10 +104,11 @@ std::ifstream file(filename.c_str(), std::ios::in);
 
   
 
-  while (current_time < settings.endTime && Iterationszahl < settings.maximumNumberOfIterations)
+  while (current_time < settings.endTime)
   {
     myDiscretization->updateDeltaT();
     current_time += myDiscretization->getDeltaT();
+    std::cout << "Iteration: " << Iterationszahl << ". Zeit: " << current_time << "\t";
     myDiscretization->calculation();
     myDiscretization->setObstacleVelocityFG();
     myPressureSolver->calculateRHS();

@@ -22,6 +22,11 @@ StaggeredGrid::StaggeredGrid(Settings settings)
     delta_x = settings_.physicalSize[0] / (1.0 * settings_.nCells[0]);
     delta_y = settings_.physicalSize[1] / (1.0 * settings_.nCells[1]);
     epsilon = settings.epsilon;
+
+    uOldLeft.resize(size_[1], 0.0);
+    uOldRight.resize(size_[1], 0.0);
+    vOldTop.resize(size_[0], 0.0);
+    vOldBottom.resize(size_[0], 0.0);
 }
 
 void StaggeredGrid::setSize_(std::array<int, 2> nCells)
@@ -39,19 +44,116 @@ int StaggeredGrid::getMaxIteration() const
     return settings_.maximumNumberOfIterations;
 }
 
+double StaggeredGrid::getURrhs() const
+{
+    return settings_.underrelaxationRHS;
+}
+
 // Sets the Dirichlet border conditions for the velocity variables
 void StaggeredGrid::setBorderVelocity(std::array<double, 2> top, std::array<double, 2> left, std::array<double, 2> right, std::array<double, 2> bottom)
 {
-    int i_u_max = velocity_X.size()[0], j_u_max = velocity_X.size()[1];
-    for (int j = 0; j < j_u_max; j++)
+    if (settings_.outflowLeft == true)
+    {
+        for (int j = 0; j < uJEnd(); j++)
+        {
+            velocity_X(uIBegin(), j) = u(uIBegin() + 1, j);
+        }
+        for (int j = vJBegin(); j < vJEnd(); j++)
+        {
+            velocity_Y(vIBegin(), j) = velocity_Y(vIBegin() + 1, j);
+        }
+    } 
+    else
+    {
+        for (int j = 0; j < uJEnd(); j++)
+        {
+            velocity_X(uIBegin(), j) = left[0];
+        }
+        for (int j = vJBegin(); j < vJEnd(); j++)
+        {
+            velocity_Y(vIBegin(), j) = 2 * left[1] - velocity_Y(vIBegin() + 1, j);
+        }
+    }
+
+    if (settings_.outflowRight == true)
+    {
+        for (int j = 0; j < uJEnd(); j++)
+        {
+            velocity_X(uIEnd() - 1, j) = u(uIEnd() - 2, j);
+        }
+        for (int j = vJBegin(); j < vJEnd(); j++)
+        {
+            velocity_Y(vIEnd() - 1, j) = velocity_Y(vIEnd() - 2, j);
+        }
+    } 
+    else
+    {
+        for (int j = 0; j < uJEnd(); j++)
+        {
+            velocity_X(uIEnd() - 1, j) = right[0];
+        }
+        for (int j = vJBegin(); j < vJEnd(); j++)
+        {
+            velocity_Y(vIEnd() - 1, j) = 2 * right[1] - velocity_Y(vIEnd() - 2, j);
+        }
+    }
+
+    if (settings_.outflowBottom == true)
+    {
+        for (int i = 1; i < uIEnd() - 1; i++) // i starts at 1 and goes to i_u_max-1 so that the wall is the BC in corners
+        {
+            velocity_X(i, uJBegin()) = velocity_X(i, vJBegin() + 1);
+        }
+        for (int i = vIBegin() + 1; i < vIEnd() - 1; i++) // i starts at 1 and goes to i_u_max-1 so that the wall is the BC in corners
+        {
+            velocity_Y(i, vJBegin()) = velocity_Y(i, vJBegin() + 1);
+        }
+    } 
+    else
+    {
+        for (int i = 1; i < uIEnd() - 1; i++) // i starts at 1 and goes to i_u_max-1 so that the wall is the BC in corners
+        {
+            velocity_X(i, uJBegin()) = 2 * bottom[0] - velocity_X(i, vJBegin() + 1);
+        }
+        for (int i = vIBegin() + 1; i < vIEnd() - 1; i++) // i starts at 1 and goes to i_u_max-1 so that the wall is the BC in corners
+        {
+            velocity_Y(i, vJBegin()) = bottom[1];
+        }
+    }
+
+    if (settings_.outflowTop == true)
+    {
+        for (int i = 1; i < uIEnd() - 1; i++) // i starts at 1 and goes to i_u_max-1 so that the wall is the BC in corners
+        {
+            velocity_X(i, uJEnd() - 1) = velocity_X(i, uJEnd() - 2);
+        }
+        for (int i = vIBegin() + 1; i < vIEnd() - 1; i++) // i starts at 1 and goes to i_u_max-1 so that the wall is the BC in corners
+        {
+            velocity_Y(i, vJEnd() - 1) = velocity_Y(i, vJEnd() - 2);
+        }
+    } 
+    else
+    {
+        for (int i = 1; i < uIEnd() - 1; i++) // i starts at 1 and goes to i_u_max-1 so that the wall is the BC in corners
+        {
+            velocity_X(i, uJEnd() - 1) = 2 * top[0] - velocity_X(i, uJEnd() - 2);
+        }
+        for (int i = vIBegin() + 1; i < vIEnd() - 1; i++) // i starts at 1 and goes to i_u_max-1 so that the wall is the BC in corners
+        {
+            velocity_Y(i, vJEnd() - 1) = top[1];
+        }
+    }
+    
+    /*
+    for (int j = 0; j < uJEnd(); j++)
     {
         velocity_X(uIBegin(), j) = left[0];
-        velocity_X(i_u_max - 1, j) = right[0];
+        velocity_X(uIEnd() - 1, j) = right[0];
     }
-    for (int i = 1; i < i_u_max - 1; i++) // i starts at 1 and goes to i_u_max-1 so that the wall is the BC in corners
+    for (int i = 1; i < uIEnd() - 1; i++) // i starts at 1 and goes to i_u_max-1 so that the wall is the BC in corners
     {
         velocity_X(i, uJBegin()) = 2 * bottom[0] - velocity_X(i, vJBegin() + 1);
-        velocity_X(i, j_u_max - 1) = 2 * top[0] - velocity_X(i, j_u_max - 2);
+        velocity_X(i, uJEnd() - 1) = 2 * top[0] - velocity_X(i, uJEnd() - 2);
     }
 
     // set v velocity
@@ -65,6 +167,7 @@ void StaggeredGrid::setBorderVelocity(std::array<double, 2> top, std::array<doub
         velocity_Y(i, vJBegin()) = bottom[1];
         velocity_Y(i, vJEnd() - 1) = top[1];
     }
+    */
 }
 
 // updates the border terms for the pressure variable in the end of each iteration

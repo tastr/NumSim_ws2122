@@ -80,7 +80,7 @@ void Discretization::updateVelocity()
         {
             if (type(i, j) == 0)
             {
-                velocity_X(i, j) = F(i, j) - deltat * computeDpDx(i, j);
+                velocity_X(i, j) = (1 - settings_.underrelaxationUV) * velocity_X(i, j) + settings_.underrelaxationUV * (F(i, j) - deltat * computeDpDx(i, j));
             }
         }
     }
@@ -90,7 +90,7 @@ void Discretization::updateVelocity()
         {
             if (type(i, j) == 0)
             {
-                velocity_Y(i, j) = G(i, j) - deltat * computeDpDy(i, j);
+                velocity_Y(i, j) = (1 - settings_.underrelaxationUV) * velocity_Y(i, j) + settings_.underrelaxationUV * (G(i, j) - deltat * computeDpDy(i, j));
             }
         }
     }
@@ -98,16 +98,64 @@ void Discretization::updateVelocity()
 
 void Discretization::updateBoundaryFG()
 {
-    for (int j = uJBegin(); j < uJEnd(); j++)
+    if (settings_.outflowLeft == true)
     {
-        F(0, j) = u(0, j);
-        F(uIEnd() - 1, j) = u(uIEnd() - 1, j);
+        for (int j = uJBegin(); j < uJEnd(); j++)
+        {
+            F(0, j) = 2 * u(0, j) - uOldLeft[j];
+            uOldLeft[j] = u(0, j); // stroring current velocity to use in next time step
+        }
+    } else
+    {
+        for (int j = uJBegin(); j < uJEnd(); j++)
+        {
+            F(0, j) = u(0, j);
+        }
     }
 
-    for (int i = vIBegin(); i < vIEnd(); i++)
+    if (settings_.outflowRight == true)
     {
-        G(i, vJBegin()) = v(i, vJBegin());
-        G(i, vJEnd() - 1) = v(i, vJEnd() - 1);
+        for (int j = uJBegin(); j < uJEnd(); j++)
+        {
+            F(uIEnd() - 1, j) = 2 * u(uIEnd() - 1, j) - uOldRight[j];
+            uOldRight[j] = u(uIEnd() - 1, j);
+        }
+    } else
+    {
+        for (int j = uJBegin(); j < uJEnd(); j++)
+        {
+            F(uIEnd() - 1, j) = u(uIEnd() - 1, j);
+        }
+    }
+
+    if (settings_.outflowBottom == true)
+    {
+        for (int i = vIBegin(); i < vIEnd(); i++)
+        {
+            G(i, vJBegin()) = 2 * v(i, vJBegin()) - vOldBottom[i];
+            vOldBottom[i] = v(i, vJBegin());
+        }
+    } else
+    {
+        for (int i = vIBegin(); i < vIEnd(); i++)
+        {
+            G(i, vJBegin()) = v(i, vJBegin());
+        }
+    }
+
+    if (settings_.outflowTop == true)
+    {
+        for (int i = vIBegin(); i < vIEnd(); i++)
+        {
+            G(i, vJEnd() - 1) = 2 * v(i, vJEnd() - 1) - vOldTop[i];
+            vOldTop[i]  = v(i, vJEnd() - 1);
+        }
+    } else
+    {
+        for (int i = vIBegin(); i < vIEnd(); i++)
+        {
+            G(i, vJEnd() - 1) = v(i, vJEnd() - 1);
+        }
     }
 }
 

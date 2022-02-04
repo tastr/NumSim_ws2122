@@ -24,6 +24,14 @@ struct Settings
   std::array<double,2> dirichletBcLeft;    //< prescribed values of u,v at left of domain
   std::array<double,2> dirichletBcRight;   //< prescribed values of u,v at right of domain
 
+  bool outflowTop = false;
+  bool outflowBottom = true;
+  bool outflowLeft = false;
+  bool outflowRight = false;
+
+  double underrelaxationRHS = 0.8;
+  double underrelaxationUV = 0.8;
+
   std::string pressureSolver = "SOR";      //< which pressure solver to use, "GaussSeidel" or "SOR"
   double omega = 1.0;                //< overrelaxation factor
   double epsilon = 1e-5;             //< tolerance for the residual in the pressure solver

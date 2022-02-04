@@ -16,6 +16,7 @@ protected:
     double delta_x;
     double delta_y;
     double epsilon;
+    std::vector<double> uOldLeft, uOldRight, vOldTop, vOldBottom;
 
 public:
     // StaggeredGrid(std::array<int,2> size);    ~StaggeredGrid();
@@ -47,6 +48,7 @@ public:
     double getepsilon() const; // ist das nicht identisch zu meshwidth?
 
     int getMaxIteration() const;
+    double getURrhs() const;
 
     int uIBegin() const;
     int uIEnd() const;

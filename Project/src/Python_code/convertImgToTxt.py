@@ -96,7 +96,8 @@ def quadrupelPixels(img):
 
 
 #give the path to the image
-imgpath = "test.png"
+imgpath=input("Insert filepath: ")
+#imgpath = "VericalSplit40x40.png"
 
 #reads image and scales it to uint8. Sometimes png is between 0 and 1.
 img = np.array(mpimg.imread(imgpath)) 

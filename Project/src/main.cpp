@@ -108,6 +108,7 @@ std::ifstream file(filename.c_str(), std::ios::in);
     myDiscretization->updateDeltaT();
     current_time += myDiscretization->getDeltaT();
     myDiscretization->calculation();
+    myDiscretization->setObstacleVelocityFG();
     myPressureSolver->calculateRHS();
     myPressureSolver->calculateP();
     myDiscretization->updateVelocity();

@@ -45,8 +45,8 @@ void Settings::loadFromFile(std::string filename)
       continue;
     }
 
-    u0 = 0;
-    v0 = 0;
+    //u0 = 0;
+   // v0 = 0;
 
     parameterName = line.substr(0, eqpos);
     parameterValue = line.substr(eqpos + 1);

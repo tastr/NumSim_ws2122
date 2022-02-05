@@ -2,7 +2,6 @@
 #include <iomanip>
 #include "settings.h"
 
-
 void Settings::loadFromFile(std::string filename)
 {
   float mA;
@@ -16,7 +15,7 @@ void Settings::loadFromFile(std::string filename)
     return;
   }
   // loop over lines of file
-  geometryfile="No file specified";
+  geometryfile = "No file specified";
 
   while (!file.eof())
   {
@@ -29,226 +28,289 @@ void Settings::loadFromFile(std::string filename)
 
     std::string parameterName = "";
     std::string parameterValue = "";
-    
 
     // erase the spaces, tabs and comments
-    if (line.find("#")!=std::string::npos)
+    if (line.find("#") != std::string::npos)
     {
-      line.erase(line.find_first_of("#"));  
-    }        
+      line.erase(line.find_first_of("#"));
+    }
     while (line[0] == ' ' || line[0] == '\t')
     {
-      line.erase(0,1);
+      line.erase(0, 1);
     }
 
     int eqpos = line.find("=");
-    if (eqpos<0)
+    if (eqpos < 0)
     {
       continue;
     }
-    
-    parameterName =  line.substr(0,eqpos);
-    parameterValue = line.substr(eqpos+1); 
+
+    u0 = 0;
+    v0 = 0;
+
+    parameterName = line.substr(0, eqpos);
+    parameterValue = line.substr(eqpos + 1);
     // print line if the parameter name is not empty
     if (parameterName != "")
     {
-      int space=parameterName.find_first_of(" \t");
-      if (space>0)
+      int space = parameterName.find_first_of(" \t");
+      if (space > 0)
       {
-      parameterName.erase(space);
+        parameterName.erase(space);
       }
       while (parameterValue[0] == ' ' || parameterValue[0] == '\t')
-    {
-      parameterValue.erase(0,1);
-    }
-      space=parameterValue.find_first_of(" \t");
-      if (space>0)
       {
-      parameterValue.erase(space);
-      }       
-      //float pV=convertstringtonumber(parameterValue);
-      //std::cout <<parameterName<< " with value " <<"<"<< pV << ">" <<std::endl;
+        parameterValue.erase(0, 1);
+      }
+      space = parameterValue.find_first_of(" \t");
+      if (space > 0)
+      {
+        parameterValue.erase(space);
+      }
+      // float pV=convertstringtonumber(parameterValue);
+      // std::cout <<parameterName<< " with value " <<"<"<< pV << ">" <<std::endl;
 
-      //std::cout <<parameterName<< " with value " <<"<"<< parameterValue << ">" <<std::endl;
-       
-      
+      // std::cout <<parameterName<< " with value " <<"<"<< parameterValue << ">" <<std::endl;
+
       if (parameterName == "endTime")
       {
         endTime = atof(parameterValue.c_str());
-      } 
-      else if (parameterName =="physicalSizeX")
-      {
-        physicalSize[0]=atof(parameterValue.c_str());
-      } 
-      else if (parameterName =="physicalSizeY")
-      {
-        physicalSize[1] =atof(parameterValue.c_str());
-      } 
-      else if (parameterName =="re")
-      {
-        re =atof(parameterValue.c_str());
-      } 
-      else if (parameterName =="gX")
-      {
-        g[0] =atof(parameterValue.c_str());
-      } 
-      else if (parameterName =="gY")
-      {
-        g[1] =atof(parameterValue.c_str());
-      } 
-      else if (parameterName =="dirichletBottomX")
-      {
-        dirichletBcBottom[0] =atof(parameterValue.c_str());
-      } 
-      else if (parameterName =="dirichletBottomY")
-      {
-        dirichletBcBottom[1] =atof(parameterValue.c_str());
-      } 
-      else if (parameterName =="dirichletTopX")
-      {
-        dirichletBcTop[0] =atof(parameterValue.c_str());
-      } 
-      else if (parameterName =="dirichletTopY")
-      {
-        dirichletBcTop[1] =atof(parameterValue.c_str());
-      } 
-      else if (parameterName =="dirichletLeftX")
-      {
-        dirichletBcLeft[0] =atof(parameterValue.c_str());
-      } 
-      else if (parameterName =="dirichletLeftY")
-      {
-        dirichletBcLeft[1] =atof(parameterValue.c_str());
-      } 
-      else if (parameterName =="dirichletRightX")
-      {
-        dirichletBcRight[0] =atof(parameterValue.c_str());
-      } 
-      else if (parameterName =="dirichletRightY")
-      {
-        dirichletBcRight[1] =atof(parameterValue.c_str());
-      } 
-      else if (parameterName =="nCellsX")
-      {
-        nCells[0] =atoi(parameterValue.c_str());
-      } 
-      else if (parameterName =="nCellsY")
-      {
-        nCells[1] =atoi(parameterValue.c_str());
       }
-      else if (parameterName =="useDonorCell")
+      else if (parameterName == "physicalSizeX")
       {
-          if (parameterValue == "true")
-          {
-            useDonorCell=true;        
-          } 
-          else if (parameterValue == "false")
-          {
-            useDonorCell=false; 
-          }
-       }
-       else if (parameterName =="alpha")
+        physicalSize[0] = atof(parameterValue.c_str());
+      }
+      else if (parameterName == "physicalSizeY")
       {
-        alpha =atof(parameterValue.c_str());
-      } 
+        physicalSize[1] = atof(parameterValue.c_str());
+      }
+      else if (parameterName == "re")
+      {
+        re = atof(parameterValue.c_str());
+      }
+      else if (parameterName == "gX")
+      {
+        g[0] = atof(parameterValue.c_str());
+      }
+      else if (parameterName == "gY")
+      {
+        g[1] = atof(parameterValue.c_str());
+      }
+      else if (parameterName == "dirichletBottomX")
+      {
+        dirichletBcBottom[0] = atof(parameterValue.c_str());
+      }
+      else if (parameterName == "dirichletBottomY")
+      {
+        dirichletBcBottom[1] = atof(parameterValue.c_str());
+      }
+      else if (parameterName == "dirichletTopX")
+      {
+        dirichletBcTop[0] = atof(parameterValue.c_str());
+      }
+      else if (parameterName == "dirichletTopY")
+      {
+        dirichletBcTop[1] = atof(parameterValue.c_str());
+      }
+      else if (parameterName == "dirichletLeftX")
+      {
+        dirichletBcLeft[0] = atof(parameterValue.c_str());
+      }
+      else if (parameterName == "dirichletLeftY")
+      {
+        dirichletBcLeft[1] = atof(parameterValue.c_str());
+      }
+      else if (parameterName == "dirichletRightX")
+      {
+        dirichletBcRight[0] = atof(parameterValue.c_str());
+      }
+      else if (parameterName == "dirichletRightY")
+      {
+        dirichletBcRight[1] = atof(parameterValue.c_str());
+      }
+      else if (parameterName == "nCellsX")
+      {
+        nCells[0] = atoi(parameterValue.c_str());
+      }
+      else if (parameterName == "nCellsY")
+      {
+        nCells[1] = atoi(parameterValue.c_str());
+      }
+      else if (parameterName == "useDonorCell")
+      {
+        if (parameterValue == "true")
+        {
+          useDonorCell = true;
+        }
+        else if (parameterValue == "false")
+        {
+          useDonorCell = false;
+        }
+      }
+      else if (parameterName == "alpha")
+      {
+        alpha = atof(parameterValue.c_str());
+      }
       else if (parameterName == "tau")
       {
-        tau =atof(parameterValue.c_str());
-      } 
-      else if (parameterName =="maximumDt")
+        tau = atof(parameterValue.c_str());
+      }
+      else if (parameterName == "maximumDt")
       {
-        maximumDt =atof(parameterValue.c_str());
-      } 
+        maximumDt = atof(parameterValue.c_str());
+      }
       else if (parameterName == "pressureSolver")
       {
-      pressureSolver = parameterValue;
-      } 
-      else if (parameterName =="omega")
+        pressureSolver = parameterValue;
+      }
+      else if (parameterName == "omega")
       {
-        omega =atof(parameterValue.c_str());
-      } 
-      else if (parameterName =="epsilon")
+        omega = atof(parameterValue.c_str());
+      }
+      else if (parameterName == "epsilon")
       {
-        epsilon =atof(parameterValue.c_str());
-      } 
-      else if (parameterName =="maximumNumberOfIterations")
+        epsilon = atof(parameterValue.c_str());
+      }
+      else if (parameterName == "maximumNumberOfIterations")
       {
         // mit atoi kann er keine 1e umwandeln
-        mA=atof(parameterValue.c_str());
+        mA = atof(parameterValue.c_str());
         maximumNumberOfIterations = (int)mA;
         // maximumNumberOfIterations=atoi(parameterValue.c_str());
       }
       else if (parameterName == "outflowTop")
       {
         if (parameterValue == "true")
-          {
-            outflowTop=true;        
-          } 
-          else if (parameterValue == "false")
-          {
-            outflowTop=false; 
-          }
+        {
+          outflowTop = true;
+        }
+        else if (parameterValue == "false")
+        {
+          outflowTop = false;
+        }
       }
       else if (parameterName == "outflowBottom")
       {
         if (parameterValue == "true")
-          {
-            outflowBottom=true;        
-          } 
-          else if (parameterValue == "false")
-          {
-            outflowBottom=false; 
-          }
+        {
+          outflowBottom = true;
+        }
+        else if (parameterValue == "false")
+        {
+          outflowBottom = false;
+        }
       }
       else if (parameterName == "outflowLeft")
       {
         if (parameterValue == "true")
-          {
-            outflowLeft=true;        
-          } 
-          else if (parameterValue == "false")
-          {
-            outflowLeft=false; 
-          }
+        {
+          outflowLeft = true;
+        }
+        else if (parameterValue == "false")
+        {
+          outflowLeft = false;
+        }
       }
       else if (parameterName == "outflowRight")
       {
         if (parameterValue == "true")
-          {
-            outflowRight=true;        
-          } 
-          else if (parameterValue == "false")
-          {
-            outflowRight=false; 
-          }
+        {
+          outflowRight = true;
+        }
+        else if (parameterValue == "false")
+        {
+          outflowRight = false;
+        }
       }
-      else if (parameterName =="underrelaxationRHS")
+      else if (parameterName == "underrelaxationRHS")
       {
-        underrelaxationRHS =atof(parameterValue.c_str());
-      } 
-      else if (parameterName =="underrelaxationUV")
-      {
-        underrelaxationUV =atof(parameterValue.c_str());
+        underrelaxationRHS = atof(parameterValue.c_str());
       }
-      
-    
+      else if (parameterName == "underrelaxationUV")
+      {
+        underrelaxationUV = atof(parameterValue.c_str());
+      }
+      else if (parameterName == "u0")
+      {
+        u0 = atof(parameterValue.c_str());
+      }
+      else if (parameterName == "v0")
+      {
+        v0 = atof(parameterValue.c_str());
+      }
     }
   }
 }
 
-
 void Settings::printSettings()
 {
   std::cout << "Settings: " << std::endl
-    << "  physicalSize: " << physicalSize[0] << " x " << physicalSize[1] << ", nCells: " << nCells[0] << " x " << nCells[1] << std::endl
-    << "  endTime: " << endTime << " s, re: " << re << ", g: (" << g[0] << "," << g[1] << "), tau: " << tau << ", maximum dt: " << maximumDt << std::endl
-    << "  Boundary conditions:" << std::endl
-    << "\t  bottom: (" << dirichletBcBottom[0] << "," << dirichletBcBottom[1]  << ") \t" << "outflow: " << outflowBottom << std::endl
-    << "\t  top: ("  << dirichletBcTop[0] << "," << dirichletBcTop[1]  << ")   \t" << "outflow: " << outflowTop << std::endl
-    << "\t  left: ("  << dirichletBcLeft[0] << "," << dirichletBcLeft[1] << ")   \t" << "outflow: " << outflowLeft << std::endl
-    << "\t  right: ("  << dirichletBcRight[0] << "," << dirichletBcRight[1] << ")   \t" << "outflow: " << outflowRight << std::endl
-    << "  useDonorCell: " << std::boolalpha << useDonorCell << ", alpha: " << alpha << std::endl
-    << "  pressureSolver: " << pressureSolver << ", omega: " << omega << ", epsilon: " << epsilon << ", maximumNumberOfIterations: " << maximumNumberOfIterations << std::endl
-    << "  geometryfile: " << geometryfile <<std::endl ;
+            << "  physicalSize: " << physicalSize[0] << " x " << physicalSize[1] << ", nCells: " << nCells[0] << " x " << nCells[1] << std::endl
+            << "  endTime: " << endTime << " s, re: " << re << ", g: (" << g[0] << "," << g[1] << "), tau: " << tau << ", maximum dt: " << maximumDt << std::endl
+            << "  Boundary conditions:" << std::endl
+            << "\t  bottom: (" << dirichletBcBottom[0] << "," << dirichletBcBottom[1] << ") \t"
+            << "outflow: " << outflowBottom << std::endl
+            << "\t  top: (" << dirichletBcTop[0] << "," << dirichletBcTop[1] << ")   \t"
+            << "outflow: " << outflowTop << std::endl
+            << "\t  left: (" << dirichletBcLeft[0] << "," << dirichletBcLeft[1] << ")   \t"
+            << "outflow: " << outflowLeft << std::endl
+            << "\t  right: (" << dirichletBcRight[0] << "," << dirichletBcRight[1] << ")   \t"
+            << "outflow: " << outflowRight << std::endl
+            << "  useDonorCell: " << std::boolalpha << useDonorCell << ", alpha: " << alpha << std::endl
+            << "  pressureSolver: " << pressureSolver << ", omega: " << omega << ", epsilon: " << epsilon << ", maximumNumberOfIterations: " << maximumNumberOfIterations << std::endl
+            << "  geometryfile: " << geometryfile << std::endl
+            << "  u0: " << u0 << std::endl
+            << "  v0: " << v0 << std::endl;
 }
 
+void Settings::setFileName(std::string filename)
+{
+  geometryfile = filename;
+  nCells = {getColumnNumber(filename), getRowNumber(filename)};
+}
+
+int Settings::getRowNumber(std::string filename) const
+{
+  std::ifstream file(filename.c_str(), std::ios::in);
+  if (!file.is_open())
+  {
+    std::cout << "Could not open Geometrie file \"" << filename << "\"." << std::endl;
+    throw std::runtime_error("Could not open Geometrie file");
+  }
+  else
+  {
+    int rownumber = -1;
+
+    while (!file.eof())
+    {
+      std::string line;
+      getline(file, line);
+      rownumber++;
+    }
+    return rownumber;
+  }
+}
+
+int Settings::getColumnNumber(std::string filename) const
+{
+  std::ifstream file(filename.c_str(), std::ios::in);
+  if (!file.is_open())
+  {
+    std::cout << "Could not open Geometrie file \"" << filename << "\"." << std::endl;
+    throw std::runtime_error("Could not open Geometrie file");
+  }
+  else
+  {
+    int columnnumber = 0;
+    std::string line;
+
+    getline(file, line);
+    while (line.find(",") != std::string::npos)
+    {
+      columnnumber++;
+      line.erase(line.find_first_of(","), 1);
+    }
+
+    return columnnumber;
+  }
+}

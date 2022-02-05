@@ -75,7 +75,7 @@ public:
     /*
      * returns the length of the fluidcellvector (number of fluidcells)
      */
-    int getLengthFluidCellsIndices(int i) const;
+    int getLengthFluidCellsIndices() const;
 
     /*
      * returns the indices of the ith obstacles cell out of the vector with fluidcells
@@ -85,7 +85,7 @@ public:
     /*
      * returns the length of the obstaclecellvector (number of obstaclecells)
      */
-    int getLengthObstacleCellsIndices(int i) const;
+    int getLengthObstacleCellsIndices() const;
 
     IntArray2D getGeometry() const;
 

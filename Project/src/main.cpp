@@ -54,8 +54,7 @@ std::ifstream file(filename.c_str(), std::ios::in);
   geometrie.printMatrix();
   printf("\n");
   geometrie.printGeometry();
-  settings.nCells = geometrie.getNumberOfCells();
-  settings.geometryfile=geoFilename;
+  settings.setFileName(geoFilename);
   settings.printSettings();
 
 
@@ -95,6 +94,7 @@ std::ifstream file(filename.c_str(), std::ios::in);
   // write after initialization
 
   myDiscretization->setObstacle(geometrie);
+  myDiscretization->setStartValues() ;
 
   myDiscretization->setBorderVelocity(settings.dirichletBcTop, settings.dirichletBcLeft, settings.dirichletBcRight, settings.dirichletBcBottom);
   myDiscretization->setObstacleVelocityFG();

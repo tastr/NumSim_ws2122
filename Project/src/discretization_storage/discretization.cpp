@@ -304,3 +304,18 @@ void Discretization::setObstacleVelocityFG()
         }
     }
 }
+
+
+  void Discretization::setStartValues() 
+  { int i,j;
+  
+    for (int n = 0; n < geometry.getLengthFluidCellsIndices(); n++)
+    {  i= geometry.getFluidCellsIndices(n)[0];
+       j= geometry.getFluidCellsIndices(n)[1];
+       
+       velocity_X(i,j)=settings_.u0;
+       velocity_Y(i,j)=settings_.v0;
+    
+    }
+    
+  }

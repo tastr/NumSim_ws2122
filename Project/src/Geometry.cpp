@@ -253,7 +253,7 @@ std::array<int, 2> Geometry::getFluidCellsIndices(int i) const
 {
     return {fluidCellsIndices(0, i), fluidCellsIndices(1, i)};
 }
-int Geometry::getLengthFluidCellsIndices(int i) const
+int Geometry::getLengthFluidCellsIndices() const
 {
     return fluidCellsIndices.size()[1];
 }
@@ -261,7 +261,7 @@ std::array<int, 2> Geometry::getObstacleCellsIndices(int i) const
 {
     return {obstacleCellsIndices(0, i), obstacleCellsIndices(1, i)};
 }
-int Geometry::getLengthObstacleCellsIndices(int i) const
+int Geometry::getLengthObstacleCellsIndices() const
 {
     return obstacleCellsIndices.size()[1];
 }

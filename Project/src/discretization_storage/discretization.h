@@ -53,4 +53,6 @@ public:
     void setRHS(int i, int j, double value);
     void setF(int i, int j, double value);
     void setG(int i, int j, double value);
+
+    void setStartValues() ;
 };

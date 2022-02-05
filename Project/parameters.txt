@@ -11,19 +11,23 @@ gY = 0.0
 
 # Dirichlet boundary conditions
 dirichletBottomX = 0
-dirichletBottomY = -0
+dirichletBottomY = 0
 dirichletTopX    = 0
-dirichletTopY    = -0
+dirichletTopY    = 0
 dirichletLeftX   = 1 
 dirichletLeftY   = 0
-dirichletRightX  = 0
+dirichletRightX  = 1
 dirichletRightY  = 0
 
 # Outflow boundary condintion  !!! Overrides dirichlet boundary condition if true
 outflowTop = false
 outflowBottom = false
 outflowLeft = false
-outflowRight = true
+outflowRight = false
+
+#Begin Values
+u0 = 1
+v0 = 0
 
 # Underrelaxation factors. Necessary for Outflow BC.
 underrelaxationRHS = 1      # for calculating Right Hand Side. Best kept at 1

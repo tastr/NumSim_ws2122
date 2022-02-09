@@ -48,6 +48,7 @@ public:
 
     int getMaxIteration() const;
     double getURrhs() const;
+    Settings getSettings() const;
 
     int uIBegin() const;
     int uIEnd() const;

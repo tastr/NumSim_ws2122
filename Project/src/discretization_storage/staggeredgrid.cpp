@@ -49,6 +49,11 @@ double StaggeredGrid::getURrhs() const
     return settings_.underrelaxationRHS;
 }
 
+Settings StaggeredGrid::getSettings() const
+{
+    return settings_;
+}
+
 // Sets the Dirichlet border conditions for the velocity variables
 void StaggeredGrid::setBorderVelocity(std::array<double, 2> top, std::array<double, 2> left, std::array<double, 2> right, std::array<double, 2> bottom)
 {
@@ -173,6 +178,7 @@ void StaggeredGrid::setBorderVelocity(std::array<double, 2> top, std::array<doub
 // updates the border terms for the pressure variable in the end of each iteration
 void StaggeredGrid::updatedPressureBC()
 {
+    /*
     int i_max = pressure.size()[0], j_max = pressure.size()[1];
     for (int j = 0; j < j_max; j++)
     {
@@ -183,6 +189,69 @@ void StaggeredGrid::updatedPressureBC()
     {
         pressure(i, 0) = pressure(i, 1);
         pressure(i, j_max - 1) = pressure(i, j_max - 2);
+    }
+    */
+
+    int i_max = pressure.size()[0], j_max = pressure.size()[1];
+
+    if (settings_.outflowLeft == true)
+    {
+        for (int j = 0; j < j_max; j++)
+        {
+            pressure(0, j) = 0;
+        }
+    } 
+    else
+    {
+        for (int j = 0; j < j_max; j++)
+        {
+            pressure(0, j) = pressure(1, j);
+        }
+    }
+
+    if (settings_.outflowRight == true)
+    {
+        for (int j = 0; j < j_max; j++)
+        {
+            pressure(i_max - 1, j) = 0;
+        }
+    } 
+    else
+    {
+        for (int j = 0; j < j_max; j++)
+        {
+            pressure(i_max - 1, j) = pressure(i_max - 2, j);
+        }
+    }
+
+    if (settings_.outflowBottom == true)
+    {
+        for (int i = 0; i < i_max; i++)
+        {
+            pressure(i, 0) = 0;
+        }
+    } 
+    else
+    {
+        for (int i = 0; i < i_max; i++)
+        {
+            pressure(i, 0) = pressure(i, 1);
+        }
+    }
+
+    if (settings_.outflowTop == true)
+    {
+        for (int i = 0; i < i_max; i++)
+        {
+            pressure(i, j_max - 1) = 0;
+        }
+    } 
+    else
+    {
+        for (int i = 0; i < i_max; i++)
+        {
+            pressure(i, j_max - 1) = pressure(i, j_max - 2);
+        }
     }
 }
 

@@ -4,6 +4,7 @@
 PressureSolver::PressureSolver(Discretization &discretization)
     : discretization_(discretization)
 {
+  settings_ = discretization_.getSettings();
 }
 
 PressureSolver::~PressureSolver()
@@ -27,6 +28,7 @@ void PressureSolver::setPressureBoundaries()
   int i_max = discretization_.pIEnd(), j_max = discretization_.pJEnd();
   int i_begin = discretization_.pIBegin(), j_begin = discretization_.pJBegin();
 
+  /*
   for (int j = j_begin; j < j_max; j++)
   {
     discretization_.setP(i_begin, j, discretization_.p(i_begin + 1, j));
@@ -38,6 +40,68 @@ void PressureSolver::setPressureBoundaries()
     discretization_.setP(i, j_begin, discretization_.p(i, j_begin + 1));
     discretization_.setP(i, j_max - 1, discretization_.p(i, j_max - 2));
   }
+  */
+
+  if (settings_.outflowLeft == true)
+    {
+      for (int j = j_begin; j < j_max; j++)
+      {
+        discretization_.setP(i_begin, j, 0);
+      }
+    } 
+    else
+    {
+      for (int j = j_begin; j < j_max; j++)
+      {
+        discretization_.setP(i_begin, j, discretization_.p(i_begin + 1, j));
+      }
+    }
+
+    if (settings_.outflowRight == true)
+    {
+      for (int j = j_begin; j < j_max; j++)
+      {
+        discretization_.setP(i_max - 1, j, 0);
+      }
+    } 
+    else
+    {
+      for (int j = j_begin; j < j_max; j++)
+      {
+        discretization_.setP(i_max - 1, j, discretization_.p(i_max - 2, j));
+      }
+    }
+
+    if (settings_.outflowBottom == true)
+    {
+      for (int i = i_begin; i < i_max; i++)
+      {
+        discretization_.setP(i, j_begin, 0);
+      }
+    } 
+    else
+    {
+      for (int i = i_begin; i < i_max; i++)
+      {
+        discretization_.setP(i, j_begin, discretization_.p(i, j_begin + 1));
+      }
+    }
+
+    if (settings_.outflowTop == true)
+    {
+      for (int i = i_begin; i < i_max; i++)
+      {
+        discretization_.setP(i, j_max - 1, 0);
+      }
+    } 
+    else
+    {
+      for (int i = i_begin; i < i_max; i++)
+      {
+        discretization_.setP(i, j_max - 1, discretization_.p(i, j_max - 2));
+      }
+    }
+
 }
 
 void PressureSolver::calculateRHS()

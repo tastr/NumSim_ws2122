@@ -3,11 +3,13 @@
 #include <vector>
 #include <array>
 #include "discretization_storage/discretization.h"
+#include "settings.h"
 
 class PressureSolver
 {
 protected:
      Discretization &discretization_;
+     Settings settings_;
 
 public:
      PressureSolver(Discretization &discretization);

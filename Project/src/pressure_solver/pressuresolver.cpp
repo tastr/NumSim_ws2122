@@ -130,7 +130,7 @@ void PressureSolver::calculateRHS()
       }
     }
   }
-  std::cout << "Summe RHS: " << sumRHS << "\t";
+ // std::cout << "Summe RHS: " << sumRHS << "\t";
 }
 
 void PressureSolver::calculateP()
@@ -154,6 +154,7 @@ double PressureSolver::residuum()
       pxx = (discretization_.p(i - 1, j) - 2 * discretization_.p(i, j) + discretization_.p(i + 1, j)) / (discretization_.dx() * discretization_.dx());
       pyy = (discretization_.p(i, j - 1) - 2 * discretization_.p(i, j) + discretization_.p(i, j + 1)) / (discretization_.dy() * discretization_.dy());
       temp = pxx + pyy - discretization_.rhs(i, j);
+      
       res = res + (temp * temp);
       //printf("%2.5f ",1000*temp);
       }else

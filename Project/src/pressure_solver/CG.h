@@ -33,6 +33,10 @@ void setUpperRightEdge(int i, int j, int n);
 void setLowerLeftEdge(int i, int j, int n);
 void setLowerRightEdge(int i, int j, int n);
 
+Array2D vecAdd(Array2D A, Array2D B);
+Array2D vecMultScal(double a, Array2D A);
+
+
 
 void matrixPrint(Array2D Matrix);
 

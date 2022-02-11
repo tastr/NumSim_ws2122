@@ -4,12 +4,13 @@
 CG::CG(Discretization &discretization_)
     : PressureSolver(discretization_),
       Matrix({discretization_.getNumberOfFluidCerlls(), discretization_.getNumberOfFluidCerlls()}),
-      pvektor({1, discretization_.getNumberOfFluidCerlls()}),
-      rhsVektor({1, discretization_.getNumberOfFluidCerlls()})
-      
+      pvektor({discretization_.getNumberOfFluidCerlls(),1}),
+      rhsVektor({discretization_.getNumberOfFluidCerlls(),1})      
 {
     setMatrix();
-  }
+    Array2D k= matMulVec(Matrix, pvektor);
+    matrixPrint(k);
+}
 
 CG::~CG()
 {
@@ -17,11 +18,7 @@ CG::~CG()
 
 void CG::calculateP()
 {
-
-
-
-
-
+setRHSVektor();
 }
 
 void CG::setMatrix()
@@ -337,21 +334,21 @@ Array2D CG::matMulVec(Array2D A, Array2D B)
     std::array<int, 2> sizeA = A.size();
     std::array<int, 2> sizeB = B.size();
     double sum;
-    if (sizeA[0] != sizeB[1])
+    if (sizeA[0] != sizeB[0])
     {
         printf("Falsche Matrixdimension");
         return Array2D({1, 1});
     }
-    Array2D result({1,sizeA[1]});
+    Array2D result({sizeA[1],1});
 
-    for (int j = 0; j < sizeB[1]; j++)
+    for (int j = 0; j < sizeB[0]; j++)
     {
         sum=0;
              for (int i = 0; i < sizeA[0]; i++)
             {
-             sum+=B(1,j)*A(i,j); 
+             sum+=B(j,0)*A(i,j); 
             }
-            result(1,j)=sum;
+            result(j,0)=sum;
         
     }
     return result;
@@ -363,31 +360,47 @@ double CG::matMulscal(Array2D A, Array2D B)
     std::array<int, 2> sizeA = A.size();
     std::array<int, 2> sizeB = B.size();
     double sum;
-    if (sizeA[1] != sizeB[1])
+    if (sizeA[0] != sizeB[0])
     {
         printf("Falsche Matrixdimension");
         return 0;
     }
     double result=0;
 
-    for (int j = 0; j < sizeB[1]; j++)
+    for (int j = 0; j < sizeB[0]; j++)
     {
-        result+=A(1,j)*B(1,j);
+        result+=A(j,0)*B(j,0);
     }
     return result;
 }
 
-
-void CG::matrixPrint(Array2D Matrix)
-{
-      for (int j = 0; j < Matrix.size()[1]; j++)
+Array2D CG::vecAdd(Array2D A, Array2D B)
+{ Array2D result(B.size());   
+    for (int j = 0; j < B.size()[0]; j++)
     {
-        for (int i = 0; i < Matrix.size()[0]; i++)
-        {
-            printf("%3.0f ", Matrix(i, j));
-        }
-        printf("\n");
+        result(j,0)=A(j,0)+B(j,0);
     }
+    return result;
+}
+
+Array2D CG::vecMultScal(double a, Array2D A)
+{ Array2D result(A.size());   
+    for (int j = 0; j < A.size()[0]; j++)
+    {
+        result(j,0)=a*A(j,0);
+    }
+    return result;
 
 }
 
+
+void CG::matrixPrint(Array2D Matrix)
+{    
+    for (int j = 0; j < Matrix.size()[1]; j++){
+    for (int i = 0; i < Matrix.size()[0]; i++)
+    {
+        printf("%3.0f ",Matrix(i,j));
+    }
+   printf("\n");
+   }
+}

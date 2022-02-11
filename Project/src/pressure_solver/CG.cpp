@@ -3,11 +3,13 @@
 
 CG::CG(Discretization &discretization_)
     : PressureSolver(discretization_),
-      Matrix({discretization_.getNumberOfFluidCerlls(), discretization_.getNumberOfFluidCerlls()})
-
+      Matrix({discretization_.getNumberOfFluidCerlls(), discretization_.getNumberOfFluidCerlls()}),
+      pvektor({1, discretization_.getNumberOfFluidCerlls()}),
+      rhsVektor({1, discretization_.getNumberOfFluidCerlls()})
+      
 {
     setMatrix();
-}
+  }
 
 CG::~CG()
 {
@@ -15,6 +17,11 @@ CG::~CG()
 
 void CG::calculateP()
 {
+
+
+
+
+
 }
 
 void CG::setMatrix()
@@ -52,15 +59,7 @@ void CG::setMatrix()
     printf("%d  %d \n", Matrix.size()[0], Matrix.size()[1]);
     printf("%d \n", discretization_.nCells()[1]);
 
-    for (int j = 0; j < Matrix.size()[1]; j++)
-    {
-        for (int i = 0; i < Matrix.size()[0]; i++)
-        {
-            printf("%3.0f ", Matrix(i, j));
-        }
-        printf("\n");
-    }
-}
+  }
 
 bool CG::isEdge(int i, int j)
 {
@@ -292,3 +291,103 @@ void CG::setLowerRightEdge(int i, int j, int n)
     setValueLeft(i, j, n);
     setValueTop(i, j, n);
 }
+
+void CG::setRHSVektor()
+{int i,j;
+    for (int n = 0; n < Matrix.size()[0]; n++)
+    {
+        i = discretization_.getFluidCellsIndices(n)[0];
+        j = discretization_.getFluidCellsIndices(n)[1];
+        rhsVektor(1,n)=discretization_.rhs(i,j);
+    }
+}
+
+
+Array2D CG::matMul(Array2D A, Array2D B)
+{
+    std::array<int, 2> sizeA = A.size();
+    std::array<int, 2> sizeB = B.size();
+    double sum;
+    if (sizeA[0] != sizeB[1])
+    {
+        printf("Falsche Matrixdimension");
+        return Array2D({1, 1});
+    }
+    Array2D result({sizeB[0],sizeA[1]});
+
+    for (int j = 0; j < sizeB[1]; j++)
+    {
+        sum=0;
+        for (int k = 0; k < sizeB[0]; k++)
+        {
+            for (int i = 0; i < sizeA[0]; i++)
+            {
+             sum+=B(k,j)*A(i,j); 
+            }
+            result(k,j)=sum;
+        }
+    }
+    return result;
+}
+
+
+
+Array2D CG::matMulVec(Array2D A, Array2D B)
+{
+    std::array<int, 2> sizeA = A.size();
+    std::array<int, 2> sizeB = B.size();
+    double sum;
+    if (sizeA[0] != sizeB[1])
+    {
+        printf("Falsche Matrixdimension");
+        return Array2D({1, 1});
+    }
+    Array2D result({1,sizeA[1]});
+
+    for (int j = 0; j < sizeB[1]; j++)
+    {
+        sum=0;
+             for (int i = 0; i < sizeA[0]; i++)
+            {
+             sum+=B(1,j)*A(i,j); 
+            }
+            result(1,j)=sum;
+        
+    }
+    return result;
+}
+
+
+double CG::matMulscal(Array2D A, Array2D B)
+{
+    std::array<int, 2> sizeA = A.size();
+    std::array<int, 2> sizeB = B.size();
+    double sum;
+    if (sizeA[1] != sizeB[1])
+    {
+        printf("Falsche Matrixdimension");
+        return 0;
+    }
+    double result=0;
+
+    for (int j = 0; j < sizeB[1]; j++)
+    {
+        result+=A(1,j)*B(1,j);
+    }
+    return result;
+}
+
+
+void CG::matrixPrint(Array2D Matrix)
+{
+      for (int j = 0; j < Matrix.size()[1]; j++)
+    {
+        for (int i = 0; i < Matrix.size()[0]; i++)
+        {
+            printf("%3.0f ", Matrix(i, j));
+        }
+        printf("\n");
+    }
+
+}
+

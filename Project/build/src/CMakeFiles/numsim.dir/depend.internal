@@ -54,6 +54,7 @@ src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.o
  /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/discretization_storage/staggeredgrid.cpp
  /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/discretization_storage/staggeredgrid.h
 src/CMakeFiles/numsim.dir/main.cpp.o
+ ../src/discretization_storage/array2d.h
  ../src/output_writer/output_writer.h
  /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/Geometry.h
  /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/discretization_storage/IntArray2d.h
@@ -66,6 +67,7 @@ src/CMakeFiles/numsim.dir/main.cpp.o
  /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/main.cpp
  /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/output_writer/output_writer_paraview.h
  /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/output_writer/output_writer_text.h
+ /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/pressure_solver/CG.h
  /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/pressure_solver/gaussseidel.h
  /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/pressure_solver/pressuresolver.h
  /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/pressure_solver/sor.h
@@ -197,6 +199,17 @@ src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o
  ../src/output_writer/output_writer_text.h
  ../src/settings.h
  /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/output_writer/output_writer_text.cpp
+src/CMakeFiles/numsim.dir/pressure_solver/CG.cpp.o
+ ../src/Geometry.h
+ ../src/discretization_storage/IntArray2d.h
+ ../src/discretization_storage/array2d.h
+ ../src/discretization_storage/discretization.h
+ ../src/discretization_storage/fieldvariable.h
+ ../src/discretization_storage/staggeredgrid.h
+ ../src/settings.h
+ /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/pressure_solver/CG.cpp
+ /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/pressure_solver/CG.h
+ /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/src/pressure_solver/pressuresolver.h
 src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o
  ../src/Geometry.h
  ../src/discretization_storage/IntArray2d.h

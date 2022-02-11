@@ -285,11 +285,12 @@ int k=-1;
     if  (fluidCellsIndices(0,n)==i && fluidCellsIndices(1,n)==j)
     {
         k=n;
-        break;
+        //break;
+        return k; 
     }
     
  }
 
- return k;
 
+return k;
 }

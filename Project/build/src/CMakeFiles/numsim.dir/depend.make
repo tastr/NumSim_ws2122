@@ -53,6 +53,7 @@ src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.o: ../src/dis
 src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.o: ../src/discretization_storage/staggeredgrid.cpp
 src/CMakeFiles/numsim.dir/discretization_storage/staggeredgrid.cpp.o: ../src/discretization_storage/staggeredgrid.h
 
+src/CMakeFiles/numsim.dir/main.cpp.o: ../src/discretization_storage/array2d.h
 src/CMakeFiles/numsim.dir/main.cpp.o: ../src/output_writer/output_writer.h
 src/CMakeFiles/numsim.dir/main.cpp.o: ../src/Geometry.h
 src/CMakeFiles/numsim.dir/main.cpp.o: ../src/discretization_storage/IntArray2d.h
@@ -65,6 +66,7 @@ src/CMakeFiles/numsim.dir/main.cpp.o: ../src/discretization_storage/staggeredgri
 src/CMakeFiles/numsim.dir/main.cpp.o: ../src/main.cpp
 src/CMakeFiles/numsim.dir/main.cpp.o: ../src/output_writer/output_writer_paraview.h
 src/CMakeFiles/numsim.dir/main.cpp.o: ../src/output_writer/output_writer_text.h
+src/CMakeFiles/numsim.dir/main.cpp.o: ../src/pressure_solver/CG.h
 src/CMakeFiles/numsim.dir/main.cpp.o: ../src/pressure_solver/gaussseidel.h
 src/CMakeFiles/numsim.dir/main.cpp.o: ../src/pressure_solver/pressuresolver.h
 src/CMakeFiles/numsim.dir/main.cpp.o: ../src/pressure_solver/sor.h
@@ -196,6 +198,17 @@ src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o: ../src/output_
 src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o: ../src/output_writer/output_writer_text.h
 src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o: ../src/settings.h
 src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.o: ../src/output_writer/output_writer_text.cpp
+
+src/CMakeFiles/numsim.dir/pressure_solver/CG.cpp.o: ../src/Geometry.h
+src/CMakeFiles/numsim.dir/pressure_solver/CG.cpp.o: ../src/discretization_storage/IntArray2d.h
+src/CMakeFiles/numsim.dir/pressure_solver/CG.cpp.o: ../src/discretization_storage/array2d.h
+src/CMakeFiles/numsim.dir/pressure_solver/CG.cpp.o: ../src/discretization_storage/discretization.h
+src/CMakeFiles/numsim.dir/pressure_solver/CG.cpp.o: ../src/discretization_storage/fieldvariable.h
+src/CMakeFiles/numsim.dir/pressure_solver/CG.cpp.o: ../src/discretization_storage/staggeredgrid.h
+src/CMakeFiles/numsim.dir/pressure_solver/CG.cpp.o: ../src/settings.h
+src/CMakeFiles/numsim.dir/pressure_solver/CG.cpp.o: ../src/pressure_solver/CG.cpp
+src/CMakeFiles/numsim.dir/pressure_solver/CG.cpp.o: ../src/pressure_solver/CG.h
+src/CMakeFiles/numsim.dir/pressure_solver/CG.cpp.o: ../src/pressure_solver/pressuresolver.h
 
 src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o: ../src/Geometry.h
 src/CMakeFiles/numsim.dir/pressure_solver/gaussseidel.cpp.o: ../src/discretization_storage/IntArray2d.h

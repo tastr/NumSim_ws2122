@@ -26,7 +26,7 @@ add_executable(${PROJECT_NAME}
    
    Geometry.cpp
    discretization_storage/IntArray2d.cpp
-   
+   pressure_solver/CG.cpp
 )
 
 	

@@ -495,6 +495,33 @@ output_writer/output_writer_text.cpp.s:
 	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/output_writer/output_writer_text.cpp.s
 .PHONY : output_writer/output_writer_text.cpp.s
 
+pressure_solver/CG.o: pressure_solver/CG.cpp.o
+
+.PHONY : pressure_solver/CG.o
+
+# target to build an object file
+pressure_solver/CG.cpp.o:
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/pressure_solver/CG.cpp.o
+.PHONY : pressure_solver/CG.cpp.o
+
+pressure_solver/CG.i: pressure_solver/CG.cpp.i
+
+.PHONY : pressure_solver/CG.i
+
+# target to preprocess a source file
+pressure_solver/CG.cpp.i:
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/pressure_solver/CG.cpp.i
+.PHONY : pressure_solver/CG.cpp.i
+
+pressure_solver/CG.s: pressure_solver/CG.cpp.s
+
+.PHONY : pressure_solver/CG.s
+
+# target to generate assembly for a file
+pressure_solver/CG.cpp.s:
+	cd /home/christian/Documents/CPP_over/numsim_Project/NumSim_ws2122/Project/build && $(MAKE) -f src/CMakeFiles/numsim.dir/build.make src/CMakeFiles/numsim.dir/pressure_solver/CG.cpp.s
+.PHONY : pressure_solver/CG.cpp.s
+
 pressure_solver/gaussseidel.o: pressure_solver/gaussseidel.cpp.o
 
 .PHONY : pressure_solver/gaussseidel.o
@@ -679,6 +706,9 @@ help:
 	@echo "... output_writer/output_writer_text.o"
 	@echo "... output_writer/output_writer_text.i"
 	@echo "... output_writer/output_writer_text.s"
+	@echo "... pressure_solver/CG.o"
+	@echo "... pressure_solver/CG.i"
+	@echo "... pressure_solver/CG.s"
 	@echo "... pressure_solver/gaussseidel.o"
 	@echo "... pressure_solver/gaussseidel.i"
 	@echo "... pressure_solver/gaussseidel.s"

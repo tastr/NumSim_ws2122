@@ -17,7 +17,7 @@ protected:
     double delta_y;
     double epsilon;
     std::vector<double> uOldLeft, uOldRight, vOldTop, vOldBottom;
-
+    void setObstacle(Geometry geometrie);
 public:
     // StaggeredGrid(std::array<int,2> size);    ~StaggeredGrid();
     StaggeredGrid(Settings settings);
@@ -41,7 +41,7 @@ public:
     FieldVariable v() const;
     double v(int i, int j) const;
     // FieldVariable typ() const;
-    double getTyp(int i, int j) const;
+    int getTyp(int i, int j) const;
 
     double dx() const;         // ist das nicht identisch zu meshwidth?
     double dy() const;         // ist das nicht identisch zu meshwidth?
@@ -79,7 +79,7 @@ public:
 
     // void getValue(std::string str,int i, int j);
 
-    void setObstacle(Geometry geometrie);
+  
 
     // TODO setObstacleFG
 };

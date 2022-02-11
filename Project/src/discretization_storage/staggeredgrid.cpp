@@ -15,8 +15,6 @@ StaggeredGrid::StaggeredGrid(Settings settings)
                  settings, {0.5, 0}),
       type({settings.nCells[0] + 2, settings.nCells[1] + 2}, settings, {0, 0}),
       settings_(settings)
-
-
 {
     setSize_(settings.nCells);
     delta_x = settings_.physicalSize[0] / (1.0 * settings_.nCells[0]);
@@ -27,6 +25,7 @@ StaggeredGrid::StaggeredGrid(Settings settings)
     uOldRight.resize(size_[1], 0.0);
     vOldTop.resize(size_[0], 0.0);
     vOldBottom.resize(size_[0], 0.0);
+    setObstacle(geometry);
 }
 
 void StaggeredGrid::setSize_(std::array<int, 2> nCells)
@@ -332,7 +331,7 @@ double StaggeredGrid::v(int i, int j) const
     return velocity_Y(i, j);
 }
 
-double StaggeredGrid::getTyp(int i, int j) const
+int StaggeredGrid::getTyp(int i, int j) const
 {
     return type(i, j);
 }

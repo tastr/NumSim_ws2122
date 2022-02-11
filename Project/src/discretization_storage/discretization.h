@@ -54,5 +54,16 @@ public:
     void setF(int i, int j, double value);
     void setG(int i, int j, double value);
 
-    void setStartValues() ;
+    void setStartValues();
+
+    int getNumberOfFluidCerlls() const;
+    std::array<int, 2> getFluidCellsIndices(int i) const;
+
+    int getFluidcellsIndex(int i, int j) const;
+
+    bool isOutFlowTop() const;
+    bool isOutFlowBottom() const;
+    bool isOutFlowLeft() const;
+    bool isOutFlowRight() const;
+    
 };

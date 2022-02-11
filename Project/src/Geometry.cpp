@@ -277,4 +277,19 @@ std::array<int, 2> Geometry::getNumberOfCells() const
 }
 
 
+int Geometry::getFluidcellsIndex(int i,int j) const
+{
+int k=-1;
+ for (int n  = 0; n < fluidCellsIndices.size()[1]; n++)
+ {
+    if  (fluidCellsIndices(0,n)==i && fluidCellsIndices(1,n)==j)
+    {
+        k=n;
+        break;
+    }
+    
+ }
 
+ return k;
+
+}

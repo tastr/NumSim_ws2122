@@ -105,7 +105,8 @@ void Discretization::updateBoundaryFG()
             F(0, j) = 2 * u(0, j) - uOldLeft[j];
             uOldLeft[j] = u(0, j); // stroring current velocity to use in next time step
         }
-    } else
+    }
+    else
     {
         for (int j = uJBegin(); j < uJEnd(); j++)
         {
@@ -120,7 +121,8 @@ void Discretization::updateBoundaryFG()
             F(uIEnd() - 1, j) = 2 * u(uIEnd() - 1, j) - uOldRight[j];
             uOldRight[j] = u(uIEnd() - 1, j);
         }
-    } else
+    }
+    else
     {
         for (int j = uJBegin(); j < uJEnd(); j++)
         {
@@ -135,7 +137,8 @@ void Discretization::updateBoundaryFG()
             G(i, vJBegin()) = 2 * v(i, vJBegin()) - vOldBottom[i];
             vOldBottom[i] = v(i, vJBegin());
         }
-    } else
+    }
+    else
     {
         for (int i = vIBegin(); i < vIEnd(); i++)
         {
@@ -148,9 +151,10 @@ void Discretization::updateBoundaryFG()
         for (int i = vIBegin(); i < vIEnd(); i++)
         {
             G(i, vJEnd() - 1) = 2 * v(i, vJEnd() - 1) - vOldTop[i];
-            vOldTop[i]  = v(i, vJEnd() - 1);
+            vOldTop[i] = v(i, vJEnd() - 1);
         }
-    } else
+    }
+    else
     {
         for (int i = vIBegin(); i < vIEnd(); i++)
         {
@@ -261,9 +265,8 @@ void Discretization::setObstacleVelocityFG()
                 else if (type(i, j) == 6)
                 {
                     velocity_Y(i, j) = 0;
-                    //velocity_X(i, j) = 0;
-                  
-                   
+                    // velocity_X(i, j) = 0;
+
                     F(i, j) = 0;
                     G(i, j) = 0;
 
@@ -273,7 +276,7 @@ void Discretization::setObstacleVelocityFG()
                 else if (type(i, j) == 7)
                 {
                     velocity_Y(i, j) = 0;
-                    velocity_X(i, j) = -u(i, j+1);
+                    velocity_X(i, j) = -u(i, j + 1);
                     velocity_X(i - 1, j) = 0;
                     G(i, j) = 0;
                     F(i - 1, j) = 0;
@@ -285,8 +288,8 @@ void Discretization::setObstacleVelocityFG()
                 {
                     velocity_Y(i, j) = -v(i - 1, j);
                     velocity_Y(i, j - 1) = 0;
-                    //velocity_X(i, j) = 0;
-                    velocity_X(i-1, j) = 0;
+                    // velocity_X(i, j) = 0;
+                    velocity_X(i - 1, j) = 0;
                     G(i, j - 1) = 0;
                     F(i - 1, j) = 0;
                     velocity_X(i, j) = -u(i, j - 1);
@@ -295,7 +298,7 @@ void Discretization::setObstacleVelocityFG()
                 {
                     velocity_Y(i, j) = -v(i + 1, j);
                     velocity_Y(i, j - 1) = 0;
-                   // velocity_X(i, j) = 0;
+                    // velocity_X(i, j) = 0;
                     G(i, j - 1) = 0;
                     F(i, j) = 0;
                     velocity_X(i - 1, j) = -u(i - 1, j - 1);
@@ -305,17 +308,48 @@ void Discretization::setObstacleVelocityFG()
     }
 }
 
+void Discretization::setStartValues()
+{
+    int i, j;
 
-  void Discretization::setStartValues() 
-  { int i,j;
-  
     for (int n = 0; n < geometry.getLengthFluidCellsIndices(); n++)
-    {  i= geometry.getFluidCellsIndices(n)[0];
-       j= geometry.getFluidCellsIndices(n)[1];
-       
-       velocity_X(i,j)=settings_.u0;
-       velocity_Y(i,j)=settings_.v0;
-    
+    {
+        i = geometry.getFluidCellsIndices(n)[0];
+        j = geometry.getFluidCellsIndices(n)[1];
+
+        velocity_X(i, j) = settings_.u0;
+        velocity_Y(i, j) = settings_.v0;
     }
-    
-  }
+}
+
+int Discretization::getNumberOfFluidCerlls() const
+{
+    return geometry.getLengthFluidCellsIndices();
+}
+
+std::array<int, 2>  Discretization::getFluidCellsIndices(int i) const
+{
+    return geometry.getFluidCellsIndices( i);
+}
+
+ int Discretization::getFluidcellsIndex(int i,int j) const
+{
+    return geometry.getFluidcellsIndex( i, j);
+}
+
+bool Discretization::isOutFlowTop() const
+    {
+    return settings_.outflowTop;
+    }
+bool Discretization:: isOutFlowBottom() const
+    {
+return settings_.outflowBottom;
+    }
+bool Discretization::isOutFlowLeft() const
+    {
+return settings_.outflowLeft;
+    }
+bool Discretization:: isOutFlowRight() const
+    {
+return settings_.outflowRight;
+    }

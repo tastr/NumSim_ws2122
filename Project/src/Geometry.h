@@ -90,4 +90,6 @@ public:
     IntArray2D getGeometry() const;
 
     std::array<int, 2> getNumberOfCells() const;
+
+    int getFluidcellsIndex(int i,int j)const ;
 };
